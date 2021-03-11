@@ -20,7 +20,7 @@
 #include <termox/widget/widgets/button.hpp>
 #include <termox/widget/widgets/label.hpp>
 
-namespace ox {
+namespace npp {
 
 Menu::Menu(Glyph_string title_text)
     : title{this->make_child<HLabel>(std::move(title_text))}
@@ -128,9 +128,9 @@ auto Menu::mouse_wheel_event_filter(Widget& /* receiver */, Mouse const& m)
     }
 }
 
-}  // namespace ox
+}  // namespace npp
 
-namespace ox::slot {
+namespace npp::slot {
 
 auto select_up(Menu& m) -> sl::Slot<void(std::size_t)>
 {
@@ -162,4 +162,4 @@ auto select_item(Menu& m, std::size_t index) -> sl::Slot<void()>
     return link_lifetimes([&m, index] { m.select_item(index); }, m);
 }
 
-}  // namespace ox::slot
+}  // namespace npp::slot

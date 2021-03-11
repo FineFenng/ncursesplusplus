@@ -5,7 +5,7 @@
 #include <termox/widget/border.hpp>
 #include <termox/widget/widget.hpp>
 
-namespace ox::detail {
+namespace npp::detail {
 
 auto Border_offset::west_disqualified(Widget const& w) -> bool
 {
@@ -85,4 +85,4 @@ auto Border_offset::south_enabled(Widget const& w) -> bool
             b.south_west.enabled());
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

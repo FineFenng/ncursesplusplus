@@ -5,8 +5,8 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
-using namespace ox::detail;
+using namespace npp;
+using namespace npp::detail;
 
 auto make_offset(Widget const& w, Screen_mask::Constructor_tag tag) -> Point
 {
@@ -22,7 +22,7 @@ auto make_area(Widget const& w, Screen_mask::Constructor_tag tag) -> Area
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
 /// Can't put in header, Widget depends on Screen_mask
 Screen_mask::Screen_mask(Widget const& w, Constructor_tag tag)
@@ -31,4 +31,4 @@ Screen_mask::Screen_mask(Widget const& w, Constructor_tag tag)
       bits_(area_.width * area_.height)
 {}
 
-}  // namespace ox::detail
+}  // namespace npp::detail

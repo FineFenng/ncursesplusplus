@@ -2,13 +2,13 @@
 
 #include "demo_menu.hpp"
 
-int main() { return ox::System{}.run<demos::Demos>(); }
+int main() { return npp::System{}.run<demos::Demos>(); }
 
-// #include <termox/termox.hpp>
+// #include <ncursesplusplus/ncursesplusplus.hpp>
 
 // int main()
 // {
-//     using namespace ox;
+//     using namespace npp;
 //     auto app_ptr =
 //         layout::vertical(
 //             textbox(std::to_string(sizeof(Widget)) | fg(Color::Red) |

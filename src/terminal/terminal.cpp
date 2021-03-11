@@ -29,7 +29,7 @@
 
 extern "C" void handle_sigint(int /* sig*/)
 {
-    ox::System::terminal.uninitialize();
+    npp::System::terminal.uninitialize();
 #if !defined __APPLE__ && !defined __MINGW32__
     std::quick_exit(0);
 #else
@@ -38,7 +38,7 @@ extern "C" void handle_sigint(int /* sig*/)
 }
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 auto scale(RGB::Value_t value) -> short
 {
@@ -50,7 +50,7 @@ auto scale(RGB::Value_t value) -> short
 
 }  // namespace
 
-namespace ox {
+namespace npp {
 
 void Terminal::initialize()
 {
@@ -298,4 +298,4 @@ void Terminal::repaint_all()
         d->update();
 }
 
-}  // namespace ox
+}  // namespace npp

@@ -4,7 +4,7 @@
 
 #include <termox/painter/glyph.hpp>
 
-namespace ox {
+namespace npp {
 
 void Border::Segments::disable_all()
 {
@@ -49,4 +49,4 @@ void Border::Segments::disable_sides()
     east.disable();
     west.disable();
 }
-}  // namespace ox
+}  // namespace npp

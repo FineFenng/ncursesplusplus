@@ -38,7 +38,7 @@ class Apple_field {
    public:
     /// Initialize the field with some % of cells as apples.
     template <typename Range>
-    void initialize(ox::Area const& a, Range const& mask)
+    void initialize(npp::Area const& a, Range const& mask)
     {
         this->clear();
         this->resize(a);
@@ -58,7 +58,7 @@ class Apple_field {
             return;
         if (points_.size() == ((area_.width * area_.height) - mask.size()))
             return;
-        auto p = ox::Point{0uL, 0uL};
+        auto p = npp::Point{0uL, 0uL};
         do {
             p.x = random_index(area_.width - 1uL);
             p.y = random_index(area_.height - 1uL);
@@ -67,10 +67,10 @@ class Apple_field {
     }
 
     /// Remove apple at point \p if one exists
-    void remove(ox::Point const& p) { points_.erase(p); }
+    void remove(npp::Point const& p) { points_.erase(p); }
 
     /// Return true if there is an apple at \p p.
-    auto contains(ox::Point const& p) const -> bool
+    auto contains(npp::Point const& p) const -> bool
     {
         return points_.count(p) > 0;
     }
@@ -85,10 +85,10 @@ class Apple_field {
     auto size() const -> std::size_t { return points_.size(); }
 
     /// Return the field's bounding Area.
-    auto area() const -> ox::Area const& { return area_; }
+    auto area() const -> npp::Area const& { return area_; }
 
     /// Resize the apple field, remove apples outside of the new boundary.
-    void resize(ox::Area const& a)
+    void resize(npp::Area const& a)
     {
         area_ = a;
         for (auto point = std::begin(points_); point != std::end(points_);) {
@@ -103,8 +103,8 @@ class Apple_field {
     void clear() { points_.clear(); }
 
    private:
-    std::set<ox::Point> points_;
-    ox::Area area_;
+    std::set<npp::Point> points_;
+    npp::Area area_;
 
    private:
     /// Return random value between [0, max]
@@ -117,7 +117,7 @@ class Apple_field {
 
     /// Return true if \p p is found within \p r.
     template <typename Range>
-    static auto contain(Range const& r, ox::Point const& p) -> bool
+    static auto contain(Range const& r, npp::Point const& p) -> bool
     {
         return std::find(std::cbegin(r), std::cend(r), p) != std::cend(r);
     }
@@ -129,7 +129,7 @@ class Snake {
 
    public:
     /// Clear existing snake, create a new snake at \p p with Direction::Right.
-    void initialize(ox::Point const& p)
+    void initialize(npp::Point const& p)
     {
         points_.clear();
         points_.push_back(p);
@@ -170,7 +170,7 @@ class Snake {
     }
 
     /// Return the Point where the Snake's head is located.
-    auto head() const -> ox::Point const& { return points_.back(); }
+    auto head() const -> npp::Point const& { return points_.back(); }
 
     /// Returns iterator to the tail of the snake.
     auto begin() const { return std::cbegin(points_); }
@@ -182,14 +182,14 @@ class Snake {
     auto size() const { return points_.size(); }
 
     /// Return the point at snake segment \p i, where 0 is the tail.
-    auto operator[](std::size_t i) const -> ox::Point const&
+    auto operator[](std::size_t i) const -> npp::Point const&
     {
         return points_[i];
     }
 
    private:
     // First point is the tail, last point is the head.
-    std::vector<ox::Point> points_;
+    std::vector<npp::Point> points_;
     Direction next_direction_ = Direction::Right;
     Direction direction_      = Direction::Right;
     bool has_input_           = false;
@@ -234,7 +234,7 @@ class Engine {
 
    public:
     /// Set up the state for a new game.
-    void reset(ox::Area a)
+    void reset(npp::Area a)
     {
         score_ = 0;
         score(score_);
@@ -297,38 +297,38 @@ class Engine {
 
 namespace color {
 
-inline auto constexpr Fade    = ox::Color{16};
-inline auto constexpr Rainbow = ox::Color{17};
+inline auto constexpr Fade    = npp::Color{16};
+inline auto constexpr Rainbow = npp::Color{17};
 
 inline auto constexpr Apple            = Fade;
 inline auto constexpr Snake            = Rainbow;
-inline auto constexpr Border           = ox::stormy6::Teal;
-inline auto constexpr Instruction_fg   = ox::stormy6::White;
-inline auto constexpr Instruction_bg   = ox::stormy6::Teal;
-inline auto constexpr Start_bg         = ox::stormy6::Green;
-inline auto constexpr Pause_bg         = ox::stormy6::Red;
-inline auto constexpr Size_bg          = ox::stormy6::White;
-inline auto constexpr Size_fg          = ox::stormy6::Black;
-inline auto constexpr Score_bg         = ox::stormy6::White;
-inline auto constexpr Score_fg         = ox::stormy6::Black;
-inline auto constexpr Instruction_text = ox::stormy6::Orange;
+inline auto constexpr Border           = npp::stormy6::Teal;
+inline auto constexpr Instruction_fg   = npp::stormy6::White;
+inline auto constexpr Instruction_bg   = npp::stormy6::Teal;
+inline auto constexpr Start_bg         = npp::stormy6::Green;
+inline auto constexpr Pause_bg         = npp::stormy6::Red;
+inline auto constexpr Size_bg          = npp::stormy6::White;
+inline auto constexpr Size_fg          = npp::stormy6::Black;
+inline auto constexpr Score_bg         = npp::stormy6::White;
+inline auto constexpr Score_fg         = npp::stormy6::Black;
+inline auto constexpr Instruction_text = npp::stormy6::Orange;
 
 }  // namespace color
 
 inline auto const snake_palette = [] {
-    auto pal = ox::stormy6::palette;
-    pal.push_back({color::Fade, ox::ANSI{22},
-                   ox::dynamic::fade<ox::dynamic::Sine>(0x7f9860, 0xa95a3f)});
-    pal.push_back({color::Rainbow, ox::ANSI{23}, ox::dynamic::rainbow()});
+    auto pal = npp::stormy6::palette;
+    pal.push_back({color::Fade, npp::ANSI{22},
+                   npp::dynamic::fade<npp::dynamic::Sine>(0x7f9860, 0xa95a3f)});
+    pal.push_back({color::Rainbow, npp::ANSI{23}, npp::dynamic::rainbow()});
     return pal;
 }();
 
 /// Main Game Widget
-class Game_space : public ox::Widget {
+class Game_space : public npp::Widget {
    public:
     Game_space()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | strong_focus();
         game_over.connect([this] { this->stop(); });
         score.connect([this](unsigned score) {
@@ -350,7 +350,7 @@ class Game_space : public ox::Widget {
         }
         if (engine_.is_game_over())
             this->reset();
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         engine_.snake.enable_input();
         *this | animate(period_);
         started();
@@ -359,7 +359,7 @@ class Game_space : public ox::Widget {
     /// Stop/pause the game.
     void stop()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         engine_.snake.disable_input();
         *this | disanimate();
         stopped();
@@ -375,9 +375,9 @@ class Game_space : public ox::Widget {
     }
 
     /// Resize the playing surface, also resets the game state.
-    void resize(ox::Area const& a)
+    void resize(npp::Area const& a)
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | fixed_width(a.width) | fixed_height(a.height);
         this->stop();
         engine_.reset(a);
@@ -397,7 +397,7 @@ class Game_space : public ox::Widget {
     /// Set the amount of time between game steps.
     void set_speed(std::chrono::milliseconds period)
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         if (this->is_animated())
             *this | disanimate() | animate(period);
         period_ = period;
@@ -414,10 +414,10 @@ class Game_space : public ox::Widget {
     }
 
     /// Change the direction of the snake.
-    auto key_press_event(ox::Key k) -> bool override
+    auto key_press_event(npp::Key k) -> bool override
     {
         switch (k) {
-            using namespace ox;
+            using namespace npp;
             case Key::Space: this->toggle(); break;
             case Key::Arrow_left:
             case Key::h:
@@ -449,7 +449,7 @@ class Game_space : public ox::Widget {
     }
 
     /// Checks if the screen is too small to display the game state.
-    auto resize_event(ox::Area new_size, ox::Area old_size) -> bool override
+    auto resize_event(npp::Area new_size, npp::Area old_size) -> bool override
     {
         too_small_ = this->is_too_small();
         if (too_small_)
@@ -489,7 +489,7 @@ class Game_space : public ox::Widget {
             auto const& game_height = engine_.apples.area().height;
             return widg_height < game_height ? game_height - widg_height : 0;
         }();
-        auto painter = ox::Painter{*this};
+        auto painter = npp::Painter{*this};
         painter.put(L"Screen is too small!", {0, 0});
         painter.put(L"Needs " + std::to_wstring(w) + L" more width.", {0, 1});
         painter.put(L"Needs " + std::to_wstring(h) + L" more height.", {0, 2});
@@ -497,10 +497,10 @@ class Game_space : public ox::Widget {
 
     void paint_game()
     {
-        auto painter = ox::Painter{*this};
+        auto painter = npp::Painter{*this};
         for (auto const& p : engine_.apples) {
             // TODO store as static constexpr(?) glyph
-            painter.put(L'@' | ox::Trait::Bold | fg(color::Apple), p);
+            painter.put(L'@' | npp::Trait::Bold | fg(color::Apple), p);
         }
 
         // Body
@@ -549,19 +549,19 @@ class Game_space : public ox::Widget {
     }
 };
 
-class Instructions : public ox::Text_display {
+class Instructions : public npp::Text_display {
    public:
     Instructions() : Text_display{get_text()}
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | bg(color::Instruction_bg) | fg(color::Instruction_fg) |
             word_wrap(false) | align_center();
     }
 
    private:
-    static auto get_text() -> ox::Glyph_string
+    static auto get_text() -> npp::Glyph_string
     {
-        using namespace ox;
+        using namespace npp;
         auto const standout = Brush{fg(color::Instruction_text), Trait::Bold};
         auto result         = Glyph_string{L"Start/Stop "};
         result.append(L"Space Bar" | standout);
@@ -573,11 +573,11 @@ class Instructions : public ox::Text_display {
     }
 };
 
-class Button_bar : public ox::layout::Horizontal<> {
+class Button_bar : public npp::layout::Horizontal<> {
    public:
     Button_bar()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         sizes_ | fixed_width(16uL);
 
         sizes_.label | bg(color::Size_bg) | fg(color::Size_fg);
@@ -606,11 +606,11 @@ class Button_bar : public ox::layout::Horizontal<> {
     void show_pause_button() { start_pause_btns_.show_bottom(); }
 
    private:
-    ox::Toggle_button& start_pause_btns_ =
-        this->make_child<ox::Toggle_button>(L"Start" | ox::Trait::Bold,
-                                            L"Pause" | ox::Trait::Bold);
-    ox::Labeled_cycle_box& sizes_ =
-        this->make_child<ox::Labeled_cycle_box>(L" Size");
+    npp::Toggle_button& start_pause_btns_ =
+        this->make_child<npp::Toggle_button>(L"Start" | npp::Trait::Bold,
+                                             L"Pause" | npp::Trait::Bold);
+    npp::Labeled_cycle_box& sizes_ =
+        this->make_child<npp::Labeled_cycle_box>(L" Size");
     Instructions& instructions_ = this->make_child<Instructions>();
 
    public:
@@ -619,11 +619,11 @@ class Button_bar : public ox::layout::Horizontal<> {
     sl::Signal<void(char)> size_change;
 };
 
-class Score : public ox::layout::Horizontal<> {
+class Score : public npp::layout::Horizontal<> {
    public:
     Score()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | fixed_width(12uL) | children() | bg(color::Score_bg) |
             fg(color::Score_fg);
     }
@@ -632,8 +632,8 @@ class Score : public ox::layout::Horizontal<> {
     void set(unsigned score) { score_.set_text(std::to_string(score)); }
 
    private:
-    ox::HLabel& label_ = this->make_child<ox::HLabel>({L"Score: "});
-    ox::HLabel& score_ = this->make_child<ox::HLabel>({L"0", ox::Align::Right});
+    npp::HLabel& label_ = this->make_child<npp::HLabel>({L"Score: "});
+    npp::HLabel& score_ = this->make_child<npp::HLabel>({L"0", npp::Align::Right});
 
     // you could have a number_display widget, that is templated on the
     // number type, and has display options specific to numbers, then number
@@ -641,31 +641,31 @@ class Score : public ox::layout::Horizontal<> {
 };
 
 // tuple or pair
-class Bottom_bar : public ox::layout::Horizontal<> {
+class Bottom_bar : public npp::layout::Horizontal<> {
    public:
     Button_bar& buttons = this->make_child<Button_bar>();
     Score& score        = this->make_child<Score>();
 };
 
-class Snake_game : public ox::layout::Vertical<> {
+class Snake_game : public npp::layout::Vertical<> {
    private:
-    using VFloat        = ox::Float<Game_space, ox::layout::Vertical>;
-    using Floating_game = ox::Float<VFloat, ox::layout::Horizontal>;
+    using VFloat        = npp::Float<Game_space, npp::layout::Vertical>;
+    using Floating_game = npp::Float<VFloat, npp::layout::Horizontal>;
 
    public:
     Snake_game()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | direct_focus();
 
         bottom_ | fixed_height(1uL);
         bottom_.buttons.start.connect([this] { game_space_.start(); });
         bottom_.buttons.pause.connect([this] { game_space_.stop(); });
 
-        auto constexpr s_size = ox::Area{60, 17};
-        auto constexpr m_size = ox::Area{100, 27};
-        auto constexpr l_size = ox::Area{160, 37};
-        auto constexpr x_size = ox::Area{230, 47};
+        auto constexpr s_size = npp::Area{60, 17};
+        auto constexpr m_size = npp::Area{100, 27};
+        auto constexpr l_size = npp::Area{160, 37};
+        auto constexpr x_size = npp::Area{230, 47};
 
         bottom_.buttons.size_change.connect([=](char c) {
             switch (c) {
@@ -676,8 +676,8 @@ class Snake_game : public ox::layout::Vertical<> {
             }
         });
 
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
         floating_game.buffer_1 | bg(color::Border);
         floating_game.buffer_2 | bg(color::Border);
         vfloat.buffer_1 | bg(color::Border);
@@ -695,9 +695,9 @@ class Snake_game : public ox::layout::Vertical<> {
    protected:
     auto focus_in_event() -> bool override
     {
-        ox::System::terminal.set_palette(snake_palette);
-        ox::System::set_focus(game_space_);
-        return ox::layout::Vertical<>::focus_in_event();
+        npp::System::terminal.set_palette(snake_palette);
+        npp::System::set_focus(game_space_);
+        return npp::layout::Vertical<>::focus_in_event();
     }
 
    private:

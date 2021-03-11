@@ -11,26 +11,26 @@
 
 namespace gol {
 
-class GoL_demo : public ox::layout::Horizontal<> {
+class GoL_demo : public npp::layout::Horizontal<> {
    public:
     GoL_demo();
 
    public:
     using Side_panel_accordion =
-        ox::HAccordion<Side_panel, ox::Bar_position::Last>;
+        npp::HAccordion<Side_panel, npp::Bar_position::Last>;
 
    public:
     Side_panel_accordion& side_panel_accordion =
         this->make_child<Side_panel_accordion>(
-            {L"Settings", ox::Align::Center, L'│' | fg(color::Light_green)});
+            {L"Settings", npp::Align::Center, L'│' | fg(color::Light_green)});
     Side_panel& side_panel  = side_panel_accordion.wrapped();
     GoL_widget& gol_display = this->make_child<GoL_widget>();
 
    protected:
     auto focus_in_event() -> bool override
     {
-        ox::System::terminal.set_palette(gol_palette);
-        return ox::layout::Horizontal<>::focus_in_event();
+        npp::System::terminal.set_palette(gol_palette);
+        return npp::layout::Horizontal<>::focus_in_event();
     }
 
    private:

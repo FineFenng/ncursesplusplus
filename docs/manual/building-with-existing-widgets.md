@@ -3,12 +3,12 @@
 ## Modifying an Existing Widget
 
 ```cpp
-class Thin_button : public ox::Button {
+class Thin_button : public npp::Button {
    public:
-    Thin_button(ox::Glyph_string title) : Button{std::move(title)}
+    Thin_button(npp::Glyph_string title) : Button{std::move(title)}
     {
-        using namespace ox::pipe;
-        *this | fixed_height(1) | wallpaper(L'~') | bg(ox::Color::Red);
+        using namespace npp::pipe;
+        *this | fixed_height(1) | wallpaper(L'~') | bg(npp::Color::Red);
     }
 };
 ```
@@ -31,7 +31,7 @@ function calls.
 ## Combining Widgets with Layouts
 
 ```cpp
-using namespace ox;
+using namespace npp;
 
 struct Settings_pane : layout::Vertical<> {
     Label& title          = this->make_child<Label>(L"Settings");

@@ -124,21 +124,21 @@ auto border(std::unique_ptr<W>) -> std::unique_ptr<Bordered<W>>;
 ## Client Code Examples
 
 ```cpp
-class Bordered_textbox : public ox::Border<ox::Textbox> {
+class Bordered_textbox : public npp::Border<npp::Textbox> {
    public:
-    Bordered_textbox() { *this | ox::pipe::bold_walls(); }
+    Bordered_textbox() { *this | npp::pipe::bold_walls(); }
 };
 
-class Bordered_settings : public ox::Border<Settings_pane> {
+class Bordered_settings : public npp::Border<Settings_pane> {
    public:
     Bordered_settings()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | west_border() | bold_walls();
     }
 };
 
-class Notepad : public ox::layout::Horizontal<> {
+class Notepad : public npp::layout::Horizontal<> {
    public:
     Notepad()
     {
@@ -146,7 +146,7 @@ class Notepad : public ox::layout::Horizontal<> {
     }
 
    private:
-    ox::Textbox& textbox_ = this->make_child<Bordered_textbox>("init").child();
+    npp::Textbox& textbox_ = this->make_child<Bordered_textbox>("init").child();
     Settings_pane& settings_    = this->make_child<Bordered_settings>().child();
 };
 

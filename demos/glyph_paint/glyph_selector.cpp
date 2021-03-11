@@ -10,7 +10,7 @@
 #include <termox/widget/detail/link_lifetimes.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 auto const box_drawing = Glyph_string{
     L"─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟ ┠ ┡ ┢ ┣ "
@@ -139,20 +139,20 @@ auto populated_glyph_selector() -> std::unique_ptr<Glyph_selector>
     auto& shapes = result->add_sheet(L"Color Shapes", L"");
     result->add_sheet(L"Latin-1", latin_1);
 
-    auto const build_blocks = ox::slot::link_lifetimes(
-        [&blocks](ox::Palette const& p) {
+    auto const build_blocks = npp::slot::link_lifetimes(
+        [&blocks](npp::Palette const& p) {
             blocks.set_contents(color_blocks(p));
         },
         blocks);
 
-    auto const build_shapes = ox::slot::link_lifetimes(
-        [&shapes](ox::Palette const& p) {
+    auto const build_shapes = npp::slot::link_lifetimes(
+        [&shapes](npp::Palette const& p) {
             shapes.set_contents(color_shapes(p));
         },
         shapes);
 
-    ox::System::terminal.palette_changed.connect(build_blocks);
-    ox::System::terminal.palette_changed.connect(build_shapes);
+    npp::System::terminal.palette_changed.connect(build_blocks);
+    npp::System::terminal.palette_changed.connect(build_shapes);
 
     return result;
 }

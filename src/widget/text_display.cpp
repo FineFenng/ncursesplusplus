@@ -13,7 +13,7 @@
 #include <termox/painter/trait.hpp>
 #include <termox/widget/point.hpp>
 
-namespace ox {
+namespace npp {
 
 void Text_display::insert(Glyph_string text, std::size_t index)
 {
@@ -228,4 +228,4 @@ auto Text_display::line_at(std::size_t index) const -> std::size_t
     return this->last_line();
 }
 
-}  // namespace ox
+}  // namespace npp

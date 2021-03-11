@@ -13,22 +13,22 @@
 namespace palette::detail {
 
 /// Vertical_slider with extra space around the sides.
-struct Buffered_slider : ox::layout::Horizontal<> {
-    using Slider_t = ox::Vertical_slider;
+struct Buffered_slider : npp::layout::Horizontal<> {
+    using Slider_t = npp::Vertical_slider;
 
-    Widget& left     = this->make_child() | ox::pipe::fixed_width(1);
+    Widget& left     = this->make_child() | npp::pipe::fixed_width(1);
     Slider_t& slider = this->make_child<Slider_t>(0, 255);
-    Widget& right    = this->make_child() | ox::pipe::fixed_width(1);
+    Widget& right    = this->make_child() | npp::pipe::fixed_width(1);
 };
 
 /// Line_edit with extra space on the left side.
-class Buffered_edit_box : public ox::layout::Horizontal<> {
+class Buffered_edit_box : public npp::layout::Horizontal<> {
    public:
     Buffered_edit_box();
 
    public:
-    Widget& left       = this->make_child() | ox::pipe::fixed_width(1);
-    ox::Line_edit& box = this->make_child<ox::Line_edit>("0");
+    Widget& left       = this->make_child() | npp::pipe::fixed_width(1);
+    npp::Line_edit& box = this->make_child<npp::Line_edit>("0");
 };
 }  // namespace palette::detail
 
@@ -36,17 +36,17 @@ namespace palette {
 
 /// Provides user interface to change a color value from [0, 255].
 /** Emits signal when changed. */
-class Value_control : public ox::layout::Vertical<> {
+class Value_control : public npp::layout::Vertical<> {
     detail::Buffered_slider& slider_{
         this->make_child<detail::Buffered_slider>()};
 
     detail::Buffered_edit_box& value_edit_{
         this->make_child<detail::Buffered_edit_box>()};
 
-    ox::HLabel& label_;
+    npp::HLabel& label_;
 
    public:
-    explicit Value_control(const ox::Glyph_string& label);
+    explicit Value_control(const npp::Glyph_string& label);
 
     /// Set the current value being held.
     void set_value(int value) { slider_.slider.set_value(value); }

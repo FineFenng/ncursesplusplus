@@ -6,7 +6,7 @@
 
 namespace {
 
-auto contains(ox::Widget const& w, ox::Point global) -> bool
+auto contains(npp::Widget const& w, npp::Point global) -> bool
 {
     bool const within_west  = global.x >= w.inner_x();
     bool const within_east  = global.x < (w.inner_x() + w.width());
@@ -16,12 +16,12 @@ auto contains(ox::Widget const& w, ox::Point global) -> bool
 }
 
 /// Returns a descendant of w that owns \p p, or nullptr if none found.
-auto find_owner_of(ox::Widget& w, ox::Point p) -> ox::Widget*
+auto find_owner_of(npp::Widget& w, npp::Point p) -> npp::Widget*
 {
     if (!w.is_enabled() || !contains(w, p))
         return nullptr;
     for (auto& child : w.get_children()) {
-        if (ox::Widget* owner = find_owner_of(child, p); owner != nullptr)
+        if (npp::Widget* owner = find_owner_of(child, p); owner != nullptr)
             return owner;
     }
     return &w;
@@ -29,7 +29,7 @@ auto find_owner_of(ox::Widget& w, ox::Point p) -> ox::Widget*
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
 auto find_widget_at(Point p) -> Widget*
 {
@@ -39,4 +39,4 @@ auto find_widget_at(Point p) -> Widget*
         return find_owner_of(*head, p);
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

@@ -39,7 +39,7 @@ auto read_file(std::string const& filename) -> std::string
 
 }  // namespace
 
-using namespace ox;
+using namespace npp;
 
 namespace demos {
 

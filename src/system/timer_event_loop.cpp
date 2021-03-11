@@ -4,7 +4,7 @@
 #include <termox/system/system.hpp>
 #include <termox/widget/widget.hpp>
 
-namespace ox::detail {
+namespace npp::detail {
 
 void Timer_event_loop::register_widget(Widget& w)
 {
@@ -26,4 +26,4 @@ void Timer_event_loop::loop_function()
     }
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

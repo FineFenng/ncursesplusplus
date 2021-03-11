@@ -9,10 +9,10 @@
 
 namespace gol {
 
-inline auto make_break() -> std::unique_ptr<ox::Widget>
+inline auto make_break() -> std::unique_ptr<npp::Widget>
 {
-    using namespace ox::pipe;
-    return ox::widget() | fixed_height(1uL) | wallpaper(L'─' | fg(color::Teal));
+    using namespace npp::pipe;
+    return npp::widget() | fixed_height(1uL) | wallpaper(L'─' | fg(color::Teal));
 }
 
 }  // namespace gol

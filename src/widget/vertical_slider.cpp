@@ -8,7 +8,7 @@
 #include <termox/system/mouse.hpp>
 #include <termox/widget/widgets/detail/nearly_equal.hpp>
 
-namespace ox {
+namespace npp {
 
 auto Vertical_slider::paint_event() -> bool
 {
@@ -99,4 +99,4 @@ auto Vertical_slider::indicator_index() const -> std::size_t
     return indicator_n % indicator_.size();
 }
 
-}  // namespace ox
+}  // namespace npp

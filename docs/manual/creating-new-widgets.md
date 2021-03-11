@@ -9,20 +9,20 @@ The constructor is commonly used to set [`Color`](colors.md)s and
 and the [`Focus_policy`](focus-policy.md), among others.
 
 ```cpp
-class Canvas : public ox::Widget {
+class Canvas : public npp::Widget {
    public:
     Canvas()
     {
-        using ox::Color;
-        using namespace ox::pipe;
+        using npp::Color;
+        using namespace npp::pipe;
         *this | bordered() | bold_walls() | bg(Color::Light_blue) |
             fg(Color::Blue);
     }
 
    protected:
-    auto mouse_press_event(ox::Mouse const& m) -> bool override
+    auto mouse_press_event(npp::Mouse const& m) -> bool override
     {
-        if (m.button == ox::Mouse::Button::Left)
+        if (m.button == npp::Mouse::Button::Left)
             points_.push_back(m.local);
         this->update();  // post a paint event to *this
         return Widget::mouse_press_event(m);
@@ -30,14 +30,14 @@ class Canvas : public ox::Widget {
 
     auto paint_event() -> bool override
     {
-        auto p = ox::painter{*this};
+        auto p = npp::painter{*this};
         for (auto point : points_)
             p.put(L'X', point);
         return Widget::paint_event();
     }
 
    private:
-    std::vector<ox::Point> points_;
+    std::vector<npp::Point> points_;
 };
 ```
 
@@ -57,29 +57,29 @@ by inheriting from the Widget and overriding event handlers,
         The code below will create a new Textbox type that changes its
             background color when it is in focus.
 
-```cpp class Focus_indicator_textbox : public ox::Textbox {
+```cpp class Focus_indicator_textbox : public npp::Textbox {
    public:
     Focus_indicator_textbox(Glyph_string text) : Textbox{std::move(text)}
     {
-        *this | ox::bg(unfocus_color_);
+        *this | npp::bg(unfocus_color_);
     }
 
    protected:
     auto focus_in_event() -> bool override
     {
-        *this | ox::bg(focus_color_);
+        *this | npp::bg(focus_color_);
         return Widget::focus_in_event();
     }
 
     auto focus_out_event() -> bool override
     {
-        *this | ox::bg(unfocus_color_);
+        *this | npp::bg(unfocus_color_);
         return Widget::focus_out_event();
     }
 
    private:
-    constexpr static auto focus_color_   = ox::Color::Red;
-    constexpr static auto unfocus_color_ = ox::Color::Blue;
+    constexpr static auto focus_color_   = npp::Color::Red;
+    constexpr static auto unfocus_color_ = npp::Color::Blue;
 };
 ```
 

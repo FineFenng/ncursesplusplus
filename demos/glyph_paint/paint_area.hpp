@@ -18,21 +18,21 @@
 
 namespace paint {
 
-class Paint_area : public ox::Widget {
+class Paint_area : public npp::Widget {
    public:
-    sl::Signal<void(ox::Glyph)> glyph_changed;
+    sl::Signal<void(npp::Glyph)> glyph_changed;
     sl::Signal<void()> erase_enabled;
     sl::Signal<void()> erase_disabled;
 
    public:
     Paint_area()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | strong_focus() | east_border();
     }
 
    public:
-    void set_glyph(ox::Glyph g)
+    void set_glyph(npp::Glyph g)
     {
         current_glyph_ = g;
         glyph_changed(std::move(g));
@@ -42,42 +42,42 @@ class Paint_area : public ox::Widget {
         }
     }
 
-    void set_symbol(ox::Glyph s)
+    void set_symbol(npp::Glyph s)
     {
         if (erase_enabled_) {
             this->disable_erase();
             erase_disabled();
         }
         current_glyph_.symbol = s.symbol;
-        if (s.brush.background != ox::Color::Background)
+        if (s.brush.background != npp::Color::Background)
             current_glyph_ | bg(s.brush.background);
-        if (s.brush.foreground != ox::Color::Foreground)
+        if (s.brush.foreground != npp::Color::Foreground)
             current_glyph_ | fg(s.brush.foreground);
         glyph_changed(current_glyph_);
     }
 
-    void set_foreground_color(ox::Color c)
+    void set_foreground_color(npp::Color c)
     {
         current_glyph_ | fg(c);
         if (!erase_enabled_)
             glyph_changed(current_glyph_);
     }
 
-    void set_background_color(ox::Color c)
+    void set_background_color(npp::Color c)
     {
         current_glyph_ | bg(c);
         if (!erase_enabled_)
             glyph_changed(current_glyph_);
     }
 
-    void set_trait(ox::Trait t)
+    void set_trait(npp::Trait t)
     {
         current_glyph_ | t;
         if (!erase_enabled_)
             glyph_changed(current_glyph_);
     }
 
-    void remove_traits(ox::Trait t)
+    void remove_traits(npp::Trait t)
     {
         current_glyph_.brush.remove_traits(t);
         if (!erase_enabled_)
@@ -90,7 +90,7 @@ class Paint_area : public ox::Widget {
         this->update();
     }
 
-    auto glyph() const -> ox::Glyph { return current_glyph_; }
+    auto glyph() const -> npp::Glyph { return current_glyph_; }
 
     void toggle_clone() { clone_enabled_ = !clone_enabled_; }
 
@@ -108,7 +108,7 @@ class Paint_area : public ox::Widget {
 
     void enable_grid()
     {
-        this->set_wallpaper(L'┼' | fg(ox::Color::Dark_gray));
+        this->set_wallpaper(L'┼' | fg(npp::Color::Dark_gray));
         this->update();
     }
 
@@ -125,7 +125,7 @@ class Paint_area : public ox::Widget {
    protected:
     auto paint_event() -> bool override
     {
-        auto p       = ox::Painter{*this};
+        auto p       = npp::Painter{*this};
         auto const w = this->width();
         auto const h = this->height();
         for (auto const& [at, glyph] : glyphs_painted_) {
@@ -135,10 +135,10 @@ class Paint_area : public ox::Widget {
         return Widget::paint_event();
     }
 
-    auto mouse_press_event(ox::Mouse const& m) -> bool override
+    auto mouse_press_event(npp::Mouse const& m) -> bool override
     {
         switch (m.button) {
-            using Button = ox::Mouse::Button;
+            using Button = npp::Mouse::Button;
             case Button::Right: this->remove_glyph(m.local); break;
             case Button::Middle:
                 if (glyphs_painted_.count(m.local) == 1)
@@ -149,19 +149,19 @@ class Paint_area : public ox::Widget {
         return Widget::mouse_press_event(m);
     }
 
-    auto key_press_event(ox::Key k) -> bool override;
+    auto key_press_event(npp::Key k) -> bool override;
 
    private:
-    std::unordered_map<ox::Point, ox::Glyph> glyphs_painted_;
-    ox::Glyph current_glyph_ = L'x';
-    ox::Glyph before_erase_  = L'x';
+    std::unordered_map<npp::Point, npp::Glyph> glyphs_painted_;
+    npp::Glyph current_glyph_ = L'x';
+    npp::Glyph before_erase_  = L'x';
     bool clone_enabled_      = false;
     bool erase_enabled_      = false;
 
    public:
     void place_glyph(std::size_t x, std::size_t y);
 
-    void remove_glyph(ox::Point coords)
+    void remove_glyph(npp::Point coords)
     {
         glyphs_painted_.erase(coords);
         this->update();
@@ -172,15 +172,15 @@ class Paint_area : public ox::Widget {
 
 namespace paint::slot {
 
-auto set_symbol(Paint_area& pa) -> sl::Slot<void(ox::Glyph)>;
+auto set_symbol(Paint_area& pa) -> sl::Slot<void(npp::Glyph)>;
 
-auto set_foreground_color(Paint_area& pa) -> sl::Slot<void(ox::Color)>;
+auto set_foreground_color(Paint_area& pa) -> sl::Slot<void(npp::Color)>;
 
-auto set_background_color(Paint_area& pa) -> sl::Slot<void(ox::Color)>;
+auto set_background_color(Paint_area& pa) -> sl::Slot<void(npp::Color)>;
 
-auto set_trait(Paint_area& pa, ox::Trait t) -> sl::Slot<void()>;
+auto set_trait(Paint_area& pa, npp::Trait t) -> sl::Slot<void()>;
 
-auto remove_traits(Paint_area& pa, ox::Trait t) -> sl::Slot<void()>;
+auto remove_traits(Paint_area& pa, npp::Trait t) -> sl::Slot<void()>;
 
 auto toggle_clone(Paint_area& pa) -> sl::Slot<void()>;
 

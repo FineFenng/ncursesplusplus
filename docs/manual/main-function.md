@@ -9,7 +9,7 @@ The simplest form looks something like this
 ```cpp
 #include <termox/termox.hpp>
 
-int main() { return ox::System{}.run<App_widget>(); }
+int main() { return npp::System{}.run<App_widget>(); }
 ```
 
 This constructs the `System` object, creates an instance of the `App_widget` and
@@ -23,7 +23,7 @@ set it as the head Widget, you'll need to spread out the above calls.
 
 int main()
 {
-    ox::System sys;
+    npp::System sys;
     sys.terminal.initialize();
 
     // Make any calls to Terminal functions, such as setting the color palette,

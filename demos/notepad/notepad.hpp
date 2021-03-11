@@ -25,53 +25,53 @@
 namespace demos {
 
 /// Checkbox to enable/disable a Trait. Has a Signal from it.
-class Trait_checkbox : public ox::HCheckbox_label {
+class Trait_checkbox : public npp::HCheckbox_label {
    public:
-    sl::Signal<void(ox::Trait)> trait_enabled;
-    sl::Signal<void(ox::Trait)> trait_disabled;
+    sl::Signal<void(npp::Trait)> trait_enabled;
+    sl::Signal<void(npp::Trait)> trait_disabled;
 
    public:
-    Trait_checkbox(ox::Trait t) : ox::HCheckbox_label{{to_string(t)}}, t_{t}
+    Trait_checkbox(npp::Trait t) : npp::HCheckbox_label{{to_string(t)}}, t_{t}
     {
-        this->padding | ox::pipe::fixed_width(2);
+        this->padding | npp::pipe::fixed_width(2);
         this->checkbox.checked.connect([this] { this->trait_enabled(t_); });
         this->checkbox.unchecked.connect([this] { this->trait_disabled(t_); });
     }
 
    private:
-    ox::Trait const t_;
+    npp::Trait const t_;
 };
 
 /// Holds a Trait_checkbox for each Trait, emits Signals.
-class Trait_boxes : public ox::layout::Vertical<Trait_checkbox> {
+class Trait_boxes : public npp::layout::Vertical<Trait_checkbox> {
    public:
-    sl::Signal<void(ox::Trait)> trait_enabled;
-    sl::Signal<void(ox::Trait)> trait_disabled;
+    sl::Signal<void(npp::Trait)> trait_enabled;
+    sl::Signal<void(npp::Trait)> trait_disabled;
 
    public:
     Trait_boxes()
     {
-        for (auto i = 0; i < ox::Trait_count; ++i) {
-            auto& w = this->make_child(static_cast<ox::Trait>(i));
+        for (auto i = 0; i < npp::Trait_count; ++i) {
+            auto& w = this->make_child(static_cast<npp::Trait>(i));
             w.trait_enabled.connect([this](auto t) { this->trait_enabled(t); });
             w.trait_disabled.connect(
-                [this](ox::Trait t) { this->trait_disabled(t); });
+                [this](npp::Trait t) { this->trait_disabled(t); });
         }
     }
 };
 
-class Labeled_color_select : public ox::HLabel_top<ox::Color_select> {
+class Labeled_color_select : public npp::HLabel_top<npp::Color_select> {
    private:
-    using Label_t = ox::HLabel_top<ox::Color_select>;
+    using Label_t = npp::HLabel_top<npp::Color_select>;
 
    public:
-    sl::Signal<void(ox::Color)>& color_selected = wrapped.color_selected;
+    sl::Signal<void(npp::Color)>& color_selected = wrapped.color_selected;
 
    public:
-    Labeled_color_select(ox::Glyph_string label) : Label_t{std::move(label)}
+    Labeled_color_select(npp::Glyph_string label) : Label_t{std::move(label)}
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         System::terminal.palette_changed.connect(
             [this](auto const& pal) { this->set_heights(pal); });
@@ -82,16 +82,16 @@ class Labeled_color_select : public ox::HLabel_top<ox::Color_select> {
 
    private:
     /// Sets Widget heights based on number of colors in palette.
-    void set_heights(ox::Palette const& pal)
+    void set_heights(npp::Palette const& pal)
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         auto const height = std::ceil(pal.size() / 8.);
         *this | fixed_height(height + 1);
         this->wrapped | fixed_height(height);
     }
 };
 
-class Side_pane : public ox::layout::Vertical<> {
+class Side_pane : public npp::layout::Vertical<> {
    public:
     Labeled_color_select& fg_select =
         this->make_child<Labeled_color_select>("Foreground⤵");
@@ -102,30 +102,30 @@ class Side_pane : public ox::layout::Vertical<> {
     Trait_boxes& trait_boxes = this->make_child<Trait_boxes>();
 
    public:
-    Side_pane() { *this | ox::pipe::fixed_width(16); }
+    Side_pane() { *this | npp::pipe::fixed_width(16); }
 };
 
-using Side_pane_accordion = ox::HAccordion<Side_pane, ox::Bar_position::Last>;
+using Side_pane_accordion = npp::HAccordion<Side_pane, npp::Bar_position::Last>;
 
-class Text_and_side_pane : public ox::layout::Horizontal<> {
+class Text_and_side_pane : public npp::layout::Horizontal<> {
    public:
-    ox::Textbox& textbox = this->make_child<ox::Textbox>();
+    npp::Textbox& textbox = this->make_child<npp::Textbox>();
     Side_pane& side_pane =
-        this->make_child<Side_pane_accordion>({L"Settings", ox::Align::Center})
+        this->make_child<Side_pane_accordion>({L"Settings", npp::Align::Center})
             .wrapped();
 
    public:
     Text_and_side_pane()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         textbox | bordered() | rounded_corners() | bg(Color::Dark_gray);
 
         side_pane.fg_select.color_selected.connect(
-            ox::slot::set_foreground(textbox));
+                npp::slot::set_foreground(textbox));
         side_pane.bg_select.color_selected.connect(
-            ox::slot::set_background(textbox));
+                npp::slot::set_background(textbox));
 
         side_pane.trait_boxes.trait_enabled.connect(
             [this](Trait t) { textbox.insert_brush.add_traits(t); });
@@ -134,26 +134,26 @@ class Text_and_side_pane : public ox::layout::Horizontal<> {
     }
 };
 
-class Filename_edit : public ox::Textbox {
+class Filename_edit : public npp::Textbox {
    public:
     Filename_edit()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
         *this | bg(Color::White) | fg(Color::Black);
         this->disable_scrollwheel();
     }
 
    protected:
-    auto key_press_event(ox::Key k) -> bool override
+    auto key_press_event(npp::Key k) -> bool override
     {
-        if (k == ox::Key::Enter)
+        if (k == npp::Key::Enter)
             return true;
         return Textbox::key_press_event(k);
     }
 };
 
-class Save_area : public ox::layout::Horizontal<> {
+class Save_area : public npp::layout::Horizontal<> {
    public:
     sl::Signal<void(std::string)> save_request;
     sl::Signal<void(std::string)> load_request;
@@ -161,8 +161,8 @@ class Save_area : public ox::layout::Horizontal<> {
    public:
     Save_area()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(1);
 
@@ -176,30 +176,30 @@ class Save_area : public ox::layout::Horizontal<> {
     }
 
    private:
-    ox::Button& load_btn         = this->make_child<ox::Button>("Load");
+    npp::Button& load_btn         = this->make_child<npp::Button>("Load");
     Filename_edit& filename_edit = this->make_child<Filename_edit>();
-    ox::Button& save_btn         = this->make_child<ox::Button>("Save");
+    npp::Button& save_btn         = this->make_child<npp::Button>("Save");
 };
 
-class File_status_bar : public ox::Banner<ox::animator::Unscramble> {
+class File_status_bar : public npp::Banner<npp::animator::Unscramble> {
    public:
     File_status_bar() : Banner{std::chrono::milliseconds{50}} {}
 
    public:
-    void fail(ox::Glyph_string message)
+    void fail(npp::Glyph_string message)
     {
-        using namespace ox;
+        using namespace npp;
         this->set_text(std::move(message | fg(Color::Red)));
     }
 
-    void success(ox::Glyph_string message)
+    void success(npp::Glyph_string message)
     {
-        using namespace ox;
+        using namespace npp;
         this->set_text(std::move(message | fg(Color::Light_green)));
     }
 };
 
-class Notepad : public ox::layout::Vertical<> {
+class Notepad : public npp::layout::Vertical<> {
    public:
     Text_and_side_pane& txt_trait = this->make_child<Text_and_side_pane>();
     File_status_bar& status_bar   = this->make_child<File_status_bar>();
@@ -209,13 +209,13 @@ class Notepad : public ox::layout::Vertical<> {
     Notepad()
     {
         this->initialize();
-        this->focus_policy = ox::Focus_policy::Strong;
+        this->focus_policy = npp::Focus_policy::Strong;
     }
 
    protected:
     auto focus_in_event() -> bool override
     {
-        ox::System::set_focus(txt_trait.textbox);
+        npp::System::set_focus(txt_trait.textbox);
         return true;
     }
 

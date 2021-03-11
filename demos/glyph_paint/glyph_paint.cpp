@@ -2,7 +2,7 @@
 
 #include <termox/widget/widget_slots.hpp>
 
-using namespace ox;
+using namespace npp;
 
 namespace paint {
 
@@ -41,20 +41,20 @@ Glyph_paint::Glyph_paint()
         slot::remove_traits(paint_area, Trait::Underline));
 
     paint_area.glyph_changed.connect(
-        ox::slot::update_status(side_pane.show_glyph));
+            npp::slot::update_status(side_pane.show_glyph));
     side_pane.options_box.options_a.clone_btn.pressed.connect(
         slot::toggle_clone(paint_area));
     side_pane.options_box.options_a.clone_btn.pressed.connect(
-        ox::slot::update_status(side_pane.show_glyph,
-                                Glyph_string{L"Clone", fg(Color::Light_gray)}));
+            npp::slot::update_status(side_pane.show_glyph,
+                                     Glyph_string{L"Clone", fg(Color::Light_gray)}));
     side_pane.options_box.options_a.clear_btn.pressed.connect(
         slot::clear(paint_area));
     side_pane.options_box.options_a.cursor_box.checkbox.toggled.connect(
-        ox::slot::toggle_cursor(paint_area));
+            npp::slot::toggle_cursor(paint_area));
     paint_area.erase_disabled.connect(
-        ox::slot::uncheck(side_pane.options_box.options_a.eraser_box.checkbox));
+            npp::slot::uncheck(side_pane.options_box.options_a.eraser_box.checkbox));
     paint_area.erase_enabled.connect(
-        ox::slot::check(side_pane.options_box.options_a.eraser_box.checkbox));
+            npp::slot::check(side_pane.options_box.options_a.eraser_box.checkbox));
     side_pane.options_box.options_a.eraser_box.checkbox.checked.connect(
         slot::enable_erase(paint_area));
     side_pane.options_box.options_a.eraser_box.checkbox.unchecked.connect(

@@ -43,7 +43,7 @@ inline auto operator==(Coordinate lhs, Coordinate rhs) -> bool
 
 }  // namespace gol
 
-/// Custom specialization of std::hash for ox::point.
+/// Custom specialization of std::hash for npp::point.
 namespace std {
 template <>
 struct hash<gol::Coordinate> {

@@ -6,7 +6,7 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 void begin_graph(std::ofstream& file, std::string const& graph_name)
 {
@@ -52,7 +52,7 @@ void make_connections_to_children(std::ofstream& file, Widget const& parent)
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
 void graph_tree(Widget const& w, std::string const& filename)
 {
@@ -62,4 +62,4 @@ void graph_tree(Widget const& w, std::string const& filename)
     end_graph(file);
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

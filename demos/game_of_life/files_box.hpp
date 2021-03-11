@@ -16,21 +16,21 @@
 namespace gol {
 
 /// Provides interface to input filename and to Signal on that filename.
-class File_widget : public ox::layout::Vertical<> {
+class File_widget : public npp::layout::Vertical<> {
    public:
-    ox::Line_edit& filename_box_ = this->make_child<ox::Line_edit>("Filename");
+    npp::Line_edit& filename_box_ = this->make_child<npp::Line_edit>("Filename");
 
-    ox::Confirm_button& confirm_btn_;
+    npp::Confirm_button& confirm_btn_;
 
    public:
     sl::Signal<void(std::string const&)> file_request;
 
    public:
     explicit File_widget(std::string const& btn_text)
-        : confirm_btn_{this->make_child<ox::Confirm_button>(btn_text)}
+        : confirm_btn_{this->make_child<npp::Confirm_button>(btn_text)}
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(2);
 
@@ -45,7 +45,7 @@ class File_widget : public ox::layout::Vertical<> {
     }
 };
 
-struct Files_box : ox::layout::Vertical<> {
+struct Files_box : npp::layout::Vertical<> {
    public:
     File_widget& import_btn = this->make_child<File_widget>("Import");
     File_widget& export_btn = this->make_child<File_widget>("Export");
@@ -58,7 +58,7 @@ struct Files_box : ox::layout::Vertical<> {
         export_btn.file_request;
 
    public:
-    Files_box() { *this | ox::pipe::fixed_height(5uL); }
+    Files_box() { *this | npp::pipe::fixed_height(5uL); }
 };
 
 }  // namespace gol

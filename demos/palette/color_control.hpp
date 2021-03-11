@@ -9,7 +9,7 @@
 namespace palette {
 
 /// Holds Value_control objects for red, green, and blue color values.
-class Color_control : public ox::layout::Horizontal<Value_control> {
+class Color_control : public npp::layout::Horizontal<Value_control> {
     Value_control& slider_red_   = this->make_child("R");
     Value_control& slider_green_ = this->make_child("G");
     Value_control& slider_blue_  = this->make_child("B");
@@ -27,7 +27,7 @@ class Color_control : public ox::layout::Horizontal<Value_control> {
     void set_blue_slider(int value) { slider_blue_.set_value(value); }
 
     /// Set all sliders to the respective RGB color value.
-    void set_sliders(ox::Color color);
+    void set_sliders(npp::Color color);
 
     sl::Signal<void(int)>& red_changed   = slider_red_.value_changed;
     sl::Signal<void(int)>& green_changed = slider_green_.value_changed;

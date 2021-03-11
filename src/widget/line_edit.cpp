@@ -13,7 +13,7 @@
 #include <termox/widget/point.hpp>
 #include <termox/widget/widgets/textbox.hpp>
 
-namespace ox {
+namespace npp {
 
 void Line_edit::underline(bool enabled)
 {
@@ -69,4 +69,4 @@ auto Line_edit::key_press_event(Key k) -> bool
     return Textbox::key_press_event(k);
 }
 
-}  // namespace ox
+}  // namespace npp

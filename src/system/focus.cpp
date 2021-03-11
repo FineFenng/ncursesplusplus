@@ -13,8 +13,8 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
-using namespace ox::detail;
+using namespace npp;
+using namespace npp::detail;
 
 auto is_tab_focus_policy(Focus_policy policy) -> bool
 {
@@ -31,7 +31,7 @@ auto const is_tab_focusable = [](auto const* widg) {
 };
 
 // Return a widg tree from System::head() if focus_widget is nullptr.
-auto gen_focus_front_widg_tree() -> std::vector<ox::Widget*>
+auto gen_focus_front_widg_tree() -> std::vector<npp::Widget*>
 {
     auto widg_tree = System::head()->get_descendants();
     widg_tree.insert(std::begin(widg_tree), System::head());
@@ -46,7 +46,7 @@ auto gen_focus_front_widg_tree() -> std::vector<ox::Widget*>
     return widg_tree;
 }
 
-auto next_tab_focus() -> ox::Widget*
+auto next_tab_focus() -> npp::Widget*
 {
     if (System::head() == nullptr)
         return nullptr;
@@ -57,7 +57,7 @@ auto next_tab_focus() -> ox::Widget*
     return (next_focus != end) ? *next_focus : Focus::focus_widget();
 }
 
-auto previous_tab_focus() -> ox::Widget*
+auto previous_tab_focus() -> npp::Widget*
 {
     if (System::head() == nullptr)
         return nullptr;
@@ -70,13 +70,13 @@ auto previous_tab_focus() -> ox::Widget*
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
-ox::Widget* Focus::focus_widget_ = nullptr;
+npp::Widget* Focus::focus_widget_ = nullptr;
 bool Focus::tab_enabled_         = true;
 bool Focus::tab_suppressed_      = false;
 
-void Focus::mouse_press(ox::Widget& clicked)
+void Focus::mouse_press(npp::Widget& clicked)
 {
     if (&clicked == focus_widget_)
         return;
@@ -112,7 +112,7 @@ auto Focus::shift_tab_press() -> bool
     return false;
 }
 
-void Focus::set(ox::Widget& new_focus)
+void Focus::set(npp::Widget& new_focus)
 {
     if (&new_focus == focus_widget_)
         return;
@@ -133,4 +133,4 @@ void Focus::clear()
     focus_widget_ = nullptr;
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

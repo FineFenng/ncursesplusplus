@@ -13,14 +13,14 @@
 
 namespace demos::focus {
 
-inline auto focus_box(ox::Focus_policy policy) -> std::unique_ptr<ox::Widget>
+inline auto focus_box(npp::Focus_policy policy) -> std::unique_ptr<npp::Widget>
 {
-    using namespace ox::pipe;
+    using namespace npp::pipe;
 
     /// Focus_policy to string
-    auto to_string = [](ox::Focus_policy p) -> wchar_t const* {
+    auto to_string = [](npp::Focus_policy p) -> wchar_t const* {
         switch (p) {
-            using namespace ox;
+            using namespace npp;
             case Focus_policy::None: return L"None";
             case Focus_policy::Tab: return L"Tab";
             case Focus_policy::Click: return L"Click";
@@ -31,49 +31,49 @@ inline auto focus_box(ox::Focus_policy policy) -> std::unique_ptr<ox::Widget>
     };
 
     /// Remove tab focus from \p p.
-    auto const narrow = [](ox::Focus_policy p) {
+    auto const narrow = [](npp::Focus_policy p) {
         switch (p) {
-            using namespace ox;
+            using namespace npp;
             case Focus_policy::None:
             case Focus_policy::Tab: return Focus_policy::None;
             case Focus_policy::Click:
             case Focus_policy::Strong: return Focus_policy::Click;
             case Focus_policy::Direct: return Focus_policy::Direct;
         }
-        return ox::Focus_policy::None;
+        return npp::Focus_policy::None;
     };
 
     // clang-format off
     auto box_ptr =
-        ox::layout::vertical
+            npp::layout::vertical
         (
-            ox::hlabel(to_string(policy))
+                npp::hlabel(to_string(policy))
                 | name("l")
                 | align_center()
                 | fixed_height(1)
-                | ox::pipe::focus(narrow(policy)),
-            ox::widget()
+                | npp::pipe::focus(narrow(policy)),
+                npp::widget()
                 | name("w")
-                | ox::pipe::focus(policy)
+                | npp::pipe::focus(policy)
         ) | bordered();
 
     box_ptr | children() | find("l")
             | on_focus_in([w = box_ptr->find_child_by_name("w")]
-                    { ox::System::set_focus(*w); });
+                    { npp::System::set_focus(*w); });
 
     box_ptr | children() | find("w")
-            | on_focus_in( [&w = *box_ptr]{ w | walls(fg(ox::Color::Red)); })
-            | on_focus_out([&w = *box_ptr]{ w | walls(fg(ox::Color::White)); });
+            | on_focus_in( [&w = *box_ptr]{ w | walls(fg(npp::Color::Red)); })
+            | on_focus_out([&w = *box_ptr]{ w | walls(fg(npp::Color::White)); });
     // clang-format on
 
     return box_ptr;
 }
 
 /// Build a focus app demo and return the owning pointer to it.
-inline auto build_demo() -> std::unique_ptr<ox::Widget>
+inline auto build_demo() -> std::unique_ptr<npp::Widget>
 {
-    using namespace ox;
-    using namespace ox::pipe;
+    using namespace npp;
+    using namespace npp::pipe;
 
     // clang-format off
     return

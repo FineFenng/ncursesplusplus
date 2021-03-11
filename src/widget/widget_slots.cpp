@@ -12,7 +12,7 @@
 #include <termox/widget/point.hpp>
 #include <termox/widget/widget.hpp>
 
-namespace ox::slot {
+namespace npp::slot {
 
 auto enable(Widget& w) -> sl::Slot<void()>
 {
@@ -132,4 +132,4 @@ auto toggle_cursor(Widget& w) -> sl::Slot<void()>
     return link_lifetimes([&w] { w.cursor.toggle(); }, w);
 }
 
-}  // namespace ox::slot
+}  // namespace npp::slot

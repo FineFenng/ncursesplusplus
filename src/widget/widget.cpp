@@ -23,9 +23,9 @@ auto get_unique_id() -> std::uint16_t
     return ++current;
 }
 
-void post_child_polished(ox::Widget& w)
+void post_child_polished(npp::Widget& w)
 {
-    using namespace ox;
+    using namespace npp;
     auto* parent = w.parent();
     if (parent != nullptr)
         System::post_event(Child_polished_event{*parent, w});
@@ -33,7 +33,7 @@ void post_child_polished(ox::Widget& w)
 
 }  // namespace
 
-namespace ox {
+namespace npp {
 
 Widget::Widget(std::string name)
     : name_{std::move(name)}, unique_id_{get_unique_id()}
@@ -90,4 +90,4 @@ void Widget::enable_and_post_events(bool enable, bool post_child_polished_event)
     this->update();
 }
 
-}  // namespace ox
+}  // namespace npp

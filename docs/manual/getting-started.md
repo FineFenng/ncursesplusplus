@@ -38,7 +38,7 @@ target_link_libraries(hello-world PRIVATE TermOx)
 
 int main()
 {
-    return ox::System{}.run<ox::Textbox>("Hello, World!");
+    return npp::System{}.run<npp::Textbox>("Hello, World!");
 }
 ```
 

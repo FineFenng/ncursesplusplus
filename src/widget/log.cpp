@@ -8,7 +8,7 @@
 #include <termox/system/key.hpp>
 #include <termox/widget/detail/link_lifetimes.hpp>
 
-namespace ox {
+namespace npp {
 
 void Log::post_message(Glyph_string message)
 {
@@ -35,9 +35,9 @@ auto Log::key_press_event(Key k) -> bool
     }
 }
 
-}  // namespace ox
+}  // namespace npp
 
-namespace ox::slot {
+namespace npp::slot {
 
 auto post_message(Log& log) -> sl::Slot<void(Glyph_string)>
 {
@@ -51,4 +51,4 @@ auto post_message(Log& log, Glyph_string const& message) -> sl::Slot<void()>
     return link_lifetimes([&log, message] { log.post_message(message); }, log);
 }
 
-}  // namespace ox::slot
+}  // namespace npp::slot

@@ -5,7 +5,7 @@ some text to the screen:
 
 ```cpp
 #include <termox/termox.hpp>
-using namespace ox;
+using namespace npp;
 
 class App : public Widget {
     auto paint_event() -> bool override
@@ -23,7 +23,7 @@ This program will paint the text `Hello, World!` to the screen at coordinates
 
 ```cpp
 #include <termox/termox.hpp>
-using namespace ox;
+using namespace npp;
 
 class App : public Widget {
     auto paint_event() -> bool override
@@ -46,10 +46,10 @@ top left of the terminal screen.
 
 ```cpp
 #include <termox/termox.hpp>
-using namespace ox;
+using namespace npp;
 ```
 
-Make all `ox` namespace names accessible. The `ox` names used in this example
+Make all `npp` namespace names accessible. The `npp` names used in this example
 are: `Widget`, `Painter`, `System`, `Color`, and `Trait`.
 
 ---
@@ -58,7 +58,7 @@ are: `Widget`, `Painter`, `System`, `Color`, and `Trait`.
 class App : public Widget {
 ```
 
-Inherit from `ox::Widget`, creating a new Widget type.
+Inherit from `npp::Widget`, creating a new Widget type.
 
 ---
 

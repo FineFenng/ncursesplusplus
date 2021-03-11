@@ -3,7 +3,7 @@
 #include <termox/system/detail/event_engine.hpp>
 #include <termox/system/system.hpp>
 
-namespace ox {
+namespace npp {
 
 auto Event_loop::run() -> int
 {
@@ -28,4 +28,4 @@ void Event_loop::connect_to_system_exit()
     System::exit_signal.connect(exit_loop);
 }
 
-}  // namespace ox
+}  // namespace npp

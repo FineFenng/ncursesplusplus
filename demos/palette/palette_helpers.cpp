@@ -5,12 +5,12 @@
 #include <iterator>
 
 #include <termox/painter/color.hpp>
-// #include <termox/painter/palette.hpp>
-// #include <termox/painter/rgb.hpp>
+// #include <ncursesplusplus/painter/palette.hpp>
+// #include <ncursesplusplus/painter/rgb.hpp>
 #include <termox/system/system.hpp>
 #include <termox/terminal/terminal.hpp>
 
-using namespace ox;
+using namespace npp;
 
 namespace palette {
 namespace detail {
@@ -34,10 +34,10 @@ using namespace palette::detail;
 /// Set a color definition for the terminal.
 // void set_definition(Color color, RGB values)
 // {
-//     auto palette      = ox::System::terminal.current_palette();
+//     auto palette      = npp::System::terminal.current_palette();
 //     auto& definition  = extract_definition(palette, color);
 //     definition.values = values;
-//     ox::System::terminal.set_color_palette(palette);
+//     npp::System::terminal.set_color_palette(palette);
 // }
 }  // namespace
 

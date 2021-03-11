@@ -24,7 +24,7 @@ auto wrapped_decrement(std::size_t i, std::size_t edge) -> std::size_t
 
 }  // namespace
 
-namespace ox {
+namespace npp {
 
 void Cycle_box::next()
 {
@@ -42,4 +42,4 @@ void Cycle_box::previous()
     this->emit_signals();
 }
 
-}  // namespace ox
+}  // namespace npp

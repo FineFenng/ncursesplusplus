@@ -7,7 +7,7 @@
 #include <termox/system/system.hpp>
 #include <termox/terminal/input.hpp>
 
-namespace ox::detail {
+namespace npp::detail {
 
 void User_input_event_loop::loop_function()
 {
@@ -15,4 +15,4 @@ void User_input_event_loop::loop_function()
         System::post_event(std::move(*event));
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

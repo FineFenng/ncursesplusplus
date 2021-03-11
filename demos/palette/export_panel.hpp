@@ -7,15 +7,15 @@
 namespace palette {
 
 /// Holds interface to export the Palette as a C++ header file.
-class Export_panel : public ox::layout::Vertical<> {
+class Export_panel : public npp::layout::Vertical<> {
    public:
     Export_panel();
 
    private:
-    ox::Line_edit& name_edit_ = make_child<ox::Line_edit>(L"Enter name...");
+    npp::Line_edit& name_edit_ = make_child<npp::Line_edit>(L"Enter name...");
 
-    ox::Confirm_button& export_btn_ =
-        make_child<ox::Confirm_button>(L"Export Palette");
+    npp::Confirm_button& export_btn_ =
+        make_child<npp::Confirm_button>(L"Export Palette");
 };
 
 }  // namespace palette

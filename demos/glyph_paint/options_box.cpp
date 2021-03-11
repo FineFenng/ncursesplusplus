@@ -36,8 +36,8 @@ namespace paint {
 
 Options_B::Options_B()
 {
-    using namespace ox;
-    using namespace ox::pipe;
+    using namespace npp;
+    using namespace npp::pipe;
 
     space1 | wallpaper(L'─');
     palette_label | align_center();

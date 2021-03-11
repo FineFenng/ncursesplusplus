@@ -5,7 +5,7 @@
 #include <termox/painter/glyph_string.hpp>
 #include <termox/widget/widgets/text_display.hpp>
 
-namespace ox::detail {
+namespace npp::detail {
 
 void Textbox_base::cursor_up(std::size_t n)
 {
@@ -46,4 +46,4 @@ auto Textbox_base::resize_event(Area new_size, Area old_size) -> bool
     return Text_display::resize_event(new_size, old_size);
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

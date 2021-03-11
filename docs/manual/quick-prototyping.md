@@ -9,8 +9,8 @@ Layouts can be constructed from a list of `std::unique_ptr` to their Widget
 type, this allows for concise source code describing the user interface.
 
 ```cpp
-using namespace ox;
-using namespace ox::pipe;
+using namespace npp;
+using namespace npp::pipe;
 
 auto useless_widgets() -> std::unique_ptr<layout::Horizontal<>>
 {
@@ -50,8 +50,8 @@ been given a name.
 ```cpp
 auto read_write_textbox() -> std::unique_ptr<layout::Vertical<>>
 {
-    using namespace ox;
-    using namespace ox::pipe;
+    using namespace npp;
+    using namespace npp::pipe;
 
     // Create Widget
     auto w = layout::vertical

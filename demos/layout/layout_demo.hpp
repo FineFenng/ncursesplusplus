@@ -17,21 +17,21 @@
 
 namespace layout_demo {
 
-class Meta_widget : public ox::Widget {
+class Meta_widget : public npp::Widget {
    public:
     Meta_widget() {}
 
    public:
     void select()
     {
-        using namespace ox;
+        using namespace npp;
         *this | bg(Color::White) | fg(Color::Black);
         this->update();
     }
 
     void unselect()
     {
-        using namespace ox;
+        using namespace npp;
         *this | bg(Color::Black) | fg(Color::White);
         this->update();
     }
@@ -44,7 +44,7 @@ class Meta_widget : public ox::Widget {
         auto const x = std::to_string(this->parent()->x());
         auto const y = std::to_string(this->parent()->y());
 
-        auto p = ox::Painter{*this};
+        auto p = npp::Painter{*this};
         p.put("X " + x, 0, 0);
         p.put("Y " + y, 0, 1);
         p.put("W " + w, 0, 2);
@@ -53,7 +53,7 @@ class Meta_widget : public ox::Widget {
     }
 };
 
-class Workspace : public ox::layout::Horizontal<Meta_widget> {
+class Workspace : public npp::layout::Horizontal<Meta_widget> {
    public:
     sl::Signal<void(Meta_widget*)> selected;
 
@@ -67,12 +67,12 @@ class Workspace : public ox::layout::Horizontal<Meta_widget> {
     }
 };
 
-struct Size_policy_settings : ox::layout::Vertical<> {
+struct Size_policy_settings : npp::layout::Vertical<> {
     // private:
-    //  struct Policy_type_box : ox::Labeled_cycle_box {
+    //  struct Policy_type_box : npp::Labeled_cycle_box {
     //      Policy_type_box() : Labeled_cycle_box{"Policy"}
     //      {
-    //          using ox::Size_policy;
+    //          using npp::Size_policy;
     //          this->add_option(Size_policy::Ignored);
     //          this->add_option(Size_policy::Preferred);
     //          this->add_option(Size_policy::Fixed);
@@ -82,10 +82,10 @@ struct Size_policy_settings : ox::layout::Vertical<> {
     //          this->add_option(Size_policy::MinimumExpanding);
     //      }
 
-    //      sl::Signal<void(ox::Size_policy::Type)> type_updated;
+    //      sl::Signal<void(npp::Size_policy::Type)> type_updated;
 
     //     private:
-    //      void add_option(ox::Size_policy::Type type)
+    //      void add_option(npp::Size_policy::Type type)
     //      {
     //          this->cycle_box.add_option(to_string(type)).connect([this, type]
     //          {
@@ -100,59 +100,59 @@ struct Size_policy_settings : ox::layout::Vertical<> {
         // this->height_policy.fixed(6);
 
         title.height_policy.fixed(1);
-        title.brush.background = ox::Color::Dark_gray;
+        title.brush.background = npp::Color::Dark_gray;
 
         // types_box.type_updated.connect([this](auto type) {
         //     size_policy_.type(type);
         //     this->notify();
         // });
-        // types_box.label.brush.background     = ox::Color::Dark_gray;
-        // types_box.cycle_box.brush.background = ox::Color::Dark_gray;
+        // types_box.label.brush.background     = npp::Color::Dark_gray;
+        // types_box.cycle_box.brush.background = npp::Color::Dark_gray;
 
         stretch.value_set.connect([this](double value) {
             size_policy_.stretch(value);
             this->notify();
         });
-        stretch.label.brush.background = ox::Color::Dark_gray;
+        stretch.label.brush.background = npp::Color::Dark_gray;
 
         hint.value_set.connect([this](std::size_t value) {
             size_policy_.hint(value);
             this->notify();
         });
-        hint.label.brush.background = ox::Color::Dark_gray;
+        hint.label.brush.background = npp::Color::Dark_gray;
 
         min.value_set.connect([this](std::size_t value) {
             size_policy_.min(value);
             this->notify();
         });
-        min.label.brush.background = ox::Color::Dark_gray;
+        min.label.brush.background = npp::Color::Dark_gray;
 
         max.value_set.connect([this](std::size_t value) {
             size_policy_.max(value);
             this->notify();
         });
-        max.label.brush.background = ox::Color::Dark_gray;
+        max.label.brush.background = npp::Color::Dark_gray;
     }
 
-    ox::Text_display& title{
-        this->make_child<ox::Text_display>("[-] Width Policy")};
+    npp::Text_display& title{
+        this->make_child<npp::Text_display>("[-] Width Policy")};
 
     // Policy_type_box& types_box{this->make_child<Policy_type_box>()};
 
-    ox::Labeled_number_edit<double>& stretch{
-        this->make_child<ox::Labeled_number_edit<double>>("Stretch ", 1.)};
+    npp::Labeled_number_edit<double>& stretch{
+        this->make_child<npp::Labeled_number_edit<double>>("Stretch ", 1.)};
 
-    ox::Labeled_number_edit<std::size_t>& hint{
-        this->make_child<ox::Labeled_number_edit<std::size_t>>("Hint    ", 0)};
+    npp::Labeled_number_edit<std::size_t>& hint{
+        this->make_child<npp::Labeled_number_edit<std::size_t>>("Hint    ", 0)};
 
-    ox::Labeled_number_edit<std::size_t>& min{
-        this->make_child<ox::Labeled_number_edit<std::size_t>>("Min     ", 0)};
+    npp::Labeled_number_edit<std::size_t>& min{
+        this->make_child<npp::Labeled_number_edit<std::size_t>>("Min     ", 0)};
 
-    ox::Labeled_number_edit<std::size_t>& max{
-        this->make_child<ox::Labeled_number_edit<std::size_t>>("Max     ", 0)};
+    npp::Labeled_number_edit<std::size_t>& max{
+        this->make_child<npp::Labeled_number_edit<std::size_t>>("Max     ", 0)};
 
     /// set the internally held size_policy that is emitted to \p policy.
-    void reset(ox::Size_policy const& policy)
+    void reset(npp::Size_policy const& policy)
     {
         size_policy_ = policy;
         // types_box.cycle_box.set_current_to(to_string(policy.type()));
@@ -162,16 +162,16 @@ struct Size_policy_settings : ox::layout::Vertical<> {
         max.set_value(policy.max());
     }
 
-    sl::Signal<void(ox::Size_policy const&)> policy_updated;
+    sl::Signal<void(npp::Size_policy const&)> policy_updated;
 
    private:
-    ox::Size_policy size_policy_;
+    npp::Size_policy size_policy_;
 
     void notify() { this->policy_updated(size_policy_); }
 
-    // static auto to_string(ox::Size_policy::Type type) -> std::string
+    // static auto to_string(npp::Size_policy::Type type) -> std::string
     // {
-    //     using ox::Size_policy;
+    //     using npp::Size_policy;
     //     switch (type) {
     //         case Size_policy::Fixed: return "Fixed";
     //         case Size_policy::Minimum: return "Minimum";
@@ -184,13 +184,13 @@ struct Size_policy_settings : ox::layout::Vertical<> {
     // }
 };
 
-struct Settings : ox::layout::Vertical<> {
-    ox::Text_display& title{this->make_child<ox::Text_display>(
-        ox::Glyph_string{"Settings", ox::Trait::Bold})};
+struct Settings : npp::layout::Vertical<> {
+    npp::Text_display& title{this->make_child<npp::Text_display>(
+            npp::Glyph_string{"Settings", npp::Trait::Bold})};
     Size_policy_settings& width_policy_settings{
         this->make_child<Size_policy_settings>()};
-    ox::Button& add_btn{this->make_child<ox::Button>("Add Widget")};
-    ox::Button& remove_btn{this->make_child<ox::Button>("Remove Selected")};
+    npp::Button& add_btn{this->make_child<npp::Button>("Add Widget")};
+    npp::Button& remove_btn{this->make_child<npp::Button>("Remove Selected")};
 
     Settings()
     {
@@ -198,23 +198,23 @@ struct Settings : ox::layout::Vertical<> {
         this->width_policy.fixed(20);
 
         title.height_policy.fixed(1);
-        title.set_alignment(ox::Align::Center);
-        title.brush.background = ox::Color::Dark_gray;
+        title.set_alignment(npp::Align::Center);
+        title.brush.background = npp::Color::Dark_gray;
 
         width_policy_settings.policy_updated.connect(
-            [this](ox::Size_policy const& p) {
+            [this](npp::Size_policy const& p) {
                 this->width_policy_updated(p);
             });
 
         add_btn.pressed.connect([this] { this->add_widget(); });
         add_btn.height_policy.fixed(3);
-        add_btn.brush.background = ox::Color::Light_blue;
-        add_btn.brush.foreground = ox::Color::Black;
+        add_btn.brush.background = npp::Color::Light_blue;
+        add_btn.brush.foreground = npp::Color::Black;
 
         remove_btn.pressed.connect([this] { this->remove_selected(); });
         remove_btn.height_policy.fixed(3);
-        remove_btn.brush.background = ox::Color::Violet;
-        remove_btn.brush.foreground = ox::Color::Black;
+        remove_btn.brush.background = npp::Color::Violet;
+        remove_btn.brush.foreground = npp::Color::Black;
     }
 
     /// update size_policy internals to selected widget's internals
@@ -227,10 +227,10 @@ struct Settings : ox::layout::Vertical<> {
 
     sl::Signal<void()> add_widget;
     sl::Signal<void()> remove_selected;
-    sl::Signal<void(ox::Size_policy const&)> width_policy_updated;
+    sl::Signal<void(npp::Size_policy const&)> width_policy_updated;
 };
 
-struct Layout_demo : ox::layout::Horizontal<> {
+struct Layout_demo : npp::layout::Horizontal<> {
     Workspace& workspace{this->make_child<Workspace>()};
     Settings& settings{this->make_child<Settings>()};
 
@@ -243,7 +243,7 @@ struct Layout_demo : ox::layout::Horizontal<> {
         settings.add_widget.connect([this] { this->add_widget(); });
         settings.remove_selected.connect([this] { this->remove_selected(); });
         settings.width_policy_updated.connect(
-            [this](ox::Size_policy const& p) { this->update_width_policy(p); });
+            [this](npp::Size_policy const& p) { this->update_width_policy(p); });
     }
 
     void add_widget()
@@ -270,12 +270,12 @@ struct Layout_demo : ox::layout::Horizontal<> {
             selected_->select();
     }
 
-    void update_width_policy(ox::Size_policy const& p)
+    void update_width_policy(npp::Size_policy const& p)
     {
         if (selected_ == nullptr)
             return;
         selected_->width_policy = p;
-        ox::System::post_event(ox::Child_polished_event{workspace, *selected_});
+        npp::System::post_event(npp::Child_polished_event{workspace, *selected_});
     }
 
    private:

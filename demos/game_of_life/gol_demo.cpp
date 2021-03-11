@@ -14,7 +14,7 @@ namespace gol {
 
 GoL_demo::GoL_demo()
 {
-    this->focus_policy = ox::Focus_policy::Direct;
+    this->focus_policy = npp::Focus_policy::Direct;
     side_panel_accordion.expand();
     side_panel.settings.rule_change.connect(
         [this](std::string const& rule_str) {

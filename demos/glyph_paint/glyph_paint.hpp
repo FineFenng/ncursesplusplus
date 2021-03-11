@@ -7,7 +7,7 @@
 
 namespace paint {
 
-class Glyph_paint : public ox::layout::Horizontal<> {
+class Glyph_paint : public npp::layout::Horizontal<> {
    public:
     Glyph_paint();
 

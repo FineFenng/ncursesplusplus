@@ -20,9 +20,9 @@
 
 namespace comp {
 
-using Btns = ox::Array<ox::layout::Horizontal<ox::Button>, 2>;
+using Btns = npp::Array<npp::layout::Horizontal<npp::Button>, 2>;
 
-using App = ox::Tuple<ox::layout::Vertical<>, ox::Textbox, Btns>;
+using App = npp::Tuple<npp::layout::Vertical<>, npp::Textbox, Btns>;
 
 struct Composites_old : App {
     Composites_old()
@@ -32,8 +32,8 @@ struct Composites_old : App {
         auto& load = btns.get<1>();
         auto& txbx = this->get<0>();
 
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
         btns | fixed_height(1);
         // save | label("Save") | bg(Color::Light_blue);
         // load | label("Load") | bg(Color::Light_green);
@@ -125,7 +125,7 @@ struct Composites_old : App {
     }
 };
 
-using namespace ox;
+using namespace npp;
 
 using Check      = Selectable<HCheckbox_label>;
 using Check_list = Array<layout::Selecting<layout::Vertical<Check>>, 15>;
@@ -133,8 +133,8 @@ using Check_list = Array<layout::Selecting<layout::Vertical<Check>>, 15>;
 struct My_check_list : Check_list {
     My_check_list()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         this->set_increment_selection_keys({Key::Arrow_down, Key::j});
         this->set_decrement_selection_keys({Key::Arrow_up, Key::k});
@@ -154,7 +154,7 @@ struct Two_lists : Pair<layout::Vertical<My_check_list>> {
     Two_lists()
     {
         *this | pipe::strong_focus() | pipe::on_focus_in([this] {
-            ox::System::set_focus(this->get_children().front());
+            npp::System::set_focus(this->get_children().front());
         });
         this->find_child_if(
             [](My_check_list const& l) { return l.name().empty(); });
@@ -168,19 +168,19 @@ struct Two_lists : Pair<layout::Vertical<My_check_list>> {
     }
 };
 
-using Settings_box = ox::Tuple<ox::layout::Vertical<>,
-                               ox::Button,
-                               ox::HLabel,
-                               ox::Checkbox1,
-                               ox::Cycle_box,
-                               ox::Push_button>;
+using Settings_box = npp::Tuple<npp::layout::Vertical<>,
+                               npp::Button,
+                               npp::HLabel,
+                               npp::Checkbox1,
+                               npp::Cycle_box,
+                               npp::Push_button>;
 
 class Idea : public Settings_box {
    public:
     Idea()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         this->get<0>().set_label(L"I'm a BUTTON");
         this->get<0>() | on_press([this] { this->get<2>().toggle(); });

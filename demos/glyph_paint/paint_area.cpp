@@ -26,7 +26,7 @@
 #include <termox/widget/point.hpp>
 #include <termox/widget/widget.hpp>
 
-using namespace ox;
+using namespace npp;
 
 namespace {
 
@@ -56,7 +56,7 @@ void Paint_area::write(std::ostream& os)
     for (auto const& [point, glyph] : glyphs_painted_) {
         insert_newline(previous_nl, point, os);
         insert_space(previous_s, point, os);
-        os << ox::utility::wchar_to_bytes(glyph.symbol);
+        os << npp::utility::wchar_to_bytes(glyph.symbol);
         previous_nl = point;
         previous_s  = point;
     }
@@ -137,7 +137,7 @@ void Paint_area::place_glyph(std::size_t x, std::size_t y)
 
 namespace paint::slot {
 
-using ox::slot::link_lifetimes;
+using npp::slot::link_lifetimes;
 
 auto set_symbol(Paint_area& pa) -> sl::Slot<void(Glyph)>
 {

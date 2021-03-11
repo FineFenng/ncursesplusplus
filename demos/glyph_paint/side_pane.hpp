@@ -16,21 +16,21 @@
 
 namespace paint {
 
-class Side_pane : public ox::layout::Vertical<> {
+class Side_pane : public npp::layout::Vertical<> {
    private:
-    struct Color_pages : ox::Cycle_stack<ox::Color_select> {
+    struct Color_pages : npp::Cycle_stack<npp::Color_select> {
         Color_pages() { height_policy.fixed(3); }
 
-        ox::Color_select& foreground =
-            make_page(L"Foreground" | ox::Trait::Bold);
-        ox::Color_select& background =
-            make_page(L"Background" | ox::Trait::Bold);
+        npp::Color_select& foreground =
+            make_page(L"Foreground" | npp::Trait::Bold);
+        npp::Color_select& background =
+            make_page(L"Background" | npp::Trait::Bold);
     };
 
    public:
     Side_pane()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
 
         *this | fixed_width(16);
         space1 | wallpaper(L'─');
@@ -41,11 +41,11 @@ class Side_pane : public ox::layout::Vertical<> {
 
    public:
     Glyph_selector& glyph_selector = append_child(populated_glyph_selector());
-    Widget& space1                 = make_child() | ox::pipe::fixed_height(1);
+    Widget& space1                 = make_child() | npp::pipe::fixed_height(1);
     Color_pages& color_pages       = make_child<Color_pages>();
     Trait_box& trait_box           = make_child<Trait_box>();
-    ox::Status_bar& show_glyph     = make_child<ox::Status_bar>("x");
-    Widget& space2                 = make_child() | ox::pipe::fixed_height(1);
+    npp::Status_bar& show_glyph     = make_child<npp::Status_bar>("x");
+    Widget& space2                 = make_child() | npp::pipe::fixed_height(1);
     Options_stack& options_box     = make_child<Options_stack>();
 };
 

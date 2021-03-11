@@ -26,7 +26,7 @@
 #include <termox/widget/area.hpp>
 #include <termox/widget/widget.hpp>
 
-namespace ox {
+namespace npp {
 
 auto System::focus_widget() -> Widget* { return detail::Focus::focus_widget(); }
 
@@ -104,4 +104,4 @@ Animation_engine System::animation_engine_;
 sl::Signal<void(int)> System::exit_signal;
 detail::User_input_event_loop System::user_input_loop_;
 
-}  // namespace ox
+}  // namespace npp

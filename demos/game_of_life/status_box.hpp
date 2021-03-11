@@ -15,14 +15,14 @@
 
 namespace gol {
 
-class Generation_count : public ox::layout::Horizontal<> {
+class Generation_count : public npp::layout::Horizontal<> {
    public:
     Generation_count()
     {
         this->height_policy.fixed(1);
         this->cursor.disable();
-        title_ | ox::pipe::fixed_width(11uL);
-        count_ | ox::pipe::fixed_width(5uL);
+        title_ | npp::pipe::fixed_width(11uL);
+        count_ | npp::pipe::fixed_width(5uL);
     }
 
     void update_count(std::uint32_t count)
@@ -31,26 +31,26 @@ class Generation_count : public ox::layout::Horizontal<> {
     }
 
    private:
-    ox::HLabel& title_ = this->make_child<ox::HLabel>({L"Generation"});
+    npp::HLabel& title_ = this->make_child<npp::HLabel>({L"Generation"});
 
-    ox::Text_display& count_ = this->make_child<ox::Text_display>(L"0");
+    npp::Text_display& count_ = this->make_child<npp::Text_display>(L"0");
 };
 
-struct Center_offset : ox::layout::Vertical<> {
+struct Center_offset : npp::layout::Vertical<> {
    public:
-    ox::HLabel& title_ =
-        this->make_child<ox::HLabel>({L"Center Offset" | ox::Trait::Underline});
+    npp::HLabel& title_ =
+        this->make_child<npp::HLabel>({L"Center Offset" | npp::Trait::Underline});
 
-    ox::Labeled_number_edit<>& x_coords =
-        this->make_child<ox::Labeled_number_edit<>>(L"x: ", 0);
+    npp::Labeled_number_edit<>& x_coords =
+        this->make_child<npp::Labeled_number_edit<>>(L"x: ", 0);
 
-    ox::Labeled_number_edit<>& y_coords =
-        this->make_child<ox::Labeled_number_edit<>>(L"y: ", 0);
+    npp::Labeled_number_edit<>& y_coords =
+        this->make_child<npp::Labeled_number_edit<>>(L"y: ", 0);
 
    public:
     Center_offset()
     {
-        using namespace ox;
+        using namespace npp;
 
         title_.set_alignment(Align::Center);
 
@@ -64,7 +64,7 @@ struct Center_offset : ox::layout::Vertical<> {
     }
 };
 
-struct Status_box : ox::layout::Vertical<> {
+struct Status_box : npp::layout::Vertical<> {
    public:
     Generation_count& gen_count  = this->make_child<Generation_count>();
     Widget& break_               = this->append_child(make_break());

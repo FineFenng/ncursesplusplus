@@ -6,7 +6,7 @@
 
 #include <termox/system/detail/timer_event_loop.hpp>
 
-namespace ox {
+namespace npp {
 
 void Animation_engine::register_widget(Widget& w, Period_t interval)
 {
@@ -57,4 +57,4 @@ void Animation_engine::startup()
         loop->run_async();
 }
 
-}  // namespace ox
+}  // namespace npp

@@ -12,12 +12,12 @@
 namespace demos::animation {
 
 /// Box containing an 'x' character that bounces off the Widget's walls.
-class Animated_box : public ox::Widget {
+class Animated_box : public npp::Widget {
    public:
     /// Initialize with the frames-per-second the animation will happen in.
-    explicit Animated_box(ox::FPS fps) : fps_{fps}
+    explicit Animated_box(npp::FPS fps) : fps_{fps}
     {
-        *this | ox::pipe::strong_focus();
+        *this | npp::pipe::strong_focus();
     }
 
    protected:
@@ -31,7 +31,7 @@ class Animated_box : public ox::Widget {
 
     auto paint_event() -> bool override
     {
-        ox::Painter{*this}.put(glyph_, xy_);
+        npp::Painter{*this}.put(glyph_, xy_);
         return Widget::paint_event();
     }
 
@@ -47,14 +47,14 @@ class Animated_box : public ox::Widget {
         return Widget::disable_event();
     }
 
-    auto mouse_press_event(const ox::Mouse& m) -> bool override
+    auto mouse_press_event(const npp::Mouse& m) -> bool override
     {
         xy_ = m.local;
         this->update();
         return Widget::mouse_press_event(m);
     }
 
-    auto resize_event(ox::Area new_size, ox::Area old_size) -> bool override
+    auto resize_event(npp::Area new_size, npp::Area old_size) -> bool override
     {
         reset(xy_.x, this->width());
         reset(xy_.y, this->height());
@@ -62,10 +62,10 @@ class Animated_box : public ox::Widget {
     }
 
    private:
-    ox::FPS const fps_;
+    npp::FPS const fps_;
 
-    ox::Glyph glyph_ = L'X' | fg(ox::Color::Yellow);
-    ox::Point xy_    = ox::Point{0uL, 0uL};
+    npp::Glyph glyph_ = L'X' | fg(npp::Color::Yellow);
+    npp::Point xy_    = npp::Point{0uL, 0uL};
     int x_direction_ = 1;
     int y_direction_ = 1;
 
@@ -95,9 +95,9 @@ class Animated_box : public ox::Widget {
 };
 
 /// Contains a few Animated_boxes at various animation rates.
-inline auto build_demo() -> std::unique_ptr<ox::Widget>
+inline auto build_demo() -> std::unique_ptr<npp::Widget>
 {
-    using namespace ox;
+    using namespace npp;
     return layout::horizontal<Animated_box>(
         std::make_unique<Animated_box>(FPS{5}),
         std::make_unique<Animated_box>(FPS{10}) | pipe::bordered(),

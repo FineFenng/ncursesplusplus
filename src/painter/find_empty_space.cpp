@@ -9,7 +9,7 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 /// Return the sum total height of all widgets from [first, last).
 template <typename Iter>
@@ -97,7 +97,7 @@ void mark_covered_tiles(Widget const& w, detail::Screen_mask& mask)
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
 //  Should not consider border space, since that will never be empty.
 auto find_empty_space(Widget const& w) -> Screen_mask
@@ -110,4 +110,4 @@ auto find_empty_space(Widget const& w) -> Screen_mask
     return mask;
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

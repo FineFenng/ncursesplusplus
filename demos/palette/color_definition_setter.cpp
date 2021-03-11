@@ -4,7 +4,7 @@
 
 #include "palette_helpers.hpp"
 
-using namespace ox;
+using namespace npp;
 
 namespace palette {
 

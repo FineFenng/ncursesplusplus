@@ -39,14 +39,14 @@
 
 namespace colors {
 
-class Palette_picker : public ox::Labeled_cycle_box {
+class Palette_picker : public npp::Labeled_cycle_box {
    public:
-    sl::Signal<void(ox::Palette)> palette_picked;
+    sl::Signal<void(npp::Palette)> palette_picked;
 
    public:
     Palette_picker() : Labeled_cycle_box{"Palette"}
     {
-        using namespace ox;
+        using namespace npp;
         this->append_option(L"Dawn Bringer 16", dawn_bringer16::palette);
         this->append_option(L"Dawn Bringer 32", dawn_bringer32::palette);
         this->append_option(L"Basic 16", basic::palette);
@@ -75,7 +75,7 @@ class Palette_picker : public ox::Labeled_cycle_box {
 
    private:
     /// Adds an entry to the cycle box for the given palette with \p title.
-    void append_option(ox::Glyph_string title, ox::Palette const& pal)
+    void append_option(npp::Glyph_string title, npp::Palette const& pal)
     {
         this->cycle_box.add_option(std::move(title)).connect([this, pal]() {
             palette_picked(pal);
@@ -83,18 +83,18 @@ class Palette_picker : public ox::Labeled_cycle_box {
     }
 };
 
-class Palette_demo : public ox::layout::Vertical<> {
+class Palette_demo : public npp::layout::Vertical<> {
    public:
-    ox::Color_select& palette_view = this->make_child<ox::Color_select>(true);
+    npp::Color_select& palette_view = this->make_child<npp::Color_select>(true);
     Palette_picker& palette_picker = this->make_child<Palette_picker>();
 
    public:
     Palette_demo()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | strong_focus();
         palette_picker.palette_picked.connect(
-            [](auto const& pal) { ox::System::terminal.set_palette(pal); });
+            [](auto const& pal) { npp::System::terminal.set_palette(pal); });
     }
 };
 

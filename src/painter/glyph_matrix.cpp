@@ -4,7 +4,7 @@
 
 #include <termox/painter/glyph.hpp>
 
-namespace ox {
+namespace npp {
 
 void Glyph_matrix::resize(std::size_t width, std::size_t height)
 {
@@ -16,4 +16,4 @@ void Glyph_matrix::resize(std::size_t width, std::size_t height)
     }
 }
 
-}  // namespace ox
+}  // namespace npp

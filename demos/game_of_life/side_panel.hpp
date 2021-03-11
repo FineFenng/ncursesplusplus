@@ -14,36 +14,36 @@
 
 namespace gol {
 
-struct Side_panel : ox::layout::Vertical<> {
+struct Side_panel : npp::layout::Vertical<> {
    private:
-    using Pattern_rulesets = ox::VAccordion<Patterns_rulesets_box>;
-    using Files            = ox::VAccordion<Files_box>;
-    using Settings         = ox::VAccordion<Controls_box>;
-    using Status           = ox::VAccordion<Status_box>;
+    using Pattern_rulesets = npp::VAccordion<Patterns_rulesets_box>;
+    using Files            = npp::VAccordion<Files_box>;
+    using Settings         = npp::VAccordion<Controls_box>;
+    using Status           = npp::VAccordion<Status_box>;
 
    public:
     Patterns_rulesets_box& patterns_rulesets =
-        this->make_child<Pattern_rulesets>({L"Examples", ox::Align::Left, line})
+        this->make_child<Pattern_rulesets>({L"Examples", npp::Align::Left, line})
             .wrapped();
 
     Files_box& files =
-        this->make_child<Files>({L"Files", ox::Align::Left, line}).wrapped();
+        this->make_child<Files>({L"Files", npp::Align::Left, line}).wrapped();
 
     Settings& settings_accordion =
-        this->make_child<Settings>({L"Controls", ox::Align::Left, line});
+        this->make_child<Settings>({L"Controls", npp::Align::Left, line});
 
     Controls_box& settings = settings_accordion.wrapped();
 
     Status_box& status =
-        this->make_child<Status>({L"Status", ox::Align::Left, line}).wrapped();
+        this->make_child<Status>({L"Status", npp::Align::Left, line}).wrapped();
 
-    ox::Widget& empty_space = this->make_child();
+    npp::Widget& empty_space = this->make_child();
 
    public:
     Side_panel()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_width(16uL);
 

@@ -24,15 +24,15 @@
 
 namespace demos {
 
-class Demo_menu : public ox::Menu_stack {
+class Demo_menu : public npp::Menu_stack {
    public:
     Demo_menu() : Menu_stack{L"Demos"}
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         Shortcuts::add_shortcut(Key::Escape).connect([this] {
-            System::terminal.set_palette(ox::dawn_bringer16::palette);
+            System::terminal.set_palette(npp::dawn_bringer16::palette);
             this->Menu_stack::goto_menu();
         });
 
@@ -42,7 +42,7 @@ class Demo_menu : public ox::Menu_stack {
         // this->append_page(L"Composites",
         //     layout::vertical
         //     (
-        //         ox::make<Checkbox1>(),
+        //         npp::make<Checkbox1>(),
         //         textbox(L"WOW!") | bg(Color::Green) | Trait::Bold,
         //         layout::horizontal
         //         (
@@ -70,21 +70,21 @@ class Demo_menu : public ox::Menu_stack {
     }
 };
 
-class Demos : public ox::layout::Vertical<> {
+class Demos : public npp::layout::Vertical<> {
    public:
     // TODO add a back button to left side of titlebar that appears in demos
-    using Titlebar = ox::Titlebar;
+    using Titlebar = npp::Titlebar;
 
     Titlebar& title_ = this->make_child<Titlebar>("~ TermOx ~");
     Demo_menu& menu  = this->make_child<Demo_menu>();
 
    public:
-    Demos() { this->focus_policy = ox::Focus_policy::Direct; }
+    Demos() { this->focus_policy = npp::Focus_policy::Direct; }
 
    protected:
     auto focus_in_event() -> bool override
     {
-        ox::System::set_focus(menu);
+        npp::System::set_focus(menu);
         return true;
     }
 };

@@ -8,10 +8,10 @@ namespace palette {
 
 bool Shade_display::paint_event()
 {
-    using namespace ox;
+    using namespace npp;
     auto light_shade   = L'░' | bg(base_);
     auto mid_shade     = L'▒' | bg(base_);
-    auto const color_n = ox::System::terminal.get_palette_color_count();
+    auto const color_n = npp::System::terminal.get_palette_color_count();
 
     int const height = static_cast<int>(this->height());
     int const width  = static_cast<int>(this->width());

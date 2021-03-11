@@ -3,7 +3,7 @@
 #include <termox/system/key.hpp>
 #include <termox/system/mouse.hpp>
 
-namespace ox {
+namespace npp {
 
 auto Textbox::key_press_event(Key k) -> bool
 {
@@ -76,4 +76,4 @@ auto Textbox::mouse_wheel_event(Mouse const& m) -> bool
     return Textbox_base::mouse_wheel_event(m);
 }
 
-}  // namespace ox
+}  // namespace npp

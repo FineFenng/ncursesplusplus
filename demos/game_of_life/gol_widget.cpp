@@ -44,7 +44,7 @@ void apply(bool hi_res, Coordinate offset, Container_t& cells)
 
 }  // namespace
 
-using namespace ox;
+using namespace npp;
 namespace gol {
 
 void GoL_widget::import_file(std::string const& filename)

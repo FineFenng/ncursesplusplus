@@ -42,7 +42,7 @@ endif()
 #     target_precompile_headers(
 #         TermOx
 #         PRIVATE
-#             ../include/termox/widget/widget.hpp
+#             ../include/ncursesplusplus/widget/widget.hpp
 #             ../external/signals-light/include/signals_light/signal.hpp
 #     )
 # endif()

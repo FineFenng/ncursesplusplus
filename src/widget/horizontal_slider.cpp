@@ -9,7 +9,7 @@
 #include <termox/system/mouse.hpp>
 #include <termox/widget/detail/link_lifetimes.hpp>
 
-namespace ox {
+namespace npp {
 
 void Horizontal_slider::set_percent(float percent)
 {
@@ -72,9 +72,9 @@ auto Horizontal_slider::percent_to_position(float percent) -> std::size_t
     return width == 0 ? 0 : std::round(percent * static_cast<float>(width - 1));
 }
 
-}  // namespace ox
+}  // namespace npp
 
-namespace ox::slot {
+namespace npp::slot {
 
 auto set_percent(Horizontal_slider& s) -> sl::Slot<void(float)>
 {
@@ -86,4 +86,4 @@ auto set_percent(Horizontal_slider& s, float percent) -> sl::Slot<void()>
     return link_lifetimes([&s, percent] { s.set_percent(percent); }, s);
 }
 
-}  // namespace ox::slot
+}  // namespace npp::slot

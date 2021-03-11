@@ -22,7 +22,7 @@
 #include <termox/system/system.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 auto color_index(Color fg, Color bg) -> short
 {
@@ -84,7 +84,7 @@ void put_wchar(Glyph glyph)
 }
 }  // namespace
 
-namespace ox::output {
+namespace npp::output {
 
 void move_cursor(std::size_t x, std::size_t y)
 {
@@ -105,4 +105,4 @@ void put(Glyph g)
 #endif
 }
 
-}  // namespace ox::output
+}  // namespace npp::output

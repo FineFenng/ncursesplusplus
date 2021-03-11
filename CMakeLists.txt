@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(TermOx LANGUAGES CXX)
+
+project(ncursesplusplus LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 11)
 
 # Build Types
 set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE}
@@ -49,6 +52,34 @@ add_subdirectory(3rd)
 if(${CMAKE_VERSION} VERSION_LESS "3.8")
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
+
+set(NPP_TARGET_NAME ${PROJECT_NAME})
+
+set(${NPP_TARGET_NAME}_COMMON_HDR
+        include/ncursesplusplus/common/filter_iterator.hpp
+        include/ncursesplusplus/common/identity.hpp
+        include/ncursesplusplus/common/lockable.hpp
+        include/ncursesplusplus/common/overload.hpp
+        include/ncursesplusplus/common/priority_queue.hpp
+        include/ncursesplusplus/common/range.hpp
+        include/ncursesplusplus/common/transform_iterator.hpp
+        include/ncursesplusplus/common/transform_view.hpp)
+
+set(${NPP_TARGET_NAME}_PAINTER_HDR
+        include/ncursesplusplus/painter/.hpp
+        include/ncursesplusplus/common/identity.hpp
+        include/ncursesplusplus/common/lockable.hpp
+        include/ncursesplusplus/common/overload.hpp
+        include/ncursesplusplus/common/priority_queue.hpp
+        include/ncursesplusplus/common/range.hpp
+        include/ncursesplusplus/common/transform_iterator.hpp
+        include/ncursesplusplus/common/transform_view.hpp)
+
+
+
+
+
+
 
 # Add nCurses
 add_subdirectory(external/ncurses-snapshots)

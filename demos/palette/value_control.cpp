@@ -6,7 +6,7 @@
 #include <termox/painter/color.hpp>
 #include <termox/widget/layouts/horizontal.hpp>
 
-using namespace ox;
+using namespace npp;
 
 namespace palette::detail {
 

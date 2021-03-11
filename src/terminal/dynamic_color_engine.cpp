@@ -9,7 +9,7 @@
 #include <termox/system/system.hpp>
 #include <termox/terminal/output.hpp>
 
-namespace ox::detail {
+namespace npp::detail {
 
 namespace {
 
@@ -23,7 +23,7 @@ auto dynamic_color_event(Processed_colors colors) -> Custom_event
             for (auto& [ansi, true_color] : colors)
                 System::terminal.term_set_color(ansi, true_color);
         }
-        ox::output::refresh();
+        npp::output::refresh();
     }};
 }
 
@@ -42,4 +42,4 @@ void Dynamic_color_event_loop::loop_function()
     Interval_event_loop::loop_function();
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

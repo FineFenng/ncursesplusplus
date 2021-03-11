@@ -21,7 +21,7 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 /// Check if mouse_event is a button_mask type of event.
 template <typename Mask_t>
@@ -159,7 +159,7 @@ auto make_keyboard_event(int input) -> std::optional<Event>
 
 }  // namespace
 
-namespace ox::input {
+namespace npp::input {
 
 auto get() -> std::optional<Event>
 {
@@ -172,4 +172,4 @@ auto get() -> std::optional<Event>
     }
 }
 
-}  // namespace ox::input
+}  // namespace npp::input

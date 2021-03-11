@@ -21,7 +21,7 @@
 #include <termox/widget/widget.hpp>
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 template <typename Map_t>
 auto contains(typename Map_t::key_type const& value, Map_t const& map) -> bool
@@ -99,7 +99,7 @@ void remove_cursor() { System::terminal.show_cursor(false); }
 
 }  // namespace
 
-namespace ox::detail {
+namespace npp::detail {
 
 void Screen::flush(Staged_changes::Map_t const& changes)
 {
@@ -126,4 +126,4 @@ void Screen::display_cursor()
         remove_cursor();
 }
 
-}  // namespace ox::detail
+}  // namespace npp::detail

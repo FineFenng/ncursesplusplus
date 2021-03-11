@@ -23,14 +23,14 @@
 
 namespace gol {
 
-class GoL_widget : public ox::Widget {
+class GoL_widget : public npp::Widget {
    public:
     using Period_t = std::chrono::milliseconds;
 
    public:
     GoL_widget()
     {
-        *this | ox::pipe::strong_focus();
+        *this | npp::pipe::strong_focus();
         this->set_rules("B3/S23");
     }
 
@@ -174,17 +174,17 @@ class GoL_widget : public ox::Widget {
         return Widget::paint_event();
     }
 
-    auto mouse_press_event(ox::Mouse const& m) -> bool override
+    auto mouse_press_event(npp::Mouse const& m) -> bool override
     {
         auto const c = transform_to_engine(m.local);
-        if (m.button == ox::Mouse::Button::Right) {
+        if (m.button == npp::Mouse::Button::Right) {
             if (hi_res_)
                 this->decrement_at(c);
             else
                 engine_.kill(c);
             this->update();
         }
-        else if (m.button == ox::Mouse::Button::Left) {
+        else if (m.button == npp::Mouse::Button::Left) {
             if (hi_res_)
                 this->increment_at(c);
             else
@@ -194,10 +194,10 @@ class GoL_widget : public ox::Widget {
         return Widget::mouse_press_event(m);
     }
 
-    auto mouse_wheel_event(ox::Mouse const& m) -> bool override
+    auto mouse_wheel_event(npp::Mouse const& m) -> bool override
     {
         auto const c = transform_to_engine(m.local);
-        if (m.button == ox::Mouse::Button::ScrollUp) {
+        if (m.button == npp::Mouse::Button::ScrollUp) {
             if (m.modifiers.ctrl)
                 this->set_offset({offset_.x, offset_.y - 1});
             else if (m.modifiers.shift)
@@ -208,7 +208,7 @@ class GoL_widget : public ox::Widget {
                 engine_.create_life(c);
             this->update();
         }
-        else if (m.button == ox::Mouse::Button::ScrollDown) {
+        else if (m.button == npp::Mouse::Button::ScrollDown) {
             if (m.modifiers.ctrl)
                 this->set_offset({offset_.x, offset_.y + 1});
             else if (m.modifiers.shift)
@@ -229,11 +229,11 @@ class GoL_widget : public ox::Widget {
         return Widget::timer_event();
     }
 
-    auto key_press_event(ox::Key k) -> bool override
+    auto key_press_event(npp::Key k) -> bool override
     {
         auto new_offset = this->offset();
         switch (k) {
-            using ox::Key;
+            using npp::Key;
             case Key::Arrow_left: --new_offset.x; break;
             case Key::Arrow_right: ++new_offset.x; break;
             case Key::Arrow_up: --new_offset.y; break;
@@ -244,7 +244,7 @@ class GoL_widget : public ox::Widget {
         return Widget::key_press_event(k);
     }
 
-    auto resize_event(ox::Area new_size, ox::Area old_size) -> bool override
+    auto resize_event(npp::Area new_size, npp::Area old_size) -> bool override
     {
         // Can't use new_size, since width takes Border into account.
         half_width_  = static_cast<int>(this->width() / 2);
@@ -258,12 +258,12 @@ class GoL_widget : public ox::Widget {
     bool grid_   = false;
     Period_t period_{40};
     Coordinate offset_{0, 0};
-    ox::Color cell_color_ = color::White;
+    npp::Color cell_color_ = color::White;
 
     int half_width_  = 0;
     int half_height_ = 0;
 
-    static auto constexpr dead_cell = ox::Glyph{L' '};
+    static auto constexpr dead_cell = npp::Glyph{L' '};
 
    private:
     /// Update the period if currently running.
@@ -277,7 +277,7 @@ class GoL_widget : public ox::Widget {
 
     /// Convert unsigned screen Point to engine Coordinate.
     /** Engine coordinate (0, 0) is at the center of the display. */
-    auto transform_to_engine(ox::Point p) const -> Coordinate
+    auto transform_to_engine(npp::Point p) const -> Coordinate
     {
         auto x = static_cast<std::int16_t>(p.x - half_width_ + offset_.x);
         auto y = static_cast<std::int16_t>(p.y - half_height_ + offset_.y);
@@ -292,7 +292,7 @@ class GoL_widget : public ox::Widget {
     {
         auto const width  = this->width();
         auto const height = this->height();
-        auto p            = ox::Painter{*this};
+        auto p            = npp::Painter{*this};
         for (auto x = 0uL; x < width; ++x) {
             for (auto y = 0uL; y < height; ++y) {
                 auto const coords = transform_to_engine({x, y});
@@ -306,17 +306,17 @@ class GoL_widget : public ox::Widget {
     {
         auto const width  = this->width();
         auto const height = this->height();
-        auto p            = ox::Painter{*this};
+        auto p            = npp::Painter{*this};
         for (auto x = 0uL; x < width; ++x) {
             for (auto y = 0uL; y < height; ++y) {
-                auto const braille = braille_at(ox::Point{x, y});
+                auto const braille = braille_at(npp::Point{x, y});
                 if (braille != L'\0')
                     p.put(braille | fg(cell_color_), {x, y});
             }
         }
     }
 
-    auto braille_at(ox::Point p) const -> wchar_t
+    auto braille_at(npp::Point p) const -> wchar_t
     {
         return braille_at(transform_to_engine(p));
     }

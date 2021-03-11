@@ -33,3 +33,4 @@
 
 # Clion Build directories
 cmake-build-*
+.idea

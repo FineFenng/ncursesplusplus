@@ -6,7 +6,7 @@
 #include "palette_helpers.hpp"
 
 namespace {
-using namespace ox;
+using namespace npp;
 
 /// Enable only the east wall of given a border, \p b. Also enables the border.
 void enable_east_wall(Border& b)
@@ -28,9 +28,9 @@ Color_control::Color_control()
     slider_green_.width_policy.hint(6);
 }
 
-void Color_control::set_sliders(ox::Color /* color */)
+void Color_control::set_sliders(npp::Color /* color */)
 {
-    // auto palette           = ox::System::terminal.current_palette();
+    // auto palette           = npp::System::terminal.current_palette();
     // const auto& definition = detail::extract_definition(palette, color);
     // this->set_red_slider(definition.values.red);
     // this->set_green_slider(definition.values.green);

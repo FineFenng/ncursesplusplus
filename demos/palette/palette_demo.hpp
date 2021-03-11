@@ -16,12 +16,12 @@ namespace palette {
 // as file name) just don't save the black and white utility colors.
 
 /// Provides a user interface to the color palette system.
-class Palette_demo : public ox::layout::Horizontal<> {
+class Palette_demo : public npp::layout::Horizontal<> {
    public:
     Palette_demo()
     {
         all_colors_display_.color_select.color_selected.connect(
-            [this](ox::Color c) { color_setter_.change_current_color(c); });
+            [this](npp::Color c) { color_setter_.change_current_color(c); });
     }
 
    private:

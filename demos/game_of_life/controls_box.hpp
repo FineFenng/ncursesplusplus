@@ -30,18 +30,18 @@
 
 namespace gol {
 
-struct Clear_step_box : ox::layout::Vertical<> {
+struct Clear_step_box : npp::layout::Vertical<> {
    public:
-    ox::Button& step_btn = this->make_child<ox::Button>("Step>");
+    npp::Button& step_btn = this->make_child<npp::Button>("Step>");
 
-    ox::Confirm_button& clear_btn =
-        this->make_child<ox::Confirm_button>("Clear");
+    npp::Confirm_button& clear_btn =
+        this->make_child<npp::Confirm_button>("Clear");
 
    public:
     Clear_step_box()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(2uL);
         clear_btn.main_btn | bg(color::Light_green) | fg(color::Teal);
@@ -52,15 +52,15 @@ struct Clear_step_box : ox::layout::Vertical<> {
     }
 };
 
-class Rule_edit : public ox::layout::Vertical<> {
+class Rule_edit : public npp::layout::Vertical<> {
    public:
     sl::Signal<void(std::string const&)> rule_change;
 
    public:
     Rule_edit()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(2uL);
         edit_box_ | bg(color::White) | fg(color::Black) | ghost(color::Teal);
@@ -85,14 +85,14 @@ class Rule_edit : public ox::layout::Vertical<> {
     }
 
    private:
-    ox::HLabel& label = this->make_child<ox::HLabel>(
-        {L"RuleString[B/S]" | ox::Trait::Underline | ox::Trait::Bold,
-         ox::Align::Center});
+    npp::HLabel& label = this->make_child<npp::HLabel>(
+        {L"RuleString[B/S]" | npp::Trait::Underline | npp::Trait::Bold,
+         npp::Align::Center});
 
-    ox::Line_edit& edit_box_ = this->make_child<ox::Line_edit>();
+    npp::Line_edit& edit_box_ = this->make_child<npp::Line_edit>();
 };
 
-struct Start_pause_btns : ox::Toggle_button {
+struct Start_pause_btns : npp::Toggle_button {
    public:
     sl::Signal<void()>& start_requested = top.pressed;
     sl::Signal<void()>& pause_requested = bottom.pressed;
@@ -100,8 +100,8 @@ struct Start_pause_btns : ox::Toggle_button {
    public:
     Start_pause_btns() : Toggle_button{L"Start", L"Pause"}
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(1uL);
         top | bg(color::Light_green) | fg(color::Teal);
@@ -109,27 +109,27 @@ struct Start_pause_btns : ox::Toggle_button {
     }
 };
 
-struct Interval_box : ox::layout::Horizontal<> {
+struct Interval_box : npp::layout::Horizontal<> {
    public:
-    ox::Labeled_number_edit<unsigned>& value_edit =
-        this->make_child<ox::Labeled_number_edit<unsigned>>("Interval ", 40);
+    npp::Labeled_number_edit<unsigned>& value_edit =
+        this->make_child<npp::Labeled_number_edit<unsigned>>("Interval ", 40);
 
-    ox::HLabel& units = this->make_child<ox::HLabel>({L"ms"});
+    npp::HLabel& units = this->make_child<npp::HLabel>({L"ms"});
 
     sl::Signal<void(unsigned)>& value_set = value_edit.value_set;
 
    public:
     Interval_box()
     {
-        using namespace ox;
-        using namespace ox::pipe;
+        using namespace npp;
+        using namespace npp::pipe;
 
         *this | fixed_height(1uL);
         units | bg(color::White) | fg(color::Teal) | fixed_width(2uL);
     }
 };
 
-struct Grid_hi_res : ox::layout::Horizontal<ox::HCheckbox_label> {
+struct Grid_hi_res : npp::layout::Horizontal<npp::HCheckbox_label> {
    public:
     Child_t& grid_box   = this->make_child({L"Grid"});
     Child_t& hi_res_box = this->make_child({L"Hi-Res"});
@@ -137,14 +137,14 @@ struct Grid_hi_res : ox::layout::Horizontal<ox::HCheckbox_label> {
    public:
     Grid_hi_res()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | fixed_height(1uL) | children() |
             for_each([](auto& c) { c.padding | fixed_width(1uL); });
         hi_res_box.checkbox.toggle();
     }
 };
 
-struct Controls_box : ox::layout::Vertical<> {
+struct Controls_box : npp::layout::Vertical<> {
    public:
     // Widget& break_                    = this->append_child(make_break());
     Interval_box& interval_edit        = this->make_child<Interval_box>();
@@ -153,8 +153,8 @@ struct Controls_box : ox::layout::Vertical<> {
     Clear_step_box& clear_step_btns    = this->make_child<Clear_step_box>();
     Widget& break_1                    = this->append_child(make_break());
     Grid_hi_res& grid_hi_res           = this->make_child<Grid_hi_res>();
-    ox::HCheckbox_label& rainbow_btn =
-        this->make_child<ox::HCheckbox_label>({L"Rainbow Mode"});
+    npp::HCheckbox_label& rainbow_btn =
+        this->make_child<npp::HCheckbox_label>({L"Rainbow Mode"});
     Widget& break_2      = this->append_child(make_break());
     Rule_edit& rule_edit = this->make_child<Rule_edit>();
     Widget& break_3      = this->append_child(make_break());
@@ -172,7 +172,7 @@ struct Controls_box : ox::layout::Vertical<> {
    public:
     Controls_box()
     {
-        using namespace ox::pipe;
+        using namespace npp::pipe;
         *this | fixed_height(12uL);
 
         interval_edit.value_set.connect([this](int value) {

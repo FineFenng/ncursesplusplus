@@ -17,7 +17,7 @@
 
 namespace {
 
-auto border_is_paintable(ox::Widget const& widg) -> bool
+auto border_is_paintable(npp::Widget const& widg) -> bool
 {
     return widg.border.enabled() and widg.is_enabled() and
            widg.outer_width() != 0 and widg.outer_height() != 0;
@@ -25,7 +25,7 @@ auto border_is_paintable(ox::Widget const& widg) -> bool
 
 }  // namespace
 
-namespace ox {
+namespace npp {
 
 Painter::Painter(Widget& widg)
     : widget_{widg},
@@ -230,4 +230,4 @@ void Painter::line_global(Glyph tile,
     }
 }
 
-}  // namespace ox
+}  // namespace npp
