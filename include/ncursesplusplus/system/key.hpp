@@ -1,5 +1,5 @@
-#ifndef TERMOX_SYSTEM_KEY_HPP
-#define TERMOX_SYSTEM_KEY_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_KEY_HPP
+#define NCURSESPLUSPLUS_SYSTEM_KEY_HPP
 #include <cstdint>
 #include <functional>
 #include <type_traits>
@@ -276,4 +276,4 @@ struct hash<npp::Key> {
     }
 };
 }  // namespace std
-#endif  // TERMOX_SYSTEM_KEY_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_KEY_HPP

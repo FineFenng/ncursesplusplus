@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_VERTICAL_HPP
-#define TERMOX_WIDGET_LAYOUTS_VERTICAL_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_VERTICAL_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_VERTICAL_HPP
 #include <cstddef>
 #include <memory>
 #include <utility>
@@ -94,4 +94,4 @@ template <typename Child_t>
 inline constexpr bool is_vertical_v<layout::Vertical<Child_t>> = true;
 
 }  // namespace npp::layout
-#endif  // TERMOX_WIDGET_LAYOUTS_VERTICAL_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_VERTICAL_HPP

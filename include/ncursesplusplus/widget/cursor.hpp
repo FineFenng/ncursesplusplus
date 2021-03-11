@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_CURSOR_DATA_HPP
-#define TERMOX_WIDGET_CURSOR_DATA_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_CURSOR_DATA_HPP
+#define NCURSESPLUSPLUS_WIDGET_CURSOR_DATA_HPP
 #include <cstddef>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/point.hpp>
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp {
 class Widget;
@@ -64,4 +64,4 @@ class Cursor {
 };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_CURSOR_DATA_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_CURSOR_DATA_HPP

@@ -1,9 +1,9 @@
-#ifndef TERMOX_PAINTER_GLYPH_MATRIX_HPP
-#define TERMOX_PAINTER_GLYPH_MATRIX_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_GLYPH_MATRIX_HPP
+#define NCURSESPLUSPLUS_PAINTER_GLYPH_MATRIX_HPP
 #include <cstddef>
 #include <vector>
 
-#include <termox/painter/glyph.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
 
 namespace npp {
 
@@ -66,4 +66,4 @@ class Glyph_matrix {
 };
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_GLYPH_MATRIX_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_GLYPH_MATRIX_HPP

@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP
-#define TERMOX_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP
 #include <cstddef>
 
-#include <termox/painter/glyph_matrix.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph_matrix.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace ox {
 
@@ -47,4 +47,4 @@ auto matrix_display(Args&&... args) -> std::unique_ptr<Matrix_display>
 }
 
 }  // namespace ox
-#endif  // TERMOX_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_MATRIX_DISPLAY_HPP

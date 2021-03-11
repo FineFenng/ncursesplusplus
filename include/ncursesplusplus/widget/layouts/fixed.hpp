@@ -1,9 +1,9 @@
-#ifndef TERMOX_WIDGET_LAYOUT_FIXED_HPP
-#define TERMOX_WIDGET_LAYOUT_FIXED_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUT_FIXED_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUT_FIXED_HPP
 #include <cstddef>
 
-#include <termox/system/system.hpp>
-#include <termox/widget/layout/layout.hpp>
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/layout/layout.hpp"
 
 namespace cppurse::layout {
 
@@ -64,4 +64,4 @@ class Fixed_horizontal : public ox::Layout {
 };
 
 }  // namespace cppurse::layout
-#endif  // TERMOX_WIDGET_LAYOUT_FIXED_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUT_FIXED_HPP

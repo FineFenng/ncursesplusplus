@@ -1,5 +1,5 @@
-#ifndef TERMOX_COMMON_RANGE_HPP
-#define TERMOX_COMMON_RANGE_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_RANGE_HPP
+#define NCURSESPLUSPLUS_COMMON_RANGE_HPP
 namespace npp {
 
 /// Holds [begin, end) half-open range of iterators and provides access.
@@ -21,4 +21,4 @@ struct Range {
 };
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_RANGE_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_RANGE_HPP

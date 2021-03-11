@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_BUTTON_LIST_HPP
-#define TERMOX_WIDGET_WIDGETS_BUTTON_LIST_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_LIST_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_LIST_HPP
 #include <memory>
 #include <string>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/layouts/opposite.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/scrollbar.hpp>
+#include "ncursesplusplus/widget/layouts/opposite.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/scrollbar.hpp"
 
 namespace npp {
 
@@ -81,4 +81,4 @@ auto button_list() -> std::unique_ptr<Button_list<Layout_t>>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_BUTTON_LIST_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_LIST_HPP

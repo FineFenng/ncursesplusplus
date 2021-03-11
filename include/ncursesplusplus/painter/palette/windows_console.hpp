@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP
-#define TERMOX_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::windows_console {
 
@@ -45,4 +45,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::windows_console
-#endif  // TERMOX_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_WINDOWS_CONSOLE_HPP

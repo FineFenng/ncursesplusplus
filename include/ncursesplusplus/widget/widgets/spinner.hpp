@@ -1,12 +1,12 @@
-#ifndef TERMOX_WIDGET_WIDGET_SPINNER_HPP
-#define TERMOX_WIDGET_WIDGET_SPINNER_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGET_SPINNER_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGET_SPINNER_HPP
 #include <cstddef>
 #include <utility>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/animation_engine.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/animation_engine.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace ox {
 
@@ -516,4 +516,4 @@ auto spinner_bump(Args&&... args) -> std::unique_ptr<Spinner_bump>
 }
 
 }  // namespace ox
-#endif  // TERMOX_WIDGET_WIDGET_SPINNER_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGET_SPINNER_HPP

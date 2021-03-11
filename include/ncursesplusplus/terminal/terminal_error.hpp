@@ -1,5 +1,5 @@
-#ifndef TERMOX_TERMINAL_TERMINAL_ERROR_HPP
-#define TERMOX_TERMINAL_TERMINAL_ERROR_HPP
+#ifndef NCURSESPLUSPLUS_TERMINAL_TERMINAL_ERROR_HPP
+#define NCURSESPLUSPLUS_TERMINAL_TERMINAL_ERROR_HPP
 #include <stdexcept>
 
 namespace npp {
@@ -11,4 +11,4 @@ struct Terminal_error : std::runtime_error {
 };
 
 }  // namespace npp
-#endif  // TERMOX_TERMINAL_TERMINAL_ERROR_HPP
+#endif  // NCURSESPLUSPLUS_TERMINAL_TERMINAL_ERROR_HPP

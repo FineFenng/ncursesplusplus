@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_DETAIL_LINK_LIFETIMES_HPP
-#define TERMOX_WIDGET_DETAIL_LINK_LIFETIMES_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_DETAIL_LINK_LIFETIMES_HPP
+#define NCURSESPLUSPLUS_WIDGET_DETAIL_LINK_LIFETIMES_HPP
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/detail/memfn_signature.hpp>
+#include "ncursesplusplus/widget/detail/memfn_signature.hpp"
 
 namespace npp::slot {
 
@@ -22,4 +22,4 @@ auto link_lifetimes(F&& method, Widgets&... widgets) -> sl::Slot<Signature>
 }
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_DETAIL_LINK_LIFETIMES_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_LINK_LIFETIMES_HPP

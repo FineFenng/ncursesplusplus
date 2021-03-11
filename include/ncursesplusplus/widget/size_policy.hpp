@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_SIZE_POLICY_HPP
-#define TERMOX_WIDGET_SIZE_POLICY_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_SIZE_POLICY_HPP
+#define NCURSESPLUSPLUS_WIDGET_SIZE_POLICY_HPP
 #include <cstddef>
 #include <limits>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
 namespace npp {
 
@@ -191,4 +191,4 @@ class Size_policy {
 enum class Policy_direction { Vertical, Horizontal };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_SIZE_POLICY_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_SIZE_POLICY_HPP

@@ -1,8 +1,8 @@
-#ifndef TERMOX_SYSTEM_DETAIL_EVENT_PRINT_HPP
-#define TERMOX_SYSTEM_DETAIL_EVENT_PRINT_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_PRINT_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_PRINT_HPP
 #include <iostream>
 
-#include <termox/system/event.hpp>
+#include "ncursesplusplus/system/event.hpp"
 
 namespace ox::detail {
 
@@ -138,4 +138,4 @@ inline void event_print(std::ostream& os, ox::Custom_event const&)
 }
 
 }  // namespace ox::detail
-#endif  // TERMOX_SYSTEM_DETAIL_EVENT_PRINT_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_PRINT_HPP

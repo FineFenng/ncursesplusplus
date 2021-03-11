@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_AMSTRAD_CPC_HPP
-#define TERMOX_PAINTER_PALETTE_AMSTRAD_CPC_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_AMSTRAD_CPC_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_AMSTRAD_CPC_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::amstrad_cpc {
 
@@ -67,4 +67,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::amstrad_cpc
-#endif  // TERMOX_PAINTER_PALETTE_AMSTRAD_CPC_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_AMSTRAD_CPC_HPP

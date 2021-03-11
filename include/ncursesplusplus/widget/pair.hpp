@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_PAIR_HPP
-#define TERMOX_WIDGET_PAIR_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_PAIR_HPP
+#define NCURSESPLUSPLUS_WIDGET_PAIR_HPP
 
 namespace npp {
 
@@ -27,4 +27,4 @@ class Pair<Layout_t, void, void> : public Layout_t {
 };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_PAIR_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_PAIR_HPP

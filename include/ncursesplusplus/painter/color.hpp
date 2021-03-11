@@ -1,5 +1,6 @@
-#ifndef TERMOX_PAINTER_COLOR_HPP
-#define TERMOX_PAINTER_COLOR_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_COLOR_HPP
+#define NCURSESPLUSPLUS_PAINTER_COLOR_HPP
+
 #include <algorithm>
 #include <chrono>
 #include <cstdint>
@@ -293,4 +294,4 @@ inline auto color_to_string(Color c) -> std::string
 }
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_COLOR_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_COLOR_HPP

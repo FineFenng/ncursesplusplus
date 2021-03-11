@@ -1,9 +1,9 @@
-#ifndef TERMOX_WIDGET_WIDGETS_HIDEABLE_HPP
-#define TERMOX_WIDGET_WIDGETS_HIDEABLE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_HIDEABLE_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_HIDEABLE_HPP
 #include <utility>
 
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace ox {
 
@@ -53,4 +53,4 @@ auto hideable(Args&&... args) -> std::unique_ptr<Hideable<Widget_t>>
 }
 
 }  // namespace ox
-#endif  // TERMOX_WIDGET_WIDGETS_HIDEABLE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_HIDEABLE_HPP

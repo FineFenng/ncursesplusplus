@@ -1,13 +1,13 @@
-#ifndef TERMOX_WIDGET_WIDGETS_TEXTBOX_HPP
-#define TERMOX_WIDGET_WIDGETS_TEXTBOX_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXTBOX_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXTBOX_HPP
 #include <cstddef>
 #include <utility>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/widgets/detail/textbox_base.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/widgets/detail/textbox_base.hpp"
 
 namespace npp {
 
@@ -83,4 +83,4 @@ auto textbox(Args&&... args) -> std::unique_ptr<Textbox>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_TEXTBOX_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXTBOX_HPP

@@ -1,5 +1,5 @@
-#ifndef TERMOX_COMMON_TRANSFORM_ITERATOR_HPP
-#define TERMOX_COMMON_TRANSFORM_ITERATOR_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_TRANSFORM_ITERATOR_HPP
+#define NCURSESPLUSPLUS_COMMON_TRANSFORM_ITERATOR_HPP
 #include <cstddef>
 #include <iterator>
 #include <type_traits>
@@ -76,4 +76,4 @@ class Transform_iterator {
 };
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_TRANSFORM_ITERATOR_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_TRANSFORM_ITERATOR_HPP

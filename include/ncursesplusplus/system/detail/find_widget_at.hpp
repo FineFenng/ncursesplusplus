@@ -1,6 +1,6 @@
-#ifndef TERMOX_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP
-#define TERMOX_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP
-#include <termox/widget/point.hpp>
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp {
 class Widget;
@@ -16,4 +16,4 @@ namespace npp::detail {
 auto find_widget_at(Point p) -> Widget*;
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_FIND_WIDGET_AT_HPP

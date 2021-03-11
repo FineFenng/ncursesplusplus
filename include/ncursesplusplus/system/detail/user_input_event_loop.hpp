@@ -1,6 +1,6 @@
-#ifndef TERMOX_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP
-#define TERMOX_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP
-#include <termox/system/event_loop.hpp>
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP
+#include "ncursesplusplus/system/event_loop.hpp"
 
 namespace npp::detail {
 
@@ -17,4 +17,4 @@ class User_input_event_loop : public Event_loop {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_USER_INPUT_EVENT_LOOP_HPP

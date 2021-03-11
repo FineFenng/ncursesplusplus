@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_DETAIL_SCREEN_HPP
-#define TERMOX_PAINTER_DETAIL_SCREEN_HPP
-#include <termox/painter/detail/staged_changes.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_HPP
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
 
 namespace npp::detail {
 
@@ -20,4 +20,4 @@ class Screen {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_PAINTER_DETAIL_SCREEN_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_HPP

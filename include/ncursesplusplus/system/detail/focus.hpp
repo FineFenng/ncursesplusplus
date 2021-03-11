@@ -1,5 +1,5 @@
-#ifndef TERMOX_SYSTEM_DETAIL_FOCUS_HPP
-#define TERMOX_SYSTEM_DETAIL_FOCUS_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_FOCUS_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_FOCUS_HPP
 
 namespace npp {
 class Widget;
@@ -52,4 +52,4 @@ class Focus {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_FOCUS_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_FOCUS_HPP

@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_LAYOUT_HPP
-#define TERMOX_WIDGET_LAYOUT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP
 #include <algorithm>
 #include <cstddef>
 #include <memory>
 #include <type_traits>
 #include <utility>
 
-#include <termox/common/transform_view.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/common/transform_view.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 struct Area;
@@ -374,4 +374,4 @@ class Layout : public Widget {
 };
 
 }  // namespace npp::layout
-#endif  // TERMOX_WIDGET_LAYOUT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP

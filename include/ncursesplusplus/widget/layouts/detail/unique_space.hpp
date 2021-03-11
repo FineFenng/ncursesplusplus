@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP
-#define TERMOX_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP
 #include <cstddef>
 #include <utility>
 #include <vector>
 
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::layout::detail {
 
@@ -53,4 +53,4 @@ class Unique_space {
 };
 
 }  // namespace npp::layout::detail
-#endif  // TERMOX_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_UNIQUE_SPACE_HPP

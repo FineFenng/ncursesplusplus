@@ -1,13 +1,13 @@
-#ifndef TERMOX_TERMINAL_TERMINAL_HPP
-#define TERMOX_TERMINAL_TERMINAL_HPP
+#ifndef NCURSESPLUSPLUS_TERMINAL_TERMINAL_HPP
+#define NCURSESPLUSPLUS_TERMINAL_TERMINAL_HPP
 #include <chrono>
 #include <cstddef>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/terminal/dynamic_color_engine.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/terminal/dynamic_color_engine.hpp"
 
 namespace npp {
 
@@ -137,4 +137,4 @@ class Terminal {
 };
 
 }  // namespace npp
-#endif  // TERMOX_TERMINAL_TERMINAL_HPP
+#endif  // NCURSESPLUSPLUS_TERMINAL_TERMINAL_HPP

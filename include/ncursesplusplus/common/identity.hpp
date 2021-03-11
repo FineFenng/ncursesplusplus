@@ -1,6 +1,8 @@
-#ifndef TERMOX_COMMON_IDENTITY_HPP
-#define TERMOX_COMMON_IDENTITY_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_IDENTITY_HPP
+#define NCURSESPLUSPLUS_COMMON_IDENTITY_HPP
 #include <utility>
+
+#include ""
 
 namespace ox {
 
@@ -14,4 +16,4 @@ struct Identity {
 };
 
 }  // namespace ox
-#endif  // TERMOX_COMMON_IDENTITY_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_IDENTITY_HPP

@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP
-#define TERMOX_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 #include "detail/slider_logic.hpp"
 
@@ -188,4 +188,4 @@ auto vertical_slider(Args&&... args) -> std::unique_ptr<Vertical_slider>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_VERTICAL_SLIDER_HPP

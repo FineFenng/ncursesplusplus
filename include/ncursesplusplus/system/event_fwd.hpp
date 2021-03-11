@@ -1,5 +1,5 @@
-#ifndef TERMOX_SYSTEM_EVENT_FWD_HPP
-#define TERMOX_SYSTEM_EVENT_FWD_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP
+#define NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP
 #include <variant>
 
 namespace npp {
@@ -45,4 +45,4 @@ using Event = std::variant<Paint_event,
                            Custom_event>;
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_EVENT_FWD_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP

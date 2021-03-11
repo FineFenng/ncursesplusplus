@@ -1,10 +1,10 @@
-#ifndef TERMOX_PAINTER_BRUSH_HPP
-#define TERMOX_PAINTER_BRUSH_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_BRUSH_HPP
+#define NCURSESPLUSPLUS_PAINTER_BRUSH_HPP
 #include <tuple>
 #include <utility>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/trait.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
 
 namespace npp {
 
@@ -111,4 +111,4 @@ constexpr inline auto merge(Brush primary, Brush secondary) -> Brush
 }
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_BRUSH_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_BRUSH_HPP

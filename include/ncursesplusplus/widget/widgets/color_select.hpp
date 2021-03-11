@@ -1,18 +1,18 @@
-#ifndef TERMOX_WIDGET_WIDGETS_COLOR_SELECT_HPP
-#define TERMOX_WIDGET_WIDGETS_COLOR_SELECT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_COLOR_SELECT_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_COLOR_SELECT_HPP
 #include <memory>
 #include <string>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/button.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
 
 namespace npp {
 
@@ -86,4 +86,4 @@ auto color_select(Args&&... args) -> std::unique_ptr<Color_select>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_COLOR_SELECT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_COLOR_SELECT_HPP

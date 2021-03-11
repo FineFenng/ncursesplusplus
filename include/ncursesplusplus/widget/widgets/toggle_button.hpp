@@ -1,12 +1,12 @@
-#ifndef TERMOX_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP
-#define TERMOX_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/widgets/button.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
 
 namespace npp {
 class Glyph_string;
@@ -62,4 +62,4 @@ auto toggle_button(Args&&... args) -> std::unique_ptr<Toggle_button>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_TOGGLE_BUTTON_HPP

@@ -1,20 +1,20 @@
-#ifndef TERMOX_WIDGET_WIDGETS_CHECKBOX_HPP
-#define TERMOX_WIDGET_WIDGETS_CHECKBOX_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_CHECKBOX_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_CHECKBOX_HPP
 #include <memory>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/common/overload.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/common/overload.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace npp {
 
@@ -806,4 +806,4 @@ auto uncheck(Checkbox<Layout_t>& cb) -> sl::Slot<void()>
 }
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_WIDGETS_CHECKBOX_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_CHECKBOX_HPP

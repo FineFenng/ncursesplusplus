@@ -1,5 +1,5 @@
-#ifndef TERMOX_SYSTEM_DETAIL_EVENT_QUEUE_HPP
-#define TERMOX_SYSTEM_DETAIL_EVENT_QUEUE_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_QUEUE_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_QUEUE_HPP
 #include <memory>
 #include <mutex>
 #include <set>
@@ -7,10 +7,10 @@
 #include <variant>
 #include <vector>
 
-#include <termox/common/lockable.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/common/lockable.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 inline auto operator<(Paint_event const& x, Paint_event const& y) -> bool
@@ -148,4 +148,4 @@ class Event_queue {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_EVENT_QUEUE_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_QUEUE_HPP

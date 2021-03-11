@@ -1,6 +1,6 @@
-#ifndef TERMOX_SYSTEM_DETAIL_IS_SENDABLE_HPP
-#define TERMOX_SYSTEM_DETAIL_IS_SENDABLE_HPP
-#include <termox/system/event.hpp>
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_IS_SENDABLE_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_IS_SENDABLE_HPP
+#include "ncursesplusplus/system/event.hpp"
 
 namespace npp::detail {
 
@@ -20,4 +20,4 @@ inline auto is_sendable(Focus_out_event const&) -> bool { return true; }
 inline auto is_sendable(Custom_event const&) -> bool { return true; }
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_IS_SENDABLE_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_IS_SENDABLE_HPP

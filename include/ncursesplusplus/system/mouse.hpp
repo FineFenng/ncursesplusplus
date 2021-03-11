@@ -1,8 +1,8 @@
-#ifndef TERMOX_SYSTEM_MOUSE_HPP
-#define TERMOX_SYSTEM_MOUSE_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_MOUSE_HPP
+#define NCURSESPLUSPLUS_SYSTEM_MOUSE_HPP
 #include <cstdint>
 
-#include <termox/widget/point.hpp>
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp {
 
@@ -40,4 +40,4 @@ struct Mouse {
 };
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_MOUSE_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_MOUSE_HPP

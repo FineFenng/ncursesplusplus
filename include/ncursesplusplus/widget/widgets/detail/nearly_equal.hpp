@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP
-#define TERMOX_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
@@ -47,4 +47,4 @@ inline auto ceil_if_nearly_whole(double value) -> double
 }
 
 }  // namespace npp::detail
-#endif  // TERMOX_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_NEARLY_EQUAL_HPP

@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_TUPLE_HPP
-#define TERMOX_WIDGET_TUPLE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_TUPLE_HPP
+#define NCURSESPLUSPLUS_WIDGET_TUPLE_HPP
 #include <tuple>
 #include <utility>
 
@@ -42,4 +42,4 @@ class Tuple : public Layout_t {
 };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_TUPLE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_TUPLE_HPP

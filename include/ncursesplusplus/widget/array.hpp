@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_ARRAY_HPP
-#define TERMOX_WIDGET_ARRAY_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_ARRAY_HPP
+#define NCURSESPLUSPLUS_WIDGET_ARRAY_HPP
 #include <array>
 #include <cstddef>
 #include <functional>
@@ -58,4 +58,4 @@ class Array : public Layout_t {
 };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_ARRAY_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_ARRAY_HPP

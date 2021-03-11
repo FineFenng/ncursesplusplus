@@ -1,15 +1,15 @@
-#ifndef TERMOX_SYSTEM_EVENT_LOOP_HPP
-#define TERMOX_SYSTEM_EVENT_LOOP_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_LOOP_HPP
+#define NCURSESPLUSPLUS_SYSTEM_EVENT_LOOP_HPP
 #include <atomic>
 #include <future>
 #include <stdexcept>
 #include <thread>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/detail/screen.hpp>
-#include <termox/painter/detail/staged_changes.hpp>
+#include "ncursesplusplus/painter/detail/screen.hpp"
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
 
 namespace npp {
 
@@ -76,4 +76,4 @@ class Event_loop {
 };
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_EVENT_LOOP_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_LOOP_HPP

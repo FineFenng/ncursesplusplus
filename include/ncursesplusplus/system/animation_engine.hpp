@@ -1,9 +1,9 @@
-#ifndef TERMOX_SYSTEM_ANIMATION_ENGINE_HPP
-#define TERMOX_SYSTEM_ANIMATION_ENGINE_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_ANIMATION_ENGINE_HPP
+#define NCURSESPLUSPLUS_SYSTEM_ANIMATION_ENGINE_HPP
 #include <memory>
 #include <vector>
 
-#include <termox/system/detail/timer_event_loop.hpp>
+#include "ncursesplusplus/system/detail/timer_event_loop.hpp"
 
 namespace npp {
 class Widget;
@@ -69,4 +69,4 @@ class Animation_engine {
 };
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_ANIMATION_ENGINE_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_ANIMATION_ENGINE_HPP

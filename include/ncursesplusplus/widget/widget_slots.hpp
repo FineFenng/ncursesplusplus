@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_WIDGET_SLOTS_HPP
-#define TERMOX_WIDGET_WIDGET_SLOTS_HPP
-#include <signals_light/signal.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGET_SLOTS_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGET_SLOTS_HPP
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
 
 namespace npp {
 class Widget;
@@ -42,4 +42,4 @@ auto set_foreground(Widget& w, Color c) -> sl::Slot<void()>;
 auto toggle_cursor(Widget& w) -> sl::Slot<void()>;
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_WIDGET_SLOTS_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGET_SLOTS_HPP

@@ -1,21 +1,21 @@
-#ifndef TERMOX_WIDGET_WIDGETS_ACCORDION_HPP
-#define TERMOX_WIDGET_WIDGETS_ACCORDION_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_ACCORDION_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_ACCORDION_HPP
 #include <memory>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/layouts/detail/linear_layout.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/opposite.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/layouts/detail/linear_layout.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/opposite.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace npp {
 
@@ -265,4 +265,4 @@ auto h_accordion(Args&&... args)
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_ACCORDION_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_ACCORDION_HPP

@@ -1,10 +1,10 @@
-#ifndef TERMOX_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP
-#define TERMOX_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP
 #include <unordered_map>
 
-#include <termox/painter/glyph.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp::detail {
 
@@ -68,4 +68,4 @@ class Screen_descriptor {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_DESCRIPTOR_HPP

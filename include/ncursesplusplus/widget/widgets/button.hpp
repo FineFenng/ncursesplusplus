@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_BUTTON_HPP
-#define TERMOX_WIDGET_WIDGETS_BUTTON_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_HPP
 #include <memory>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -131,4 +131,4 @@ auto push_button(Args&&... args) -> std::unique_ptr<Push_button>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_BUTTON_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_BUTTON_HPP

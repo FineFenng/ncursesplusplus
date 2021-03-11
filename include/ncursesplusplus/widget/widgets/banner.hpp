@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_WIDGETS_BANNER_HPP
-#define TERMOX_WIDGET_WIDGETS_BANNER_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_BANNER_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_BANNER_HPP
 #include <chrono>
 #include <cstddef>
 #include <cstdint>
@@ -9,16 +9,16 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/painter/palette/dawn_bringer16.hpp>
-#include <termox/system/animation_engine.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/terminal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/painter/palette/dawn_bringer16.hpp"
+#include "ncursesplusplus/system/animation_engine.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -465,4 +465,4 @@ class Unscramble : public Animator_base {
 
 }  // namespace animator
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_BANNER_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_BANNER_HPP

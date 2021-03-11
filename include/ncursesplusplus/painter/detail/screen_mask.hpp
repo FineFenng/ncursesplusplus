@@ -1,10 +1,10 @@
-#ifndef TERMOX_PAINTER_DETAIL_SCREEN_MASK_HPP
-#define TERMOX_PAINTER_DETAIL_SCREEN_MASK_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_MASK_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_MASK_HPP
 #include <cstddef>
 #include <vector>
 
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp {
 class Widget;
@@ -68,4 +68,4 @@ class Screen_mask {
 
 }  // namespace detail
 }  // namespace npp
-#endif  // TERMOX_PAINTER_DETAIL_SCREEN_MASK_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_MASK_HPP

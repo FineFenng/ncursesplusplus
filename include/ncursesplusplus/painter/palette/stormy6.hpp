@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_STORMY6_HPP
-#define TERMOX_PAINTER_PALETTE_STORMY6_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_STORMY6_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_STORMY6_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::stormy6 {
 
@@ -25,4 +25,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::stormy6
-#endif  // TERMOX_PAINTER_PALETTE_STORMY6_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_STORMY6_HPP

@@ -1,14 +1,14 @@
-#ifndef TERMOX_WIDGET_WIDGETS_MENU_STACK_HPP
-#define TERMOX_WIDGET_WIDGETS_MENU_STACK_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_MENU_STACK_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_MENU_STACK_HPP
 #include <cstddef>
 #include <memory>
 #include <utility>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/widgets/menu.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/widgets/menu.hpp"
 
 namespace npp {
 
@@ -154,4 +154,4 @@ auto menu_stack(Args&&... args) -> std::unique_ptr<Menu_stack>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_MENU_STACK_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_MENU_STACK_HPP

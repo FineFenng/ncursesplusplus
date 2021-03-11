@@ -1,22 +1,22 @@
-#ifndef TERMOX_WIDGET_WIDGETS_SCROLLBAR_HPP
-#define TERMOX_WIDGET_WIDGETS_SCROLLBAR_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_SCROLLBAR_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_SCROLLBAR_HPP
 #include <cmath>
 #include <cstddef>
 #include <memory>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/layouts/detail/linear_layout.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/layouts/detail/linear_layout.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace npp {
 
@@ -364,4 +364,4 @@ void link(Scrollbar<Layout_t>& scrollbar, Textbox& textbox)
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_SCROLLBAR_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_SCROLLBAR_HPP

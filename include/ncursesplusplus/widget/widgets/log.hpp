@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_WIDGETS_LOG_HPP
-#define TERMOX_WIDGET_WIDGETS_LOG_HPP
-#include <signals_light/signal.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_LOG_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_LOG_HPP
+#include <signals_light/signal.hpp"
 
-#include <termox/system/key.hpp>
-#include <termox/widget/widgets/text_display.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace npp {
 class Glyph_string;
@@ -38,4 +38,4 @@ auto post_message(Log& log) -> sl::Slot<void(Glyph_string)>;
 auto post_message(Log& log, Glyph_string const& message) -> sl::Slot<void()>;
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_WIDGETS_LOG_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_LOG_HPP

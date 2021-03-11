@@ -1,10 +1,10 @@
-#ifndef TERMOX_COMMON_PRIORITY_QUEUE_HPP
-#define TERMOX_COMMON_PRIORITY_QUEUE_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_PRIORITY_QUEUE_HPP
+#define NCURSESPLUSPLUS_COMMON_PRIORITY_QUEUE_HPP
 #include <cstdint>
 #include <queue>
 #include <vector>
 
-#include <termox/common/lockable.hpp>
+#include "ncursesplusplus/common/lockable.hpp"
 
 namespace ox {
 
@@ -55,4 +55,4 @@ class Priority_queue {
     Queue_t queue_;
 };
 }  // namespace ox
-#endif  // TERMOX_COMMON_PRIORITY_QUEUE_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_PRIORITY_QUEUE_HPP

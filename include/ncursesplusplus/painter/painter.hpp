@@ -1,10 +1,10 @@
-#ifndef TERMOX_PAINTER_PAINTER_HPP
-#define TERMOX_PAINTER_PAINTER_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_PAINTER_HPP
+#define NCURSESPLUSPLUS_PAINTER_PAINTER_HPP
 #include <cstddef>
 
-#include <termox/painter/detail/screen_descriptor.hpp>
-#include <termox/painter/detail/staged_changes.hpp>
-#include <termox/widget/area.hpp>
+#include "ncursesplusplus/painter/detail/screen_descriptor.hpp"
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
+#include "ncursesplusplus/widget/area.hpp"
 
 namespace npp {
 class Glyph_string;
@@ -116,4 +116,4 @@ class Painter {
 };
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_PAINTER_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PAINTER_HPP

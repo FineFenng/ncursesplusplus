@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_DETAIL_IS_PAINTABLE_HPP
-#define TERMOX_PAINTER_DETAIL_IS_PAINTABLE_HPP
-#include <termox/widget/widget.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_IS_PAINTABLE_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_IS_PAINTABLE_HPP
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::detail {
 
@@ -12,4 +12,4 @@ inline auto is_paintable(Widget const& w) -> bool
 }
 
 }  // namespace npp::detail
-#endif  // TERMOX_PAINTER_DETAIL_IS_PAINTABLE_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_IS_PAINTABLE_HPP

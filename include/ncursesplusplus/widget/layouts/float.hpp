@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_LAYOUT_FLOAT_HPP
-#define TERMOX_WIDGET_LAYOUT_FLOAT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUT_FLOAT_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUT_FLOAT_HPP
 #include <utility>
 
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 

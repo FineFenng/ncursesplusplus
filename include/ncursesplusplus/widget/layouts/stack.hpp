@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_STACK_HPP
-#define TERMOX_WIDGET_LAYOUTS_STACK_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_STACK_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_STACK_HPP
 #include <algorithm>
 #include <cstddef>
 #include <iterator>
@@ -9,15 +9,15 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/layout.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/layout.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::layout {
 
@@ -286,4 +286,4 @@ auto insert_page(layout::Stack<Child_t>& stack, std::size_t index)
 }
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_LAYOUTS_STACK_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_STACK_HPP

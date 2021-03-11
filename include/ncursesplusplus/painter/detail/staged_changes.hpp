@@ -1,8 +1,8 @@
-#ifndef TERMOX_PAINTER_DETAIL_STAGED_CHANGES_HPP
-#define TERMOX_PAINTER_DETAIL_STAGED_CHANGES_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_STAGED_CHANGES_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_STAGED_CHANGES_HPP
 #include <unordered_map>
 
-#include <termox/painter/detail/screen_descriptor.hpp>
+#include "ncursesplusplus/painter/detail/screen_descriptor.hpp"
 
 namespace npp {
 class Widget;
@@ -24,4 +24,4 @@ class Staged_changes {
 
 }  // namespace detail
 }  // namespace npp
-#endif  // TERMOX_PAINTER_DETAIL_STAGED_CHANGES_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_STAGED_CHANGES_HPP

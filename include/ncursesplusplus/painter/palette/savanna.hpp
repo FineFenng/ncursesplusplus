@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_SAVANNA_HPP
-#define TERMOX_PAINTER_PALETTE_SAVANNA_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_SAVANNA_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_SAVANNA_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::savanna {
 
@@ -32,4 +32,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::savanna
-#endif  // TERMOX_PAINTER_PALETTE_SAVANNA_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_SAVANNA_HPP

@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_SECAM_HPP
-#define TERMOX_PAINTER_PALETTE_SECAM_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_SECAM_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_SECAM_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::secam {
 
@@ -29,4 +29,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::secam
-#endif  // TERMOX_PAINTER_PALETTE_SECAM_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_SECAM_HPP

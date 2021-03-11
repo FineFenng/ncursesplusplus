@@ -1,17 +1,17 @@
-#ifndef TERMOX_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP
-#define TERMOX_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP
 #include <cstddef>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -72,4 +72,4 @@ auto set_percent(Horizontal_slider& s, float percent) -> sl::Slot<void(void)>;
 
 }  // namespace slot
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_HORIZONTAL_SLIDER_HPP

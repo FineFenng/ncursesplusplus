@@ -1,10 +1,10 @@
-#ifndef TERMOX_SYSTEM_DETAIL_FILTER_SEND_HPP
-#define TERMOX_SYSTEM_DETAIL_FILTER_SEND_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_FILTER_SEND_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_FILTER_SEND_HPP
 #include <algorithm>
 #include <iterator>
 
-#include <termox/system/event.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::detail {
 
@@ -192,4 +192,4 @@ inline auto filter_send(npp::Custom_event const& e) -> bool
 }
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_FILTER_SEND_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_FILTER_SEND_HPP

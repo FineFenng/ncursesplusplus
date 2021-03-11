@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
-#define TERMOX_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
+#define NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
 namespace npp::detail {
 
 // Could be moved into Signals library with a deduction guide for Slot.
@@ -34,4 +34,4 @@ using Call_signature_t =
     typename MemFn_signature<decltype(&F::operator())>::type;
 
 }  // namespace npp::detail
-#endif  // TERMOX_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP

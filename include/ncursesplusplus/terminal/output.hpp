@@ -1,8 +1,8 @@
-#ifndef TERMOX_TERMINAL_OUTPUT_HPP
-#define TERMOX_TERMINAL_OUTPUT_HPP
+#ifndef NCURSESPLUSPLUS_TERMINAL_OUTPUT_HPP
+#define NCURSESPLUSPLUS_TERMINAL_OUTPUT_HPP
 #include <cstddef>
 
-#include <termox/painter/glyph.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
 
 namespace npp::output {
 
@@ -26,4 +26,4 @@ inline void put(std::size_t x, std::size_t y, const Glyph& g)
 }
 
 }  // namespace npp::output
-#endif  // TERMOX_TERMINAL_OUTPUT_HPP
+#endif  // NCURSESPLUSPLUS_TERMINAL_OUTPUT_HPP

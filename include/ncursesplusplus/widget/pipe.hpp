@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_PIPE_HPP
-#define TERMOX_WIDGET_PIPE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_PIPE_HPP
+#define NCURSESPLUSPLUS_WIDGET_PIPE_HPP
 #include <cstddef>
 #include <memory>
 #include <string>
@@ -7,16 +7,16 @@
 #include <utility>
 #include <vector>
 
-#include <termox/common/filter_iterator.hpp>
-#include <termox/common/range.hpp>
-#include <termox/common/transform_iterator.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/animation_engine.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/growth.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/common/filter_iterator.hpp"
+#include "ncursesplusplus/common/range.hpp"
+#include "ncursesplusplus/common/transform_iterator.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/animation_engine.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/growth.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::pipe::detail {
 
@@ -1890,4 +1890,4 @@ auto operator|(std::vector<Widget*> const& descendants, F&& op)
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_PIPE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_PIPE_HPP

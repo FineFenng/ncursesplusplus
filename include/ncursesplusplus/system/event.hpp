@@ -1,14 +1,14 @@
-#ifndef TERMOX_SYSTEM_EVENT_HPP
-#define TERMOX_SYSTEM_EVENT_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_HPP
+#define NCURSESPLUSPLUS_SYSTEM_EVENT_HPP
 #include <functional>
 #include <memory>
 #include <variant>
 
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -127,4 +127,4 @@ using Event = std::variant<Paint_event,
                            Custom_event>;
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_EVENT_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_HPP

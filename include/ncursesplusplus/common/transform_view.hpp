@@ -1,10 +1,10 @@
-#ifndef TERMOX_COMMON_TRANFORM_VIEW_HPP
-#define TERMOX_COMMON_TRANFORM_VIEW_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_TRANFORM_VIEW_HPP
+#define NCURSESPLUSPLUS_COMMON_TRANFORM_VIEW_HPP
 #include <cstddef>
 #include <type_traits>
 #include <utility>
 
-#include <termox/common/transform_iterator.hpp>
+#include "ncursesplusplus/common/transform_iterator.hpp"
 
 namespace npp {
 
@@ -70,4 +70,4 @@ class Transform_view {
 };
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_TRANFORM_VIEW_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_TRANFORM_VIEW_HPP

@@ -1,10 +1,10 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP
-#define TERMOX_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP
 #include <cstddef>
 #include <vector>
 
-#include <termox/widget/size_policy.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/size_policy.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 #include "layout_span.hpp"
 
@@ -154,4 +154,4 @@ class Shared_space {
 };
 
 }  // namespace npp::layout::detail
-#endif  // TERMOX_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_SHARED_SPACE_HPP

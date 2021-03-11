@@ -1,5 +1,5 @@
-#ifndef TERMOX_COMMON_LOCKABLE_HPP
-#define TERMOX_COMMON_LOCKABLE_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_LOCKABLE_HPP
+#define NCURSESPLUSPLUS_COMMON_LOCKABLE_HPP
 #include <mutex>
 
 namespace npp {
@@ -16,4 +16,4 @@ class Lockable {
 };
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_LOCKABLE_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_LOCKABLE_HPP

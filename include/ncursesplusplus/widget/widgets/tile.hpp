@@ -1,9 +1,9 @@
-#ifndef TERMOX_WIDGET_WIDGETS_TILE_HPP
-#define TERMOX_WIDGET_WIDGETS_TILE_HPP
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_TILE_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_TILE_HPP
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -47,4 +47,4 @@ auto tile(Args&&... args) -> std::unique_ptr<Tile>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_TILE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_TILE_HPP

@@ -1,12 +1,12 @@
-#ifndef TERMOX_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP
-#define TERMOX_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP
+#ifndef NCURSESPLUSPLUS_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP
+#define NCURSESPLUSPLUS_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP
 #include <algorithm>
 #include <memory>
 #include <mutex>
 #include <vector>
 
-#include <termox/painter/color.hpp>
-#include <termox/system/detail/interval_event_loop.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/system/detail/interval_event_loop.hpp"
 
 namespace npp::detail {
 
@@ -185,4 +185,4 @@ class Dynamic_color_engine {
 };
 
 }  // namespace npp
-#endif  // TERMOX_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP
+#endif  // NCURSESPLUSPLUS_TERMINAL_DYNAMIC_COLOR_ENGINE_HPP

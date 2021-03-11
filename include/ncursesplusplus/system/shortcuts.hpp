@@ -1,10 +1,10 @@
-#ifndef TERMOX_SYSTEM_SHORTCUTS_HPP
-#define TERMOX_SYSTEM_SHORTCUTS_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_SHORTCUTS_HPP
+#define NCURSESPLUSPLUS_SYSTEM_SHORTCUTS_HPP
 #include <unordered_map>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/key.hpp>
+#include "ncursesplusplus/system/key.hpp"
 
 namespace npp {
 
@@ -53,4 +53,4 @@ class Shortcuts {
 };
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_SHORTCUTS_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_SHORTCUTS_HPP

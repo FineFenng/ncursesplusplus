@@ -1,11 +1,11 @@
-#ifndef TERMOX_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP
-#define TERMOX_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP
 #include <chrono>
 #include <functional>
 #include <mutex>
 #include <set>
 
-#include <termox/system/detail/interval_event_loop.hpp>
+#include "ncursesplusplus/system/detail/interval_event_loop.hpp"
 
 namespace npp {
 class Widget;
@@ -65,4 +65,4 @@ class Timer_event_loop : public Interval_event_loop {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_TIMER_EVENT_LOOP_HPP

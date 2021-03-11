@@ -1,8 +1,8 @@
-#ifndef TERMOX_PAINTER_GLYPH_HPP
-#define TERMOX_PAINTER_GLYPH_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_GLYPH_HPP
+#define NCURSESPLUSPLUS_PAINTER_GLYPH_HPP
 #include <utility>
 
-#include <termox/painter/brush.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
 
 namespace npp {
 
@@ -108,4 +108,4 @@ constexpr auto operator!=(Glyph lhs, Glyph rhs) -> bool
 }
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_GLYPH_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_GLYPH_HPP

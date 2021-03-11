@@ -1,11 +1,11 @@
-#ifndef TERMOX_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP
-#define TERMOX_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP
 #include <chrono>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -120,4 +120,4 @@ class Notify_light : public Widget {
 };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_NOTIFY_LIGHT_HPP

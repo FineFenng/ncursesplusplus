@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_WIDGETS_GRAPH_HPP
-#define TERMOX_WIDGET_WIDGETS_GRAPH_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_GRAPH_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_GRAPH_HPP
 #include <cmath>
 #include <cstddef>
 #include <iterator>
@@ -7,10 +7,10 @@
 #include <unordered_map>
 #include <vector>
 
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 
@@ -209,4 +209,4 @@ auto graph(Args&&... args) -> std::unique_ptr<Graph<Number_t>>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_GRAPH_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_GRAPH_HPP

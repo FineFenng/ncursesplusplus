@@ -1,13 +1,13 @@
-#ifndef TERMOX_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP
-#define TERMOX_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP
 #include <cstddef>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace npp::detail {
 
@@ -141,4 +141,4 @@ class Textbox_base : public Text_display {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_TEXTBOX_BASE_HPP

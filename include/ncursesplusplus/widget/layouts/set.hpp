@@ -1,11 +1,11 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_SET_HPP
-#define TERMOX_WIDGET_LAYOUTS_SET_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_SET_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_SET_HPP
 #include <algorithm>
 #include <functional>
 #include <memory>
 #include <type_traits>
 
-#include <termox/common/identity.hpp>
+#include "ncursesplusplus/common/identity.hpp"
 
 namespace ox::layout {
 
@@ -82,4 +82,4 @@ auto set(Args&&... args) -> std::unique_ptr<Set<Projection, Comparison>>
 }
 
 }  // namespace ox::layout
-#endif  // TERMOX_WIDGET_LAYOUTS_SET_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_SET_HPP

@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_WIDGET_HPP
-#define TERMOX_WIDGET_WIDGET_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGET_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGET_HPP
 #include <cstddef>
 #include <cstdint>
 #include <iterator>
@@ -10,26 +10,26 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/common/transform_view.hpp>
-#include <termox/painter/brush.hpp>
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/animation_engine.hpp>
-#include <termox/system/detail/focus.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/border.hpp>
-#include <termox/widget/cursor.hpp>
-#include <termox/widget/detail/border_offset.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/size_policy.hpp>
+#include "ncursesplusplus/common/transform_view.hpp"
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/animation_engine.hpp"
+#include "ncursesplusplus/system/detail/focus.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/border.hpp"
+#include "ncursesplusplus/widget/cursor.hpp"
+#include "ncursesplusplus/widget/detail/border_offset.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/size_policy.hpp"
 
 namespace npp {
 
@@ -695,4 +695,4 @@ auto make(Args&&... args) -> std::unique_ptr<Widget_t>
     return std::make_unique<Widget_t>(std::forward<Args>(args)...);
 }
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGET_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGET_HPP

@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_TELETEXT_HPP
-#define TERMOX_PAINTER_PALETTE_TELETEXT_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_TELETEXT_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_TELETEXT_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::teletext {
 
@@ -28,4 +28,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::teletext
-#endif  // TERMOX_PAINTER_PALETTE_TELETEXT_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_TELETEXT_HPP

@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_WIDGETS_CYCLE_BOX_HPP
-#define TERMOX_WIDGET_WIDGETS_CYCLE_BOX_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_BOX_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_BOX_HPP
 #include <algorithm>
 #include <cstddef>
 #include <iterator>
@@ -7,18 +7,18 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/tile.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/tile.hpp"
 
 // TODO Indicate in focus with color or trait change.
 namespace npp {
@@ -240,4 +240,4 @@ inline auto previous(Cycle_box& cb) -> sl::Slot<void()>
 }
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_WIDGETS_CYCLE_BOX_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_BOX_HPP

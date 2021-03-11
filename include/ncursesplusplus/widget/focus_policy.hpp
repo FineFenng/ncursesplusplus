@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_FOCUS_POLICY_HPP
-#define TERMOX_WIDGET_FOCUS_POLICY_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_FOCUS_POLICY_HPP
+#define NCURSESPLUSPLUS_WIDGET_FOCUS_POLICY_HPP
 
 namespace npp {
 
@@ -12,4 +12,4 @@ namespace npp {
 enum class Focus_policy { None, Tab, Click, Strong, Direct };
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_FOCUS_POLICY_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_FOCUS_POLICY_HPP

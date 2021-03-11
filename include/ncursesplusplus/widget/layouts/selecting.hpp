@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_SELECTING_HPP
-#define TERMOX_WIDGET_LAYOUTS_SELECTING_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_SELECTING_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_SELECTING_HPP
 #include <algorithm>
 #include <cstddef>
 #include <memory>
@@ -8,9 +8,9 @@
 #include <utility>
 #include <vector>
 
-#include <termox/system/key.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/pipe.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
 
 namespace npp::layout {
 
@@ -312,4 +312,4 @@ auto selecting(Args&&... args)
 }
 
 }  // namespace npp::layout
-#endif  // TERMOX_WIDGET_LAYOUTS_SELECTING_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_SELECTING_HPP

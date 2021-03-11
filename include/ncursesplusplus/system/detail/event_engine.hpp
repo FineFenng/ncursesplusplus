@@ -1,12 +1,12 @@
-#ifndef TERMOX_SYSTEM_DETAIL_EVENT_ENGINE_HPP
-#define TERMOX_SYSTEM_DETAIL_EVENT_ENGINE_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_ENGINE_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_ENGINE_HPP
 #include <memory>
 
-#include <termox/painter/detail/screen.hpp>
-#include <termox/painter/detail/staged_changes.hpp>
-#include <termox/system/detail/event_queue.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/painter/detail/screen.hpp"
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
+#include "ncursesplusplus/system/detail/event_queue.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
 
 namespace npp::detail {
 
@@ -38,4 +38,4 @@ class Event_engine {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_EVENT_ENGINE_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_ENGINE_HPP

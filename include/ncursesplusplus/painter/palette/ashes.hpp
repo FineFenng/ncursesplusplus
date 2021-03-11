@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_ASHES_HPP
-#define TERMOX_PAINTER_PALETTE_ASHES_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_ASHES_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_ASHES_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::ashes {
 
@@ -32,4 +32,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::ashes
-#endif  // TERMOX_PAINTER_PALETTE_ASHES_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_ASHES_HPP

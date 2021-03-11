@@ -1,10 +1,10 @@
-#ifndef TERMOX_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP
-#define TERMOX_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP
 #include <algorithm>
 #include <chrono>
 #include <thread>
 
-#include <termox/system/event_loop.hpp>
+#include "ncursesplusplus/system/event_loop.hpp"
 
 namespace npp {
 
@@ -78,4 +78,4 @@ class Interval_event_loop : public Event_loop {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_INTERVAL_EVENT_LOOP_HPP

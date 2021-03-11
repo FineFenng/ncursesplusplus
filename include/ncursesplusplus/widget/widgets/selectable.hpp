@@ -1,7 +1,7 @@
-#ifndef TERMOX_WIDGET_WIDGETS_SELECTABLE_HPP
-#define TERMOX_WIDGET_WIDGETS_SELECTABLE_HPP
-#include <termox/painter/trait.hpp>
-#include <termox/widget/pipe.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_SELECTABLE_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_SELECTABLE_HPP
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
 
 namespace npp {
 
@@ -64,4 +64,4 @@ auto selectable() -> std::unique_ptr<Selectable<Widget_t>>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_SELECTABLE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_SELECTABLE_HPP

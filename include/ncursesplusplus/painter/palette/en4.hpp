@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_EN4_HPP
-#define TERMOX_PAINTER_PALETTE_EN4_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_EN4_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_EN4_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::en4 {
 
@@ -21,4 +21,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::en4
-#endif  // TERMOX_PAINTER_PALETTE_EN4_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_EN4_HPP

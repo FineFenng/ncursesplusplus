@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_MSX_HPP
-#define TERMOX_PAINTER_PALETTE_MSX_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_MSX_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_MSX_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::msx {
 
@@ -43,4 +43,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::msx
-#endif  // TERMOX_PAINTER_PALETTE_MSX_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_MSX_HPP

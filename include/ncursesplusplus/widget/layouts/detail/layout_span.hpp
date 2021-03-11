@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP
-#define TERMOX_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP
 #include <algorithm>
 #include <cstddef>
 #include <iterator>
@@ -7,9 +7,9 @@
 #include <utility>
 #include <vector>
 
-#include <termox/widget/detail/border_offset.hpp>
-#include <termox/widget/size_policy.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/detail/border_offset.hpp"
+#include "ncursesplusplus/widget/size_policy.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::layout::detail {
 
@@ -356,4 +356,4 @@ class Layout_span {
 };
 
 }  // namespace npp::layout::detail
-#endif  // TERMOX_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP

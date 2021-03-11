@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_DAWN_BRINGER32_HPP
-#define TERMOX_PAINTER_PALETTE_DAWN_BRINGER32_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_DAWN_BRINGER32_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_DAWN_BRINGER32_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::dawn_bringer32 {
 
@@ -77,4 +77,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::dawn_bringer32
-#endif  // TERMOX_PAINTER_PALETTE_DAWN_BRINGER32_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_DAWN_BRINGER32_HPP

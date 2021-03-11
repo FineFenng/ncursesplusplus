@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_DETAIL_GRAPH_TREE_HPP
-#define TERMOX_WIDGET_DETAIL_GRAPH_TREE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_DETAIL_GRAPH_TREE_HPP
+#define NCURSESPLUSPLUS_WIDGET_DETAIL_GRAPH_TREE_HPP
 #include <string>
 
 namespace npp {
@@ -12,4 +12,4 @@ namespace npp::detail {
 void graph_tree(Widget const& w, std::string const& filename);
 
 }  // namespace npp::detail
-#endif  // TERMOX_WIDGET_DETAIL_GRAPH_TREE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_GRAPH_TREE_HPP

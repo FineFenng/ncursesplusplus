@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP
-#define TERMOX_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP
-#include <termox/painter/detail/screen_mask.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP
+#define NCURSESPLUSPLUS_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP
+#include "ncursesplusplus/painter/detail/screen_mask.hpp"
 
 namespace npp {
 class Widget;
@@ -14,4 +14,4 @@ namespace npp::detail {
 auto find_empty_space(Widget const& w) -> Screen_mask;
 
 }  // namespace npp::detail
-#endif  // TERMOX_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_FIND_EMPTY_SPACE_HPP

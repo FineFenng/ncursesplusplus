@@ -1,7 +1,7 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_OPPOSITE_HPP
-#define TERMOX_WIDGET_LAYOUTS_OPPOSITE_HPP
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_OPPOSITE_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_OPPOSITE_HPP
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
 
 namespace npp::layout {
 
@@ -44,4 +44,4 @@ struct Opposite_template<layout::Vertical<Child_t>> {
 // Can't have a Opposite_template_t, can't deduce type in this context.
 
 }  // namespace npp::layout
-#endif  // TERMOX_WIDGET_LAYOUTS_OPPOSITE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_OPPOSITE_HPP

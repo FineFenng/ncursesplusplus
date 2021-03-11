@@ -1,5 +1,5 @@
-#ifndef TERMOX_COMMON_OVERLOAD_HPP
-#define TERMOX_COMMON_OVERLOAD_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_OVERLOAD_HPP
+#define NCURSESPLUSPLUS_COMMON_OVERLOAD_HPP
 namespace npp {
 
 /// Overload pattern for function objects.
@@ -14,4 +14,4 @@ template <typename... Ts>
 Overload(Ts...) -> Overload<Ts...>;
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_OVERLOAD_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_OVERLOAD_HPP

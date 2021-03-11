@@ -1,5 +1,5 @@
-#ifndef TERMOX_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP
-#define TERMOX_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP
+#define NCURSESPLUSPLUS_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP
 #include <codecvt>
 #include <locale>
 #include <string>
@@ -21,4 +21,4 @@ inline auto wchar_to_bytes(std::wstring w_str) -> std::string
 }
 
 }  // namespace npp::utility
-#endif  // TERMOX_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_UTILITY_WCHAR_TO_BYTES_HPP

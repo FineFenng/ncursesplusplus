@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_THOMSON_M05_HPP
-#define TERMOX_PAINTER_PALETTE_THOMSON_M05_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_THOMSON_M05_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_THOMSON_M05_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::thomson_m05 {
 
@@ -45,4 +45,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::thomson_m05
-#endif  // TERMOX_PAINTER_PALETTE_THOMSON_M05_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_THOMSON_M05_HPP

@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP
-#define TERMOX_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/button.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
 
 namespace npp {
 
@@ -76,4 +76,4 @@ auto confirm_button(Args&&... args) -> std::unique_ptr<Confirm_button>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_CONFIRM_BUTTON_HPP

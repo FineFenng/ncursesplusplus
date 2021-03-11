@@ -1,13 +1,13 @@
-#ifndef TERMOX_WIDGET_WIDGETS_STATUS_HPP
-#define TERMOX_WIDGET_WIDGETS_STATUS_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_STATUS_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_STATUS_HPP
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace npp {
 
@@ -54,4 +54,4 @@ inline auto update_status(Status_bar& sb, Glyph_string const& message)
 }
 
 }  // namespace npp::slot
-#endif  // TERMOX_WIDGET_WIDGETS_STATUS_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_STATUS_HPP

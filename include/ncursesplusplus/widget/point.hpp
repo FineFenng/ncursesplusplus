@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_POINT_HPP
-#define TERMOX_WIDGET_POINT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_POINT_HPP
+#define NCURSESPLUSPLUS_WIDGET_POINT_HPP
 #include <cstddef>
 #include <functional>
 
@@ -50,4 +50,4 @@ struct hash<npp::Point> {
     }
 };
 }  // namespace std
-#endif  // TERMOX_WIDGET_POINT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_POINT_HPP

@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_TEXT_DISPLAY_HPP
-#define TERMOX_WIDGET_WIDGETS_TEXT_DISPLAY_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXT_DISPLAY_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXT_DISPLAY_HPP
 #include <cstddef>
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 struct Point;
@@ -258,4 +258,4 @@ auto text_display(Args&&... args) -> std::unique_ptr<Text_display>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_TEXT_DISPLAY_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_TEXT_DISPLAY_HPP

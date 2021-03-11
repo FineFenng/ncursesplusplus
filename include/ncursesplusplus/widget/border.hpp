@@ -1,6 +1,6 @@
-#ifndef TERMOX_WIDGET_BORDER_HPP
-#define TERMOX_WIDGET_BORDER_HPP
-#include <termox/painter/glyph.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_BORDER_HPP
+#define NCURSESPLUSPLUS_WIDGET_BORDER_HPP
+#include "ncursesplusplus/painter/glyph.hpp"
 
 namespace npp {
 
@@ -80,4 +80,4 @@ class Border {
     bool enabled_ = false;
 };
 }  // namespace npp
-#endif  // TERMOX_WIDGET_BORDER_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_BORDER_HPP

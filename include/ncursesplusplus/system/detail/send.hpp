@@ -1,11 +1,11 @@
-#ifndef TERMOX_SYSTEM_DETAIL_SEND_HPP
-#define TERMOX_SYSTEM_DETAIL_SEND_HPP
-#include <termox/painter/detail/is_paintable.hpp>
-#include <termox/system/detail/focus.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/key.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/widget.hpp>
+#ifndef NCURSESPLUSPLUS_SYSTEM_DETAIL_SEND_HPP
+#define NCURSESPLUSPLUS_SYSTEM_DETAIL_SEND_HPP
+#include "ncursesplusplus/painter/detail/is_paintable.hpp"
+#include "ncursesplusplus/system/detail/focus.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::detail {
 
@@ -124,4 +124,4 @@ inline void send(npp::Timer_event e)
 inline void send(npp::Custom_event e) { e.send(); }
 
 }  // namespace npp::detail
-#endif  // TERMOX_SYSTEM_DETAIL_SEND_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_SEND_HPP

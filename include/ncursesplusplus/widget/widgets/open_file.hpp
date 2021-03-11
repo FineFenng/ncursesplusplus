@@ -1,14 +1,14 @@
-#ifndef TERMOX_WIDGET_WIDGETS_OPEN_FILE_HPP
-#define TERMOX_WIDGET_WIDGETS_OPEN_FILE_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_OPEN_FILE_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_OPEN_FILE_HPP
 #include <fstream>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
 
 namespace npp {
 
@@ -50,4 +50,4 @@ inline auto open_file() -> std::unique_ptr<Open_file<Char_t>>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_OPEN_FILE_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_OPEN_FILE_HPP

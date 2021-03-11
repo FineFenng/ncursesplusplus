@@ -1,13 +1,13 @@
-#ifndef TERMOX_PAINTER_DYNAMIC_COLORS_HPP
-#define TERMOX_PAINTER_DYNAMIC_COLORS_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_DYNAMIC_COLORS_HPP
+#define NCURSESPLUSPLUS_PAINTER_DYNAMIC_COLORS_HPP
 #include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <random>
 
-#include <termox/painter/color.hpp>
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/system/system.hpp"
 
 namespace npp::dynamic {
 
@@ -257,4 +257,4 @@ auto fade(True_color a,
 }
 
 }  // namespace npp::dynamic
-#endif  // TERMOX_PAINTER_DYNAMIC_COLORS_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_DYNAMIC_COLORS_HPP

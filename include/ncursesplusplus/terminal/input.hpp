@@ -1,8 +1,8 @@
-#ifndef TERMOX_TERMINAL_INPUT_HPP
-#define TERMOX_TERMINAL_INPUT_HPP
+#ifndef NCURSESPLUSPLUS_TERMINAL_INPUT_HPP
+#define NCURSESPLUSPLUS_TERMINAL_INPUT_HPP
 #include <optional>
 
-#include <termox/system/event.hpp>
+#include "ncursesplusplus/system/event.hpp"
 
 namespace npp::input {
 
@@ -12,4 +12,4 @@ namespace npp::input {
 auto get() -> std::optional<Event>;
 
 }  // namespace npp::input
-#endif  // TERMOX_TERMINAL_INPUT_HPP
+#endif  // NCURSESPLUSPLUS_TERMINAL_INPUT_HPP

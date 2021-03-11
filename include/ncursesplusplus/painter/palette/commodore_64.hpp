@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_COMMODORE_64_HPP
-#define TERMOX_PAINTER_PALETTE_COMMODORE_64_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_COMMODORE_64_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_COMMODORE_64_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::commodore_64 {
 
@@ -45,4 +45,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::commodore_64
-#endif  // TERMOX_PAINTER_PALETTE_COMMODORE_64_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_COMMODORE_64_HPP

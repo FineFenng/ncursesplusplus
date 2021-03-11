@@ -1,14 +1,14 @@
-#ifndef TERMOX_SYSTEM_SYSTEM_HPP
-#define TERMOX_SYSTEM_SYSTEM_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_SYSTEM_HPP
+#define NCURSESPLUSPLUS_SYSTEM_SYSTEM_HPP
 #include <mutex>
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/detail/user_input_event_loop.hpp>
-#include <termox/system/event_fwd.hpp>
-#include <termox/terminal/terminal.hpp>
+#include "ncursesplusplus/system/detail/user_input_event_loop.hpp"
+#include "ncursesplusplus/system/event_fwd.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
 
 namespace npp {
 class Animation_engine;
@@ -144,4 +144,4 @@ class System {
 };
 
 }  // namespace npp
-#endif  // TERMOX_SYSTEM_SYSTEM_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_SYSTEM_HPP

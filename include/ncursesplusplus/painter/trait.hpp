@@ -1,5 +1,5 @@
-#ifndef TERMOX_PAINTER_TRAIT_HPP
-#define TERMOX_PAINTER_TRAIT_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_TRAIT_HPP
+#define NCURSESPLUSPLUS_PAINTER_TRAIT_HPP
 #include <stdexcept>
 #include <string>
 
@@ -37,4 +37,4 @@ inline auto to_string(Trait t) -> std::string
 }
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_TRAIT_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_TRAIT_HPP

@@ -1,19 +1,19 @@
-#ifndef TERMOX_WIDGET_WIDGETS_LINE_EDIT_HPP
-#define TERMOX_WIDGET_WIDGETS_LINE_EDIT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_LINE_EDIT_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_LINE_EDIT_HPP
 #include <functional>
 #include <string>
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace npp {
 struct Point;
@@ -114,4 +114,4 @@ auto line_edit(Args&&... args) -> std::unique_ptr<Line_edit>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_LINE_EDIT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_LINE_EDIT_HPP

@@ -1,15 +1,15 @@
-#ifndef TERMOX_WIDGET_WIDGETS_TITLEBAR_HPP
-#define TERMOX_WIDGET_WIDGETS_TITLEBAR_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_TITLEBAR_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_TITLEBAR_HPP
 #include <utility>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/size_policy.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/size_policy.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace npp {
 
@@ -48,4 +48,4 @@ auto titlebar(Args&&... args) -> std::unique_ptr<Titlebar>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_TITLEBAR_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_TITLEBAR_HPP

@@ -1,20 +1,20 @@
-#ifndef TERMOX_WIDGET_WIDGETS_CYCLE_STACK_HPP
-#define TERMOX_WIDGET_WIDGETS_CYCLE_STACK_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_STACK_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_STACK_HPP
 #include <memory>
 #include <type_traits>
 #include <utility>
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
 
 namespace npp {
 
@@ -82,4 +82,4 @@ auto cycle_stack(Args&&... args) -> std::unique_ptr<Cycle_stack<Child>>
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_CYCLE_STACK_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_CYCLE_STACK_HPP

@@ -1,17 +1,17 @@
-#ifndef TERMOX_WIDGET_WIDGETS_LABEL_HPP
-#define TERMOX_WIDGET_WIDGETS_LABEL_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_LABEL_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_LABEL_HPP
 #include <cstddef>
 #include <memory>
 #include <utility>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/growth.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/opposite.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/tuple.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/growth.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/opposite.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/tuple.hpp"
 
 namespace npp {
 
@@ -507,4 +507,4 @@ auto label_bottom(Glyph_string text        = L"",
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_LABEL_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_LABEL_HPP

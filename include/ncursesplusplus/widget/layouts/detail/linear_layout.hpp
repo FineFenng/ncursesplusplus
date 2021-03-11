@@ -1,8 +1,8 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
-#define TERMOX_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
-#include <termox/painter/painter.hpp>
-#include <termox/system/event.hpp>
-#include <termox/widget/layout.hpp>
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/widget/layout.hpp"
 
 #include "shared_space.hpp"
 #include "unique_space.hpp"
@@ -278,4 +278,4 @@ class Linear_layout : public Layout<Child> {
 };
 
 }  // namespace npp::layout::detail
-#endif  // TERMOX_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP

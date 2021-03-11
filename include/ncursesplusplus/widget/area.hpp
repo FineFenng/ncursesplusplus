@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_AREA_HPP
-#define TERMOX_WIDGET_AREA_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_AREA_HPP
+#define NCURSESPLUSPLUS_WIDGET_AREA_HPP
 #include <cstddef>
 
 namespace npp {
@@ -29,4 +29,4 @@ inline auto operator<(Area const& x, Area const& y) -> bool
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_AREA_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_AREA_HPP

@@ -1,5 +1,5 @@
-#ifndef TERMOX_PAINTER_GLYPH_STRING_HPP
-#define TERMOX_PAINTER_GLYPH_STRING_HPP
+#ifndef NCURSESPLUSPLUS_PAINTER_GLYPH_STRING_HPP
+#define NCURSESPLUSPLUS_PAINTER_GLYPH_STRING_HPP
 #include <algorithm>
 #include <codecvt>
 #include <cstddef>
@@ -10,9 +10,9 @@
 #include <utility>
 #include <vector>
 
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/painter/utility/wchar_to_bytes.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/painter/utility/wchar_to_bytes.hpp"
 
 namespace npp {
 
@@ -333,4 +333,4 @@ inline auto operator!=(Glyph_string const& x, Glyph_string const& y) -> bool
 }
 
 }  // namespace npp
-#endif  // TERMOX_PAINTER_GLYPH_STRING_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_GLYPH_STRING_HPP

@@ -1,6 +1,6 @@
-#ifndef TERMOX_PAINTER_PALETTE_ZX_SPECTRUM_HPP
-#define TERMOX_PAINTER_PALETTE_ZX_SPECTRUM_HPP
-#include <termox/painter/color.hpp>
+#ifndef NCURSESPLUSPLUS_PAINTER_PALETTE_ZX_SPECTRUM_HPP
+#define NCURSESPLUSPLUS_PAINTER_PALETTE_ZX_SPECTRUM_HPP
+#include "ncursesplusplus/painter/color.hpp"
 
 namespace npp::zx_spectrum {
 
@@ -45,4 +45,4 @@ inline auto const palette = Palette{
 };
 
 }  // namespace npp::zx_spectrum
-#endif  // TERMOX_PAINTER_PALETTE_ZX_SPECTRUM_HPP
+#endif  // NCURSESPLUSPLUS_PAINTER_PALETTE_ZX_SPECTRUM_HPP

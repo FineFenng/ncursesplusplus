@@ -1,5 +1,5 @@
-#ifndef TERMOX_WIDGET_LAYOUTS_HORIZONTAL_HPP
-#define TERMOX_WIDGET_LAYOUTS_HORIZONTAL_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_LAYOUTS_HORIZONTAL_HPP
+#define NCURSESPLUSPLUS_WIDGET_LAYOUTS_HORIZONTAL_HPP
 #include <cstddef>
 
 #include "detail/linear_layout.hpp"
@@ -93,4 +93,4 @@ template <typename Child_t>
 inline constexpr bool is_horizontal_v<layout::Horizontal<Child_t>> = true;
 
 }  // namespace npp::layout
-#endif  // TERMOX_WIDGET_LAYOUTS_HORIZONTAL_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_HORIZONTAL_HPP

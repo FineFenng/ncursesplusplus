@@ -1,18 +1,18 @@
-#ifndef TERMOX_WIDGET_WIDGETS_NUMBER_EDIT_HPP
-#define TERMOX_WIDGET_WIDGETS_NUMBER_EDIT_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_NUMBER_EDIT_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_NUMBER_EDIT_HPP
 #include <cctype>
 #include <limits>
 #include <sstream>
 #include <string>
 #include <type_traits>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/mouse.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
 
 namespace npp {
 
@@ -152,4 +152,4 @@ auto labeled_number_edit(Args&&... args)
 }
 
 }  // namespace npp
-#endif  // TERMOX_WIDGET_WIDGETS_NUMBER_EDIT_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_NUMBER_EDIT_HPP

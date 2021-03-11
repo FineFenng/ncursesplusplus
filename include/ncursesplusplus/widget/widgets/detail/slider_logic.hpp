@@ -1,12 +1,12 @@
-#ifndef TERMOX_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP
-#define TERMOX_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP
+#ifndef NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP
+#define NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP
 #include <cmath>
 #include <limits>
 #include <stdexcept>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/widgets/detail/nearly_equal.hpp>
+#include "ncursesplusplus/widget/widgets/detail/nearly_equal.hpp"
 
 namespace npp::detail {
 
@@ -118,4 +118,4 @@ class Slider_logic {
 };
 
 }  // namespace npp::detail
-#endif  // TERMOX_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP
+#endif  // NCURSESPLUSPLUS_WIDGET_WIDGETS_DETAIL_SLIDER_LOGIC_HPP

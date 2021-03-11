@@ -1,8 +1,8 @@
-#ifndef TERMOX_SYSTEM_EVENT_NAME_HPP
-#define TERMOX_SYSTEM_EVENT_NAME_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP
+#define NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP
 #include <string>
 
-#include <termox/system/event.hpp>
+#include "ncursesplusplus/system/event.hpp"
 
 namespace ox {
 
@@ -82,4 +82,4 @@ inline auto name(Timer_event const&) -> std::string { return "Timer_event"; }
 inline auto name(Custom_event const&) -> std::string { return "Custom_event"; }
 
 }  // namespace ox
-#endif  // TERMOX_SYSTEM_EVENT_NAME_HPP
+#endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP

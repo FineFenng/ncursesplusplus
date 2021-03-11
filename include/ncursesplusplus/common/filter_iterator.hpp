@@ -1,6 +1,9 @@
-#ifndef TERMOX_COMMON_FILTER_ITERATOR_HPP
-#define TERMOX_COMMON_FILTER_ITERATOR_HPP
+#ifndef NCURSESPLUSPLUS_COMMON_FILTER_ITERATOR_HPP
+#define NCURSESPLUSPLUS_COMMON_FILTER_ITERATOR_HPP
+
 #include <iterator>
+
+#include "ncursesplusplus/common/filter_iterator.hpp"
 
 namespace npp {
 
@@ -81,4 +84,4 @@ class Filter_iterator {
 };
 
 }  // namespace npp
-#endif  // TERMOX_COMMON_FILTER_ITERATOR_HPP
+#endif  // NCURSESPLUSPLUS_COMMON_FILTER_ITERATOR_HPP
