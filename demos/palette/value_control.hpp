@@ -1,14 +1,14 @@
-#ifndef TERMOX_DEMOS_PALETTE_VALUE_CONTROL_HPP
-#define TERMOX_DEMOS_PALETTE_VALUE_CONTROL_HPP
-#include <signals_light/signal.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_VALUE_CONTROL_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_VALUE_CONTROL_HPP
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
-#include <termox/widget/widgets/vertical_slider.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
+#include "ncursesplusplus/widget/widgets/vertical_slider.hpp"
 
 namespace palette::detail {
 
@@ -55,4 +55,4 @@ class Value_control : public npp::layout::Vertical<> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_VALUE_CONTROL_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_VALUE_CONTROL_HPP

@@ -1,4 +1,4 @@
-#include <termox/system/detail/focus.hpp>
+#include "ncursesplusplus/system/detail/focus.hpp"
 
 #include <algorithm>
 #include <cstddef>
@@ -7,10 +7,10 @@
 #include <utility>
 #include <vector>
 
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

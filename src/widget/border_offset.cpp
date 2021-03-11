@@ -1,9 +1,9 @@
-#include <termox/widget/detail/border_offset.hpp>
+#include "ncursesplusplus/widget/detail/border_offset.hpp"
 
 #include <cstddef>
 
-#include <termox/widget/border.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/border.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::detail {
 

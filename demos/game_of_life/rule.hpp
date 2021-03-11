@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_RULE_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_RULE_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_RULE_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_RULE_HPP
 #include <bitset>
 #include <sstream>
 #include <stdexcept>
@@ -96,4 +96,4 @@ inline auto to_rule_string(Rule r) -> std::string
 }
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_RULE_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_RULE_HPP

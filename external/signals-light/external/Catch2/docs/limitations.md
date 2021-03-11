@@ -154,7 +154,7 @@ A workaround is to compile the binary in Release mode.
 Some versions of `libc++` and `libstdc++` (or their runtimes) have a bug with `std::uncaught_exception()` getting stuck returning `true` after rethrow, even if there are no active exceptions. One such case is this snippet, which skipped the sections "a" and "b", when compiled against `libcxxrt` from master
 ```cpp
 #define CATCH_CONFIG_MAIN
-#include <catch.hpp>
+#include <catch.hpp"
 
 TEST_CASE("a") {
     CHECK_THROWS(throw 3);

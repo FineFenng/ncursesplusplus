@@ -1,14 +1,14 @@
-#ifndef TERMOX_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP
-#define TERMOX_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP
 #include <cctype>
 #include <string>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/confirm_button.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/confirm_button.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 #include "color_control.hpp"
 #include "color_display.hpp"
@@ -38,4 +38,4 @@ class Color_definition_setter : public npp::layout::Vertical<> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DEFINITION_SETTER_HPP

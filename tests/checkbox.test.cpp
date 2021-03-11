@@ -1,19 +1,19 @@
 #include <string>
 
-#include <termox/system/system.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/array.hpp>
-#include <termox/widget/layouts/float.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/tuple.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/cycle_stack.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
-#include <termox/widget/widgets/notify_light.hpp>
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/array.hpp"
+#include "ncursesplusplus/widget/layouts/float.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/tuple.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_stack.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
+#include "ncursesplusplus/widget/widgets/notify_light.hpp"
 
 // Wall of Checkboxes - Update a count of checked boxes.
 class Wall : public npp::layout::Vertical<> {

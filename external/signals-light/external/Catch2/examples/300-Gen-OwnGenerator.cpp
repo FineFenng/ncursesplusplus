@@ -4,7 +4,7 @@
 // Specifically we will implement a random number generator for integers
 // It will have infinite capacity and settable lower/upper bound
 
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 #include <random>
 

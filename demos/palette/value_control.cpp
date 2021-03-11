@@ -3,8 +3,8 @@
 #include <cctype>
 #include <string>
 
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
 
 using namespace npp;
 

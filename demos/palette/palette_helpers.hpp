@@ -1,9 +1,9 @@
-#ifndef TERMOX_DEMOS_PALETTE_PALETTE_HELPERS_HPP
-#define TERMOX_DEMOS_PALETTE_PALETTE_HELPERS_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_HELPERS_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_HELPERS_HPP
 #include <cstdint>
 
-#include <termox/painter/color.hpp>
-// #include <ncursesplusplus/painter/palette.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+// #include <ncursesplusplus/painter/palette.hpp"
 
 namespace palette {
 namespace detail {
@@ -25,4 +25,4 @@ namespace detail {
 
 }  // namespace detail
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_PALETTE_HELPERS_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_HELPERS_HPP

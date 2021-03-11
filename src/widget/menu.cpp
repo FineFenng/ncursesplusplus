@@ -1,4 +1,4 @@
-#include <termox/widget/widgets/menu.hpp>
+#include "ncursesplusplus/widget/widgets/menu.hpp"
 
 #include <cstddef>
 #include <cstdint>
@@ -6,19 +6,19 @@
 #include <string>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace npp {
 

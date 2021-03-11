@@ -2,7 +2,7 @@
 // Test that the benchmarking support macros compile properly with the single header
 
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 namespace {
 std::uint64_t factorial(std::uint64_t number) {

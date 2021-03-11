@@ -1,4 +1,4 @@
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 #include <algorithm>
 #include <cstddef>
@@ -8,10 +8,10 @@
 
 #include <iostream>  //temp
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/point.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/point.hpp"
 
 namespace npp {
 

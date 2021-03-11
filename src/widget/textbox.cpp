@@ -1,7 +1,7 @@
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
 
 namespace npp {
 

@@ -8,7 +8,7 @@
 
 #define CATCH_CONFIG_NOSTDOUT
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 
 class out_buff : public std::stringbuf {

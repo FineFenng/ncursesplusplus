@@ -1,17 +1,17 @@
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/widget.hpp"
 
 #include <cstdint>
 #include <mutex>
 #include <string>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/terminal.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
 
 namespace {
 

@@ -1,20 +1,20 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP
 #include <chrono>
 #include <cstdint>
 #include <string>
 #include <string_view>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 #include "colors.hpp"
 #include "game_of_life_engine.hpp"
@@ -422,4 +422,4 @@ class GoL_widget : public npp::Widget {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_WIDGET_HPP

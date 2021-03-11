@@ -1,10 +1,10 @@
-#include <termox/system/animation_engine.hpp>
+#include "ncursesplusplus/system/animation_engine.hpp"
 
 #include <algorithm>
 #include <iterator>
 #include <memory>
 
-#include <termox/system/detail/timer_event_loop.hpp>
+#include "ncursesplusplus/system/detail/timer_event_loop.hpp"
 
 namespace npp {
 

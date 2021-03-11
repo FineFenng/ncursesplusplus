@@ -1,8 +1,8 @@
-#include <termox/painter/glyph_matrix.hpp>
+#include "ncursesplusplus/painter/glyph_matrix.hpp"
 
 #include <cstddef>
 
-#include <termox/painter/glyph.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
 
 namespace npp {
 

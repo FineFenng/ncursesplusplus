@@ -1,4 +1,4 @@
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/system/system.hpp"
 
 #include <algorithm>
 #include <iterator>
@@ -9,22 +9,22 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/animation_engine.hpp>
-#include <termox/system/detail/event_engine.hpp>
-#include <termox/system/detail/event_queue.hpp>
-#include <termox/system/detail/filter_send.hpp>
-#include <termox/system/detail/focus.hpp>
-#include <termox/system/detail/is_sendable.hpp>
-#include <termox/system/detail/send.hpp>
-#include <termox/system/detail/user_input_event_loop.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/event_loop.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/terminal.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/animation_engine.hpp"
+#include "ncursesplusplus/system/detail/event_engine.hpp"
+#include "ncursesplusplus/system/detail/event_queue.hpp"
+#include "ncursesplusplus/system/detail/filter_send.hpp"
+#include "ncursesplusplus/system/detail/focus.hpp"
+#include "ncursesplusplus/system/detail/is_sendable.hpp"
+#include "ncursesplusplus/system/detail/send.hpp"
+#include "ncursesplusplus/system/detail/user_input_event_loop.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/event_loop.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp {
 

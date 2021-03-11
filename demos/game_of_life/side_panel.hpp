@@ -1,10 +1,10 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/accordion.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/accordion.hpp"
 
 #include "colors.hpp"
 #include "controls_box.hpp"
@@ -55,4 +55,4 @@ struct Side_panel : npp::layout::Vertical<> {
     inline static auto const line = L'─' | fg(color::Light_green);
 };
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SIDE_PANEL_HPP

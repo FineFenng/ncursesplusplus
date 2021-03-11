@@ -1,6 +1,6 @@
 #include "color_definition_setter.hpp"
 
-#include <termox/painter/color.hpp>
+#include "ncursesplusplus/painter/color.hpp"
 
 #include "palette_helpers.hpp"
 

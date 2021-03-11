@@ -1,13 +1,13 @@
-#include <termox/terminal/dynamic_color_engine.hpp>
+#include "ncursesplusplus/terminal/dynamic_color_engine.hpp"
 
 #include <mutex>
 #include <utility>
 #include <vector>
 
-#include <termox/painter/detail/screen.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/output.hpp>
+#include "ncursesplusplus/painter/detail/screen.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/output.hpp"
 
 namespace npp::detail {
 

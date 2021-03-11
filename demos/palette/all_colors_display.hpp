@@ -1,9 +1,9 @@
-#ifndef TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP
-#define TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/color_select.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/color_select.hpp"
 
 namespace palette {
 
@@ -59,4 +59,4 @@ struct All_colors_display : npp::layout::Vertical<> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_PANEL_HPP

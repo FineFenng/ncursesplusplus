@@ -3,11 +3,11 @@
 #include <array>
 #include <memory>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/terminal/terminal.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
 
 namespace {
 using namespace npp;

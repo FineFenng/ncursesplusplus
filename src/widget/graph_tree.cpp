@@ -1,9 +1,9 @@
-#include <termox/widget/detail/graph_tree.hpp>
+#include "ncursesplusplus/widget/detail/graph_tree.hpp"
 
 #include <fstream>
 #include <string>
 
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

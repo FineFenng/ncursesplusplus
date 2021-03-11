@@ -595,7 +595,7 @@ will not be subject to the usual stability guarantees provided by semver.**
 
 **This release changes the include paths provided by our CMake and
 pkg-config integration. The proper include path for the single-header
-when using one of the above is now `<catch2/catch.hpp>`. This change
+when using one of the above is now `<catch2/catch.hpp"`. This change
 also necessitated changes to paths inside the repository, so that the
 single-header version is now at `single_include/catch2/catch.hpp`, rather
 than `single_include/catch.hpp`.**
@@ -612,7 +612,7 @@ than `single_include/catch.hpp`.**
 
 ### Improvements
 * pkg-config and CMake integration has been rewritten
-  * If you use them, the new include path is `#include <catch2/catch.hpp>`
+  * If you use them, the new include path is `#include <catch2/catch.hpp"`
   * CMake installation now also installs scripts from `contrib/`
   * For details see the [new documentation](cmake-integration.md#top)
 * Reporters now have a new customization point, `ReporterPreferences::shouldReportAllAssertions`
@@ -681,8 +681,8 @@ than `single_include/catch.hpp`.**
   * See [documentation for details](https://github.com/catchorg/Catch2/blob/v2.x/docs/matchers.md)
 
 ### Others
-* Modified CMake-installed pkg-config to allow `#include <catch.hpp>`(#1239)
-  * The plans to standardize on `#include <catch2/catch.hpp>` are still in effect
+* Modified CMake-installed pkg-config to allow `#include <catch.hpp"`(#1239)
+  * The plans to standardize on `#include <catch2/catch.hpp"` are still in effect
 
 
 ## 2.2.1

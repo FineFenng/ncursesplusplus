@@ -1,4 +1,4 @@
-#include <termox/terminal/terminal.hpp>
+#include "ncursesplusplus/terminal/terminal.hpp"
 
 #include <algorithm>
 #include <chrono>
@@ -18,14 +18,14 @@
 #include <ncursesw/ncurses.h>
 #undef border
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/palette/basic.hpp>
-#include <termox/painter/palette/basic8.hpp>
-#include <termox/painter/palette/dawn_bringer16.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/input.hpp>
-#include <termox/terminal/terminal_error.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/palette/basic.hpp"
+#include "ncursesplusplus/painter/palette/basic8.hpp"
+#include "ncursesplusplus/painter/palette/dawn_bringer16.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/input.hpp"
+#include "ncursesplusplus/terminal/terminal_error.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 extern "C" void handle_sigint(int /* sig*/)
 {

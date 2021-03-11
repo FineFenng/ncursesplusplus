@@ -1,11 +1,11 @@
-#include <termox/system/detail/user_input_event_loop.hpp>
+#include "ncursesplusplus/system/detail/user_input_event_loop.hpp"
 
 #include <optional>
 #include <utility>
 
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/input.hpp>
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/input.hpp"
 
 namespace npp::detail {
 

@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_SNAKE_SNAKE_HPP
-#define TERMOX_DEMOS_SNAKE_SNAKE_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_SNAKE_SNAKE_HPP
+#define NCURSESPLUSPLUS_DEMOS_SNAKE_SNAKE_HPP
 #include <algorithm>
 #include <chrono>
 #include <random>
@@ -8,28 +8,28 @@
 #include <utility>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/dynamic_colors.hpp>
-#include <termox/painter/palette/stormy6.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/layouts/float.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/confirm_button.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/text_display.hpp>
-#include <termox/widget/widgets/toggle_button.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/dynamic_colors.hpp"
+#include "ncursesplusplus/painter/palette/stormy6.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/layouts/float.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/confirm_button.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
+#include "ncursesplusplus/widget/widgets/toggle_button.hpp"
 
 namespace snake {
 
@@ -708,4 +708,4 @@ class Snake_game : public npp::layout::Vertical<> {
 };
 
 }  // namespace snake
-#endif  // TERMOX_DEMOS_SNAKE_SNAKE_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_SNAKE_SNAKE_HPP

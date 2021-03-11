@@ -1,19 +1,19 @@
-#include <termox/painter/painter.hpp>
+#include "ncursesplusplus/painter/painter.hpp"
 
 #include <cstddef>
 #include <string>
 #include <unordered_map>
 
-#include <termox/painter/detail/is_paintable.hpp>
-#include <termox/painter/detail/screen_descriptor.hpp>
-#include <termox/painter/detail/staged_changes.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/event_loop.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/border.hpp>
-#include <termox/widget/detail/border_offset.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/detail/is_paintable.hpp"
+#include "ncursesplusplus/painter/detail/screen_descriptor.hpp"
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/event_loop.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/border.hpp"
+#include "ncursesplusplus/widget/detail/border_offset.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 

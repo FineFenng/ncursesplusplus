@@ -10,7 +10,7 @@ std::string fallbackStringifier(T const&) {
 }
 
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 struct foo {
     explicit operator bool() const {

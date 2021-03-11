@@ -4,11 +4,11 @@
 #include <cstdint>
 #include <iterator>
 
-#include <termox/painter/color.hpp>
-// #include <ncursesplusplus/painter/palette.hpp>
-// #include <ncursesplusplus/painter/rgb.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/terminal.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+// #include <ncursesplusplus/painter/palette.hpp"
+// #include <ncursesplusplus/painter/rgb.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
 
 using namespace npp;
 

@@ -34,7 +34,7 @@ target_link_libraries(hello-world PRIVATE TermOx)
 
 ```cpp
 // main.cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 
 int main()
 {

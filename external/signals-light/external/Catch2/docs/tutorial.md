@@ -28,7 +28,7 @@ Catch2 is header only. All you need to do is drop the file somewhere reachable f
 The rest of this tutorial will assume that the Catch2 single-include header (or the include folder) is available unqualified - but you may need to prefix it with a folder name if necessary.
 
 _If you have installed Catch2 from system package manager, or CMake
-package, you need to include the header as `#include <catch2/catch.hpp>`_
+package, you need to include the header as `#include <catch2/catch.hpp"`_
 
 ## Writing tests
 

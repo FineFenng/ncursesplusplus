@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <type_traits>
 
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 #include <type_traits>
 
 TEST_CASE("Empty Signal returns std::nullopt or void", "[Signal]")

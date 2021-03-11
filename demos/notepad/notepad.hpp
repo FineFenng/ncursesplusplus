@@ -3,24 +3,24 @@
 #include <chrono>
 #include <cmath>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget_slots.hpp>
-#include <termox/widget/widgets/accordion.hpp>
-#include <termox/widget/widgets/banner.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/color_select.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget_slots.hpp"
+#include "ncursesplusplus/widget/widgets/accordion.hpp"
+#include "ncursesplusplus/widget/widgets/banner.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/color_select.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace demos {
 

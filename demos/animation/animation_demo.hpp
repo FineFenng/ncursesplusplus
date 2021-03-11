@@ -1,13 +1,13 @@
-#ifndef TERMOX_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP
-#define TERMOX_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP
+#define NCURSESPLUSPLUS_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace demos::animation {
 
@@ -107,4 +107,4 @@ inline auto build_demo() -> std::unique_ptr<npp::Widget>
 }
 
 }  // namespace demos::animation
-#endif  // TERMOX_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_ANIMATION_ANIMATED_WIDGET_HPP

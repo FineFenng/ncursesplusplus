@@ -1,8 +1,8 @@
-#ifndef TERMOX_DEMOS_PALETTE_EXPORT_PANEL_HPP
-#define TERMOX_DEMOS_PALETTE_EXPORT_PANEL_HPP
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/confirm_button.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_EXPORT_PANEL_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_EXPORT_PANEL_HPP
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/confirm_button.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
 
 namespace palette {
 
@@ -19,4 +19,4 @@ class Export_panel : public npp::layout::Vertical<> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_EXPORT_PANEL_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_EXPORT_PANEL_HPP

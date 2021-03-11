@@ -4,10 +4,10 @@
 #include <fstream>
 #include <string>
 
-// #include <ncursesplusplus/painter/rgb.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/terminal.hpp>
-#include <termox/widget/border.hpp>
+// #include <ncursesplusplus/painter/rgb.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
+#include "ncursesplusplus/widget/border.hpp"
 
 namespace {
 // auto rgb_to_str(npp::RGB const& rgb) -> std::string
@@ -28,8 +28,8 @@ void export_current_palette(std::string const& /* name */)
     // auto file = std::ofstream{name + ".hpp"};
     // auto pal  = npp::System::terminal.current_palette();
 
-    // file << R"(#include <ncursesplusplus/painter/color.hpp>)" << '\n'
-    //      << R"(#include <ncursesplusplus/painter/palette.hpp>)"
+    // file << R"(#include <ncursesplusplus/painter/color.hpp")" << '\n'
+    //      << R"(#include <ncursesplusplus/painter/palette.hpp")"
     //      << "\n\n"
     //      << "npp::Palette " << name << "() {" << '\n';
 

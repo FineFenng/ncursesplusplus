@@ -1,8 +1,8 @@
-#include <termox/system/detail/find_widget_at.hpp>
+#include "ncursesplusplus/system/detail/find_widget_at.hpp"
 
-#include <termox/system/system.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 

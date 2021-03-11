@@ -1,10 +1,10 @@
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/system/system.hpp"
 
 #include "demo_menu.hpp"
 
 int main() { return npp::System{}.run<demos::Demos>(); }
 
-// #include <ncursesplusplus/ncursesplusplus.hpp>
+// #include <ncursesplusplus/ncursesplusplus.hpp"
 
 // int main()
 // {

@@ -1,9 +1,9 @@
-#include <termox/widget/widgets/detail/textbox_base.hpp>
+#include "ncursesplusplus/widget/widgets/detail/textbox_base.hpp"
 
 #include <cstddef>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace npp::detail {
 

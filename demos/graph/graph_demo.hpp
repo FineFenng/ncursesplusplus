@@ -1,17 +1,17 @@
-#ifndef TERMOX_DEMOS_GRAPH_GRAPH_DEMO_HPP
-#define TERMOX_DEMOS_GRAPH_GRAPH_DEMO_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GRAPH_GRAPH_DEMO_HPP
+#define NCURSESPLUSPLUS_DEMOS_GRAPH_GRAPH_DEMO_HPP
 #include <chrono>
 #include <cmath>
 #include <memory>
 #include <vector>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
-#include <termox/widget/widgets/graph.hpp>
-#include <termox/widget/widgets/number_edit.hpp>
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
+#include "ncursesplusplus/widget/widgets/graph.hpp"
+#include "ncursesplusplus/widget/widgets/number_edit.hpp"
 
 namespace graph {
 
@@ -282,4 +282,4 @@ class Graph_demo : public npp::layout::Horizontal<> {
 };
 
 }  // namespace graph
-#endif  // TERMOX_DEMOS_GRAPH_GRAPH_DEMO_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GRAPH_GRAPH_DEMO_HPP

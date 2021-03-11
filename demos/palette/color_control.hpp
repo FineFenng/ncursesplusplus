@@ -1,8 +1,8 @@
-#ifndef TERMOX_DEMOS_PALETTE_COLOR_CONTROL_HPP
-#define TERMOX_DEMOS_PALETTE_COLOR_CONTROL_HPP
-#include <signals_light/signal.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_CONTROL_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_CONTROL_HPP
+#include <signals_light/signal.hpp"
 
-#include <termox/widget/layouts/horizontal.hpp>
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
 
 #include "value_control.hpp"
 
@@ -35,4 +35,4 @@ class Color_control : public npp::layout::Horizontal<Value_control> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_COLOR_CONTROL_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_CONTROL_HPP

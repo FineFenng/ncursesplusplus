@@ -1,4 +1,4 @@
-#include <termox/terminal/input.hpp>
+#include "ncursesplusplus/terminal/input.hpp"
 
 #include <cstddef>
 #include <optional>
@@ -9,16 +9,16 @@
 #include <ncursesw/ncurses.h>
 #undef border
 
-#include <termox/system/detail/find_widget_at.hpp>
-#include <termox/system/detail/focus.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/system/shortcuts.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/detail/find_widget_at.hpp"
+#include "ncursesplusplus/system/detail/focus.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/system/shortcuts.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

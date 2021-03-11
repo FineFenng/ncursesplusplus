@@ -1,19 +1,19 @@
-#ifndef TERMOX_DEMOS_LAYOUT_LAYOUT_DEMO_HPP
-#define TERMOX_DEMOS_LAYOUT_LAYOUT_DEMO_HPP
-#include <signals_light/signal.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_LAYOUT_LAYOUT_DEMO_HPP
+#define NCURSESPLUSPLUS_DEMOS_LAYOUT_LAYOUT_DEMO_HPP
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/size_policy.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
-#include <termox/widget/widgets/number_edit.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/size_policy.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
+#include "ncursesplusplus/widget/widgets/number_edit.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace layout_demo {
 
@@ -283,4 +283,4 @@ struct Layout_demo : npp::layout::Horizontal<> {
 };
 
 }  // namespace layout_demo
-#endif  // TERMOX_DEMOS_LAYOUT_LAYOUT_DEMO_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_LAYOUT_LAYOUT_DEMO_HPP

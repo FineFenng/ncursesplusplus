@@ -12,19 +12,19 @@
 #include <string>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/key.hpp>
-#include <termox/widget/border.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/widget/border.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 using namespace npp;
 

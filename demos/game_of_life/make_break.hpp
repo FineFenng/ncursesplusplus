@@ -1,9 +1,9 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP
 #include <memory>
 
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 #include "colors.hpp"
 
@@ -16,4 +16,4 @@ inline auto make_break() -> std::unique_ptr<npp::Widget>
 }
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_MAKE_BREAK_HPP

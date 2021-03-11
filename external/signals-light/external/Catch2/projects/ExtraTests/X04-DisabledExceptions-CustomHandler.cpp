@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_DISABLE_EXCEPTIONS_CUSTOM_HANDLER
 
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 namespace Catch {
     [[noreturn]]

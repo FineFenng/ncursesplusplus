@@ -1,16 +1,16 @@
 #ifndef DEMOS_GLYPH_PAINT_OPTIONS_BOX_HPP
 #define DEMOS_GLYPH_PAINT_OPTIONS_BOX_HPP
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/confirm_button.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/open_file.hpp>
-#include <termox/widget/widgets/save_file.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/confirm_button.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/open_file.hpp"
+#include "ncursesplusplus/widget/widgets/save_file.hpp"
 
 namespace paint {
 

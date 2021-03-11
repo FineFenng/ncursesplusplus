@@ -1,16 +1,16 @@
-#include <termox/widget/widget_slots.hpp>
+#include "ncursesplusplus/widget/widget_slots.hpp"
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/system/event.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/cursor.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/cursor.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::slot {
 

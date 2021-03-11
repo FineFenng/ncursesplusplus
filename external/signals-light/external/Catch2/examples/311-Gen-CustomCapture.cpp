@@ -9,7 +9,7 @@
 // per-variable custom capture list, this example shows how to achieve
 // that.
 
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 TEST_CASE("Generate random doubles across different ranges",
           "[generator][example][advanced]") {

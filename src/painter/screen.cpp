@@ -1,24 +1,24 @@
-#include <termox/painter/detail/screen.hpp>
+#include "ncursesplusplus/painter/detail/screen.hpp"
 
 #include <iterator>
 #include <mutex>
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/color.hpp>
-#include <termox/painter/detail/find_empty_space.hpp>
-#include <termox/painter/detail/is_paintable.hpp>
-#include <termox/painter/detail/screen_descriptor.hpp>
-#include <termox/painter/detail/screen_mask.hpp>
-#include <termox/painter/detail/staged_changes.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/detail/focus.hpp>
-#include <termox/system/system.hpp>
-#include <termox/terminal/output.hpp>
-#include <termox/terminal/terminal.hpp>
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/detail/find_empty_space.hpp"
+#include "ncursesplusplus/painter/detail/is_paintable.hpp"
+#include "ncursesplusplus/painter/detail/screen_descriptor.hpp"
+#include "ncursesplusplus/painter/detail/screen_mask.hpp"
+#include "ncursesplusplus/painter/detail/staged_changes.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/detail/focus.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/terminal/output.hpp"
+#include "ncursesplusplus/terminal/terminal.hpp"
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

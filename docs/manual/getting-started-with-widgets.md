@@ -4,7 +4,7 @@ We'll begin with the simplest use of this library, a lone Widget that paints
 some text to the screen:
 
 ```cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 using namespace npp;
 
 class App : public Widget {
@@ -22,7 +22,7 @@ This program will paint the text `Hello, World!` to the screen at coordinates
 `{10, 5}`. We can expand on this to add color and traits to the text:
 
 ```cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 using namespace npp;
 
 class App : public Widget {
@@ -45,7 +45,7 @@ top left of the terminal screen.
 ## Breakdown
 
 ```cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 using namespace npp;
 ```
 

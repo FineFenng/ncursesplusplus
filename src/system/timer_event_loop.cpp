@@ -1,8 +1,8 @@
-#include <termox/system/detail/timer_event_loop.hpp>
+#include "ncursesplusplus/system/detail/timer_event_loop.hpp"
 
-#include <termox/system/event.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/system/event.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace npp::detail {
 

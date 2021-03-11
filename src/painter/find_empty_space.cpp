@@ -1,12 +1,12 @@
-#include <termox/painter/detail/find_empty_space.hpp>
+#include "ncursesplusplus/painter/detail/find_empty_space.hpp"
 
 #include <algorithm>
 #include <cstddef>
 #include <iterator>
 #include <numeric>
 
-#include <termox/painter/detail/screen_mask.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/painter/detail/screen_mask.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

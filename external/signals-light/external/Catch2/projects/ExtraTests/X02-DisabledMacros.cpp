@@ -3,7 +3,7 @@
 // and expressions in assertion macros are not run.
 
 #define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 
 // CATCH_CONFIG_DISABLE also prevents reporter registration.

@@ -1,12 +1,12 @@
-#include <termox/widget/widgets/log.hpp>
+#include "ncursesplusplus/widget/widgets/log.hpp"
 
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/key.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
 
 namespace npp {
 

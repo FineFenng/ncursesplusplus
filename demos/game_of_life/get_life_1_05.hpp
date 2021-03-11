@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP
 #include <string>
 
 #include "coordinate.hpp"
@@ -11,4 +11,4 @@ namespace gol {
 auto get_life_1_05(std::string const& filename) -> Pattern;
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_LIFE_1_05_HPP

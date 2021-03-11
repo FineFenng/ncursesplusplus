@@ -1,6 +1,6 @@
 #include "glyph_paint.hpp"
 
-#include <termox/widget/widget_slots.hpp>
+#include "ncursesplusplus/widget/widget_slots.hpp"
 
 using namespace npp;
 

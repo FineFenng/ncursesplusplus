@@ -1,10 +1,10 @@
-#ifndef TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_HPP
-#define TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_HPP
-#include <termox/painter/color.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_HPP
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace palette {
 
@@ -52,4 +52,4 @@ struct Color_display : npp::layout::Horizontal<> {
     Color_patch& square = this->make_child<Color_patch>(npp::Color::White);
 };
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_COLOR_DISPLAY_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_HPP

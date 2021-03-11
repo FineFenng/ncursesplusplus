@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_COORDINATE_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_COORDINATE_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COORDINATE_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COORDINATE_HPP
 #include <cstdint>
 #include <functional>
 #include <limits>
@@ -57,4 +57,4 @@ struct hash<gol::Coordinate> {
     }
 };
 }  // namespace std
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_COORDINATE_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COORDINATE_HPP

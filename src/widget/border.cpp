@@ -1,8 +1,8 @@
-#include <termox/widget/border.hpp>
+#include "ncursesplusplus/widget/border.hpp"
 
 #include <cstddef>
 
-#include <termox/painter/glyph.hpp>
+#include "ncursesplusplus/painter/glyph.hpp"
 
 namespace npp {
 

@@ -1,13 +1,13 @@
-#include <termox/widget/widgets/horizontal_slider.hpp>
+#include "ncursesplusplus/widget/widgets/horizontal_slider.hpp"
 
 #include <cmath>
 #include <cstddef>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/system/key.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/detail/link_lifetimes.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/detail/link_lifetimes.hpp"
 
 namespace npp {
 

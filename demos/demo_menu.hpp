@@ -1,14 +1,14 @@
 #ifndef DEMOS_DEMO_MENU_HPP
 #define DEMOS_DEMO_MENU_HPP
-#include <termox/painter/detail/screen_descriptor.hpp>
-#include <termox/painter/palette/dawn_bringer16.hpp>
-#include <termox/system/key.hpp>
-#include <termox/system/shortcuts.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/menu_stack.hpp>
-#include <termox/widget/widgets/titlebar.hpp>
+#include "ncursesplusplus/painter/detail/screen_descriptor.hpp"
+#include "ncursesplusplus/painter/palette/dawn_bringer16.hpp"
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/system/shortcuts.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/menu_stack.hpp"
+#include "ncursesplusplus/widget/widgets/titlebar.hpp"
 
 #include "animation/animation_demo.hpp"
 #include "colors/palette_view.hpp"

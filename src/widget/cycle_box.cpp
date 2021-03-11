@@ -1,10 +1,10 @@
-#include <termox/widget/widgets/cycle_box.hpp>
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
 
 #include <cstddef>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 namespace {
 

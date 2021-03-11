@@ -1,28 +1,28 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP
 #include <cctype>
 #include <chrono>
 #include <string>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/confirm_button.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
-#include <termox/widget/widgets/number_edit.hpp>
-#include <termox/widget/widgets/text_display.hpp>
-#include <termox/widget/widgets/toggle_button.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/confirm_button.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
+#include "ncursesplusplus/widget/widgets/number_edit.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
+#include "ncursesplusplus/widget/widgets/toggle_button.hpp"
 
 #include "colors.hpp"
 #include "make_break.hpp"
@@ -183,4 +183,4 @@ struct Controls_box : npp::layout::Vertical<> {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_SETTINGS_BOX_HPP

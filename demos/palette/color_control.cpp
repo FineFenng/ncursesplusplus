@@ -1,7 +1,7 @@
 #include "color_control.hpp"
 
-#include <termox/system/system.hpp>
-#include <termox/widget/border.hpp>
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/border.hpp"
 
 #include "palette_helpers.hpp"
 

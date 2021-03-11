@@ -1,15 +1,15 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP
 #include <cstdint>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/align.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/label.hpp>
-#include <termox/widget/widgets/line_edit.hpp>
-#include <termox/widget/widgets/number_edit.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/align.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
+#include "ncursesplusplus/widget/widgets/line_edit.hpp"
+#include "ncursesplusplus/widget/widgets/number_edit.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 #include "make_break.hpp"
 
@@ -74,4 +74,4 @@ struct Status_box : npp::layout::Vertical<> {
     Status_box() { this->height_policy.fixed(5uL); }
 };
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_STATUS_BOX_HPP

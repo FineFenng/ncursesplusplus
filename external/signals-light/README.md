@@ -13,7 +13,7 @@ This library is 'light' in terms of the boost::Signal2 library, which is thread
 safe, has ordered connections, and in general is more heavy-weight.
 
 ```cpp
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
 {
     auto signal = sl::Signal<void(int)>{};
@@ -31,4 +31,4 @@ See the [design doc](docs/design.md) for more information.
 There is a `CMakeLists.txt` in the project root which contains a library target
 `signals-light`. This can be imported to your CMake project with
 `add_subdirectory`, then use `signals-light` with `target_link_libraries` in
-your project to get access to the header(`#include <signals_light/signal.hpp>`).
+your project to get access to the header(`#include <signals_light/signal.hpp"`).

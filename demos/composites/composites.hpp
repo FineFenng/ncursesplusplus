@@ -1,22 +1,22 @@
-#ifndef TERMOX_DEMOS_COMPOSITES_COMPOSITES_HPP
-#define TERMOX_DEMOS_COMPOSITES_COMPOSITES_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_COMPOSITES_COMPOSITES_HPP
+#define NCURSESPLUSPLUS_DEMOS_COMPOSITES_COMPOSITES_HPP
 #include <string>
 #include <utility>
 
-#include <termox/system/key.hpp>
-#include <termox/widget/array.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/selecting.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pair.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/tuple.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/button.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/cycle_box.hpp>
-#include <termox/widget/widgets/selectable.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/system/key.hpp"
+#include "ncursesplusplus/widget/array.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/selecting.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pair.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/tuple.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/button.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_box.hpp"
+#include "ncursesplusplus/widget/widgets/selectable.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace comp {
 
@@ -212,4 +212,4 @@ class Idea : public Settings_box {
 };
 
 }  // namespace comp
-#endif  // TERMOX_DEMOS_COMPOSITES_COMPOSITES_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_COMPOSITES_COMPOSITES_HPP

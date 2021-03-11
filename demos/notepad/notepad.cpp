@@ -6,12 +6,12 @@
 #include <string>
 #include <utility>
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/border.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget_slots.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/border.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget_slots.hpp"
 
 namespace {
 

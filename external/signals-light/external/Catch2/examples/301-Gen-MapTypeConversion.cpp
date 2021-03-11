@@ -5,7 +5,7 @@
 // that converts the strings using stoi, so the returned type is actually
 // an int.
 
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 #include <string>
 #include <sstream>

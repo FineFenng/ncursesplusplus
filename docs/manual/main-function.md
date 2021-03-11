@@ -7,7 +7,7 @@ main event loop.
 The simplest form looks something like this
 
 ```cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 
 int main() { return npp::System{}.run<App_widget>(); }
 ```
@@ -19,7 +19,7 @@ If you need to change any Terminal options, or construct a widget and manually
 set it as the head Widget, you'll need to spread out the above calls.
 
 ```cpp
-#include <termox/termox.hpp>
+#include "ncursesplusplus/termox.hpp"
 
 int main()
 {

@@ -5,7 +5,7 @@
 // This won't provide full coverage, but it might be worth checking
 // the other branch as well
 #define CATCH_CONFIG_RUNTIME_STATIC_REQUIRE
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 
 #include <type_traits>
 #include <stdexcept>

@@ -1,11 +1,11 @@
 #ifndef DEMOS_GLYPH_PAINT_TRAIT_BOX_HPP
 #define DEMOS_GLYPH_PAINT_TRAIT_BOX_HPP
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/checkbox.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/checkbox.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace paint {
 

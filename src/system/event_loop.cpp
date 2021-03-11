@@ -1,7 +1,7 @@
-#include <termox/system/event_loop.hpp>
+#include "ncursesplusplus/system/event_loop.hpp"
 
-#include <termox/system/detail/event_engine.hpp>
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/system/detail/event_engine.hpp"
+#include "ncursesplusplus/system/system.hpp"
 
 namespace npp {
 

@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_GET_RLE_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_GET_RLE_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_RLE_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_RLE_HPP
 #include <istream>
 #include <string>
 
@@ -14,4 +14,4 @@ auto get_RLE(std::string const& filename) -> Pattern;
 auto parse_rle(std::istream& is) -> Pattern;
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_GET_RLE_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GET_RLE_HPP

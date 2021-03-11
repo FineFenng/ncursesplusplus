@@ -1,8 +1,8 @@
-#include <termox/painter/detail/screen_mask.hpp>
+#include "ncursesplusplus/painter/detail/screen_mask.hpp"
 
-#include <termox/widget/area.hpp>
-#include <termox/widget/point.hpp>
-#include <termox/widget/widget.hpp>
+#include "ncursesplusplus/widget/area.hpp"
+#include "ncursesplusplus/widget/point.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
 
 namespace {
 using namespace npp;

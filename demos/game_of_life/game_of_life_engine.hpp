@@ -1,12 +1,12 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP
 #include <algorithm>
 #include <cstdint>
 #include <iterator>
 #include <unordered_map>
 #include <unordered_set>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
 #include "bitset.hpp"
 #include "cell.hpp"
@@ -207,4 +207,4 @@ class Game_of_life_engine {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GAME_OF_LIFE_ENGINE_HPP

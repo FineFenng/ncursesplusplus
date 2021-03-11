@@ -1,7 +1,7 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/widgets/accordion.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/widgets/accordion.hpp"
 
 #include "colors.hpp"
 #include "gol_widget.hpp"
@@ -52,4 +52,4 @@ class GoL_demo : public npp::layout::Horizontal<> {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_GOL_DEMO_HPP

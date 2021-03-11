@@ -1,14 +1,14 @@
 #ifndef DEMOS_GLYPH_PAINT_SIDE_PANE_HPP
 #define DEMOS_GLYPH_PAINT_SIDE_PANE_HPP
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widgets/color_select.hpp>
-#include <termox/widget/widgets/cycle_stack.hpp>
-#include <termox/widget/widgets/status_bar.hpp>
-#include <termox/widget/widgets/text_display.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widgets/color_select.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_stack.hpp"
+#include "ncursesplusplus/widget/widgets/status_bar.hpp"
+#include "ncursesplusplus/widget/widgets/text_display.hpp"
 
 #include "glyph_selector.hpp"
 #include "options_box.hpp"

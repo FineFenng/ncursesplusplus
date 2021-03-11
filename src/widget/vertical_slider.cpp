@@ -1,12 +1,12 @@
-#include <termox/widget/widgets/vertical_slider.hpp>
+#include "ncursesplusplus/widget/widgets/vertical_slider.hpp"
 
 #include <cmath>
 #include <cstddef>
 
-#include <termox/painter/glyph_string.hpp>
-#include <termox/painter/painter.hpp>
-#include <termox/system/mouse.hpp>
-#include <termox/widget/widgets/detail/nearly_equal.hpp>
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/painter/painter.hpp"
+#include "ncursesplusplus/system/mouse.hpp"
+#include "ncursesplusplus/widget/widgets/detail/nearly_equal.hpp"
 
 namespace npp {
 

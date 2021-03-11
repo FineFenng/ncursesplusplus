@@ -1,19 +1,19 @@
-#ifndef TERMOX_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP
-#define TERMOX_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP
+#define NCURSESPLUSPLUS_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP
 #include <memory>
 #include <utility>
 
-#include <signals_light/signal.hpp>
+#include <signals_light/signal.hpp"
 
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/glyph_string.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/stack.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/widgets/cycle_stack.hpp>
-#include <termox/widget/widgets/scrollbar.hpp>
-#include <termox/widget/widgets/textbox.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/glyph_string.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/stack.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/widgets/cycle_stack.hpp"
+#include "ncursesplusplus/widget/widgets/scrollbar.hpp"
+#include "ncursesplusplus/widget/widgets/textbox.hpp"
 
 namespace paint {
 
@@ -84,4 +84,4 @@ inline auto glyph_selector() -> std::unique_ptr<Glyph_selector>
 auto populated_glyph_selector() -> std::unique_ptr<Glyph_selector>;
 
 }  // namespace paint
-#endif  // TERMOX_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GLYPH_PAINT_GLYPH_SELECTOR_HPP

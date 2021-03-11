@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_BITSET_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_BITSET_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITSET_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITSET_HPP
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
@@ -179,4 +179,4 @@ class Bitset {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_BITSET_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITSET_HPP

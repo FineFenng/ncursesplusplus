@@ -1,6 +1,6 @@
-#ifndef TERMOX_DEMOS_PALETTE_PALETTE_DEMOS_HPP
-#define TERMOX_DEMOS_PALETTE_PALETTE_DEMOS_HPP
-#include <termox/widget/layouts/horizontal.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_DEMOS_HPP
+#define NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_DEMOS_HPP
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
 
 #include "all_colors_display.hpp"
 #include "color_definition_setter.hpp"
@@ -32,4 +32,4 @@ class Palette_demo : public npp::layout::Horizontal<> {
 };
 
 }  // namespace palette
-#endif  // TERMOX_DEMOS_PALETTE_PALETTE_DEMOS_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_PALETTE_DEMOS_HPP

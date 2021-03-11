@@ -1,5 +1,5 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_BITMAP_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_BITMAP_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITMAP_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITMAP_HPP
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
@@ -118,4 +118,4 @@ class Bitmap {
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_BITMAP_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_BITMAP_HPP

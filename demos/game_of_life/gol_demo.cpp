@@ -4,9 +4,9 @@
 #include <cstdint>
 #include <string>
 
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/widgets/accordion.hpp>
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/widgets/accordion.hpp"
 
 #include "patterns.hpp"
 

@@ -3,7 +3,7 @@
 #include "paint_area.hpp"
 #include "side_pane.hpp"
 
-#include <termox/widget/layouts/horizontal.hpp>
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
 
 namespace paint {
 

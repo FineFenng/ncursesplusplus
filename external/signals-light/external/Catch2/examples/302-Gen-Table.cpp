@@ -2,7 +2,7 @@
 // Shows how to use table to run a test many times with different inputs. Lifted from examples on
 // issue #850.
 
-#include <catch2/catch.hpp>
+#include <catch2/catch.hpp"
 #include <string>
 
 struct TestSubject {

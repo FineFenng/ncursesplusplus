@@ -1,15 +1,15 @@
-#ifndef TERMOX_DEMOS_FOCUS_FOCUS_DEMO_HPP
-#define TERMOX_DEMOS_FOCUS_FOCUS_DEMO_HPP
+#ifndef NCURSESPLUSPLUS_DEMOS_FOCUS_FOCUS_DEMO_HPP
+#define NCURSESPLUSPLUS_DEMOS_FOCUS_FOCUS_DEMO_HPP
 #include <memory>
 
-#include <termox/painter/color.hpp>
-#include <termox/system/system.hpp>
-#include <termox/widget/focus_policy.hpp>
-#include <termox/widget/layouts/horizontal.hpp>
-#include <termox/widget/layouts/vertical.hpp>
-#include <termox/widget/pipe.hpp>
-#include <termox/widget/widget.hpp>
-#include <termox/widget/widgets/label.hpp>
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/system/system.hpp"
+#include "ncursesplusplus/widget/focus_policy.hpp"
+#include "ncursesplusplus/widget/layouts/horizontal.hpp"
+#include "ncursesplusplus/widget/layouts/vertical.hpp"
+#include "ncursesplusplus/widget/pipe.hpp"
+#include "ncursesplusplus/widget/widget.hpp"
+#include "ncursesplusplus/widget/widgets/label.hpp"
 
 namespace demos::focus {
 
@@ -106,4 +106,4 @@ inline auto build_demo() -> std::unique_ptr<npp::Widget>
 }
 
 }  // namespace demos::focus
-#endif  // TERMOX_DEMOS_FOCUS_FOCUS_DEMO_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_FOCUS_FOCUS_DEMO_HPP

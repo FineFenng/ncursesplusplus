@@ -1,4 +1,4 @@
-#include <termox/terminal/output.hpp>
+#include "ncursesplusplus/terminal/output.hpp"
 
 // #define SLOW_PAINT 7
 
@@ -15,11 +15,11 @@
 #include <ncursesw/ncurses.h>
 #undef border
 
-#include <termox/painter/brush.hpp>
-#include <termox/painter/color.hpp>
-#include <termox/painter/glyph.hpp>
-#include <termox/painter/trait.hpp>
-#include <termox/system/system.hpp>
+#include "ncursesplusplus/painter/brush.hpp"
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/glyph.hpp"
+#include "ncursesplusplus/painter/trait.hpp"
+#include "ncursesplusplus/system/system.hpp"
 
 namespace {
 using namespace npp;

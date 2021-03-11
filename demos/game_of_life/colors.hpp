@@ -1,7 +1,7 @@
-#ifndef TERMOX_DEMOS_GAME_OF_LIFE_COLORS_HPP
-#define TERMOX_DEMOS_GAME_OF_LIFE_COLORS_HPP
-#include <termox/painter/color.hpp>
-#include <termox/painter/dynamic_colors.hpp>
+#ifndef NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COLORS_HPP
+#define NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COLORS_HPP
+#include "ncursesplusplus/painter/color.hpp"
+#include "ncursesplusplus/painter/dynamic_colors.hpp"
 
 namespace gol {
 namespace color {
@@ -28,4 +28,4 @@ inline auto const gol_palette = npp::Palette{
 };
 
 }  // namespace gol
-#endif  // TERMOX_DEMOS_GAME_OF_LIFE_COLORS_HPP
+#endif  // NCURSESPLUSPLUS_DEMOS_GAME_OF_LIFE_COLORS_HPP
