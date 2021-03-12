@@ -19,10 +19,9 @@ void put(Glyph g);
 /// Places Glyph \p g at coordinates \p x , \p y.
 /** First moves the cursor's position to (x,y), then puts the Glyph to the
  *  screen. (0,0) is top left of the terminal screen.*/
-inline void put(std::size_t x, std::size_t y, const Glyph& g)
-{
-    move_cursor(x, y);
-    put(g);
+inline void put(std::size_t x, std::size_t y, const Glyph &g) {
+  move_cursor(x, y);
+  put(g);
 }
 
 }  // namespace npp::output

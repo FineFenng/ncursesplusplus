@@ -8,15 +8,15 @@ namespace npp::detail {
 /** Also enable the cursor on the widget in focus. Implements optimizations
  *  if the tile already exists onscreen. All coordinates are global. */
 class Screen {
-   public:
-    Screen() = delete;
+ public:
+  Screen() = delete;
 
-   public:
-    /// Puts the state of \p changes onto the physical screen.
-    static void flush(Staged_changes::Map_t const& changes);
+ public:
+  /// Puts the state of \p changes onto the physical screen.
+  static void flush(Staged_changes::Map_t const &changes);
 
-    /// Moves the cursor to the currently focused widget, if cursor enabled.
-    static void display_cursor();
+  /// Moves the cursor to the currently focused widget, if cursor enabled.
+  static void display_cursor();
 };
 
 }  // namespace npp::detail

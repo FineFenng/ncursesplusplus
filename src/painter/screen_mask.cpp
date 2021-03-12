@@ -8,16 +8,14 @@ namespace {
 using namespace npp;
 using namespace npp::detail;
 
-auto make_offset(Widget const& w, Screen_mask::Constructor_tag tag) -> Point
-{
-    return tag == Screen_mask::Outer ? Point{w.x(), w.y()}
-                                     : Point{w.inner_x(), w.inner_y()};
+auto make_offset(Widget const &w, Screen_mask::Constructor_tag tag) -> Point {
+  return tag == Screen_mask::Outer ? Point{w.x(), w.y()}
+                                   : Point{w.inner_x(), w.inner_y()};
 }
 
-auto make_area(Widget const& w, Screen_mask::Constructor_tag tag) -> Area
-{
-    return tag == Screen_mask::Outer ? Area{w.outer_width(), w.outer_height()}
-                                     : Area{w.width(), w.height()};
+auto make_area(Widget const &w, Screen_mask::Constructor_tag tag) -> Area {
+  return tag == Screen_mask::Outer ? Area{w.outer_width(), w.outer_height()}
+                                   : Area{w.width(), w.height()};
 }
 
 }  // namespace
@@ -25,10 +23,9 @@ auto make_area(Widget const& w, Screen_mask::Constructor_tag tag) -> Area
 namespace npp::detail {
 
 /// Can't put in header, Widget depends on Screen_mask
-Screen_mask::Screen_mask(Widget const& w, Constructor_tag tag)
+Screen_mask::Screen_mask(Widget const &w, Constructor_tag tag)
     : offset_{make_offset(w, tag)},
       area_{make_area(w, tag)},
-      bits_(area_.width * area_.height)
-{}
+      bits_(area_.width * area_.height) {}
 
 }  // namespace npp::detail

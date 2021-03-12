@@ -7,17 +7,15 @@
 namespace npp::utility {
 
 /// Return a string of char/bytes representing the wchar_t \p ch.
-inline auto wchar_to_bytes(wchar_t ch) -> std::string
-{
-    static std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-    return converter.to_bytes(ch);
+inline auto wchar_to_bytes(wchar_t ch) -> std::string {
+  static std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+  return converter.to_bytes(ch);
 }
 
 /// Return a string of char/bytes representing the wstring \p w_str.
-inline auto wchar_to_bytes(std::wstring w_str) -> std::string
-{
-    static std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-    return converter.to_bytes(w_str);
+inline auto wchar_to_bytes(std::wstring w_str) -> std::string {
+  static std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+  return converter.to_bytes(w_str);
 }
 
 }  // namespace npp::utility

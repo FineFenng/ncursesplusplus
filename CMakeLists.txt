@@ -255,10 +255,14 @@ add_library(${NPP_TARGET_NAME} SHARED
         ${${NPP_TARGET_NAME}_HDR}
         ${${NPP_TARGET_NAME}_SRC}
         )
+
+target_link_libraries(${NPP_TARGET_NAME} PRIVATE absl_variant)
+
 target_include_directories(${NPP_TARGET_NAME}
         PUBLIC include/ncursesplusplus/ncursesplusplus.h
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
+
 
 # Add Demos
 add_subdirectory(demos)

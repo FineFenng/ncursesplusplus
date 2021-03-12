@@ -8,37 +8,34 @@ namespace npp {
 /// Heterogeneous collection of Widgets within a Layout_t.
 /** Widget_t's must be default constructible. Widgets are constructed in the
  *  order that types are passed in. */
-template <typename Layout_t, typename... Widget_t>
+template<typename Layout_t, typename... Widget_t>
 class Tuple : public Layout_t {
-   public:
-    using Base = Layout_t;
+ public:
+  using Base = Layout_t;
 
-   public:
-    Tuple() = default;
+ public:
+  Tuple() = default;
 
-    explicit Tuple(typename Widget_t::Parameters... p)
-        : refs_{std::forward_as_tuple(
-              this->template make_child<Widget_t>(std::move(p))...)}
-    {}
+  explicit Tuple(typename Widget_t::Parameters... p)
+      : refs_{std::forward_as_tuple(
+      this->template make_child<Widget_t>(std::move(p))...)} {}
 
-   public:
-    /// Get child by index.
-    template <std::size_t Index>
-    auto get() -> auto&
-    {
-        return std::get<Index>(refs_);
-    }
+ public:
+  /// Get child by index.
+  template<std::size_t Index>
+  auto get() -> auto & {
+    return std::get<Index>(refs_);
+  }
 
-    /// Get child by index.
-    template <std::size_t Index>
-    auto get() const -> auto const&
-    {
-        return std::get<Index>(refs_);
-    }
+  /// Get child by index.
+  template<std::size_t Index>
+  auto get() const -> auto const & {
+    return std::get<Index>(refs_);
+  }
 
-   private:
-    std::tuple<Widget_t&...> refs_ =
-        std::forward_as_tuple(this->template make_child<Widget_t>()...);
+ private:
+  std::tuple<Widget_t &...> refs_ =
+      std::forward_as_tuple(this->template make_child<Widget_t>()...);
 };
 
 }  // namespace npp

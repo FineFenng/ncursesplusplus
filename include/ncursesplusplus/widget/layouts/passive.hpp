@@ -7,9 +7,9 @@ namespace ox::layout {
 /// Make any Linear_layout type passive.
 /** A Passive Layout will always have the size policy that is the sum of its
  * children's size hints.*/
-template <typename Layout_t>
+template<typename Layout_t>
 class Passive : public Layout_t {
-   public:
+ public:
 };
 
 }  // namespace ox::layout

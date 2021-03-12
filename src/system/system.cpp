@@ -28,9 +28,9 @@
 
 namespace npp {
 
-auto System::focus_widget() -> Widget* { return detail::Focus::focus_widget(); }
+auto System::focus_widget() -> Widget * { return detail::Focus::focus_widget(); }
 
-void System::set_focus(Widget& w) { detail::Focus::set(w); }
+void System::set_focus(Widget &w) { detail::Focus::set(w); }
 
 void System::clear_focus() { detail::Focus::clear(); }
 
@@ -38,61 +38,54 @@ void System::enable_tab_focus() { detail::Focus::enable_tab_focus(); }
 
 void System::disable_tab_focus() { detail::Focus::disable_tab_focus(); }
 
-void System::post_event(Event e)
-{
-    System::event_engine().queue().append(std::move(e));
+void System::post_event(Event e) {
+  System::event_engine().queue().append(std::move(e));
 }
 
-void System::exit(int exit_code)
-{
-    System::exit_requested_ = true;
-    System::exit_signal(exit_code);
+void System::exit(int exit_code) {
+  System::exit_requested_ = true;
+  System::exit_signal(exit_code);
 }
 
-void System::set_head(Widget* new_head)
-{
-    if (head_ != nullptr)
-        head_->disable();
-    head_ = new_head;
+void System::set_head(Widget *new_head) {
+  if (head_ != nullptr)
+    head_->disable();
+  head_ = new_head;
 }
 
-auto System::run() -> int
-{
-    if (head_ == nullptr)
-        return -1;
-    terminal.initialize();
-    head_->enable();
-    System::post_event(Resize_event{*System::head(), terminal.area()});
-    detail::Focus::set(*head_);
-    auto const exit_code = user_input_loop_.run();
-    terminal.uninitialize();
-    return exit_code;
+auto System::run() -> int {
+  if (head_ == nullptr)
+    return -1;
+  terminal.initialize();
+  head_->enable();
+  System::post_event(Resize_event{*System::head(), terminal.area()});
+  detail::Focus::set(*head_);
+  auto const exit_code = user_input_loop_.run();
+  terminal.uninitialize();
+  return exit_code;
 }
 
-void System::send_event(Event e)
-{
-    if (!std::visit([](auto const& e) { return detail::is_sendable(e); }, e))
-        return;
-    auto const handled =
-        std::visit([](auto const& e) { return detail::filter_send(e); }, e);
-    if (!handled)
-        std::visit([](auto e) { detail::send(std::move(e)); }, std::move(e));
+void System::send_event(Event e) {
+  if (!std::visit([](auto const &e) { return detail::is_sendable(e); }, e))
+    return;
+  auto const handled =
+      std::visit([](auto const &e) { return detail::filter_send(e); }, e);
+  if (!handled)
+    std::visit([](auto e) { detail::send(std::move(e)); }, std::move(e));
 }
 
-void System::send_event(Paint_event e)
-{
-    if (!detail::is_sendable(e))
-        return;
-    auto const handled = detail::filter_send(e);
-    if (!handled)
-        detail::send(std::move(e));
+void System::send_event(Paint_event e) {
+  if (!detail::is_sendable(e))
+    return;
+  auto const handled = detail::filter_send(e);
+  if (!handled)
+    detail::send(std::move(e));
 }
 
-void System::send_event(Delete_event e)
-{
-    auto const handled = detail::filter_send(e);
-    if (!handled)
-        detail::send(std::move(e));
+void System::send_event(Delete_event e) {
+  auto const handled = detail::filter_send(e);
+  if (!handled)
+    detail::send(std::move(e));
 }
 
 sl::Slot<void()> System::quit = [] { System::exit(); };
