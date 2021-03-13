@@ -20,7 +20,7 @@ auto Textbox::key_press_event(Key k) -> bool {
   if (!takes_input_)
     return Textbox_base::key_press_event(k);
   switch (k) {
-    case Key::Backspace:
+    case Key::KBackspace:
     case Key::Backspace_2: {
       auto cursor_index = this->cursor_index();
       if (cursor_index == 0)
@@ -46,7 +46,7 @@ auto Textbox::key_press_event(Key k) -> bool {
       break;
 
     default:  // Insert text
-      auto const text = to_wchar(k);
+      auto const text = ToWchar(k);
       if (text != L'\0') {
         // TODO Cursor Movement for Alignments other than left
         auto const cursor_index = this->cursor_index();

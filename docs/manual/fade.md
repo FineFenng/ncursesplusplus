@@ -9,7 +9,7 @@ template <typename Shape>
 auto fade(True_color a,
           True_color b,
           unsigned resolution              = 400,
-          Dynamic_color::Period_t interval = std::chrono::milliseconds{40}) -> Dynamic_color;
+          Dynamic_color::Period interval = std::chrono::milliseconds{40}) -> Dynamic_color;
 ```
 
 The `Shape` template parameter is the modulator that defines how the two numbers

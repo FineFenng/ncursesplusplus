@@ -81,7 +81,7 @@ class Linear_layout : public Layout<Child> {
     return result;
   }
 
-  /// Removes the child with given pointer and sends a Delete_event to it.
+  /// Removes the child with given pointer and sends a DeleteEvent to it.
   /** Returns false if \p child is not found and deleted. */
   auto remove_and_delete_child(Child_t const *child) -> bool {
     auto const result = this->Base_t::remove_and_delete_child(child);
@@ -100,7 +100,7 @@ class Linear_layout : public Layout<Child> {
     return result;
   }
 
-  /// Removes the child at \p index and sends a Delete_event to it.
+  /// Removes the child at \p index and sends a DeleteEvent to it.
   /** Returns false if \p index is out of range. */
   auto remove_and_delete_child_at(std::size_t index) -> bool {
     auto const result = this->Base_t::remove_and_delete_child_at(index);
@@ -120,7 +120,7 @@ class Linear_layout : public Layout<Child> {
     Widget::child_offset_ = index;
     shared_space_.set_offset(index);
     unique_space_.set_offset(index);
-    System::post_event(Child_polished_event{*this, *this});
+    System::post_event(ChildPolishedEvent{*this, *this});
     this->force_repaint_empty_space();
   }
 
@@ -163,7 +163,7 @@ class Linear_layout : public Layout<Child> {
       while (parent != nullptr && parent->width_policy.is_passive())
         parent = parent->parent();
       if (parent != nullptr)
-        System::post_event(Child_polished_event{*parent, *this});
+        System::post_event(ChildPolishedEvent{*parent, *this});
     }
     if (this->height_policy.is_passive()) {
       Widget *parent = this->parent();
@@ -171,7 +171,7 @@ class Linear_layout : public Layout<Child> {
       while (parent != nullptr && parent->height_policy.is_passive())
         parent = parent->parent();
       if (parent != nullptr)
-        System::post_event(Child_polished_event{*parent, *this});
+        System::post_event(ChildPolishedEvent{*parent, *this});
     }
     this->update_geometry();
     return Widget::child_polished_event(child);
@@ -217,7 +217,7 @@ class Linear_layout : public Layout<Child> {
       if (child.is_enabled()) {
         auto const area =
             typename Parameters::get_area{}(primary[i], secondary[i]);
-        System::post_event(Resize_event{child, area});
+        System::post_event(ResizeEvent{child, area});
       }
     }
   }
@@ -236,7 +236,7 @@ class Linear_layout : public Layout<Child> {
         auto const point = typename Parameters::get_point{}(
             primary[i] + primary_offset,
             secondary[i] + secondary_offset);
-        System::post_event(Move_event{child, point});
+        System::post_event(MoveEvent{child, point});
       }
     }
   }

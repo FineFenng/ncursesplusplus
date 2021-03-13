@@ -105,7 +105,7 @@ class Painter {
   bool const is_paintable_;
 
   /// Reference to container that holds onto the painting until flush().
-  /** Each Event_loop/thread has a Screen_descriptor for each Widget. */
+  /** Each EventLoop/thread has a Screen_descriptor for each Widget. */
   detail::Screen_descriptor &staged_changes_;
 };
 

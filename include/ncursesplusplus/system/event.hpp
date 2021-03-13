@@ -2,7 +2,6 @@
 #define NCURSESPLUSPLUS_SYSTEM_EVENT_HPP
 #include <functional>
 #include <memory>
-#include <variant>
 
 #include "ncursesplusplus/system/key.hpp"
 #include "ncursesplusplus/system/mouse.hpp"
@@ -10,121 +9,124 @@
 #include "ncursesplusplus/widget/point.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
 
+#include "absl/types/variant.h"
+
+
 namespace npp {
 
-using Widget_ref = std::reference_wrapper<Widget>;
+using WidgetWrapper = std::reference_wrapper<Widget>;
 
-struct Paint_event {
-  Widget_ref receiver;
+struct PaintEvent {
+  WidgetWrapper receiver;
 };
 
-struct Key_press_event {
-  Widget_ref receiver;
+struct KeyPressEvent {
+  WidgetWrapper receiver;
   npp::Key key;
 };
 
-struct Mouse_press_event {
-  Widget_ref receiver;
+struct MousePressEvent{
+  WidgetWrapper receiver;
   Mouse data;
 };
 
-struct Mouse_release_event {
-  Widget_ref receiver;
+struct MouseReleaseEvent {
+  WidgetWrapper receiver;
   Mouse data;
 };
 
-struct Mouse_double_click_event {
-  Widget_ref receiver;
+struct MouseDoubleClickEvent {
+  WidgetWrapper receiver;
   Mouse data;
 };
 
-struct Mouse_wheel_event {
-  Widget_ref receiver;
+struct MouseWheelEvent {
+  WidgetWrapper receiver;
   Mouse data;
 };
 
-struct Mouse_move_event {
-  Widget_ref receiver;
+struct MouseMoveEvent {
+  WidgetWrapper receiver;
   Mouse data;
 };
 
-struct Child_added_event {
-  Widget_ref receiver;
-  Widget_ref child;
+struct ChildAddedEvent {
+  WidgetWrapper receiver;
+  WidgetWrapper child;
 };
 
-struct Child_removed_event {
-  Widget_ref receiver;
-  Widget_ref child;
+struct ChildRemovedEvent {
+  WidgetWrapper receiver;
+  WidgetWrapper child;
 };
 
-struct Child_polished_event {
-  Widget_ref receiver;
-  Widget_ref child;
+struct ChildPolishedEvent {
+  WidgetWrapper receiver;
+  WidgetWrapper child;
 };
 
-struct Delete_event {
+struct DeleteEvent {
   std::unique_ptr<Widget> removed;
 };
 
-struct Disable_event {
-  Widget_ref receiver;
+struct DisableEvent {
+  WidgetWrapper receiver;
 };
 
-struct Enable_event {
-  Widget_ref receiver;
+struct EnableEvent {
+  WidgetWrapper receiver;
 };
 
-struct Focus_in_event {
-  Widget_ref receiver;
+struct FocusInEvent {
+  WidgetWrapper receiver;
 };
 
-struct Focus_out_event {
-  Widget_ref receiver;
+struct FocusOutEvent {
+  WidgetWrapper receiver;
 };
 
-struct Move_event {
-  Widget_ref receiver;
+struct MoveEvent {
+  WidgetWrapper receiver;
   Point new_position;
 };
 
-struct Resize_event {
-  Widget_ref receiver;
+struct ResizeEvent {
+  WidgetWrapper receiver;
   Area new_area;
 };
 
-struct Timer_event {
-  Widget_ref receiver;
+struct TimerEvent {
+  WidgetWrapper receiver;
 };
 
 /** \p send will be called to send the event, typically would call on a member
  *  function of some receiving Widget type. \p filter_send should call whatever
  *  filter method on each installed filter, and return true if one of the
  *  filters handled the event. */
-struct Custom_event {
+struct CustomEvent {
   std::function<void()> send;
   std::function<bool()> filter_send = [] { return false; };
 };
 
-using Event = std::variant<Paint_event,
-                           Key_press_event,
-                           Mouse_press_event,
-                           Mouse_release_event,
-                           Mouse_double_click_event,
-                           Mouse_wheel_event,
-                           Mouse_move_event,
-                           Child_added_event,
-                           Child_removed_event,
-                           Child_polished_event,
-                           Delete_event,
-                           Disable_event,
-                           Enable_event,
-                           Focus_in_event,
-                           Focus_out_event,
-                           Move_event,
-                           Resize_event,
-                           Timer_event,
-                           Custom_event>;
+using Event = absl::variant<PaintEvent,
+                           KeyPressEvent,
+                           MousePressEvent,
+                           MouseReleaseEvent,
+                           MouseDoubleClickEvent,
+                           MouseWheelEvent,
+                           MouseMoveEvent,
+                           ChildAddedEvent,
+                           ChildRemovedEvent,
+                           ChildPolishedEvent,
+                           DeleteEvent,
+                           DisableEvent,
+                           EnableEvent,
+                           FocusInEvent,
+                           FocusOutEvent,
+                           MoveEvent,
+                           ResizeEvent,
+                           TimerEvent,
+                           CustomEvent>;
 
 }  // namespace npp
 #endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_HPP

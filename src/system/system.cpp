@@ -28,18 +28,18 @@
 
 namespace npp {
 
-auto System::focus_widget() -> Widget * { return detail::Focus::focus_widget(); }
+auto System::focus_widget() -> Widget * { return detail::Focus::FocusWidget(); }
 
-void System::set_focus(Widget &w) { detail::Focus::set(w); }
+void System::set_focus(Widget &w) { detail::Focus::Set(w); }
 
-void System::clear_focus() { detail::Focus::clear(); }
+void System::clear_focus() { detail::Focus::Clear(); }
 
-void System::enable_tab_focus() { detail::Focus::enable_tab_focus(); }
+void System::enable_tab_focus() { detail::Focus::EnableTabFocus(); }
 
-void System::disable_tab_focus() { detail::Focus::disable_tab_focus(); }
+void System::disable_tab_focus() { detail::Focus::DisableTabFocus(); }
 
 void System::post_event(Event e) {
-  System::event_engine().queue().append(std::move(e));
+  System::event_engine().queue().Append(std::move(e));
 }
 
 void System::exit(int exit_code) {
@@ -58,43 +58,43 @@ auto System::run() -> int {
     return -1;
   terminal.initialize();
   head_->enable();
-  System::post_event(Resize_event{*System::head(), terminal.area()});
-  detail::Focus::set(*head_);
+  System::post_event(ResizeEvent{*System::head(), terminal.area()});
+  detail::Focus::Set(*head_);
   auto const exit_code = user_input_loop_.run();
   terminal.uninitialize();
   return exit_code;
 }
 
 void System::send_event(Event e) {
-  if (!std::visit([](auto const &e) { return detail::is_sendable(e); }, e))
+  if (!std::visit([](auto const &e) { return detail::IsSendable(e); }, e))
     return;
   auto const handled =
       std::visit([](auto const &e) { return detail::filter_send(e); }, e);
   if (!handled)
-    std::visit([](auto e) { detail::send(std::move(e)); }, std::move(e));
+    std::visit([](auto e) { detail::Send(std::move(e)); }, std::move(e));
 }
 
-void System::send_event(Paint_event e) {
-  if (!detail::is_sendable(e))
+void System::send_event(PaintEvent e) {
+  if (!detail::IsSendable(e))
     return;
   auto const handled = detail::filter_send(e);
   if (!handled)
-    detail::send(std::move(e));
+    detail::Send(std::move(e));
 }
 
-void System::send_event(Delete_event e) {
+void System::send_event(DeleteEvent e) {
   auto const handled = detail::filter_send(e);
   if (!handled)
-    detail::send(std::move(e));
+    detail::Send(std::move(e));
 }
 
 sl::Slot<void()> System::quit = [] { System::exit(); };
 detail::Event_engine System::event_engine_;
-Animation_engine System::animation_engine_;
+AnimationEngine System::animation_engine_;
 
 // GCC requires this here, it can't find the default constructor when it's in
 // system.hpp for whatever reason...
 sl::Signal<void(int)> System::exit_signal;
-detail::User_input_event_loop System::user_input_loop_;
+detail::UserInputEventLoop System::user_input_loop_;
 
 }  // namespace npp

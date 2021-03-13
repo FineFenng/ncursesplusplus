@@ -172,24 +172,24 @@ bool child_polished_event_filter(Widget& receiver, Widget& child);
 
 ## Custom Events
 
-A custom Event can be created with an instance of the `Custom_event` type.
+A custom Event can be created with an instance of the `CustomEvent` type.
 
 ```cpp
-struct Custom_event {
+struct CustomEvent {
     std::function<void()> send;
     std::function<bool()> filter_send = [] { return false; };
 };
 ```
 
 The `send` member will be called on when the Event is sent, and the
-`filter_send` member is called when filtering is required. The `Custom_event`
+`filter_send` member is called when filtering is required. The `CustomEvent`
 can be sent immediately with `System::send_event` or added to the Event queue
 with `System::post_event`.
 
-An example of how to use the `Custom_event` type:
+An example of how to use the `CustomEvent` type:
 
 ```cpp
-auto my_custom_event(My_widget& receiver, std::string data) -> Custom_event
+auto my_custom_event(My_widget& receiver, std::string data) -> CustomEvent
 {
     return {[&reciever, data] { receiver.custom_event_handler(data); }};
 }

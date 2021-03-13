@@ -343,7 +343,7 @@ class Signal<R(Args...)> {
     auto slot_count() const -> std::size_t;
 
     /// Return true if there are no connected Slots.
-    auto is_empty() const -> bool;
+    auto IsEmpty() const -> bool;
 
    private:
     std::vector<std::pair<Identifier, Slot<R(Args...)>>> slots_;
@@ -367,13 +367,13 @@ class Signal<R(Args...)> {
 {
     sl::Signal<int()> s;
     sl::Identifier id = s.connect([]{ return 5; });
-    assert(!s.is_empty());
+    assert(!s.IsEmpty());
     assert(s.slot_count() == 1)
 
     std::optional<int> result = s();
     assert(result.is_valid() && *result == 5);
     s.disconnect(id);
-    assert(s.is_empty());
+    assert(s.IsEmpty());
     assert(s.slot_count() == 0);
     assert(s() == std::nullopt);
 }
@@ -401,7 +401,7 @@ class Signal<R(Args...)> {
     sl::Slot<int(char, int, bool)> produce_slot = s.disconnect(product_id);
     assert(product_slot(5, 5, true) == 25);
     assert(s.slot_count() == 0);
-    assert(s.is_empty());
+    assert(s.IsEmpty());
     assert(s(5, 5, true) == std::nullopt);
 }
 

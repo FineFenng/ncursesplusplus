@@ -12,61 +12,67 @@
 #include "ncursesplusplus/system/system.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
 
+#include "absl/synchronization/mutex.h"
+#include "absl/types/variant.h"
+
 namespace npp {
-inline auto operator<(Paint_event const &x, Paint_event const &y) -> bool {
+inline auto operator<(PaintEvent const &x, PaintEvent const &y) -> bool {
   return std::addressof(x.receiver.get()) < std::addressof(y.receiver.get());
 }
 }  // namespace npp
 
-namespace npp::detail {
+namespace npp {
+namespace detail {
 
-class Paint_queue : public Lockable<std::mutex> {
+class PaintQueue {
  public:
-  void append(Paint_event e) {
-    auto const lock = this->Lockable::lock();
-    paints_.insert(std::move(e));
+  void append(PaintEvent event) {
+    absl::MutexLock ml(&mutex_);
+    paints_.insert(event);
   }
 
   void send_all() {
-    auto const lock = this->Lockable::lock();
-    for (auto &p : paints_)
-      System::send_event(std::move(p));
+    absl::MutexLock ml(&mutex_);
+    for (auto &paint : paints_)
+      System::send_event(paint);
     paints_.clear();
   }
 
  private:
-  std::set<Paint_event> paints_;
+  std::set<PaintEvent> paints_;
+  absl::Mutex mutex_;
 };
 
-class Delete_queue : public Lockable<std::mutex> {
+class DeleteQueue {
  public:
-  void append(Delete_event e) {
-    auto const lock = this->Lockable::lock();
+  void append(DeleteEvent e) {
+    absl::MutexLock ml(&mutex_);
     deletes_.push_back(std::move(e));
   }
 
   void send_all() {
-    auto const lock = this->Lockable::lock();
+    absl::MutexLock ml(&mutex_);
     for (auto &d : deletes_)
       System::send_event(std::move(d));
     deletes_.clear();
   }
 
  private:
-  std::vector<Delete_event> deletes_;
+  std::vector<DeleteEvent> deletes_;
+  absl::Mutex mutex_;
 };
 
 // Mutex/Threading Notes
-// The main thread is the only thread that can call Event_queue::send_all()
+// The main thread is the only thread that can call EventQueue::SendAll()
 // Events are removed from the queue which a lock, then processed without a lock
 // This does not require a recursive mutex because event is processed w/o lock.
 // Paint and Delete Events should not be accessing functions that access the
 // queue, so they can remain locked while processing.
 
-class Basic_queue : public Lockable<std::mutex> {
+class BasicQueue {
  public:
   void append(Event e) {
-    auto const lock = this->Lockable::lock();
+
     basics_.push_back(std::move(e));
   }
 
@@ -77,62 +83,70 @@ class Basic_queue : public Lockable<std::mutex> {
       auto event = this->get_event(index);
       System::send_event(std::move(event));
     }
-    auto const lock = this->Lockable::lock();
-    basics_.clear();
+    absl::MutexLock ml(&mutex_);
+    basics_.Clear();
   }
 
  private:
-  std::vector<Event> basics_;
-
- private:
   auto get_event(std::size_t index) -> Event {
-    auto const lock = this->Lockable::lock();
+    absl::MutexLock ml(&mutex_);
     return std::move(basics_[index]);
   }
 
   auto increment_index(std::size_t current) -> std::size_t {
-    auto const lock = this->Lockable::lock();
+    absl::MutexLock ml(&mutex_);
     return current + 1uL < basics_.size() ? current + 1uL : -1uL;
   }
 
   auto get_begin_index() -> std::size_t {
-    auto const lock = this->Lockable::lock();
-    return basics_.empty() ? -1uL : 0uL;
+    absl::MutexLock ml(&mutex_);
+    return basics_.empty() ? -1ul : 0ul;
   }
+ private:
+  std::vector<Event> basics_;
+  absl::Mutex mutex_;
+
 };
 
-class Event_queue {
+class EventQueue {
  public:
+  explicit EventQueue()
+      : helper_(this) {
+  }
   /// Adds the given event with priority for the concrete event type.
-  void append(Event e) {
-    std::visit(
-        [this](auto &&e) {
-          this->add_to_a_queue(std::forward<decltype(e)>(e));
-        },
-        std::move(e));
+  void Append(Event e) {
+    absl::visit(helper_, e);
   }
 
-  void send_all() {
+  void SendAll() {
     basics_.send_all();
     paints_.send_all();
     deletes_.send_all();
   }
 
  private:
-  Basic_queue basics_;
-  Paint_queue paints_;
-  Delete_queue deletes_;
+  struct AppendHelper {
+    explicit AppendHelper(EventQueue *queue_in)
+        : queue(queue_in) {
+    }
+    template<class E>
+    void operator()(E &&e) {
+      queue->template AddToQueue(std::forward<decltype(e)>(e));
+    }
+    EventQueue *queue;
+  };
 
- private:
-  template<typename T>
-  void add_to_a_queue(T e) {
-    basics_.append(std::move(e));
-  }
+  template<typename E>
+  void AddToQueue(E e) { basics_.append(std::move(e)); }
+  void AddToQueue(PaintEvent e) { paints_.append(e); }
+  void AddToQueue(DeleteEvent e) { deletes_.append(std::move(e)); }
 
-  void add_to_a_queue(Paint_event e) { paints_.append(std::move(e)); }
-
-  void add_to_a_queue(Delete_event e) { deletes_.append(std::move(e)); }
+  AppendHelper helper_;
+  BasicQueue basics_;
+  PaintQueue paints_;
+  DeleteQueue deletes_;
 };
 
+}
 }  // namespace npp::detail
 #endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_EVENT_QUEUE_HPP

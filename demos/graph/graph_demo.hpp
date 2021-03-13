@@ -244,7 +244,7 @@ class Graph_demo : public npp::layout::Horizontal<> {
 
             graph_box.cycle_box.add_option("Sine").connect(
                 [this] { graph_changed("sine"); });
-            graph_box.cycle_box.add_option("Sine Three").connect([this] {
+            graph_box.cycle_box.add_option("Sine kThree").connect([this] {
                 graph_changed("sine-three");
             });
             graph_box.cycle_box.add_option("Sine Phase").connect([this] {

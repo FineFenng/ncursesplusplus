@@ -1,48 +1,49 @@
 #ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP
 #define NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP
-#include <variant>
+
+#include "absl/types/variant.h"
 
 namespace npp {
 
-struct Paint_event;
-struct Key_press_event;
-struct Mouse_press_event;
-struct Mouse_release_event;
-struct Mouse_double_click_event;
-struct Mouse_wheel_event;
-struct Mouse_move_event;
-struct Child_added_event;
-struct Child_removed_event;
-struct Child_polished_event;
-struct Delete_event;
-struct Disable_event;
-struct Enable_event;
-struct Focus_in_event;
-struct Focus_out_event;
-struct Move_event;
-struct Resize_event;
-struct Timer_event;
-struct Custom_event;
+struct PaintEvent;
+struct KeyPressEvent;
+struct MousePressEvent;
+struct MouseReleaseEvent;
+struct MouseDoubleClickEvent;
+struct MouseWheelEvent;
+struct MouseMoveEvent;
+struct ChildAddedEvent;
+struct ChildRemovedEvent;
+struct ChildPolishedEvent;
+struct DeleteEvent;
+struct DisableEvent;
+struct EnableEvent;
+struct FocusInEvent;
+struct FocusOutEvent;
+struct MoveEvent;
+struct ResizeEvent;
+struct TimerEvent;
+struct CustomEvent;
 
-using Event = std::variant<Paint_event,
-                           Key_press_event,
-                           Mouse_press_event,
-                           Mouse_release_event,
-                           Mouse_double_click_event,
-                           Mouse_wheel_event,
-                           Mouse_move_event,
-                           Child_added_event,
-                           Child_removed_event,
-                           Child_polished_event,
-                           Delete_event,
-                           Disable_event,
-                           Enable_event,
-                           Focus_in_event,
-                           Focus_out_event,
-                           Move_event,
-                           Resize_event,
-                           Timer_event,
-                           Custom_event>;
+using Event = absl::variant<PaintEvent,
+                           KeyPressEvent,
+                           MousePressEvent,
+                           MouseReleaseEvent,
+                           MouseDoubleClickEvent,
+                           MouseWheelEvent,
+                           MouseMoveEvent,
+                           ChildAddedEvent,
+                           ChildRemovedEvent,
+                           ChildPolishedEvent,
+                           DeleteEvent,
+                           DisableEvent,
+                           EnableEvent,
+                           FocusInEvent,
+                           FocusOutEvent,
+                           MoveEvent,
+                           ResizeEvent,
+                           TimerEvent,
+                           CustomEvent>;
 
 }  // namespace npp
 #endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_FWD_HPP

@@ -29,7 +29,7 @@ auto update(Widget &w) -> sl::Slot<void()> {
 auto click(Widget &w) -> sl::Slot<void(Point, Mouse::Button)> {
   return link_lifetimes(
       [&w](Point const &p, Mouse::Button b) {
-        System::send_event(Mouse_press_event{
+        System::send_event(MousePressEvent{
             w, Mouse{{w.inner_x() + p.x, w.inner_y() + p.y}, p, b, 0, {}}});
       },
       w);
@@ -38,7 +38,7 @@ auto click(Widget &w) -> sl::Slot<void(Point, Mouse::Button)> {
 auto click(Widget &w, Point p) -> sl::Slot<void(Mouse::Button)> {
   return link_lifetimes(
       [&w, p](Mouse::Button b) {
-        System::send_event(Mouse_press_event{
+        System::send_event(MousePressEvent{
             w, Mouse{{w.inner_x() + p.x, w.inner_y() + p.y}, p, b, 0, {}}});
       },
       w);
@@ -47,7 +47,7 @@ auto click(Widget &w, Point p) -> sl::Slot<void(Mouse::Button)> {
 auto click(Widget &w, Mouse::Button b) -> sl::Slot<void(Point)> {
   return link_lifetimes(
       [&w, b](Point p) {
-        System::send_event(Mouse_press_event{
+        System::send_event(MousePressEvent{
             w, Mouse{{w.inner_x() + p.x, w.inner_y() + p.y}, p, b, 0, {}}});
       },
       w);
@@ -56,7 +56,7 @@ auto click(Widget &w, Mouse::Button b) -> sl::Slot<void(Point)> {
 auto click(Widget &w, Point p, Mouse::Button b) -> sl::Slot<void()> {
   return link_lifetimes(
       [&w, p, b] {
-        System::send_event(Mouse_press_event{
+        System::send_event(MousePressEvent{
             w, Mouse{{w.inner_x() + p.x, w.inner_y() + p.y}, p, b, 0, {}}});
       },
       w);
@@ -65,7 +65,7 @@ auto click(Widget &w, Point p, Mouse::Button b) -> sl::Slot<void()> {
 auto keypress(Widget &w) -> sl::Slot<void(Key)> {
   return link_lifetimes(
       [&w](Key k) {
-        System::send_event(Key_press_event{w, k});
+        System::send_event(KeyPressEvent{w, k});
       },
       w);
 }
@@ -73,7 +73,7 @@ auto keypress(Widget &w) -> sl::Slot<void(Key)> {
 auto keypress(Widget &w, Key k) -> sl::Slot<void()> {
   return link_lifetimes(
       [&w, k] {
-        System::send_event(Key_press_event{w, k});
+        System::send_event(KeyPressEvent{w, k});
       },
       w);
 }

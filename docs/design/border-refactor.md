@@ -192,7 +192,7 @@ each Widget can have a particular amount of space between itself and other.
 
 - layouts hold the offset of their children from their top left, instead of
   widgets themselves holding this information. Widgets shouldn't need to know
-  where they are globally. This means you can remove the `Move_event` type and
+  where they are globally. This means you can remove the `MoveEvent` type and
   just have layouts update their internally held offset value. The question here
   is does this offset vector need to be accessible from within Widget base class
   or can it stay in Layout? if it is unique to each layout type then it might
@@ -277,7 +277,7 @@ each Widget can have a particular amount of space between itself and other.
 
   ```cpp
   auto queue = mq::Message_queue<Message_variant_type>{};
-  queue.append(Resize_event{{4, 3}, {2, 3}});
+  queue.append(ResizeEvent{{4, 3}, {2, 3}});
 
   // could just use iterators from the Message_queue, so unattached to the class
   mq::process(queue); // calls std::visit with process(Message_variant_type)

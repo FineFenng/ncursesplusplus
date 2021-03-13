@@ -74,7 +74,7 @@ class Layout : public Widget {
     children_.emplace(this->iter_at(index), std::move(w));
     inserted.set_parent(this);
     inserted.enable(this->is_enabled());
-    System::post_event(Child_added_event{*this, inserted});
+    System::post_event(ChildAddedEvent{*this, inserted});
     return inserted;
   }
 
@@ -132,7 +132,7 @@ class Layout : public Widget {
     return removed;
   }
 
-  /// Removes the child with given pointer and sends a Delete_event to it.
+  /// Removes the child with given pointer and sends a DeleteEvent to it.
   /** Returns false if \p child is not found and deleted. */
   auto remove_and_delete_child(Child_t const *child) -> bool {
     auto removed = this->remove_child(child);
@@ -155,7 +155,7 @@ class Layout : public Widget {
     return true;
   }
 
-  /// Removes the child at \p index and sends a Delete_event to it.
+  /// Removes the child at \p index and sends a DeleteEvent to it.
   /** Returns false if \p index is out of range. */
   auto remove_and_delete_child_at(std::size_t index) -> bool {
     auto removed = this->remove_child_at(index);
@@ -174,8 +174,8 @@ class Layout : public Widget {
   /// Swap two child widgets, no index range check.
   void swap_children(std::size_t index_a, std::size_t index_b) {
     std::iter_swap(this->iter_at(index_a), this->iter_at(index_b));
-    System::post_event(Child_polished_event{*this, *children_[index_b]});
-    System::post_event(Child_polished_event{*this, *children_[index_a]});
+    System::post_event(ChildPolishedEvent{*this, *children_[index_b]});
+    System::post_event(ChildPolishedEvent{*this, *children_[index_a]});
   }
 
   /// Find first child satisfying \p predicate.
@@ -240,8 +240,8 @@ class Layout : public Widget {
  protected:
   /// Clients override this to post Resize and Move events to children.
   /** This will be called each time the children Widgets possibly need to be
-   *  rearranged. Triggered by Move_event, Resize_event, Child_added_event,
-   *  Child_removed_event, Child_polished_event, and Enable_even\. */
+   *  rearranged. Triggered by MoveEvent, ResizeEvent, ChildAddedEvent,
+   *  ChildRemovedEvent, ChildPolishedEvent, and Enable_even\. */
   virtual void update_geometry() = 0;
 
   auto enable_event() -> bool override {
@@ -260,7 +260,7 @@ class Layout : public Widget {
   }
 
   auto child_added_event(Widget &child) -> bool override {
-    // Child_added_event can be sent even if receivier is disabled, and
+    // ChildAddedEvent can be sent even if receivier is disabled, and
     // update_geometry() is capable of enabling child widgets, so don't call
     if (this->is_enabled())
       this->update_geometry();
@@ -268,7 +268,7 @@ class Layout : public Widget {
   }
 
   auto child_removed_event(Widget &child) -> bool override {
-    // Child_removed_event can be sent even if receivier is disabled, and
+    // ChildRemovedEvent can be sent even if receivier is disabled, and
     // update_geometry() is capable of enabling child widgets, so don't call
     if (this->is_enabled())
       this->update_geometry();
@@ -333,7 +333,7 @@ class Layout : public Widget {
   /// Disable, post Child_remove_event to *this, and set parent to nullptr.
   void uninitialize(Widget &w) {
     w.disable();
-    System::post_event(Child_removed_event{*this, w});
+    System::post_event(ChildRemovedEvent{*this, w});
     w.set_parent(nullptr);
   }
 };

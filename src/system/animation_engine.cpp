@@ -8,46 +8,46 @@
 
 namespace npp {
 
-void Animation_engine::register_widget(Widget &w, Period_t interval) {
+void AnimationEngine::RegisterWidget(Widget &w, Period_t interval) {
   if (!this->has_loop_with(interval)) {
     loops_.emplace_back(
-        std::make_unique<detail::Timer_event_loop>(interval));
+        std::make_unique<detail::TimerEventLoop>(interval));
     loops_.back()->run_async();
   }
-  this->get_loop_with(interval).register_widget(w);
+  this->get_loop_with(interval).RegisterWidget(w);
 }
 
-void Animation_engine::register_widget(Widget &w, FPS fps) {
-  this->register_widget(w, detail::Interval_event_loop::fps_to_period(fps));
+void AnimationEngine::RegisterWidget(Widget &w, FPS fps) {
+  this->RegisterWidget(w, detail::IntervalEventLoop::FpsToPeriod(fps));
 }
 
-void Animation_engine::unregister_widget(Widget &w) {
+void AnimationEngine::UnregisterWidget(Widget &w) {
   // Unregister the Widget from the event loop it is contained in, and return
   // that event loop.
   auto const iter = std::find_if(
       std::begin(loops_), std::end(loops_),
-      [&w](auto const &loop) { return loop->unregister_widget(w); });
+      [&w](auto const &loop) { return loop->UnregisterWidget(w); });
 
-  // If an event loop was found, and it is now empty, shutdown that event loop
+  // If an event loop was found, and it is now empty, Shutdown that event loop
   if (iter != std::end(loops_)) {
-    if (auto &loop = *iter; loop->is_empty()) {
-      loop->exit(0);
-      loop->wait();
+    if (auto &loop = *iter; loop->IsEmpty()) {
+      loop->Exit(0);
+      loop->Wait();
       loops_.erase(iter);
     }
   }
 }
 
-void Animation_engine::shutdown() {
+void AnimationEngine::Shutdown() {
   /* Timer_event_loops will wait on the future at destruction.
-   * Because shutdown is called from Event_loop and will wait forever. */
+   * Because Shutdown is called from EventLoop and will wait forever. */
   for (auto &loop : loops_) {
-    loop->exit(0);
-    loop->wait();
+    loop->Exit(0);
+    loop->Wait();
   }
 }
 
-void Animation_engine::startup() {
+void AnimationEngine::Startup() {
   for (auto &loop : loops_)
     loop->run_async();
 }

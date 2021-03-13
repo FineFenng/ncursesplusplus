@@ -256,7 +256,9 @@ add_library(${NPP_TARGET_NAME} SHARED
         ${${NPP_TARGET_NAME}_SRC}
         )
 
-target_link_libraries(${NPP_TARGET_NAME} PRIVATE absl_variant)
+target_link_libraries(${NPP_TARGET_NAME} PRIVATE
+        absl_variant
+        absl_synchronization)
 
 target_include_directories(${NPP_TARGET_NAME}
         PUBLIC include/ncursesplusplus/ncursesplusplus.h

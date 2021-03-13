@@ -2,7 +2,8 @@
 #define NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_HPP
 #include "ncursesplusplus/painter/detail/staged_changes.hpp"
 
-namespace npp::detail {
+namespace npp {
+namespace detail {
 
 /// Writes uncommitted changes to the underlying paint engine.
 /** Also enable the cursor on the widget in focus. Implements optimizations
@@ -19,5 +20,6 @@ class Screen {
   static void display_cursor();
 };
 
+}
 }  // namespace npp::detail
 #endif  // NCURSESPLUSPLUS_PAINTER_DETAIL_SCREEN_HPP

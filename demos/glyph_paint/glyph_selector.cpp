@@ -93,9 +93,9 @@ auto color_blocks(Palette const& p) -> Glyph_string
     auto result = Glyph_string{};
     for (auto i = 0uL; i < p.size(); ++i) {
         for (auto j = i + 1uL; j < p.size(); ++j) {
-            result.append(L'█' | fg(p[i].color));
+          result.Append(L'█' | fg(p[i].color));
             for (wchar_t const block : blocks)
-                result.append(block | bg(p[i].color) | fg(p[j].color));
+              result.Append(block | bg(p[i].color) | fg(p[j].color));
         }
     }
     return result;
@@ -112,8 +112,8 @@ auto color_shapes(Palette const& p) -> Glyph_string
     for (auto i = 0uL; i < p.size(); ++i) {
         for (auto j = i + 1uL; j < p.size(); ++j) {
             for (wchar_t const shape : shapes) {
-                result.append(shape | bg(p[i].color) | fg(p[j].color));
-                result.append(L' ');
+              result.Append(shape | bg(p[i].color) | fg(p[j].color));
+              result.Append(L' ');
             }
         }
     }

@@ -15,8 +15,8 @@ namespace {
 
 using Processed_colors = std::vector<std::pair<ANSI, True_color>>;
 
-/// Create a Custom_event to update color definitions.
-auto dynamic_color_event(Processed_colors colors) -> Custom_event {
+/// Create a CustomEvent to update color definitions.
+auto dynamic_color_event(Processed_colors colors) -> CustomEvent {
   return {[=] {
     {
       for (auto&[ansi, true_color] : colors)
@@ -28,7 +28,7 @@ auto dynamic_color_event(Processed_colors colors) -> Custom_event {
 
 }  // namespace
 
-void Dynamic_color_event_loop::loop_function() {
+void Dynamic_color_event_loop::LoopFunction() {
   {
     auto processed = Processed_colors{};
     auto const guard = std::scoped_lock{colors_mtx_};
@@ -37,7 +37,7 @@ void Dynamic_color_event_loop::loop_function() {
 
     System::post_event(dynamic_color_event(processed));
   }
-  Interval_event_loop::loop_function();
+  IntervalEventLoop::LoopFunction();
 }
 
 }  // namespace npp::detail

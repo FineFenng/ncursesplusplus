@@ -249,7 +249,7 @@ enum class Key : short {
 
 /// Translate a keycode \p key into its char representation.
 /** Return '\0' if \p key does not have a printable representation. */
-inline auto to_wchar(Key k) -> wchar_t {
+inline wchar_t ToWchar(Key k) {
   auto constexpr printable_low = wchar_t{32};
   auto constexpr printable_high = wchar_t{126};
   auto const value = static_cast<wchar_t>(k);
@@ -264,12 +264,12 @@ inline auto to_wchar(Key k) -> wchar_t {
 // Required for gcc < 6.1 and sometimes clang 7?
 namespace std {
 template<>
-struct hash<npp::Key> {
-  using argument_type = npp::Key;
-  using result_type = std::size_t;
-  using underlying_t = std::underlying_type_t<argument_type>;
+struct hash<Key> {
+  using Argument = Key;
+  using Result = std::size_t;
+  using underlying_t = std::underlying_type<argument_type>::type;
 
-  auto operator()(argument_type const &key) const noexcept -> result_type {
+  Result operator()(const Argument& key) const noexcept {
     return std::hash<underlying_t>{}(static_cast<underlying_t>(key));
   }
 };

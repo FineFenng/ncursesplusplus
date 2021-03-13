@@ -52,7 +52,7 @@ auto Line_edit::key_press_event(Key k) -> bool {
   auto const is_printable = [](char c) {
     return std::isprint(c) or std::isspace(c);
   };
-  auto const symbol = to_wchar(k);
+  auto const symbol = ToWchar(k);
   if (!is_printable(symbol))
     return Textbox::key_press_event(k);
   if (!validator_(symbol))

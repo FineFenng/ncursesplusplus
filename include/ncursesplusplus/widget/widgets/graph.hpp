@@ -60,7 +60,7 @@ class Graph : public Widget {
 
   void clear() {
     coordinates_.clear();
-    map_.clear();
+    map_.Clear();
     this->update();
   }
 
@@ -181,7 +181,7 @@ class Graph : public Widget {
 
   void regenerate_map() {
     this->update_intervals();
-    map_.clear();
+    map_.Clear();
     for (auto coord : coordinates_)
       this->initialize_bitmap(coord);
   }

@@ -6,17 +6,17 @@
 
 namespace npp::detail {
 
-void Timer_event_loop::register_widget(Widget &w) {
+void TimerEventLoop::RegisterWidget(Widget &w) {
   {
     auto const guard = Guard_t{mtx_registered_widgets_};
     registered_widgets_.emplace(&w);
   }
-  w.destroyed.connect([this, &w] { this->unregister_widget(w); });
+  w.destroyed.connect([this, &w] { this->UnregisterWidget(w); });
 }
 
-void Timer_event_loop::loop_function() {
+void TimerEventLoop::LoopFunction() {
   // The first call to this returns immediately.
-  Interval_event_loop::loop_function();
+  IntervalEventLoop::LoopFunction();
   {
     auto const guard = Guard_t{mtx_registered_widgets_};
     for (Widget *widg : registered_widgets_)

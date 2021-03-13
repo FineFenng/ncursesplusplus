@@ -4,7 +4,7 @@ The rainbow dynamic color is provided via the `rainbow(...)` free function in
 the `termox/painter/dynamic_colors.hpp` header.
 
 ```cpp
-auto rainbow(Dynamic_color::Period_t period = std::chrono::milliseconds{40},
+auto rainbow(Dynamic_color::Period period = std::chrono::milliseconds{40},
              std::uint8_t saturation        = 75,
              std::uint8_t lightness         = 75) -> Dynamic_color;
 ```

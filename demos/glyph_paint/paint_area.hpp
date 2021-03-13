@@ -86,7 +86,7 @@ class Paint_area : public npp::Widget {
 
     void clear()
     {
-        glyphs_painted_.clear();
+      glyphs_painted_.Clear();
         this->update();
     }
 

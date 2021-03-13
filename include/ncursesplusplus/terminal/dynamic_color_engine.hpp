@@ -10,13 +10,13 @@
 
 namespace npp::detail {
 
-class Dynamic_color_event_loop : public detail::Interval_event_loop {
+class Dynamic_color_event_loop : public detail::IntervalEventLoop {
  private:
   using Mutex_t = std::mutex;
   using Guard_t = std::scoped_lock<Mutex_t>;
 
  public:
-  using Interval_event_loop::Interval_event_loop;
+  using IntervalEventLoop::IntervalEventLoop;
 
  public:
   /// Register a new ansi color to be dynamic, will replace if already exists.
@@ -49,7 +49,7 @@ class Dynamic_color_event_loop : public detail::Interval_event_loop {
   }
 
  protected:
-  void loop_function() override;
+  void LoopFunction() override;
 
  public:
   struct Def {
@@ -84,13 +84,13 @@ class Dynamic_color_event_loop : public detail::Interval_event_loop {
 namespace npp {
 class Dynamic_color_engine {
  public:
-  using Period_t = detail::Dynamic_color_event_loop::Period_t;
+  using Period_t = detail::Dynamic_color_event_loop::Period;
 
  public:
   ~Dynamic_color_engine() {
     for (auto &loop : loops_) {
-      loop->exit(0);
-      loop->wait();
+      loop->Exit(0);
+      loop->Wait();
     }
   }
 
@@ -117,8 +117,8 @@ class Dynamic_color_engine {
     // If an event loop was found, and it is now empty, destroy that loop.
     if (iter != std::end(loops_)) {
       if (auto &loop = *iter; loop->is_empty()) {
-        loop->exit(0);
-        loop->wait();
+        loop->Exit(0);
+        loop->Wait();
         loops_.erase(iter);
       }
     }
@@ -139,8 +139,8 @@ class Dynamic_color_engine {
   /// Stop all threads.
   void shutdown() {
     for (auto &loop : loops_) {
-      loop->exit(0);
-      loop->wait();
+      loop->Exit(0);
+      loop->Wait();
     }
   }
 
@@ -154,11 +154,11 @@ class Dynamic_color_engine {
   auto get_loop_iter_with(Period_t interval) const {
     return std::find_if(std::begin(loops_), std::end(loops_),
                         [interval](auto const &loop) {
-                          return loop->get_interval() == interval;
+                          return loop->Interval() == interval;
                         });
   }
 
-  /// Return true if there is already an Event_loop for \p interval.
+  /// Return true if there is already an EventLoop for \p interval.
   auto has_loop_with(Period_t interval) const -> bool {
     return this->get_loop_iter_with(interval) != std::end(loops_);
   }

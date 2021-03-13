@@ -11,7 +11,7 @@
 #include "ncursesplusplus/terminal/terminal.hpp"
 
 namespace npp {
-class Animation_engine;
+class AnimationEngine;
 class Widget;
 }  // namespace npp
 
@@ -23,10 +23,10 @@ namespace npp {
 
 /// Organizes the highest level of the TUI framework.
 /** Constructing an instance of this class initializes the display system.
- *  Manages the head Widget and the main User_input_event_loop. */
+ *  Manages the head Widget and the main UserInputEventLoop. */
 class System {
  public:
-  /// Emitted when System::exit is called. Should call Event_loop::exit.
+  /// Emitted when System::exit is called. Should call EventLoop::exit.
   /** Passes along the exit_code System::exit() was called with. */
   static sl::Signal<void(int)> exit_signal;
 
@@ -49,7 +49,7 @@ class System {
   static auto focus_widget() -> Widget *;
 
   /// Give program focus to \p w.
-  /** Sends Focus_out_event to Widget in focus, and Focus_in_event to \p w. */
+  /** Sends FocusOutEvent to Widget in focus, and FocusInEvent to \p w. */
   static void set_focus(Widget &w);
 
   /// Removes focus from the currently in focus Widget.
@@ -89,7 +89,7 @@ class System {
     return this->run();
   }
 
-  /// Launch the main Event_loop and start processing Events.
+  /// Launch the main EventLoop and start processing Events.
   /** Blocks until System::exit() is called, returns the exit code. Will throw
    *  a std::runtime_error if screen cannot be initialized. Enables and sets
    *  focus to the head Widget.*/
@@ -99,19 +99,19 @@ class System {
   static void send_event(Event e);
 
   // Minor optimization.
-  static void send_event(Paint_event e);
+  static void send_event(PaintEvent e);
 
   // Minor optimization.
-  static void send_event(Delete_event e);
+  static void send_event(DeleteEvent e);
 
-  /// Append the event to the Event_queue for the thread it was called on.
-  /** The Event_queue is processed once per iteration of the Event_loop. When
-   *  the Event is pulled from the Event_queue, it is processed by
+  /// Append the event to the EventQueue for the thread it was called on.
+  /** The EventQueue is processed once per iteration of the EventLoop. When
+   *  the Event is pulled from the EventQueue, it is processed by
    *  System::send_event() */
   static void post_event(Event e);
 
   /// Send an exit signal to each of the currently running Event_loops.
-  /** Also call shutdown() on the Animation_engine and set
+  /** Also call Shutdown() on the AnimationEngine and set
    *  System::exit_requested_ to true. Though it sends the exit signal to each
    *  of the Event_loops, they are not guaranteed to be stopped by the time
    *  this function returns. */
@@ -122,9 +122,9 @@ class System {
     return event_engine_;
   }
 
-  /// Return a reference to the Animation_engine in System.
+  /// Return a reference to the AnimationEngine in System.
   /** This manages animation on each of the Widgets that enables it. */
-  static auto animation_engine() -> Animation_engine & {
+  static auto animation_engine() -> AnimationEngine & {
     return animation_engine_;
   }
 
@@ -134,9 +134,9 @@ class System {
  private:
   inline static Widget *head_ = nullptr;
   inline static bool exit_requested_ = false;
-  static detail::User_input_event_loop user_input_loop_;
+  static detail::UserInputEventLoop user_input_loop_;
   static detail::Event_engine event_engine_;
-  static Animation_engine animation_engine_;
+  static AnimationEngine animation_engine_;
 };
 
 }  // namespace npp

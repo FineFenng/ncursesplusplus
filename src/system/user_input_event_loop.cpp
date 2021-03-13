@@ -9,7 +9,7 @@
 
 namespace npp::detail {
 
-void User_input_event_loop::loop_function() {
+void UserInputEventLoop::LoopFunction() {
   if (auto event = input::get(); event != std::nullopt)
     System::post_event(std::move(*event));
 }

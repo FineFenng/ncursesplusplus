@@ -100,7 +100,7 @@ class Apple_field {
     }
 
     /// Removes all apples, does not resize.
-    void clear() { points_.clear(); }
+    void clear() { points_.Clear(); }
 
    private:
     std::set<npp::Point> points_;
@@ -131,7 +131,7 @@ class Snake {
     /// Clear existing snake, create a new snake at \p p with Direction::Right.
     void initialize(npp::Point const& p)
     {
-        points_.clear();
+      points_.Clear();
         points_.push_back(p);
         direction_      = Direction::Right;
         next_direction_ = Direction::Right;
@@ -564,11 +564,11 @@ class Instructions : public npp::Text_display {
         using namespace npp;
         auto const standout = Brush{fg(color::Instruction_text), Trait::Bold};
         auto result         = Glyph_string{L"Start/Stop "};
-        result.append(L"Space Bar" | standout);
-        result.append(L" - Movement ");
-        result.append(L"Arrow Keys" | standout);
-        result.append(L" or ");
-        result.append(L"'hjkl'" | standout);
+      result.Append(L"Space Bar" | standout);
+      result.Append(L" - Movement ");
+      result.Append(L"Arrow Keys" | standout);
+      result.Append(L" or ");
+      result.Append(L"'hjkl'" | standout);
         return result;
     }
 };

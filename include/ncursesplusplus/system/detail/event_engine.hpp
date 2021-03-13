@@ -15,12 +15,12 @@ class Event_engine {
  public:
   /// Invokes events and flush the screen.
   void process() {
-    queue_.send_all();
+    queue_.SendAll();
     flush_screen();
   }
 
-  /// Return a reference to the internal Event_queue.
-  auto queue() -> Event_queue & { return queue_; }
+  /// Return a reference to the internal EventQueue.
+  auto queue() -> EventQueue & { return queue_; }
 
  private:
   /// Flushes all of the staged changes to the screen and sets the cursor.
@@ -32,7 +32,7 @@ class Event_engine {
   }
 
  private:
-  Event_queue queue_;
+  EventQueue queue_;
 };
 
 }  // namespace npp::detail

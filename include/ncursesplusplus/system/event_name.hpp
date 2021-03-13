@@ -1,73 +1,73 @@
-#ifndef NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP
-#define NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP
+#ifndef NCURSESPLUSPLUS_SYSTEMEvent_NAME_HPP
+#define NCURSESPLUSPLUS_SYSTEMEvent_NAME_HPP
 #include <string>
 
 #include "ncursesplusplus/system/event.hpp"
 
-namespace ox {
+Namespace ox {
 
-/// Return the name of the given Event type.
-inline auto name(Paint_event const &) -> std::string { return "Paint_event"; }
+/// Return the Name of the given Event type.
+inline auto Name(PaintEvent const &) -> std::string { return "PaintEvent"; }
 
-inline auto name(Key_press_event const &) -> std::string {
-  return "Key_press_event";
+inline auto Name(KeyPressEvent const &) -> std::string {
+  return "KeyPressEvent";
 }
 
-inline auto name(Mouse_press_event const &) -> std::string {
-  return "Mouse_press_event";
+inline auto Name(MousePressEvent const &) -> std::string {
+  return "MousePressEvent";
 }
 
-inline auto name(Mouse_release_event const &) -> std::string {
-  return "Mouse_release_event";
+inline auto Name(MouseReleaseEvent const &) -> std::string {
+  return "MouseReleaseEvent";
 }
 
-inline auto name(Mouse_double_click_event const &) -> std::string {
-  return "Mouse_double_click_event";
+inline auto Name(MouseDoubleClickEvent const &) -> std::string {
+  return "MouseDoubleClickEvent";
 }
 
-inline auto name(Mouse_wheel_event const &) -> std::string {
-  return "Mouse_wheel_event";
+inline auto Name(MouseWheelEvent const &) -> std::string {
+  return "MouseWheelEvent";
 }
 
-inline auto name(Mouse_move_event const &) -> std::string {
-  return "Mouse_move_event";
+inline auto Name(MouseMoveEvent const &) -> std::string {
+  return "MouseMoveEvent";
 }
 
-inline auto name(Child_added_event const &) -> std::string {
-  return "Child_added_event";
+inline auto Name(ChildAddedEvent const &) -> std::string {
+  return "ChildAddedEvent";
 }
 
-inline auto name(Child_removed_event const &) -> std::string {
-  return "Child_removed_event";
+inline auto Name(ChildRemovedEvent const &) -> std::string {
+  return "ChildRemovedEvent";
 }
 
-inline auto name(Child_polished_event const &) -> std::string {
-  return "Child_polished_event";
+inline auto Name(ChildPolishedEvent const &) -> std::string {
+  return "ChildPolishedEvent";
 }
 
-inline auto name(Delete_event const &) -> std::string { return "Delete_event"; }
+inline auto Name(DeleteEvent const &) -> std::string { return "DeleteEvent"; }
 
-inline auto name(Disable_event const &) -> std::string {
-  return "Disable_event";
+inline auto Name(DisableEvent const &) -> std::string {
+  return "DisableEvent";
 }
 
-inline auto name(Enable_event const &) -> std::string { return "Enable_event"; }
+inline auto Name(EnableEvent const &) -> std::string { return "EnableEvent"; }
 
-inline auto name(Focus_in_event const &) -> std::string {
-  return "Focus_in_event";
+inline auto Name(FocusInEvent const &) -> std::string {
+  return "FocusInEvent";
 }
 
-inline auto name(Focus_out_event const &) -> std::string {
-  return "Focus_out_event";
+inline auto Name(FocusOutEvent const &) -> std::string {
+  return "FocusOutEvent";
 }
 
-inline auto name(Move_event const &) -> std::string { return "Move_event"; }
+inline auto Name(MoveEvent const &) -> std::string { return "MoveEvent"; }
 
-inline auto name(Resize_event const &) -> std::string { return "Resize_event"; }
+inline auto Name(ResizeEvent const &) -> std::string { return "ResizeEvent"; }
 
-inline auto name(Timer_event const &) -> std::string { return "Timer_event"; }
+inline auto Name(TimerEvent const &) -> std::string { return "TimerEvent"; }
 
-inline auto name(Custom_event const &) -> std::string { return "Custom_event"; }
+inline auto Name(CustomEvent const &) -> std::string { return "CustomEvent"; }
 
-}  // namespace ox
-#endif  // NCURSESPLUSPLUS_SYSTEM_EVENT_NAME_HPP
+}  // Namespace ox
+#endif  // NCURSESPLUSPLUS_SYSTEMEvent_NAME_HPP

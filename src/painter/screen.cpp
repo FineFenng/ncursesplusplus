@@ -108,7 +108,7 @@ void Screen::flush(Staged_changes::Map_t const &changes) {
 }
 
 void Screen::display_cursor() {
-  auto const *focus = detail::Focus::focus_widget();
+  auto const *focus = detail::Focus::FocusWidget();
   if (has_valid_cursor(focus))
     set_cursor(focus->inner_top_left(), focus->cursor);
   else

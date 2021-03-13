@@ -74,37 +74,37 @@ auto extract_button(::MEVENT const &state) -> std::optional<Mouse::Button> {
 auto make_event(Widget &receiver, Mouse const &mouse, ::MEVENT const &state)
 -> std::optional<Event> {
   if (is(BUTTON1_PRESSED, state))
-    return Mouse_press_event{receiver, mouse};
+    return MousePressEvent{receiver, mouse};
   else if (is(BUTTON2_PRESSED, state))
-    return Mouse_press_event{receiver, mouse};
+    return MousePressEvent{receiver, mouse};
   else if (is(BUTTON3_PRESSED, state))
-    return Mouse_press_event{receiver, mouse};
+    return MousePressEvent{receiver, mouse};
 
   else if (is(BUTTON1_RELEASED, state))
-    return Mouse_release_event{receiver, mouse};
+    return MouseReleaseEvent{receiver, mouse};
   else if (is(BUTTON2_RELEASED, state))
-    return Mouse_release_event{receiver, mouse};
+    return MouseReleaseEvent{receiver, mouse};
   else if (is(BUTTON3_RELEASED, state))
-    return Mouse_release_event{receiver, mouse};
+    return MouseReleaseEvent{receiver, mouse};
   else if (is(BUTTON4_RELEASED, state))
-    return Mouse_release_event{receiver, mouse};
+    return MouseReleaseEvent{receiver, mouse};
 #if defined(BUTTON5_RELEASED)
     else if (is(BUTTON5_RELEASED, state))
-        return Mouse_release_event{receiver, mouse};
+        return MouseReleaseEvent{receiver, mouse};
 #endif
 
   else if (is(BUTTON1_DOUBLE_CLICKED, state))
-    return Mouse_double_click_event{receiver, mouse};
+    return MouseDoubleClickEvent{receiver, mouse};
   else if (is(BUTTON2_DOUBLE_CLICKED, state))
-    return Mouse_double_click_event{receiver, mouse};
+    return MouseDoubleClickEvent{receiver, mouse};
   else if (is(BUTTON3_DOUBLE_CLICKED, state))
-    return Mouse_double_click_event{receiver, mouse};
+    return MouseDoubleClickEvent{receiver, mouse};
 
   else if (is(BUTTON4_PRESSED, state))
-    return Mouse_wheel_event{receiver, mouse};
+    return MouseWheelEvent{receiver, mouse};
 #if defined(BUTTON5_PRESSED)
   else if (is(BUTTON5_PRESSED, state))
-      return Mouse_wheel_event{receiver, mouse};
+      return MouseWheelEvent{receiver, mouse};
 #endif
 
   return std::nullopt;
@@ -135,7 +135,7 @@ auto make_mouse_event() -> std::optional<Event> {
 
 auto make_resize_event() -> std::optional<Event> {
   if (Widget *const receiver = System::head(); receiver != nullptr)
-    return Resize_event{*receiver, System::terminal.area()};
+    return ResizeEvent{*receiver, System::terminal.area()};
   else
     return std::nullopt;
 }
@@ -145,8 +145,8 @@ auto make_keyboard_event(int input) -> std::optional<Event> {
   // TODO shortcut handling is stuffed in here, should be elsewhere.
   if (Shortcuts::send_key(key))
     return std::nullopt;
-  else if (auto *const r = detail::Focus::focus_widget(); r != nullptr)
-    return Key_press_event{*r, key};
+  else if (auto *const r = detail::Focus::FocusWidget(); r != nullptr)
+    return KeyPressEvent{*r, key};
   return std::nullopt;
 }
 

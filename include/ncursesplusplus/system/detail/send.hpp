@@ -7,58 +7,60 @@
 #include "ncursesplusplus/widget/area.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
 
-namespace npp::detail {
+namespace npp {
+namespace detail {
 
-inline void send(npp::Paint_event e) {
-  if (is_paintable(e.receiver))
-    e.receiver.get().paint_event();
+inline void Send(PaintEvent event) {
+  if (is_paintable(event.receiver)) {
+    event.receiver.get().paint_event();
+  }
 }
 
-inline void send(npp::Key_press_event e) {
-  e.receiver.get().key_press_event(e.key);
-  switch (e.key) {
-    case Key::Tab: detail::Focus::tab_press();
+inline void Send(KeyPressEvent event) {
+  event.receiver.get().key_press_event(event.key);
+  switch (event.key) {
+    case Key::Tab: detail::Focus::TabPress();
       break;
-    case Key::Back_tab: detail::Focus::shift_tab_press();
+    case Key::Back_tab: detail::Focus::ShiftTabPress();
       break;
     default: break;
   }
 }
 
-inline void send(npp::Mouse_press_event e) {
-  detail::Focus::mouse_press(e.receiver);
+inline void Send(MousePressEvent e) {
+  detail::Focus::MousePress(e.receiver);
   e.receiver.get().mouse_press_event(e.data);
 }
 
-inline void send(npp::Mouse_release_event e) {
+inline void Send(MouseReleaseEvent e) {
   e.receiver.get().mouse_release_event(e.data);
 }
 
-inline void send(npp::Mouse_double_click_event e) {
+inline void Send(MouseDoubleClickEvent e) {
   e.receiver.get().mouse_double_click_event(e.data);
 }
 
-inline void send(npp::Mouse_wheel_event e) {
+inline void Send(MouseWheelEvent e) {
   e.receiver.get().mouse_wheel_event(e.data);
 }
 
-inline void send(npp::Mouse_move_event e) {
+inline void Send(MouseMoveEvent e) {
   e.receiver.get().mouse_move_event(e.data);
 }
 
-inline void send(npp::Child_added_event e) {
+inline void Send(ChildAddedEvent e) {
   e.receiver.get().child_added_event(e.child);
 }
 
-inline void send(npp::Child_removed_event e) {
+inline void Send(ChildRemovedEvent e) {
   e.receiver.get().child_removed_event(e.child);
 }
 
-inline void send(npp::Child_polished_event e) {
+inline void Send(ChildPolishedEvent e) {
   e.receiver.get().child_polished_event(e.child);
 }
 
-inline void send(npp::Delete_event e) {
+inline void Send(DeleteEvent e) {
   if (e.removed == nullptr)
     return;
   e.removed->delete_event();
@@ -67,21 +69,21 @@ inline void send(npp::Delete_event e) {
   e.removed.reset();
 }
 
-inline void send(npp::Disable_event e) {
+inline void Send(DisableEvent e) {
   e.receiver.get().screen_state().clear();
   e.receiver.get().disable_event();
 }
 
-inline void send(npp::Enable_event e) { e.receiver.get().enable_event(); }
+inline void Send(EnableEvent e) { e.receiver.get().enable_event(); }
 
-inline void send(npp::Focus_in_event e) {
-  Focus::direct_set_focus(e.receiver.get());
+inline void Send(FocusInEvent e) {
+  Focus::DirectSetFocus(&e.receiver.get());
   e.receiver.get().focus_in_event();
 }
 
-inline void send(npp::Focus_out_event e) { e.receiver.get().focus_out_event(); }
+inline void Send(FocusOutEvent e) { e.receiver.get().focus_out_event(); }
 
-inline void send(npp::Move_event e) {
+inline void Send(MoveEvent e) {
   auto const old_position = e.receiver.get().top_left();
   auto const new_position = e.new_position;
   if (old_position == new_position)
@@ -92,7 +94,7 @@ inline void send(npp::Move_event e) {
   e.receiver.get().move_event(new_position, old_position);
 }
 
-inline void send(npp::Resize_event e) {
+inline void Send(ResizeEvent e) {
   auto const old_area = e.receiver.get().outer_area();
   auto const new_area = e.new_area;
   if (old_area == new_area)
@@ -102,12 +104,13 @@ inline void send(npp::Resize_event e) {
   e.receiver.get().resize_event(new_area, old_area);
 }
 
-inline void send(npp::Timer_event e) {
+inline void Send(TimerEvent e) {
   if (detail::is_paintable(e.receiver))
     e.receiver.get().timer_event();
 }
 
-inline void send(npp::Custom_event e) { e.send(); }
+inline void Send(CustomEvent e) { e.send(); }
 
+}
 }  // namespace npp::detail
 #endif  // NCURSESPLUSPLUS_SYSTEM_DETAIL_SEND_HPP

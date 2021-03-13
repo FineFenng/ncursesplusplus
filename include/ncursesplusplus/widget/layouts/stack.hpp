@@ -155,7 +155,7 @@ class Stack : public Layout<Child_t> {
     return distance;
   }
 
-  /// Post an Enable_event or Disable_event to the active page.
+  /// Post an EnableEvent or DisableEvent to the active page.
   void enable(bool enable = true,
               bool post_child_polished_event = true) override {
     this->Widget::enable_and_post_events(enable, post_child_polished_event);

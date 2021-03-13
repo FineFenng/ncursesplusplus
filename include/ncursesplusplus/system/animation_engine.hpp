@@ -9,58 +9,59 @@ namespace npp {
 class Widget;
 
 /// Manages all Timer_event_loops, grouping by period.
-class Animation_engine {
+class AnimationEngine {
  public:
-  using Period_t = detail::Timer_event_loop::Period_t;
+  using Period = detail::TimerEventLoop::Period;
 
  public:
-  ~Animation_engine() {
+  ~AnimationEngine() {
     for (auto &loop : loops_) {
-      loop->exit(0);
-      loop->wait();
+      loop->Exit(0);
+      loop->Wait();
     }
   }
 
  public:
   /// Begins posting Timer_events to the given Widget every period.
-  void register_widget(Widget &w, Period_t interval);
+  void RegisterWidget(Widget &w, Period interval);
 
   /// Begins posting Timer_events to the given Widget at \p fps.
-  void register_widget(Widget &w, FPS fps);
+  void RegisterWidget(Widget &w, FPS fps);
 
   /// Stop posting Timer_events to a given Widget.
-  void unregister_widget(Widget &w);
+  void UnregisterWidget(Widget &w);
 
   // Start sending Timer_events to all registered widgets.
-  /** Only needed if shutdown() has been called. */
-  void startup();
+  /** Only needed if Shutdown() has been called. */
+  void Startup();
 
   /// Send stop signals to all event loops and wait for them to exit.
-  void shutdown();
+  void Shutdown();
 
  private:
   // Using a std::unique_ptr because Event_loops can't be copied.
-  using Loop_t = std::unique_ptr<detail::Timer_event_loop>;
-  std::vector<Loop_t> loops_;
+  using LoopPtr = std::unique_ptr<detail::TimerEventLoop>;
+  std::vector<LoopPtr> loops_;
+  using ConstLoopIter = std::vector<LoopPtr>::const_iterator;
 
  private:
   /// Find and return iterator pointing to Event Loop with \p interval.
   /** Returns std::end(loops_) if no loop found with \p interval. */
-  auto get_loop_iter_with(Period_t interval) const {
-    return std::find_if(std::begin(loops_), std::end(loops_),
-                        [interval](auto const &loop) {
-                          return loop->get_interval() == interval;
+  ConstLoopIter GetLoopIterWith(Period interval) const {
+    return std::find_if(loops_.begin(), loops_.end(),
+                        [interval](const LoopPtr& loop_ptr) {
+                          return loop_ptr->Interval() == interval;
                         });
   }
 
-  /// Return true if there is already an Event_loop for \p interval.
-  auto has_loop_with(Period_t interval) const -> bool {
-    return this->get_loop_iter_with(interval) != std::end(loops_);
+  /// Return true if there is already an EventLoop for \p interval.
+  auto has_loop_with(Period interval) const -> bool {
+    return GetLoopIterWith(interval) != loops_.end();
   }
 
   /// Assumes that the Event Loop does exist, otherwise undefined behavior.
-  auto get_loop_with(Period_t interval) -> detail::Timer_event_loop & {
-    return **this->get_loop_iter_with(interval);
+  detail::TimerEventLoop& get_loop_with(Period interval) {
+    return **GetLoopIterWith(interval);
   }
 };
 

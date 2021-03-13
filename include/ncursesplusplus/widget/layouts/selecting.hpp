@@ -132,7 +132,7 @@ class Selecting : public Layout_t {
   }
 
   auto enable_event() -> bool override {
-    if (this->has_selected_child() && System::focus_widget() == this)
+    if (this->has_selected_child() && System::FocusWidget() == this)
       this->selected_child().select();
     return Layout_t::enable_event();
   }

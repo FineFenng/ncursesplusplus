@@ -123,7 +123,7 @@ inline auto remove_filter(Widget &filter) {
   };
 }
 
-inline auto animate(Animation_engine::Period_t period) {
+inline auto animate(AnimationEngine::Period_t period) {
   return [=](auto &&w) -> decltype(auto) {
     get(w).enable_animation(period);
     return std::forward<decltype(w)>(w);

@@ -26,7 +26,7 @@ void post_child_polished(npp::Widget &w) {
   using namespace npp;
   auto *parent = w.parent();
   if (parent != nullptr)
-    System::post_event(Child_polished_event{*parent, w});
+    System::post_event(ChildPolishedEvent{*parent, w});
 }
 
 }  // namespace
@@ -79,7 +79,7 @@ void Widget::enable_and_post_events(bool enable, bool post_child_polished_event)
   if (enable)
     System::post_event(Enable_event{*this});
   if (post_child_polished_event and this->parent() != nullptr)
-    System::post_event(Child_polished_event{*this->parent(), *this});
+    System::post_event(ChildPolishedEvent{*this->parent(), *this});
   this->update();
 }
 

@@ -101,7 +101,7 @@ GoL_demo::GoL_demo()
     this->add_pattern_example(L"Gosper Glyder Gun", pattern::gosper_glyder_gun);
     this->add_pattern_example(L"Bi-Gun", pattern::bi_gun);
     this->add_pattern_example(L"CopperHead", pattern::copperhead);
-    this->add_pattern_example(L"Three Engine Cordership Rake",
+    this->add_pattern_example(L"kThree Engine Cordership Rake",
                               pattern::three_engine_cordership_rake);
     this->add_pattern_example(L"Merzenich's p31", pattern::merzenichs_p31);
     this->add_pattern_example(L"Lobster", pattern::lobster);
