@@ -7,7 +7,8 @@ class Widget;
 class Painter;
 }  // namespace npp
 
-namespace npp::detail {
+namespace npp {
+namespace detail {
 
 /// Provides functions to calculate distance offsets of Borders.
 /** Offsets are enabled depending on the Border object itself and from the
@@ -53,5 +54,6 @@ class Border_offset {
   static auto south_enabled(Widget const &w) -> bool;
 };
 
+}
 }  // namespace npp::detail
 #endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_BORDER_OFFSETS_HPP
