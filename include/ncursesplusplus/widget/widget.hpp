@@ -284,7 +284,7 @@ class Widget {
   /// Return true if this Widget has animation enabled.
   auto is_animated() const -> bool { return is_animated_; }
 
-  /// Get a range containing Widget& to each child.
+  virtual /// Get a range containing Widget& to each child.
   auto get_children() {
     auto constexpr dereference = [](auto &widg_ptr) -> Widget & {
       return *widg_ptr;

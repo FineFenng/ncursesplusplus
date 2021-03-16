@@ -5,6 +5,8 @@
 #include <type_traits>
 #include <utility>
 
+#include "ncursesplusplus/common/invoke_trait.hpp"
+
 namespace npp {
 
 /// operator*() will apply \p map to the result of the underlying deref result.
@@ -16,8 +18,8 @@ class Transform_iterator {
  public:
   using iterator_category = std::forward_iterator_tag;
   using difference_type = std::ptrdiff_t;
-  using reference = std::invoke_result_t<Map_fn, typename Iter::reference>;
-  using value_type = std::remove_reference_t<reference>;
+  using reference = typename invoke_result<Map_fn, typename Iter::reference>::type;
+  using value_type = typename std::remove_reference<reference>::type;
   using pointer = value_type *;
 
  public:
@@ -25,13 +27,13 @@ class Transform_iterator {
       : it_{it}, map_fn_{std::move(map_fn)} {}
 
   Transform_iterator(Transform_iterator const &) = default;
-  Transform_iterator(Transform_iterator &&) = default;
+  Transform_iterator(Transform_iterator &&)  noexcept = default;
 
   Transform_iterator &operator=(Transform_iterator const &other) {
     it_ = other.it_;
     return *this;
   }
-  Transform_iterator &operator=(Transform_iterator &&) = default;
+  Transform_iterator &operator=(Transform_iterator &&)  noexcept = default;
 
  public:
   auto operator++() -> Transform_iterator & {

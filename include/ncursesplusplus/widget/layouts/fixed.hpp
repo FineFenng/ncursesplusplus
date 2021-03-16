@@ -5,11 +5,12 @@
 #include "ncursesplusplus/system/system.hpp"
 #include "ncursesplusplus/widget/layout/layout.hpp"
 
-namespace cppurse::layout {
+namespace npp {
+namespace layout {
 
 /// Fixed offset on left and right sides of Widget_t object.
 template<typename Widget_t>
-class Fixed_horizontal : public ox::Layout {
+class Fixed_horizontal : public npp::Layout {
  public:
   template<typename W = Widget_t, typename... Args>
   Fixed_horizontal(std::size_t left_offset, std::size_t right_offset)
@@ -59,5 +60,6 @@ class Fixed_horizontal : public ox::Layout {
   Widget_t *widget_;  // class invariant: this must always point to a valid w.
 };
 
-}  // namespace cppurse::layout
+}
+}  // namespace npp::layout
 #endif  // NCURSESPLUSPLUS_WIDGET_LAYOUT_FIXED_HPP

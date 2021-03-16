@@ -11,7 +11,9 @@
 #include "ncursesplusplus/widget/size_policy.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
 
-namespace npp::layout::detail {
+namespace npp {
+namespace layout {
+namespace detail {
 
 struct Dimension {
   Widget *widget;  // This is nullptr when limit is reached
@@ -331,5 +333,7 @@ class Layout_span {
   }
 };
 
+}
+}
 }  // namespace npp::layout::detail
 #endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LAYOUT_SPAN_HPP

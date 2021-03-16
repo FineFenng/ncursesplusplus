@@ -1,22 +1,27 @@
 #ifndef NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP
 #define NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP
-#include <algorithm>
 #include <cstddef>
+
+#include <algorithm>
 #include <memory>
 #include <type_traits>
 #include <utility>
 
+#include "ncursesplusplus/common/invoke_trait.hpp"
 #include "ncursesplusplus/common/transform_view.hpp"
 #include "ncursesplusplus/system/event.hpp"
 #include "ncursesplusplus/system/system.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
+
+#include "absl/meta/type_traits.h"
 
 namespace npp {
 struct Area;
 struct Point;
 }  // namespace npp
 
-namespace npp::layout {
+namespace npp {
+namespace layout {
 
 /// Provided as a uniform interface for arranging child Widgets.
 /** Layout is limited to holding Child objects, which much be Widget or some
@@ -26,26 +31,32 @@ class Layout : public Widget {
  public:
   using Child_t = Child;
 
-  static_assert(std::is_base_of_v<Widget, Child_t>,
+  static_assert(std::is_base_of<Widget, Child_t>::value,
                 "Layout: Child type must be a Widget type.");
 
  private:
   template<typename UnaryPredicate>
-  using enable_if_invocable = std::enable_if_t<
-      std::is_invocable_v<UnaryPredicate,
-                          std::add_lvalue_reference_t<Child_t>>,
-      int>;
+  using EnableIfInvocable = typename std::enable_if<is_invocable<UnaryPredicate,
+                                                                 typename std::add_lvalue_reference<Child_t>::type>::value,
+                                                    int>::type;
 
  public:
-  template<typename... Widgets>
-  Layout(std::unique_ptr<Widgets>... children) {
-    (this->append_child(std::move(children)), ...);
+  template<typename Widget>
+  explicit Layout(std::unique_ptr<Widget> child) {
+    this->append_child(std::move(child));
   }
+
+  template<typename Widget, typename... Widgets>
+  explicit Layout(std::unique_ptr<Widget> child, std::unique_ptr<Widgets>... children) {
+    this->append_child(std::move(child));
+    Layout(children...);
+  }
+
 
  public:
   /// Return a View of all children.
-  auto get_children() {
-    auto constexpr downcast = [](auto &widg_ptr) -> Child_t & {
+  Child_t& get_children() {
+    static constexpr downcast = [](auto &widg_ptr) -> Child_t & {
       return static_cast<Child_t &>(*widg_ptr);
     };
     return Transform_view(children_, downcast);
@@ -338,5 +349,6 @@ class Layout : public Widget {
   }
 };
 
+}
 }  // namespace npp::layout
 #endif  // NCURSESPLUSPLUS_WIDGET_LAYOUT_HPP

@@ -64,7 +64,7 @@ set(${NPP_TARGET_NAME}_COMMON_HDR
         include/ncursesplusplus/common/range.hpp
         include/ncursesplusplus/common/transform_iterator.hpp
         include/ncursesplusplus/common/transform_view.hpp
-        )
+        include/ncursesplusplus/common/invoke_trait.hpp)
 
 set(${NPP_TARGET_NAME}_PAINTER_HDR
         include/ncursesplusplus/painter/brush.hpp
@@ -257,8 +257,10 @@ add_library(${NPP_TARGET_NAME} SHARED
         )
 
 target_link_libraries(${NPP_TARGET_NAME} PRIVATE
+        absl_synchronization
+        absl_type_traits
         absl_variant
-        absl_synchronization)
+        )
 
 target_include_directories(${NPP_TARGET_NAME}
         PUBLIC include/ncursesplusplus/ncursesplusplus.h

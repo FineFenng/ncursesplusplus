@@ -4,6 +4,8 @@
 #include <type_traits>
 #include <utility>
 
+
+#include "ncursesplusplus/common/invoke_trait.hpp"
 #include "ncursesplusplus/common/transform_iterator.hpp"
 
 namespace npp {
@@ -15,9 +17,9 @@ template<typename Container, typename Map_fn>
 class Transform_view {
  public:
   using Reference =
-  std::invoke_result_t<Map_fn, typename Container::reference>;
+      typename invoke_result<Map_fn, typename Container::reference>::type;
   using Reference_const =
-  std::invoke_result_t<Map_fn, typename Container::const_reference>;
+      typename invoke_result<Map_fn, typename Container::const_reference>::type;
 
  public:
   Transform_view(Container &c, Map_fn map_fn)
