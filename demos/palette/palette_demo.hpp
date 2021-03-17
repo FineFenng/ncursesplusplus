@@ -26,9 +26,9 @@ class Palette_demo : public npp::layout::Horizontal<> {
 
    private:
     Color_definition_setter& color_setter_ =
-        this->make_child<Color_definition_setter>();
+        this->MakeChild<Color_definition_setter>();
     All_colors_display& all_colors_display_ =
-        this->make_child<All_colors_display>();
+        this->MakeChild<All_colors_display>();
 };
 
 }  // namespace palette

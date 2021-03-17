@@ -9,7 +9,7 @@
 namespace npp {
 
 /// Homogeneous collection of Widgets within a Layout_t<Widget_t>.
-/** Depends on Layout_t::make_child(args...) to construct the Widget_t. */
+/** Depends on Layout_t::MakeChild(args...) to construct the Widget_t. */
 template<typename Layout_t, std::size_t N>
 class Array : public Layout_t {
  public:
@@ -42,7 +42,7 @@ class Array : public Layout_t {
   template<typename... Args>
   auto make_child_with_index(std::size_t, Args const &... args) ->
   typename Layout_t::Child_t & {
-    return this->make_child(args...);
+    return this->MakeChild(args...);
   }
 
   template<std::size_t... I, typename... Args>

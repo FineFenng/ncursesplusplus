@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <utility>
 
-#include "ncursesplusplus/common/invoke_trait.hpp"
+#include "ncursesplusplus/common/meta.hpp"
 #include "ncursesplusplus/common/transform_view.hpp"
 #include "ncursesplusplus/system/event.hpp"
 #include "ncursesplusplus/system/system.hpp"
@@ -26,59 +26,61 @@ namespace layout {
 /// Provided as a uniform interface for arranging child Widgets.
 /** Layout is limited to holding Child objects, which much be Widget or some
  *  derived type. */
-template<typename Child = Widget>
+template<typename C = Widget>
 class Layout : public Widget {
  public:
-  using Child_t = Child;
-
-  static_assert(std::is_base_of<Widget, Child_t>::value,
+  using Child = C;
+  static_assert(std::is_base_of<Widget, Child>::value,
                 "Layout: Child type must be a Widget type.");
 
  private:
   template<typename UnaryPredicate>
   using EnableIfInvocable = typename std::enable_if<is_invocable<UnaryPredicate,
-                                                                 typename std::add_lvalue_reference<Child_t>::type>::value,
+                                                                 typename std::add_lvalue_reference<Child>::type>::value,
                                                     int>::type;
+  DEFINE_HAS_TYPE(Parameters);
+  template<typename W>
+  using EnableIfHasfParamters = typename std::enable_if<HasTypeOfParameters<W>::value>::type;
+
 
  public:
   template<typename Widget>
   explicit Layout(std::unique_ptr<Widget> child) {
-    this->append_child(std::move(child));
+    this->AppendChild(std::move(child));
   }
 
   template<typename Widget, typename... Widgets>
   explicit Layout(std::unique_ptr<Widget> child, std::unique_ptr<Widgets>... children) {
-    this->append_child(std::move(child));
+    this->AppendChild(std::move(child));
     Layout(children...);
   }
 
 
  public:
   /// Return a View of all children.
-  Child_t& get_children() {
-    static constexpr downcast = [](auto &widg_ptr) -> Child_t & {
-      return static_cast<Child_t &>(*widg_ptr);
+  Child& get_children() {
+    static constexpr downcast = [](auto &widg_ptr) -> Child & {
+      return static_cast<Child &>(*widg_ptr);
     };
-    return Transform_view(children_, downcast);
+    return TransformView(children_, downcast);
   }
 
   /// Return a const View of all children.
   auto get_children() const {
-    auto constexpr downcast = [](auto const &widg_ptr) -> Child_t const & {
-      return static_cast<Child_t const &>(*widg_ptr);
+    auto constexpr downcast = [](auto const &widg_ptr) -> Child const & {
+      return static_cast<Child const &>(*widg_ptr);
     };
-    return Transform_view(children_, downcast);
+    return TransformView(children_, downcast);
   }
 
   /// Inserts \p w at \p index, sending child added event to *this.
-  /** Widget_t must be a Child_t or derived object. Inserts at end of
+  /** Widget_t must be a Child or derived object. Inserts at end of
    *  container if \p index is out of range.  Returns a reference to the
    *  inserted Widget. No checks for nullptr. */
-  template<typename Widget_t>
-  auto insert_child(std::unique_ptr<Widget_t> w, std::size_t index)
-  -> Widget_t & {
-    static_assert(std::is_base_of_v<Child_t, Widget_t>,
-                  "Layout::insert: Widget_t must be a Child_t type");
+  template<typename W>
+  W& InsertChild(std::unique_ptr<W> w, std::size_t index)  {
+    static_assert(std::is_base_of<Child, Widget_t>::value,
+                  "Layout::insert: Widget_t must be a Child type");
     if (index > this->child_count())
       index = this->child_count();
     auto &inserted = *w;
@@ -89,53 +91,50 @@ class Layout : public Widget {
     return inserted;
   }
 
-  /// Move \p w to the end of the child container. Forwards to insert_child()
+  /// Move \p w to the end of the child container. Forwards to InsertChild()
   /** Returns a reference to the inserted Widget. */
-  template<typename Widget_t>
-  auto append_child(std::unique_ptr<Widget_t> w) -> Widget_t & {
-    return this->insert_child(std::move(w), this->child_count());
+  template<typename W>
+  W& AppendChild(std::unique_ptr<W> w) {
+    return this->InsertChild(std::move(w), this->child_count());
   }
 
   /// Create a Widget and append it to the child container.
   /** Return a reference to this newly created Widget. */
-  template<typename Widget_t = Child_t, typename... Args>
-  auto make_child(Args &&... args) -> Widget_t & {
-    return this->append_child(
-        std::make_unique<Widget_t>(std::forward<Args>(args)...));
+  template<typename W = C, typename... Args>
+  W& MakeChild(Args &&... args) {
+    return this->AppendChild(std::make_unique<W>(std::forward<Args>(args)...));
   }
 
   // TODO Remove this
   /// Helper so Parameters type does not have to be specified at call site.
-  template<typename Widget_t = Child_t,
-      typename SFINAE   = typename Widget_t::Parameters>
-  auto make_child(typename Widget_t::Parameters p) -> Widget_t & {
-    return this->append_child(std::make_unique<Widget_t>(std::move(p)));
+  template<typename W = C, typename = EnableIfHasfParamters<C>>
+  W& MakeChild(typename C::Parameters p) {
+    return this->AppendChild(std::make_unique<W>(std::move(p)));
   }
 
   /// Removes and returns the child pointed to by \p child.
   /** Returns nullptr if \p child isn't a child of *this. */
-  auto remove_child(Child_t const *child) -> std::unique_ptr<Widget> {
-    auto const at = this->find_iter(child);
-    if (at == std::end(children_))
+  std::unique_ptr<Widget> RemoveChild(const Child *child) {
+    const auto& pos = this->find_iter(child);
+    if (pos == std::end(children_)) {
       return nullptr;
-    auto removed = this->iter_remove(at);
+    }
+    auto removed = this->iter_remove(pos);
     this->uninitialize(*removed);
     return removed;
   }
 
   /// Removes and returns the first child where predicate(child) returns true.
   /** If no child is found, returns nullptr. */
-  template<typename UnaryPredicate,
-      typename = enable_if_invocable<UnaryPredicate>>
-  auto remove_child_if(UnaryPredicate &&predicate) -> std::unique_ptr<Widget> {
-    Widget *found =
-        this->find_child_if(std::forward<UnaryPredicate>(predicate));
-    return this->remove_child(found);
+  template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
+  std::unique_ptr<Widget> RemoveChildIf(UnaryPredicate &&predicate) {
+    Widget *found = this->find_child_if(std::forward<UnaryPredicate>(predicate));
+    return this->RemoveChild(found);
   }
 
   /// Removes and returns the child at \p index in the child container.
   /** Returns nullptr if \p index is out of range. */
-  auto remove_child_at(std::size_t index) -> std::unique_ptr<Widget> {
+  std::unique_ptr<Widget> RemoveChildIf(std::size_t index) {
     if (index >= this->child_count())
       return nullptr;
     auto removed = this->iter_remove(this->iter_at(index));
@@ -145,18 +144,17 @@ class Layout : public Widget {
 
   /// Removes the child with given pointer and sends a DeleteEvent to it.
   /** Returns false if \p child is not found and deleted. */
-  auto remove_and_delete_child(Child_t const *child) -> bool {
-    auto removed = this->remove_child(child);
+  auto remove_and_delete_child(Child const *child) -> bool {
+    auto removed = this->RemoveChild(child);
     if (removed == nullptr)
       return false;
-    System::post_event(Delete_event{std::move(removed)});
+    System::post_event(DeleteEvent{std::move(removed)});
     return true;
   }
 
   /// Erase first element that satisfies \p pred.
   /** Returns true if a child is found and deleted. */
-  template<typename UnaryPredicate,
-      typename = enable_if_invocable<UnaryPredicate>>
+  template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
   auto remove_and_delete_child_if(UnaryPredicate &&predicate) -> bool {
     Widget *found =
         this->find_child_if(std::forward<UnaryPredicate>(predicate));
@@ -169,10 +167,10 @@ class Layout : public Widget {
   /// Removes the child at \p index and sends a DeleteEvent to it.
   /** Returns false if \p index is out of range. */
   auto remove_and_delete_child_at(std::size_t index) -> bool {
-    auto removed = this->remove_child_at(index);
+    auto removed = this->RemoveChildIf(index);
     if (removed == nullptr)
       return false;
-    System::post_event(Delete_event{std::move(removed)});
+    System::post_event(DeleteEvent{std::move(removed)});
     return true;
   }
 
@@ -193,7 +191,7 @@ class Layout : public Widget {
   /** \p predicate takes a Widget_t const reference and returns a bool.
    *  Returns nullptr if no child is found. */
   template<typename UnaryPredicate>
-  auto find_child_if(UnaryPredicate &&predicate) const -> Child_t const * {
+  auto find_child_if(UnaryPredicate &&predicate) const -> Child const * {
     auto const view = this->get_children();
     auto const found =
         std::find_if(std::cbegin(view), std::cend(view),
@@ -205,7 +203,7 @@ class Layout : public Widget {
   /** \p predicate takes a Widget_t const reference and returns a bool.
    *  Returns nullptr if no child is found. */
   template<typename UnaryPredicate>
-  auto find_child_if(UnaryPredicate &&predicate) -> Child_t * {
+  auto find_child_if(UnaryPredicate &&predicate) -> Child * {
     auto view = this->get_children();
     auto const found =
         std::find_if(std::begin(view), std::end(view),
@@ -214,20 +212,20 @@ class Layout : public Widget {
   }
 
   /// Find a child widget by name, returns nullptr if not found.
-  auto find_child_by_name(std::string const &name) -> Child_t * {
+  auto find_child_by_name(std::string const &name) -> Child * {
     return this->find_child_if(
-        [&](Child_t const &w) { return w.name() == name; });
+        [&](Child const &w) { return w.name() == name; });
   }
 
   /// Find a child widget by name, returns nullptr if not found.
-  auto find_child_by_name(std::string const &name) const -> Child_t const * {
+  auto find_child_by_name(std::string const &name) const -> Child const * {
     return this->find_child_if(
-        [&](Child_t const &w) { return w.name() == name; });
+        [&](Child const &w) { return w.name() == name; });
   }
 
   /// Finds the index of the given child pointer in the child container.
   /** Returns std::size_t(-1) if \p w is not a child of *this. */
-  auto find_child_position(Child_t const *w) const -> std::size_t {
+  auto find_child_position(Child const *w) const -> std::size_t {
     auto const found = std::find_if(
         std::cbegin(children_), std::cend(children_),
         [w](std::unique_ptr<Widget> const &x) { return x.get() == w; });
@@ -237,7 +235,7 @@ class Layout : public Widget {
   }
 
   /// Returns true if \p w is a child of *this.
-  auto contains_child(Child_t const *w) const -> bool {
+  auto contains_child(Child const *w) const -> bool {
     return this->find_child(w) != nullptr;
   }
 
@@ -316,20 +314,20 @@ class Layout : public Widget {
   }
 
   /// find_iter implementation.
-  auto is_target(Child_t const *target) {
+  auto is_target(Child const *target) {
     return [target](std::unique_ptr<Widget> const &w) -> bool {
       return w.get() == target;
     };
   }
 
   /// Find the iterator pointing to \p w.
-  auto find_iter(Child_t const *w) const -> Children_t::const_iterator {
+  auto find_iter(Child const *w) const -> Children_t::const_iterator {
     return std::find_if(std::cbegin(children_), std::cend(children_),
                         is_target(w));
   }
 
   /// Find the iterator pointing to \p w.
-  auto find_iter(Child_t const *w) -> Children_t::iterator {
+  auto find_iter(Child const *w) -> Children_t::iterator {
     return std::find_if(std::begin(children_), std::end(children_),
                         is_target(w));
   }

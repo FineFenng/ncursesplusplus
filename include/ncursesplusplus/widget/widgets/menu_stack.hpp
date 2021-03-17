@@ -46,7 +46,7 @@ class Menu_stack : public layout::Stack<Widget> {
   void append_page(Glyph_string title, std::unique_ptr<Widget_t> w_ptr) {
     static_assert(
         std::is_base_of<Child_t, Widget_t>::value,
-        "Menu_stack::append_page: Widget_t must be a Child_t type");
+        "Menu_stack::append_page: Widget_t must be a Child type");
     this->Stack::append_page(std::move(w_ptr));
     this->connect_to_menu(std::move(title), this->Stack::size() - 1);
   }

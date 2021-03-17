@@ -10,9 +10,9 @@ namespace palette {
 
 /// Holds Value_control objects for red, green, and blue color values.
 class Color_control : public npp::layout::Horizontal<Value_control> {
-    Value_control& slider_red_   = this->make_child("R");
-    Value_control& slider_green_ = this->make_child("G");
-    Value_control& slider_blue_  = this->make_child("B");
+    Value_control& slider_red_   = this->MakeChild("R");
+    Value_control& slider_green_ = this->MakeChild("G");
+    Value_control& slider_blue_  = this->MakeChild("B");
 
    public:
     Color_control();

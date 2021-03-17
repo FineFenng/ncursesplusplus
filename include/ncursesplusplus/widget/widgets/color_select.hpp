@@ -64,7 +64,7 @@ class Color_select : public layout::Vertical<Color_line> {
       for (auto i = 0uL; i < row_length && count != size; ++i, ++count) {
         using namespace npp::pipe;
         auto const color = pal[count].color;
-        color_line.make_child(color, numbers_) |
+        color_line.MakeChild(color, numbers_) |
             on_press([this, color]() { color_selected(color); });
       }
     }

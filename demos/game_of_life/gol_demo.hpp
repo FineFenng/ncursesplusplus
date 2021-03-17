@@ -21,10 +21,10 @@ class GoL_demo : public npp::layout::Horizontal<> {
 
    public:
     Side_panel_accordion& side_panel_accordion =
-        this->make_child<Side_panel_accordion>(
+        this->MakeChild<Side_panel_accordion>(
             {L"Settings", npp::Align::Center, L'│' | fg(color::Light_green)});
     Side_panel& side_panel  = side_panel_accordion.wrapped();
-    GoL_widget& gol_display = this->make_child<GoL_widget>();
+    GoL_widget& gol_display = this->MakeChild<GoL_widget>();
 
    protected:
     auto focus_in_event() -> bool override

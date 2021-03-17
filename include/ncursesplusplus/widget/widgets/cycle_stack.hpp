@@ -25,9 +25,9 @@ class Cycle_stack : public layout::Vertical<> {
   /// User interface to cycle through the pages of the Stack.
   class Top_row : public layout::Horizontal<> {
    public:
-    Button &left_btn = this->make_child<Button>(L"<");
-    Cycle_box &cycle_box = this->make_child<Cycle_box>();
-    Button &right_btn = this->make_child<Button>(L">");
+    Button &left_btn = this->MakeChild<Button>(L"<");
+    Cycle_box &cycle_box = this->MakeChild<Cycle_box>();
+    Button &right_btn = this->MakeChild<Button>(L">");
 
    public:
     Top_row() {
@@ -42,8 +42,8 @@ class Cycle_stack : public layout::Vertical<> {
   };
 
  public:
-  Top_row &top_row = this->make_child<Top_row>();
-  layout::Stack<Child> &stack = this->make_child < layout::Stack < Child >> ();
+  Top_row &top_row = this->MakeChild<Top_row>();
+  layout::Stack<Child> &stack = this->MakeChild < layout::Stack < Child >> ();
 
  public:
   /// Construct a new Widget_t object and add it to the end of the Stack.

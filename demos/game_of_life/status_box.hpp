@@ -31,21 +31,21 @@ class Generation_count : public npp::layout::Horizontal<> {
     }
 
    private:
-    npp::HLabel& title_ = this->make_child<npp::HLabel>({L"Generation"});
+    npp::HLabel& title_ = this->MakeChild<npp::HLabel>({L"Generation"});
 
-    npp::Text_display& count_ = this->make_child<npp::Text_display>(L"0");
+    npp::Text_display& count_ = this->MakeChild<npp::Text_display>(L"0");
 };
 
 struct Center_offset : npp::layout::Vertical<> {
    public:
     npp::HLabel& title_ =
-        this->make_child<npp::HLabel>({L"Center Offset" | npp::Trait::Underline});
+        this->MakeChild<npp::HLabel>({L"Center Offset" | npp::Trait::Underline});
 
     npp::Labeled_number_edit<>& x_coords =
-        this->make_child<npp::Labeled_number_edit<>>(L"x: ", 0);
+        this->MakeChild<npp::Labeled_number_edit<>>(L"x: ", 0);
 
     npp::Labeled_number_edit<>& y_coords =
-        this->make_child<npp::Labeled_number_edit<>>(L"y: ", 0);
+        this->MakeChild<npp::Labeled_number_edit<>>(L"y: ", 0);
 
    public:
     Center_offset()
@@ -66,9 +66,9 @@ struct Center_offset : npp::layout::Vertical<> {
 
 struct Status_box : npp::layout::Vertical<> {
    public:
-    Generation_count& gen_count  = this->make_child<Generation_count>();
-    Widget& break_               = this->append_child(make_break());
-    Center_offset& center_offset = this->make_child<Center_offset>();
+    Generation_count& gen_count  = this->MakeChild<Generation_count>();
+    Widget& break_               = this->AppendChild(make_break());
+    Center_offset& center_offset = this->MakeChild<Center_offset>();
 
    public:
     Status_box() { this->height_policy.fixed(5uL); }

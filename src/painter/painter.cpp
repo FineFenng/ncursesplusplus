@@ -48,7 +48,7 @@ void Painter::put(Glyph_string const &text, std::size_t x, std::size_t y) {
 }
 
 void Painter::border() {
-  using Offset = detail::Border_offset;
+  using Offset = detail::BorderOffset;
   if (!border_is_paintable(widget_))
     return;
   // Disqualified borders

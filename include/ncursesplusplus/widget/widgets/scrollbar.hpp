@@ -164,12 +164,12 @@ class Scrollbar : public Layout_t {
 
  public:
   Button &decrement_btn =
-      this->template make_child<Button>(Glyph_string{top_symbol_});
+      this->template MakeChild<Button>(Glyph_string{top_symbol_});
 
-  Middle &middle = this->template make_child<Middle>({0uL, invalid_position});
+  Middle &middle = this->template MakeChild<Middle>({0uL, invalid_position});
 
   Button &increment_btn =
-      this->template make_child<Button>(Glyph_string{bottom_symbol_});
+      this->template MakeChild<Button>(Glyph_string{bottom_symbol_});
 
  public:
   sl::Signal<void(std::size_t)> new_position;

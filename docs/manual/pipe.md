@@ -23,7 +23,7 @@ applied to every Widget in the collection.
 ### Filtering
 
 A collection can be filtered with a predicate. The predicate function should
-take a `Layout::Child_t const&` and return a bool. This will remove any Widgets
+take a `Layout::Child const&` and return a bool. This will remove any Widgets
 where the predicate returns false.
 
 ```cpp

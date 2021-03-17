@@ -249,7 +249,7 @@ class Linear_layout : public Layout<Child> {
     return primary != 0 && secondary != 0;
   }
 
-  /// After a remove_child or remove_and_delete_child this is called.
+  /// After a RemoveChild or remove_and_delete_child this is called.
   void reset_offset_if_out_of_bounds() {
     auto const count = this->child_count();
     if (count == 0uL)

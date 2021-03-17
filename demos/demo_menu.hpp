@@ -75,8 +75,8 @@ class Demos : public npp::layout::Vertical<> {
     // TODO add a back button to left side of titlebar that appears in demos
     using Titlebar = npp::Titlebar;
 
-    Titlebar& title_ = this->make_child<Titlebar>("~ TermOx ~");
-    Demo_menu& menu  = this->make_child<Demo_menu>();
+    Titlebar& title_ = this->MakeChild<Titlebar>("~ TermOx ~");
+    Demo_menu& menu  = this->MakeChild<Demo_menu>();
 
    public:
     Demos() { this->focus_policy = npp::Focus_policy::Direct; }

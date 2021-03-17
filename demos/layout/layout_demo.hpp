@@ -135,21 +135,21 @@ struct Size_policy_settings : npp::layout::Vertical<> {
     }
 
     npp::Text_display& title{
-        this->make_child<npp::Text_display>("[-] Width Policy")};
+        this->MakeChild<npp::Text_display>("[-] Width Policy")};
 
-    // Policy_type_box& types_box{this->make_child<Policy_type_box>()};
+    // Policy_type_box& types_box{this->MakeChild<Policy_type_box>()};
 
     npp::Labeled_number_edit<double>& stretch{
-        this->make_child<npp::Labeled_number_edit<double>>("Stretch ", 1.)};
+        this->MakeChild < npp::Labeled_number_edit<double >> ("Stretch ", 1.)};
 
     npp::Labeled_number_edit<std::size_t>& hint{
-        this->make_child<npp::Labeled_number_edit<std::size_t>>("Hint    ", 0)};
+        this->MakeChild < npp::Labeled_number_edit<std::size_t >> ("Hint    ", 0)};
 
     npp::Labeled_number_edit<std::size_t>& min{
-        this->make_child<npp::Labeled_number_edit<std::size_t>>("Min     ", 0)};
+        this->MakeChild < npp::Labeled_number_edit<std::size_t >> ("Min     ", 0)};
 
     npp::Labeled_number_edit<std::size_t>& max{
-        this->make_child<npp::Labeled_number_edit<std::size_t>>("Max     ", 0)};
+        this->MakeChild < npp::Labeled_number_edit<std::size_t >> ("Max     ", 0)};
 
     /// set the internally held size_policy that is emitted to \p policy.
     void reset(npp::Size_policy const& policy)
@@ -185,12 +185,12 @@ struct Size_policy_settings : npp::layout::Vertical<> {
 };
 
 struct Settings : npp::layout::Vertical<> {
-    npp::Text_display& title{this->make_child<npp::Text_display>(
-            npp::Glyph_string{"Settings", npp::Trait::Bold})};
+    npp::Text_display& title{this->MakeChild<npp::Text_display>(
+        npp::Glyph_string{"Settings", npp::Trait::Bold})};
     Size_policy_settings& width_policy_settings{
-        this->make_child<Size_policy_settings>()};
-    npp::Button& add_btn{this->make_child<npp::Button>("Add Widget")};
-    npp::Button& remove_btn{this->make_child<npp::Button>("Remove Selected")};
+        this->MakeChild<Size_policy_settings>()};
+    npp::Button& add_btn{this->MakeChild<npp::Button>("Add Widget")};
+    npp::Button& remove_btn{this->MakeChild<npp::Button>("Remove Selected")};
 
     Settings()
     {
@@ -231,8 +231,8 @@ struct Settings : npp::layout::Vertical<> {
 };
 
 struct Layout_demo : npp::layout::Horizontal<> {
-    Workspace& workspace{this->make_child<Workspace>()};
-    Settings& settings{this->make_child<Settings>()};
+    Workspace& workspace{this->MakeChild<Workspace>()};
+    Settings& settings{this->MakeChild<Settings>()};
 
     Layout_demo()
     {

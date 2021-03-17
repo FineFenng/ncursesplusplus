@@ -34,7 +34,7 @@ class Button_list : public layout::Opposite_t<Layout_t<Widget>> {
    public:
     auto add_button(std::wstring const &name) -> Button & {
       using namespace npp::pipe;
-      auto &btn = this->template make_child<Button>(name) |
+      auto &btn = this->template MakeChild<Button>(name) |
           on_press([this, name] { button_pressed(name); });
       if constexpr (is_vertical)
         btn | fixed_height(1uL);
@@ -46,9 +46,9 @@ class Button_list : public layout::Opposite_t<Layout_t<Widget>> {
 
  private:
   Scrollbar<Layout_t<Widget>> &scrollbar =
-      this->template make_child<Scrollbar < Layout_t<Widget>> > ();
+      this->template MakeChild<Scrollbar < Layout_t<Widget>> > ();
 
-  Button_list_impl &btn_list = this->template make_child<Button_list_impl>();
+  Button_list_impl &btn_list = this->template MakeChild<Button_list_impl>();
 
  public:
   sl::Signal<void(std::wstring const &name)> &button_pressed =

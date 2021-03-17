@@ -10,7 +10,7 @@
 namespace ox::layout {
 
 /// Provides a set-like interface to Layout_t.
-/** Projection transforms a Layout::Child_t into a comparable. */
+/** Projection transforms a Layout::Child into a comparable. */
 /** Comparison is fed the output of Projection, used to find insertion pos. */
 /** Comparison{}(Projection{}(element), Projection{}(child)); */
 template<typename Layout_t,
@@ -47,7 +47,7 @@ class Set : public Layout_t {
   auto make_child(Args &&... args) -> Widget_t & {
     static_assert(
         std::is_base_of_v<Child_t, Widget_t>,
-        "layout::Set::make_child: Widget_t must be a Child_t type");
+        "layout::Set::MakeChild: Widget_t must be a Child type");
     return this->insert_child(
         std::make_unique<Widget_t>(std::forward<Args>(args)...));
   }

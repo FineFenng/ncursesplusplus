@@ -18,7 +18,7 @@ class Tuple : public Layout_t {
 
   explicit Tuple(typename Widget_t::Parameters... p)
       : refs_{std::forward_as_tuple(
-      this->template make_child<Widget_t>(std::move(p))...)} {}
+      this->template MakeChild<Widget_t>(std::move(p))...)} {}
 
  public:
   /// Get child by index.
@@ -35,7 +35,7 @@ class Tuple : public Layout_t {
 
  private:
   std::tuple<Widget_t &...> refs_ =
-      std::forward_as_tuple(this->template make_child<Widget_t>()...);
+      std::forward_as_tuple(this->template MakeChild<Widget_t>()...);
 };
 
 }  // namespace npp

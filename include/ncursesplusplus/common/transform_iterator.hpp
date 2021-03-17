@@ -5,7 +5,7 @@
 #include <type_traits>
 #include <utility>
 
-#include "ncursesplusplus/common/invoke_trait.hpp"
+#include "ncursesplusplus/common/meta.hpp"
 
 namespace npp {
 
@@ -14,7 +14,7 @@ namespace npp {
  *  the type of iterator given at construction, and if the map_fn works in both
  *  const and non-const conditions. */
 template<typename Iter, typename Map_fn>
-class Transform_iterator {
+class TransformIterator {
  public:
   using iterator_category = std::forward_iterator_tag;
   using difference_type = std::ptrdiff_t;
@@ -23,33 +23,33 @@ class Transform_iterator {
   using pointer = value_type *;
 
  public:
-  Transform_iterator(Iter it, Map_fn map_fn)
+  TransformIterator(Iter it, Map_fn map_fn)
       : it_{it}, map_fn_{std::move(map_fn)} {}
 
-  Transform_iterator(Transform_iterator const &) = default;
-  Transform_iterator(Transform_iterator &&)  noexcept = default;
+  TransformIterator(TransformIterator const &) = default;
+  TransformIterator(TransformIterator &&)  noexcept = default;
 
-  Transform_iterator &operator=(Transform_iterator const &other) {
+  TransformIterator &operator=(TransformIterator const &other) {
     it_ = other.it_;
     return *this;
   }
-  Transform_iterator &operator=(Transform_iterator &&)  noexcept = default;
+  TransformIterator &operator=(TransformIterator &&)  noexcept = default;
 
  public:
-  auto operator++() -> Transform_iterator & {
+  auto operator++() -> TransformIterator & {
     ++it_;
     return *this;
   }
 
-  auto operator++(int) -> Transform_iterator { return {it_++, map_fn_}; }
+  auto operator++(int) -> TransformIterator { return {it_++, map_fn_}; }
 
   auto operator*() const -> reference { return map_fn_(*it_); }
 
-  auto operator==(Transform_iterator const &other) const -> bool {
+  auto operator==(TransformIterator const &other) const -> bool {
     return it_ == other.it_;
   }
 
-  auto operator!=(Transform_iterator const &other) const -> bool {
+  auto operator!=(TransformIterator const &other) const -> bool {
     return it_ != other.it_;
   }
 

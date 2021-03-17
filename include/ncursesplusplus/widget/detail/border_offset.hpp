@@ -15,7 +15,7 @@ namespace detail {
  *  current dimensions of the passed in Widget, which may be too small to
  *  display a Border. Offsets are interpreted as the space that a border will be
  *  taking from the Widget. */
-class Border_offset {
+class BorderOffset {
  public:
   /// Calculate west border offset, either 1 or 0.
   static auto west(Widget const &w) -> std::size_t;

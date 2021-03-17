@@ -34,7 +34,7 @@ class Selection_page : public npp::layout::Vertical<> {
     using Selection_list = npp::Button_list<npp::layout::Vertical>;
 
    public:
-    Selection_list& list = this->make_child<Selection_list>();
+    Selection_list& list = this->MakeChild<Selection_list>();
     Thin_btn& goto_btn;
 
    public:

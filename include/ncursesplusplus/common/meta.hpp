@@ -73,4 +73,15 @@ template<class F, class... ArgTypes>
 struct invoke_result : detail::invoke_result<void, F, ArgTypes...> {};
 }
 
+#define DEFINE_HAS_TYPE(M) \
+  template<typename, typename = absl::void_t<>> \
+  struct HasTypeOf##M \
+    : std::false_type { \
+  }; \
+  template<typename T> \
+  struct HasTypeOf##M<T, std::void_t<typename T::M>> \
+    : std::true_type { \
+  } \
+
+
 #endif //NCURSESPLUSPLUS_COMMON_IS_INVOCABLE_HPP_

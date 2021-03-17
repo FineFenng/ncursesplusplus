@@ -62,24 +62,24 @@ class Stack : public Layout<Child_t> {
   template<typename Widget_t = Child_t, typename... Args>
   auto make_page(Args &&... args) -> Widget_t & {
     static_assert(std::is_base_of<Child_t, Widget_t>::value,
-                  "Stack::make_page: Widget_t must be a Child_t type");
+                  "Stack::make_page: Widget_t must be a Child type");
     return static_cast<Widget_t &>(this->append_page(
         std::make_unique<Widget_t>(std::forward<Args>(args)...)));
   }
 
   /// Add an existing Widget as a page to the end of the Stack.
-  /** Returns a reference to the appended Widget as Child_t&. */
+  /** Returns a reference to the appended Widget as Child&. */
   template<typename Widget_t>
   auto append_page(std::unique_ptr<Widget_t> w_ptr) -> Widget_t & {
     static_assert(std::is_base_of<Child_t, Widget_t>::value,
-                  "Stack::append_page: Widget_t must be a Child_t type");
+                  "Stack::append_page: Widget_t must be a Child type");
     auto &result = this->append_child(std::move(w_ptr));
     result.disable();
     return result;
   }
 
   /// Add an existing Widget as a page to the end of the Stack.
-  /** Returns a reference to the appended Widget as Child_t&. */
+  /** Returns a reference to the appended Widget as Child&. */
   template<typename Widget_t>
   auto append_page(Widget_t &&w) -> Child_t & {
     return this->append_page(
@@ -89,7 +89,7 @@ class Stack : public Layout<Child_t> {
   /// Insert an existing Widget \p child at \p index.
   /** Throws std::invalid_argument if \p child is nullptr.
    *  Throws std::out_of_range if \p index > number of children.
-   *  Returns a reference to the inserted Child_t object. */
+   *  Returns a reference to the inserted Child object. */
   auto insert_page(std::unique_ptr<Child_t> child, std::size_t index)
   -> Child_t & {
     auto &result = this->insert_child(std::move(child), index);

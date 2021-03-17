@@ -20,7 +20,7 @@ TermOx provides two Linear Layouts: `Horizontal` and `Vertical`.
 
 These layouts try to fit as many child Widgets on screen as their Size Policies
 allow. Widgets are ordered physically in the same order they are added to the
-Layout with the `make_child` method.
+Layout with the `MakeChild` method.
 
 Horizontal Layouts order from left to right.
 

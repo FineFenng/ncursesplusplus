@@ -321,11 +321,11 @@ class Layout_span {
     if (get_policy(w).is_passive()) {
       switch (d) {
         using namespace npp::detail;
-        case Policy_direction::Vertical:sum += Border_offset::north_enabled(w) ? 1 : 0;
-          sum += Border_offset::south_enabled(w) ? 1 : 0;
+        case Policy_direction::Vertical:sum += BorderOffset::north_enabled(w) ? 1 : 0;
+          sum += BorderOffset::south_enabled(w) ? 1 : 0;
           break;
-        case Policy_direction::Horizontal:sum += Border_offset::east_enabled(w) ? 1 : 0;
-          sum += Border_offset::west_enabled(w) ? 1 : 0;
+        case Policy_direction::Horizontal:sum += BorderOffset::east_enabled(w) ? 1 : 0;
+          sum += BorderOffset::west_enabled(w) ? 1 : 0;
           break;
       }
     }

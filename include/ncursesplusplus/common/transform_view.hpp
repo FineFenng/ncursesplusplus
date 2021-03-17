@@ -5,7 +5,7 @@
 #include <utility>
 
 
-#include "ncursesplusplus/common/invoke_trait.hpp"
+#include "ncursesplusplus/common/meta.hpp"
 #include "ncursesplusplus/common/transform_iterator.hpp"
 
 namespace npp {
@@ -14,7 +14,7 @@ namespace npp {
 /** Container is assumed to have a vector like interface. Transformation is
  *  applied at iterator dereference and operator[]. */
 template<typename Container, typename Map_fn>
-class Transform_view {
+class TransformView {
  public:
   using Reference =
       typename invoke_result<Map_fn, typename Container::reference>::type;
@@ -22,43 +22,43 @@ class Transform_view {
       typename invoke_result<Map_fn, typename Container::const_reference>::type;
 
  public:
-  Transform_view(Container &c, Map_fn map_fn)
+  TransformView(Container &c, Map_fn map_fn)
       : container_{c}, map_fn_{std::move(map_fn)} {}
 
  public:
-  auto size() const -> std::size_t { return container_.size(); }
+  std::size_t size() const { return container_.size(); }
 
-  auto empty() const -> bool { return container_.empty(); }
+  bool empty() const { return container_.empty(); }
 
-  auto operator[](std::size_t i) const -> Reference_const {
+  Reference_const operator[](std::size_t i) const {
     return map_fn_(container_[i]);
   }
 
-  auto operator[](std::size_t i) -> Reference {
+  Reference operator[](std::size_t i) {
     return map_fn_(container_[i]);
   }
 
-  auto front() const -> Reference_const {
+  Reference_const front() const {
     return map_fn_(container_.front());
   }
 
-  auto front() -> Reference { return map_fn_(container_.front()); }
+  Reference front() { return map_fn_(container_.front()); }
 
-  auto back() const -> Reference_const { return map_fn_(container_.back()); }
+  Reference_const back() const { return map_fn_(container_.back()); }
 
-  auto back() -> Reference { return map_fn_(container_.back()); }
+  Reference back() { return map_fn_(container_.back()); }
 
   auto begin() const {
-    return Transform_iterator{std::cbegin(container_), map_fn_};
+    return TransformIterator{std::cbegin(container_), map_fn_};
   }
 
-  auto begin() { return Transform_iterator{std::begin(container_), map_fn_}; }
+  auto begin() { return TransformIterator{std::begin(container_), map_fn_}; }
 
   auto end() const {
-    return Transform_iterator{std::cend(container_), map_fn_};
+    return TransformIterator{std::cend(container_), map_fn_};
   }
 
-  auto end() { return Transform_iterator{std::end(container_), map_fn_}; }
+  auto end() { return TransformIterator{std::end(container_), map_fn_}; }
 
  private:
   Container &container_;

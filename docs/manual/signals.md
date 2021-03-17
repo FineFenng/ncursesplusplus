@@ -31,8 +31,8 @@ each other.
 
 ```cpp
 struct Foo : layout::Vertical<> {
-    Textbox& text = this->make_child<Textbox>();
-    Button& btn   = this->make_child<Button>("Push Me");
+    Textbox& text = this->MakeChild<Textbox>();
+    Button& btn   = this->MakeChild<Button>("Push Me");
 
     Foo() { btn.pressed.connect([this]{ text.append("Button Pressed\n"); }); }
 };
@@ -49,16 +49,16 @@ readable code at the connection site.
 
 ```cpp
 struct Foo_bar : layout::Horizontal<Button> {
-    Button& foo_btn = this->make_child("Do Foo");
-    Button& bar_btn = this->make_child("Do Bar");
+    Button& foo_btn = this->MakeChild("Do Foo");
+    Button& bar_btn = this->MakeChild("Do Bar");
 
     sl::Signal<void()>& foo = foo_btn.pressed;
     sl::Signal<void()>& bar = bar_btn.pressed;
 };
 
 struct App : layout::Vertical<> {
-    Foo_bar& fb        = this->make_child<Foo_bar>();
-    Status_bar& status = this->make_child<Status_bar>();
+    Foo_bar& fb        = this->MakeChild<Foo_bar>();
+    Status_bar& status = this->MakeChild<Status_bar>();
 
     App()
     {

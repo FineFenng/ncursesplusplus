@@ -23,21 +23,21 @@ struct Side_panel : npp::layout::Vertical<> {
 
    public:
     Patterns_rulesets_box& patterns_rulesets =
-        this->make_child<Pattern_rulesets>({L"Examples", npp::Align::Left, line})
+        this->MakeChild<Pattern_rulesets>({L"Examples", npp::Align::Left, line})
             .wrapped();
 
     Files_box& files =
-        this->make_child<Files>({L"Files", npp::Align::Left, line}).wrapped();
+        this->MakeChild<Files>({L"Files", npp::Align::Left, line}).wrapped();
 
     Settings& settings_accordion =
-        this->make_child<Settings>({L"Controls", npp::Align::Left, line});
+        this->MakeChild<Settings>({L"Controls", npp::Align::Left, line});
 
     Controls_box& settings = settings_accordion.wrapped();
 
     Status_box& status =
-        this->make_child<Status>({L"Status", npp::Align::Left, line}).wrapped();
+        this->MakeChild<Status>({L"Status", npp::Align::Left, line}).wrapped();
 
-    npp::Widget& empty_space = this->make_child();
+    npp::Widget& empty_space = this->MakeChild();
 
    public:
     Side_panel()

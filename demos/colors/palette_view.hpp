@@ -85,8 +85,8 @@ class Palette_picker : public npp::Labeled_cycle_box {
 
 class Palette_demo : public npp::layout::Vertical<> {
    public:
-    npp::Color_select& palette_view = this->make_child<npp::Color_select>(true);
-    Palette_picker& palette_picker = this->make_child<Palette_picker>();
+    npp::Color_select& palette_view = this->MakeChild<npp::Color_select>(true);
+    Palette_picker& palette_picker = this->MakeChild<Palette_picker>();
 
    public:
     Palette_demo()

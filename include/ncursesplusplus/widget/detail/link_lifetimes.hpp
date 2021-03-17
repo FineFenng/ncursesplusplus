@@ -6,7 +6,8 @@
 
 #include "ncursesplusplus/widget/detail/memfn_signature.hpp"
 
-namespace npp::slot {
+namespace npp {
+namespace slot {
 
 /// Return sl::Slot wrapping \p method, tracking the lifetime of all \p widgets.
 /** If any of the Widgets are destroyed, the Slot will expire. */
@@ -20,5 +21,6 @@ auto link_lifetimes(F &&method, Widgets &... widgets) -> sl::Slot<Signature> {
   return slot;
 }
 
+}
 }  // namespace npp::slot
 #endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_LINK_LIFETIMES_HPP

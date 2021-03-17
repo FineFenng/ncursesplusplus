@@ -28,10 +28,10 @@ class Float : public Layout_t<Widget> {
   // connect to the widget's size policy signal and update it when it changes.
   template<typename... Args>
   Float(Args &&... args)
-      : buffer_1{this->make_child()},
+      : buffer_1{this->MakeChild()},
         widget{
-            this->template make_child<Widget_t>(std::forward<Args>(args)...)},
-        buffer_2{this->make_child()} {
+            this->template MakeChild<Widget_t>(std::forward<Args>(args)...)},
+        buffer_2{this->MakeChild()} {
     if constexpr (npp::layout::is_horizontal_v<Layout_t<Widget>>) {
       this->height_policy = widget.height_policy;
       widget.height_policy.policy_updated.connect(

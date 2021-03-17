@@ -1,6 +1,7 @@
 #ifndef NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
 #define NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP
-namespace npp::detail {
+namespace npp {
+namespace detail {
 
 // Could be moved into Signals library with a deduction guide for Slot.
 
@@ -33,5 +34,6 @@ template<typename F>
 using Call_signature_t =
 typename MemFn_signature<decltype(&F::operator())>::type;
 
+}
 }  // namespace npp::detail
 #endif  // NCURSESPLUSPLUS_WIDGET_DETAIL_MEMFN_SIGNATURE_HPP

@@ -258,8 +258,8 @@ class Graph_demo : public npp::layout::Horizontal<> {
     };
 
    public:
-    Graph_core& core_   = this->make_child<Graph_core>();
-    Settings& settings_ = this->make_child<Settings>();
+    Graph_core& core_   = this->MakeChild<Graph_core>();
+    Settings& settings_ = this->MakeChild<Settings>();
 
    public:
     Graph_demo()

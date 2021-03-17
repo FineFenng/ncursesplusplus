@@ -18,7 +18,7 @@ namespace gol {
 /// Provides interface to input filename and to Signal on that filename.
 class File_widget : public npp::layout::Vertical<> {
    public:
-    npp::Line_edit& filename_box_ = this->make_child<npp::Line_edit>("Filename");
+    npp::Line_edit& filename_box_ = this->MakeChild<npp::Line_edit>("Filename");
 
     npp::Confirm_button& confirm_btn_;
 
@@ -47,9 +47,9 @@ class File_widget : public npp::layout::Vertical<> {
 
 struct Files_box : npp::layout::Vertical<> {
    public:
-    File_widget& import_btn = this->make_child<File_widget>("Import");
-    File_widget& export_btn = this->make_child<File_widget>("Export");
-    Widget& break_          = this->append_child(make_break());
+    File_widget& import_btn = this->MakeChild<File_widget>("Import");
+    File_widget& export_btn = this->MakeChild<File_widget>("Export");
+    Widget& break_          = this->AppendChild(make_break());
 
    public:
     sl::Signal<void(std::string const&)>& import_request =

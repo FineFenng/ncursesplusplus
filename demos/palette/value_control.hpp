@@ -16,9 +16,9 @@ namespace palette::detail {
 struct Buffered_slider : npp::layout::Horizontal<> {
     using Slider_t = npp::Vertical_slider;
 
-    Widget& left     = this->make_child() | npp::pipe::fixed_width(1);
-    Slider_t& slider = this->make_child<Slider_t>(0, 255);
-    Widget& right    = this->make_child() | npp::pipe::fixed_width(1);
+    Widget& left     = this->MakeChild() | npp::pipe::fixed_width(1);
+    Slider_t& slider = this->MakeChild<Slider_t>(0, 255);
+    Widget& right    = this->MakeChild() | npp::pipe::fixed_width(1);
 };
 
 /// Line_edit with extra space on the left side.
@@ -27,8 +27,8 @@ class Buffered_edit_box : public npp::layout::Horizontal<> {
     Buffered_edit_box();
 
    public:
-    Widget& left       = this->make_child() | npp::pipe::fixed_width(1);
-    npp::Line_edit& box = this->make_child<npp::Line_edit>("0");
+    Widget& left       = this->MakeChild() | npp::pipe::fixed_width(1);
+    npp::Line_edit& box = this->MakeChild<npp::Line_edit>("0");
 };
 }  // namespace palette::detail
 
@@ -38,10 +38,10 @@ namespace palette {
 /** Emits signal when changed. */
 class Value_control : public npp::layout::Vertical<> {
     detail::Buffered_slider& slider_{
-        this->make_child<detail::Buffered_slider>()};
+        this->MakeChild<detail::Buffered_slider>()};
 
     detail::Buffered_edit_box& value_edit_{
-        this->make_child<detail::Buffered_edit_box>()};
+        this->MakeChild<detail::Buffered_edit_box>()};
 
     npp::HLabel& label_;
 

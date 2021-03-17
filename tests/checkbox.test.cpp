@@ -180,35 +180,35 @@ class Runtime : public npp::layout::Horizontal<> {
         };
 
        public:
-        npp::Button& check_btn   = this->make_child<npp::Button>(L"Check");
-        npp::Button& uncheck_btn = this->make_child<npp::Button>(L"Uncheck");
-        npp::Button& toggle_btn  = this->make_child<npp::Button>(L"Toggle");
+        npp::Button& check_btn   = this->MakeChild<npp::Button>(L"Check");
+        npp::Button& uncheck_btn = this->MakeChild<npp::Button>(L"Uncheck");
+        npp::Button& toggle_btn  = this->MakeChild<npp::Button>(L"Toggle");
 
-        Divider& div1     = this->make_child<Divider>();
-        Checkbox& lock_cb = this->make_child<Checkbox>({L"Lock"});
-        Divider& div2     = this->make_child<Divider>();
+        Divider& div1     = this->MakeChild<Divider>();
+        Checkbox& lock_cb = this->MakeChild<Checkbox>({L"Lock"});
+        Divider& div2     = this->MakeChild<Divider>();
 
-        Edit& unchecked_display = this->make_child<Edit>(
+        Edit& unchecked_display = this->MakeChild<Edit>(
             Edit::Parameters{L"Unchecked Display", npp::Align::Left},
             L"☐");
-        Edit& checked_display = this->make_child<Edit>(
+        Edit& checked_display = this->MakeChild<Edit>(
             Edit::Parameters{L"Checked   Display", npp::Align::Left},
             L"☒");
 
-        Divider& div3 = this->make_child<Divider>();
+        Divider& div3 = this->MakeChild<Divider>();
 
-        Light_box& checked_lb = this->make_child<Light_box>(
-                Light_box::Parameters{L"`checked`   Signal"},
-                npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
-                npp::Notify_light::Duration_t{350});
-        Light_box& unchecked_lb = this->make_child<Light_box>(
-                Light_box::Parameters{L"`unchecked` Signal"},
-                npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
-                npp::Notify_light::Duration_t{350});
-        Light_box& toggled_lb = this->make_child<Light_box>(
-                Light_box::Parameters{L"`toggled`   Signal"},
-                npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
-                npp::Notify_light::Duration_t{350});
+        Light_box& checked_lb = this->MakeChild<Light_box>(
+            Light_box::Parameters{L"`checked`   Signal"},
+            npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
+            npp::Notify_light::Duration_t{350});
+        Light_box& unchecked_lb = this->MakeChild<Light_box>(
+            Light_box::Parameters{L"`unchecked` Signal"},
+            npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
+            npp::Notify_light::Duration_t{350});
+        Light_box& toggled_lb = this->MakeChild<Light_box>(
+            Light_box::Parameters{L"`toggled`   Signal"},
+            npp::Notify_light::Display{npp::Color::Yellow, npp::Color::Dark_gray},
+            npp::Notify_light::Duration_t{350});
     };
 
    public:
@@ -222,10 +222,10 @@ class Runtime : public npp::layout::Horizontal<> {
     using Checkbox = npp::Float_2d<npp::Checkbox1>;
 
    private:
-    Checkbox& checkbox = this->make_child<Checkbox>();
-    Widget& divider    = this->make_child();
+    Checkbox& checkbox = this->MakeChild<Checkbox>();
+    Widget& divider    = this->MakeChild();
     Checkbox_options& options =
-        this->make_child<Checkbox_options>(checkbox.widget.widget);
+        this->MakeChild<Checkbox_options>(checkbox.widget.widget);
 };
 
 class Test : public npp::Cycle_stack<> {

@@ -194,7 +194,7 @@ class Widget {
    *  coordinate that marks the beginning of the space that is available for
    *  use by the Widget. */
   auto inner_x() const -> std::size_t {
-    return top_left_position_.x + detail::Border_offset::west(*this);
+    return top_left_position_.x + detail::BorderOffset::west(*this);
   }
 
   /// y coordinate for the top left point of this Widget, beyond the Border.
@@ -202,7 +202,7 @@ class Widget {
    *  coordinate that marks the beginning of the space that is available for
    *  use by the Widget. */
   auto inner_y() const -> std::size_t {
-    return top_left_position_.y + detail::Border_offset::north(*this);
+    return top_left_position_.y + detail::BorderOffset::north(*this);
   }
 
   /// Return the area the widget occupies, not including the Border.
@@ -210,14 +210,14 @@ class Widget {
 
   /// Return the inner width dimension, this does not include Border space.
   auto width() const -> std::size_t {
-    return this->outer_width() - detail::Border_offset::east(*this) -
-        detail::Border_offset::west(*this);
+    return this->outer_width() - detail::BorderOffset::east(*this) -
+        detail::BorderOffset::west(*this);
   }
 
   /// Return the inner height dimension, this does not include Border space.
   auto height() const -> std::size_t {
-    return this->outer_height() - detail::Border_offset::north(*this) -
-        detail::Border_offset::south(*this);
+    return this->outer_height() - detail::BorderOffset::north(*this) -
+        detail::BorderOffset::south(*this);
   }
 
   /// Return the area the widget occupies, including Border space.
@@ -289,7 +289,7 @@ class Widget {
     auto constexpr dereference = [](auto &widg_ptr) -> Widget & {
       return *widg_ptr;
     };
-    return Transform_view(children_, dereference);
+    return TransformView(children_, dereference);
   }
 
   /// Get a const range containing Widget& to each child.
@@ -297,7 +297,7 @@ class Widget {
     auto constexpr dereference = [](auto const &widg_ptr) -> Widget const & {
       return *widg_ptr;
     };
-    return Transform_view(children_, dereference);
+    return TransformView(children_, dereference);
   }
 
   /// Return container of all descendants of self_.

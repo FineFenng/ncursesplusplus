@@ -607,11 +607,11 @@ class Button_bar : public npp::layout::Horizontal<> {
 
    private:
     npp::Toggle_button& start_pause_btns_ =
-        this->make_child<npp::Toggle_button>(L"Start" | npp::Trait::Bold,
-                                             L"Pause" | npp::Trait::Bold);
+        this->MakeChild<npp::Toggle_button>(L"Start" | npp::Trait::Bold,
+                                            L"Pause" | npp::Trait::Bold);
     npp::Labeled_cycle_box& sizes_ =
-        this->make_child<npp::Labeled_cycle_box>(L" Size");
-    Instructions& instructions_ = this->make_child<Instructions>();
+        this->MakeChild<npp::Labeled_cycle_box>(L" Size");
+    Instructions& instructions_ = this->MakeChild<Instructions>();
 
    public:
     sl::Signal<void()>& start = start_pause_btns_.top_pressed;
@@ -632,8 +632,8 @@ class Score : public npp::layout::Horizontal<> {
     void set(unsigned score) { score_.set_text(std::to_string(score)); }
 
    private:
-    npp::HLabel& label_ = this->make_child<npp::HLabel>({L"Score: "});
-    npp::HLabel& score_ = this->make_child<npp::HLabel>({L"0", npp::Align::Right});
+    npp::HLabel& label_ = this->MakeChild<npp::HLabel>({L"Score: "});
+    npp::HLabel& score_ = this->MakeChild<npp::HLabel>({L"0", npp::Align::Right});
 
     // you could have a number_display widget, that is templated on the
     // number type, and has display options specific to numbers, then number
@@ -643,8 +643,8 @@ class Score : public npp::layout::Horizontal<> {
 // tuple or pair
 class Bottom_bar : public npp::layout::Horizontal<> {
    public:
-    Button_bar& buttons = this->make_child<Button_bar>();
-    Score& score        = this->make_child<Score>();
+    Button_bar& buttons = this->MakeChild<Button_bar>();
+    Score& score        = this->MakeChild<Score>();
 };
 
 class Snake_game : public npp::layout::Vertical<> {

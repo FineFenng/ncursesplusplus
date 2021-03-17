@@ -26,8 +26,8 @@ struct Color_patch : npp::Widget {
 
 /// Title and name display of a given Color.
 struct Color_name : npp::layout::Vertical<npp::Text_display> {
-    npp::Text_display& title = this->make_child("Color:");
-    npp::Text_display& name  = this->make_child("White");
+    npp::Text_display& title = this->MakeChild("Color:");
+    npp::Text_display& name  = this->MakeChild("White");
 };
 
 /// Displays a text name and a square visual of a given Color.
@@ -48,8 +48,8 @@ struct Color_display : npp::layout::Horizontal<> {
         square.set_color(color);
     }
 
-    Color_name& text    = this->make_child<Color_name>();
-    Color_patch& square = this->make_child<Color_patch>(npp::Color::White);
+    Color_name& text    = this->MakeChild<Color_name>();
+    Color_patch& square = this->MakeChild<Color_patch>(npp::Color::White);
 };
 }  // namespace palette
 #endif  // NCURSESPLUSPLUS_DEMOS_PALETTE_COLOR_DISPLAY_HPP

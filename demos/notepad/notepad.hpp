@@ -94,12 +94,12 @@ class Labeled_color_select : public npp::HLabel_top<npp::Color_select> {
 class Side_pane : public npp::layout::Vertical<> {
    public:
     Labeled_color_select& fg_select =
-        this->make_child<Labeled_color_select>("Foreground⤵");
+        this->MakeChild<Labeled_color_select>("Foreground⤵");
 
     Labeled_color_select& bg_select =
-        this->make_child<Labeled_color_select>("Background⤵");
+        this->MakeChild<Labeled_color_select>("Background⤵");
 
-    Trait_boxes& trait_boxes = this->make_child<Trait_boxes>();
+    Trait_boxes& trait_boxes = this->MakeChild<Trait_boxes>();
 
    public:
     Side_pane() { *this | npp::pipe::fixed_width(16); }
@@ -109,9 +109,9 @@ using Side_pane_accordion = npp::HAccordion<Side_pane, npp::Bar_position::Last>;
 
 class Text_and_side_pane : public npp::layout::Horizontal<> {
    public:
-    npp::Textbox& textbox = this->make_child<npp::Textbox>();
+    npp::Textbox& textbox = this->MakeChild<npp::Textbox>();
     Side_pane& side_pane =
-        this->make_child<Side_pane_accordion>({L"Settings", npp::Align::Center})
+        this->MakeChild<Side_pane_accordion>({L"Settings", npp::Align::Center})
             .wrapped();
 
    public:
@@ -176,9 +176,9 @@ class Save_area : public npp::layout::Horizontal<> {
     }
 
    private:
-    npp::Button& load_btn         = this->make_child<npp::Button>("Load");
-    Filename_edit& filename_edit = this->make_child<Filename_edit>();
-    npp::Button& save_btn         = this->make_child<npp::Button>("Save");
+    npp::Button& load_btn         = this->MakeChild<npp::Button>("Load");
+    Filename_edit& filename_edit = this->MakeChild<Filename_edit>();
+    npp::Button& save_btn         = this->MakeChild<npp::Button>("Save");
 };
 
 class File_status_bar : public npp::Banner<npp::animator::Unscramble> {
@@ -201,9 +201,9 @@ class File_status_bar : public npp::Banner<npp::animator::Unscramble> {
 
 class Notepad : public npp::layout::Vertical<> {
    public:
-    Text_and_side_pane& txt_trait = this->make_child<Text_and_side_pane>();
-    File_status_bar& status_bar   = this->make_child<File_status_bar>();
-    Save_area& save_area          = this->make_child<Save_area>();
+    Text_and_side_pane& txt_trait = this->MakeChild<Text_and_side_pane>();
+    File_status_bar& status_bar   = this->MakeChild<File_status_bar>();
+    Save_area& save_area          = this->MakeChild<Save_area>();
 
    public:
     Notepad()

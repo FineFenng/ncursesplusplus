@@ -79,11 +79,11 @@ class Fixed : public layout::Layout<Widget_t> {
 
    private:
     using Layout::get_children;
-    using Layout::insert_child;
-    using Layout::append_child;
-    using Layout::remove_child;
-    using Layout::remove_child_if;
-    using Layout::remove_child_at;
+    using Layout::InsertChild;
+    using Layout::AppendChild;
+    using Layout::RemoveChild;
+    using Layout::RemoveChildIf;
+    using Layout::RemoveChildIf;
     using Layout::remove_and_delete_child;
     using Layout::remove_and_delete_child_if;
     using Layout::remove_and_delete_child_at;
@@ -146,8 +146,8 @@ class Notepad : public npp::layout::Horizontal<> {
     }
 
    private:
-    npp::Textbox& textbox_ = this->make_child<Bordered_textbox>("init").child();
-    Settings_pane& settings_    = this->make_child<Bordered_settings>().child();
+    npp::Textbox& textbox_ = this->MakeChild<Bordered_textbox>("init").child();
+    Settings_pane& settings_    = this->MakeChild<Bordered_settings>().child();
 };
 
 ```

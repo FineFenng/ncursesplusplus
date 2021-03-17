@@ -275,7 +275,7 @@ class Label_wrapper : public Wrapper_layout<Widget> {
 
  public:
   Label_t &label;
-  Widget &padding = this->template make_child() | padding_policy();
+  Widget &padding = this->template MakeChild() | padding_policy();
   Widget_t &wrapped;
 
  public:
@@ -293,16 +293,16 @@ class Label_wrapper : public Wrapper_layout<Widget> {
   /// Constructs Label with given parameters, and Widget_t with args...
   template<typename... Args>
   explicit Label_wrapper(Parameters p, Args &&... args)
-      : label{this->template make_child<Padded_label>(
-          Widget::Parameters{},
-          typename Label_t::Parameters{
-              std::move(p.text), p.alignment, p.extra_left,
-              p.extra_right, p.growth_strategy},
-          Widget::Parameters{})
+      : label{this->template MakeChild<Padded_label>(
+                      Widget::Parameters{},
+                      typename Label_t::Parameters{
+                          std::move(p.text), p.alignment, p.extra_left,
+                          p.extra_right, p.growth_strategy},
+                      Widget::Parameters{})
                   .
                       template get<1>()},
         wrapped{
-            this->template make_child<Widget_t>(std::forward<Args>(args)...)} {
+            this->template MakeChild<Widget_t>(std::forward<Args>(args)...)} {
     if constexpr (layout::is_vertical_v<Wrapper_layout<Widget>>)
       this->width_policy = wrapped.width_policy;
     else

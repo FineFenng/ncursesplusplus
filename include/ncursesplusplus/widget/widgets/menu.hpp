@@ -34,7 +34,7 @@ class Menu : public layout::Vertical<> {
   HLabel &title;
 
   /// Line Break Widget under Title
-  Widget &line_break = this->make_child() | pipe::fixed_height(1);
+  Widget &line_break = this->MakeChild() | pipe::fixed_height(1);
 
  public:
   /// Construct an empty Menu with \p title_text.

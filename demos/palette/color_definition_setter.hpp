@@ -21,11 +21,11 @@ class Color_definition_setter : public npp::layout::Vertical<> {
     npp::Color current_color_{npp::Color::White};
 
     Color_display& color_display_{
-        this->make_child<Color_display>(current_color_)};
+        this->MakeChild<Color_display>(current_color_)};
 
-    Color_control& color_control_{this->make_child<Color_control>()};
+    Color_control& color_control_{this->MakeChild<Color_control>()};
 
-    Export_panel& export_panel_{this->make_child<Export_panel>()};
+    Export_panel& export_panel_{this->MakeChild<Export_panel>()};
 
    public:
     Color_definition_setter();

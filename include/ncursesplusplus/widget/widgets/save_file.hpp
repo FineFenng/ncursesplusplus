@@ -15,9 +15,9 @@ namespace npp {
 template<typename Char_t = char>
 class Save_file : public layout::Horizontal<> {
  public:
-  Button &save_btn = this->make_child<Button>("Save");
-  Widget &separator = this->make_child() | pipe::fixed_width(1);
-  Line_edit &filename_edit = this->make_child<Line_edit>("Filename");
+  Button &save_btn = this->MakeChild<Button>("Save");
+  Widget &separator = this->MakeChild() | pipe::fixed_width(1);
+  Line_edit &filename_edit = this->MakeChild<Line_edit>("Filename");
 
   sl::Signal<void(std::basic_ofstream<Char_t> &)> save_requested;
 

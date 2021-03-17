@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 project(ncursesplusplus LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 # Build Types
 set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE}
@@ -64,7 +64,7 @@ set(${NPP_TARGET_NAME}_COMMON_HDR
         include/ncursesplusplus/common/range.hpp
         include/ncursesplusplus/common/transform_iterator.hpp
         include/ncursesplusplus/common/transform_view.hpp
-        include/ncursesplusplus/common/invoke_trait.hpp)
+        include/ncursesplusplus/common/meta.hpp)
 
 set(${NPP_TARGET_NAME}_PAINTER_HDR
         include/ncursesplusplus/painter/brush.hpp

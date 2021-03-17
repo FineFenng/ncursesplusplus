@@ -23,7 +23,7 @@
 namespace npp {
 
 Menu::Menu(Glyph_string title_text)
-    : title{this->make_child<HLabel>(std::move(title_text))} {
+    : title{this->MakeChild<HLabel>(std::move(title_text))} {
   this->focus_policy = Focus_policy::Strong;
   title.set_alignment(Align::Center);
   title.brush.add_traits(Trait::Bold);
@@ -34,7 +34,7 @@ auto Menu::insert_item(Glyph_string label, std::size_t index)
 -> sl::Signal<void()> & {
   auto button_ptr = std::make_unique<Button>(std::move(label));
   Button &new_button = *button_ptr;
-  this->insert_child(std::move(button_ptr), index + 2uL);
+  this->InsertChild(std::move(button_ptr), index + 2uL);
   items_.emplace(std::begin(items_) + index, new_button);
   new_button.install_event_filter(*this);
   new_button.height_policy.fixed(1);

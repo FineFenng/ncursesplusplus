@@ -161,10 +161,10 @@ inline auto cycle_box() -> std::unique_ptr<Cycle_box> {
 /// A label on the left and a Cycle_box on the right.
 class Labeled_cycle_box : public layout::Horizontal<> {
  public:
-  HLabel &label = make_child<HLabel>(L"");
+  HLabel &label = MakeChild<HLabel>(L"");
 
-  Tile &div = make_child<Tile>(L'├');
-  Cycle_box &cycle_box = make_child<Cycle_box>();
+  Tile &div = MakeChild<Tile>(L'├');
+  Cycle_box &cycle_box = MakeChild<Cycle_box>();
 
  public:
   explicit Labeled_cycle_box(Glyph_string title = "") {

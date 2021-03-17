@@ -1708,7 +1708,7 @@ template<typename Iter_1, typename Iter_2, typename Widget_t>
 auto operator|(Range<Iter_1, Iter_2> children,
                pipe::detail::Dynamic_filter_predicate<Widget_t>) {
   return Range{
-      Transform_iterator{
+      TransformIterator{
           Filter_iterator{children.begin(), children.end(),
                           [](auto &w) { return dynamic_cast<Widget_t *>(&w) != nullptr; }},
           [](auto &w) -> auto & { return static_cast<Widget_t &>(w); }

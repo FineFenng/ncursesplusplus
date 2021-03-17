@@ -32,10 +32,10 @@ namespace gol {
 
 struct Clear_step_box : npp::layout::Vertical<> {
    public:
-    npp::Button& step_btn = this->make_child<npp::Button>("Step>");
+    npp::Button& step_btn = this->MakeChild<npp::Button>("Step>");
 
     npp::Confirm_button& clear_btn =
-        this->make_child<npp::Confirm_button>("Clear");
+        this->MakeChild<npp::Confirm_button>("Clear");
 
    public:
     Clear_step_box()
@@ -85,11 +85,11 @@ class Rule_edit : public npp::layout::Vertical<> {
     }
 
    private:
-    npp::HLabel& label = this->make_child<npp::HLabel>(
+    npp::HLabel& label = this->MakeChild<npp::HLabel>(
         {L"RuleString[B/S]" | npp::Trait::Underline | npp::Trait::Bold,
          npp::Align::Center});
 
-    npp::Line_edit& edit_box_ = this->make_child<npp::Line_edit>();
+    npp::Line_edit& edit_box_ = this->MakeChild<npp::Line_edit>();
 };
 
 struct Start_pause_btns : npp::Toggle_button {
@@ -112,9 +112,9 @@ struct Start_pause_btns : npp::Toggle_button {
 struct Interval_box : npp::layout::Horizontal<> {
    public:
     npp::Labeled_number_edit<unsigned>& value_edit =
-        this->make_child<npp::Labeled_number_edit<unsigned>>("Interval ", 40);
+        this->MakeChild < npp::Labeled_number_edit<unsigned >> ("Interval ", 40);
 
-    npp::HLabel& units = this->make_child<npp::HLabel>({L"ms"});
+    npp::HLabel& units = this->MakeChild<npp::HLabel>({L"ms"});
 
     sl::Signal<void(unsigned)>& value_set = value_edit.value_set;
 
@@ -131,8 +131,8 @@ struct Interval_box : npp::layout::Horizontal<> {
 
 struct Grid_hi_res : npp::layout::Horizontal<npp::HCheckbox_label> {
    public:
-    Child_t& grid_box   = this->make_child({L"Grid"});
-    Child_t& hi_res_box = this->make_child({L"Hi-Res"});
+    Child_t& grid_box   = this->MakeChild({L"Grid"});
+    Child_t& hi_res_box = this->MakeChild({L"Hi-Res"});
 
    public:
     Grid_hi_res()
@@ -146,18 +146,18 @@ struct Grid_hi_res : npp::layout::Horizontal<npp::HCheckbox_label> {
 
 struct Controls_box : npp::layout::Vertical<> {
    public:
-    // Widget& break_                    = this->append_child(make_break());
-    Interval_box& interval_edit        = this->make_child<Interval_box>();
-    Widget& break_0                    = this->append_child(make_break());
-    Start_pause_btns& start_pause_btns = this->make_child<Start_pause_btns>();
-    Clear_step_box& clear_step_btns    = this->make_child<Clear_step_box>();
-    Widget& break_1                    = this->append_child(make_break());
-    Grid_hi_res& grid_hi_res           = this->make_child<Grid_hi_res>();
+    // Widget& break_                    = this->AppendChild(make_break());
+    Interval_box& interval_edit        = this->MakeChild<Interval_box>();
+    Widget& break_0                    = this->AppendChild(make_break());
+    Start_pause_btns& start_pause_btns = this->MakeChild<Start_pause_btns>();
+    Clear_step_box& clear_step_btns    = this->MakeChild<Clear_step_box>();
+    Widget& break_1                    = this->AppendChild(make_break());
+    Grid_hi_res& grid_hi_res           = this->MakeChild<Grid_hi_res>();
     npp::HCheckbox_label& rainbow_btn =
-        this->make_child<npp::HCheckbox_label>({L"Rainbow Mode"});
-    Widget& break_2      = this->append_child(make_break());
-    Rule_edit& rule_edit = this->make_child<Rule_edit>();
-    Widget& break_3      = this->append_child(make_break());
+        this->MakeChild<npp::HCheckbox_label>({L"Rainbow Mode"});
+    Widget& break_2      = this->AppendChild(make_break());
+    Rule_edit& rule_edit = this->MakeChild<Rule_edit>();
+    Widget& break_3      = this->AppendChild(make_break());
 
    public:
     sl::Signal<void(std::string const&)>& rule_change = rule_edit.rule_change;

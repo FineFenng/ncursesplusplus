@@ -67,7 +67,7 @@ class Bar : public Layout_t<Widget> {
 
    public:
     Title(Parameters p)
-        : centered_text_{this->template make_child<Label < Layout_t>>(
+        : centered_text_{this->template MakeChild<Label < Layout_t>>(
     {
       (L' ' + std::move(p.title) + L' ') | Trait::Bold,
           p.alignment, extra_left
@@ -76,8 +76,8 @@ class Bar : public Layout_t<Widget> {
       if constexpr (is_vertical)
         centered_text_ | fixed_height(1uL);
       else {
-        this->insert_child(widget(), 0uL);
-        this->insert_child(widget(), 2uL);
+        this->InsertChild(widget(), 0uL);
+        this->InsertChild(widget(), 2uL);
         *this | children() | fixed_width(1uL);
       }
       *this | children() |
@@ -105,7 +105,7 @@ class Bar : public Layout_t<Widget> {
   sl::Signal<void()> toggle_request;
 
  public:
-  Bar(Parameters p) : text_{this->template make_child<Title>(std::move(p))} {
+  Bar(Parameters p) : text_{this->template MakeChild<Title>(std::move(p))} {
     using namespace pipe;
     if constexpr (is_vertical)
       *this | fixed_width(3uL);
@@ -125,7 +125,7 @@ class Bar : public Layout_t<Widget> {
   void collapse() { indicator_.plus(); }
 
  private:
-  Indicator &indicator_ = this->template make_child<Indicator>();
+  Indicator &indicator_ = this->template MakeChild<Indicator>();
   Title &text_;
 };
 
@@ -149,9 +149,9 @@ class Accordion : public Layout_t<Widget> {
   /// Create an Accordion with \pargs... going to Widget_t constructor.
   template<typename... Args>
   Accordion(Parameters p, Args &&... args)
-      : bar_{this->template make_child<Bar_t>(std::move(p))},
+      : bar_{this->template MakeChild<Bar_t>(std::move(p))},
         wrapped_{
-            this->template make_child<Widget_t>(std::forward<Args>(args)...)} {
+            this->template MakeChild<Widget_t>(std::forward<Args>(args)...)} {
     if constexpr (wrapped_index_ == 0uL)
       this->swap_children(0uL, 1uL);
 
@@ -208,13 +208,13 @@ class Accordion : public Layout_t<Widget> {
   void reinsert_wrapped() {
     if (w_storage_ == nullptr)
       return;
-    this->insert_child(std::move(w_storage_), wrapped_index_);
+    this->InsertChild(std::move(w_storage_), wrapped_index_);
     w_storage_ = nullptr;
   }
 
   void extract_wrapped() {
     if (w_storage_ == nullptr)
-      w_storage_ = this->remove_child_at(wrapped_index_);
+      w_storage_ = this->RemoveChildIf(wrapped_index_);
   }
 };
 
