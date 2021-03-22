@@ -70,7 +70,7 @@ detail::Linear_layout_parameters<Primary, Secondary, Get_area, Get_point>;
 namespace npp::layout {
 
 template<typename Child_t = Widget>
-using Vertical = detail::Linear_layout<Child_t, v_detail::Vertical_parameters>;
+using Vertical = detail::LinearLayout<Child_t, v_detail::Vertical_parameters>;
 
 /// Helper function to create an instance.
 template<typename Widget_t = Widget, typename... Args>

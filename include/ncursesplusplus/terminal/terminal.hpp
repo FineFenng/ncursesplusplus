@@ -3,12 +3,12 @@
 #include <chrono>
 #include <cstddef>
 
-#include <signals_light/signal.hpp"
-
+#include "ncursesplusplus/common/signal.hpp"
 #include "ncursesplusplus/painter/color.hpp"
 #include "ncursesplusplus/painter/glyph.hpp"
 #include "ncursesplusplus/terminal/dynamic_color_engine.hpp"
 
+#include "absl/types/variant.h"
 namespace npp {
 
 class Terminal {
@@ -50,22 +50,22 @@ class Terminal {
   /// Change Color definitions.
   void set_palette(Palette colors);
 
-  /// Append a Color_definition::Value_t to the current color palette.
+  /// Append a Color_definition::Value to the current color palette.
   /** Returns the Color that \p def was paired with. Picks the Color by
    *  incrementing the last color in the current palette. */
-  auto palette_append(Color_definition::Value_t value) -> Color;
+  auto palette_append(const Color_definition::Value_t& value) -> Color;
 
   /// Return a copy of the currently set ANSI color palette.
   auto current_palette() const -> Palette const & { return palette_; }
 
   /// Set a single ANSI Color value.
-  void set_color_definition(Color c, ANSI a, std::monostate);
+  void set_color_definition(Color c, ANSI a, absl::monostate);
 
   /// Set a single True_color value.
   void set_color_definition(Color c, ANSI a, True_color value);
 
   /// Set a single Dynamic_color value.
-  void set_color_definition(Color c, ANSI a, Dynamic_color value);
+  void set_color_definition(Color c, ANSI a, const Dynamic_color& value);
 
   auto get_ansi(Color c) -> short;
 
@@ -111,8 +111,8 @@ class Terminal {
   auto color_index(Color fg, Color bg) const -> short;
 
   /// Returns the number of colors in the currently set ANSI_palette.
-  auto get_palette_color_count() const -> Color::Value_t {
-    return static_cast<Color::Value_t>(palette_.size());
+  auto get_palette_color_count() const -> Color::Value {
+    return static_cast<Color::Value>(palette_.size());
   }
 
  private:

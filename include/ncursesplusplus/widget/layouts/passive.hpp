@@ -4,7 +4,7 @@ namespace ox::layout {
 
 // TODO
 
-/// Make any Linear_layout type passive.
+/// Make any LinearLayout type passive.
 /** A Passive Layout will always have the size policy that is the sum of its
  * children's size hints.*/
 template<typename Layout_t>

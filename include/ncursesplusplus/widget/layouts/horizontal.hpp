@@ -69,7 +69,7 @@ namespace npp::layout {
 
 template<typename Child_t = Widget>
 using Horizontal =
-detail::Linear_layout<Child_t, h_detail::Horizontal_parameters>;
+detail::LinearLayout<Child_t, h_detail::Horizontal_parameters>;
 
 /// Helper function to create an instance.
 template<typename Widget_t = Widget, typename... Args>

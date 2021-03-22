@@ -5,7 +5,7 @@
 
 namespace npp::layout {
 
-/// Given a Linear_layout type, it will provide a `type` member alias to the
+/// Given a LinearLayout type, it will provide a `type` member alias to the
 /// opposite layout type. Vertical -> Horizontal : Horizontal -> Vertical
 template<typename Layout_t>
 struct Opposite;

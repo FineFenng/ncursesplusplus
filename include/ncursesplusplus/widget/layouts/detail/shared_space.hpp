@@ -22,7 +22,7 @@ class Shared_space {
     // Disperse initial min() space to each child Widget.
     auto children = [&parent, this] {
       auto const temp = parent.get_children();
-      return detail::Layout_span{
+      return detail::LayoutSpan{
           std::next(std::begin(temp), offset_), std::end(temp),
           typename Parameters::Primary::get_length{}(parent),
           [](Widget const &w) -> Size_policy const & {

@@ -84,12 +84,12 @@ class Fixed : public layout::Layout<Widget_t> {
     using Layout::RemoveChild;
     using Layout::RemoveChildIf;
     using Layout::RemoveChildIf;
-    using Layout::remove_and_delete_child;
-    using Layout::remove_and_delete_child_if;
+    using Layout::RemoveAndDeleteChild;
+    using Layout::RemoveAndDeleteChildIf;
     using Layout::remove_and_delete_child_at;
     using Layout::delete_all_children;
     using Layout::swap_children;
-    using Layout::find_child_if;
+    using Layout::FindChildIf;
     using Layout::find_child_by_name;
     using Layout::find_child_position;
     using Layout::contains_child;

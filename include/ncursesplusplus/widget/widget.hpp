@@ -31,6 +31,8 @@
 #include "ncursesplusplus/widget/point.hpp"
 #include "ncursesplusplus/widget/size_policy.hpp"
 
+#include "absl/types/optional.h"
+
 namespace npp {
 
 class Widget {
@@ -38,7 +40,7 @@ class Widget {
   // TODO
   struct Parameters {
     std::string name;
-    std::optional<Glyph> wallpaper;
+    absl::optional<Glyph> wallpaper;
   };
 
  private:
@@ -337,7 +339,7 @@ class Widget {
   }
 
   // TODO These two below are here instead of in Layout_linear because of
-  // Layout_span::sum_child_mins, that function knows too much?
+  // LayoutSpan::sum_child_mins, that function knows too much?
 
   /// Return the index of the first child displayed by this Widget.
   auto get_child_offset() const -> std::size_t { return child_offset_; }

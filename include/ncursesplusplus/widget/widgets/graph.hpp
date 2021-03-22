@@ -65,11 +65,11 @@ class Graph : public Widget {
   }
 
   // void set_anchors(Number_t north, Number_t south, Number_t east, ...west);
-  // // change the resolution by scaling the anchors, maybe have a scale
+  // // change the resolution by scaling the anchors, maybe have a Scale
   // helper
   // // method to do this by a multiple.
 
-  // void scale(Number_t multiple) // multiply each anchor by this.
+  // void Scale(Number_t multiple) // multiply each anchor by this.
   // // above one will zoom out, below one will zoom in.
 
   // void scroll_horizontal(Number_t distance) (should be able to be negative

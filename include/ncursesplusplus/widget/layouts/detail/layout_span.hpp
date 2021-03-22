@@ -25,27 +25,28 @@ struct Dimension {
  *  \p Get_policy_t: A functor type <Size_policy const&(Widget const&)>
  *                   Used to retrieve a Size_policy to work with. */
 template<typename Get_policy_t>
-class Layout_span {
+class LayoutSpan {
  private:
-  using Container_t = std::vector<Dimension>;
+  using Container = std::vector<Dimension>;
+  using Iterator = Container::iterator;
 
   /// \p Get_limit_t Is a functor type <std::size_t(Size_policy const&)>
   template<typename Get_limit_t>
   class Iterator {
    private:
-    using Underlying_t = Container_t::iterator;
+    using Underlying = Container::iterator;
 
    public:
     using iterator_category = std::forward_iterator_tag;
-    using value_type = Underlying_t::value_type;
-    using difference_type = Underlying_t::difference_type;
-    using pointer = Underlying_t::pointer;
-    using reference = Underlying_t::reference;
+    using value_type = Underlying::value_type;
+    using difference_type = Underlying::difference_type;
+    using pointer = Underlying::pointer;
+    using reference = Underlying::reference;
 
    public:
     /// This will increment the position in the container until it is valid.
-    Iterator(Underlying_t iter,
-             Underlying_t end,
+    Iterator(Underlying iter,
+             Underlying end,
              Get_policy_t get_policy,
              Get_limit_t get_limit)
         : iter_{iter},
@@ -56,14 +57,13 @@ class Layout_span {
         ++iter_;
     }
 
-    Iterator() = delete;
     Iterator(Iterator const &) = delete;
     Iterator(Iterator &&) = delete;
-    auto operator=(Iterator const &) -> Iterator & = delete;
-    auto operator=(Iterator &&) -> Iterator & = delete;
+    Iterator &operator=(Iterator const &) = delete;
+    Iterator &operator=(Iterator &&) = delete;
     ~Iterator() = default;
 
-    auto operator++() -> Iterator & {
+    Iterator &operator++() {
       if (iter_->length == get_limit_(get_policy_(*iter_->widget)))
         iter_->widget = nullptr;
       do {
@@ -72,15 +72,15 @@ class Layout_span {
       return *this;
     }
 
-    auto operator*() const -> reference { return *iter_; }
+    reference operator*() const { return *iter_; }
 
-    auto operator->() const -> pointer { return iter_.operator->(); }
+    pointer operator->() const { return iter_.operator->(); }
 
-    auto operator==(Container_t::iterator other) const -> bool {
+    auto operator==(Container::iterator other) const -> bool {
       return this->iter_ == other;
     }
 
-    auto operator!=(Container_t::iterator other) const -> bool {
+    auto operator!=(Container::iterator other) const -> bool {
       return this->iter_ != other;
     }
 
@@ -89,8 +89,8 @@ class Layout_span {
     }
 
    private:
-    Underlying_t iter_;
-    Underlying_t end_;
+    Underlying iter_;
+    Underlying end_;
     Get_policy_t get_policy_;
     Get_limit_t get_limit_;
   };
@@ -99,8 +99,8 @@ class Layout_span {
   // deduction guide breaks GCC.
 #ifdef __clang__
   template <typename Get_limit_t>
-  Iterator(typename Layout_span::Container_t::iterator iter,
-           typename Layout_span::Container_t::iterator end,
+  Iterator(typename LayoutSpan::Container::iterator iter,
+           typename LayoutSpan::Container::iterator end,
            Get_policy_t get_policy,
            Get_limit_t get_limit) -> Iterator<decltype(get_limit)>;
 #endif
@@ -108,63 +108,62 @@ class Layout_span {
  public:
   /// Construct, only considers children from \p first up to \p last.
   template<typename Iter>
-  Layout_span(Iter first,
-              Iter last,
-              std::size_t primary_length,
-              Get_policy_t &&get_policy,
-              Policy_direction d)
-      : dimensions_{Layout_span::build_dimensions(first,
-                                                  last,
-                                                  primary_length,
-                                                  get_policy,
-                                                  d)},
+  LayoutSpan(Iter first,
+             Iter last,
+             std::size_t primary_length,
+             Get_policy_t &&get_policy,
+             Policy_direction d)
+      : dimensions_{LayoutSpan::build_dimensions(first,
+                                                 last,
+                                                 primary_length,
+                                                 get_policy,
+                                                 d)},
         get_policy_{std::forward<Get_policy_t>(get_policy)} {}
 
   /// Return iterator to the first element, will skip when length == max
   /** Size_policy::max will be used as limit. */
-  auto begin_max() {
+  Iterator begin_max() {
     total_stretch_ = this->calculate_total_stretch();
     return this->begin([](Size_policy const &p) { return p.max(); });
   }
 
   /// Return iterator to the first element, will skip when length == min
   /** Size_policy::min will be used as limit. */
-  auto begin_min() {
+  Iterator begin_min() {
     total_inverse_stretch_ = this->calculate_total_inverse_stretch();
     return this->begin([](Size_policy const &p) { return p.min(); });
   }
 
-  auto end() -> Container_t::iterator { return dimensions_.end(); }
+  Iterator end() { return dimensions_.end(); }
 
-  auto total_stretch() const -> double { return total_stretch_; }
+  double total_stretch() const { return total_stretch_; }
 
-  auto total_inverse_stretch() const -> double {
+  double total_inverse_stretch() const {
     return total_inverse_stretch_;
   }
 
-  auto entire_length() const -> std::size_t {
+  std::size_t entire_length() const {
     return std::accumulate(dimensions_.begin(), dimensions_.end(), 0uL,
-                           [](std::size_t total, Dimension const &d) {
-                             return total + d.length;
+                           [](std::size_t total, const auto &dim) {
+                             return total + dim.length;
                            });
   }
 
-  auto size() const -> std::size_t {
+  std::size_t size() const {
     return std::count_if(dimensions_.begin(), dimensions_.end(),
-                         [](auto const &d) { return d.widget != nullptr; });
+                         [](const auto &dim) { return dim.widget != nullptr; });
   }
 
-  auto get_results() const -> std::vector<std::size_t> {
-    auto result = std::vector<std::size_t>{};
-    result.reserve(dimensions_.size());
+  std::vector<std::size_t> get_results() const {
+    std::vector<std::size_t> result(dimensions_.size());
     std::transform(dimensions_.begin(), dimensions_.end(),
                    std::back_inserter(result),
-                   [](auto const &d) { return d.length; });
+                   [](const auto &dim) { return dim.length; });
     return result;
   }
 
  private:
-  Container_t dimensions_;
+  Container dimensions_;
   Get_policy_t get_policy_;
   mutable double total_stretch_ = 0.;
   mutable double total_inverse_stretch_ = 0.;
@@ -172,10 +171,8 @@ class Layout_span {
  private:
   /// Generate a Dimensions container initialized with child Widget pointers.
   template<typename Iter>
-  static auto generate_zero_init_dimensions(Iter first, Iter last)
-  -> Container_t {
-    auto result = Container_t{};
-    result.reserve(std::distance(first, last));
+  static Container MakeZeroInitDimensions(Iter first, Iter last) {
+    Container result(std::distance(first, last));
     std::transform(first, last, std::back_inserter(result),
                    [](auto &child) -> Dimension {
                      return {&child, 0uL};
@@ -183,27 +180,28 @@ class Layout_span {
     return result;
   }
 
-  template<typename Iter_t>
+  template<typename InputIter>
   // Dimension iterator
-  static void handle_edge(Iter_t first,
-                          Iter_t last,
-                          std::size_t leftover,
-                          bool can_ignore_min) {
+  static void HandleEdge(InputIter first,
+                         InputIter last,
+                         std::size_t leftover,
+                         bool can_ignore_min) {
     // First iter is edge, can assume it is not last.
-    if (can_ignore_min)
+    if (can_ignore_min) {
       first->length = leftover;
-    else
-      first->length = 0uL;
+    } else {
+      first->length = 0ul;
+    }
     ++first;
     while (first != last) {
-      first->length = 0uL;
+      first->length = 0ul;
       ++first;
     }
   }
 
-  static void invalidate_each(Container_t &dimensions) {
-    for (auto &d : dimensions)
-      d.widget = nullptr;
+  static void InvalidateEach(Container &dimensions) {
+    for (auto &dim : dimensions)
+      dim.widget = nullptr;
   }
 
   /// Set each Dimension to the cooresponding Widget's min.
@@ -211,7 +209,7 @@ class Layout_span {
    *  widget the last of the space(if Size_policy::ignore_min is true). Next,
    *  set all following widgets to length zero. If the total of min does not
    *  exceed \p length, then return false. */
-  static auto set_each_to_min(Container_t &dimensions,
+  static auto set_each_to_min(Container &dimensions,
                               std::size_t length,
                               Get_policy_t get_policy,
                               Policy_direction d) -> bool {
@@ -228,8 +226,8 @@ class Layout_span {
       min_sum += min;
       if (min_sum > length) {  // Stop Condition
         auto const leftover = length - (min_sum - min);
-        handle_edge(iter, end, leftover, policy.can_ignore_min());
-        invalidate_each(dimensions);
+        HandleEdge(iter, end, leftover, policy.can_ignore_min());
+        InvalidateEach(dimensions);
         return true;
       }
       iter->length = min;
@@ -238,7 +236,7 @@ class Layout_span {
   }
 
   /// Set each Dimension to the cooresponding Widget's hint.
-  static auto set_each_to_hint(Container_t &dimensions,
+  static auto set_each_to_hint(Container &dimensions,
                                Get_policy_t get_policy) {
     // Can assume all Dimension::widget pointers are valid.
     std::for_each(std::begin(dimensions), std::end(dimensions),
@@ -255,8 +253,8 @@ class Layout_span {
                                Iter last,
                                std::size_t primary_length,
                                Get_policy_t get_policy,
-                               Policy_direction d) -> Container_t {
-    auto dimensions = generate_zero_init_dimensions(first, last);
+                               Policy_direction d) -> Container {
+    auto dimensions = MakeZeroInitDimensions(first, last);
     if (!set_each_to_min(dimensions, primary_length, get_policy, d))
       set_each_to_hint(dimensions, get_policy);
     return dimensions;

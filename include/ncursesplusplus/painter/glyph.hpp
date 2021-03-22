@@ -45,7 +45,7 @@ struct Glyph {
 
   /// Construct with the provided wchar_t and list of Traits and Colors.
   template<typename... Traits>
-  constexpr Glyph(wchar_t sym, Traits &&... traits)
+  constexpr explicit Glyph(wchar_t sym, Traits &&... traits)
       : symbol{sym}, brush{std::forward<Traits>(traits)...} {}
 };
 

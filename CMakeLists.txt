@@ -257,6 +257,7 @@ add_library(${NPP_TARGET_NAME} SHARED
         )
 
 target_link_libraries(${NPP_TARGET_NAME} PRIVATE
+        absl_optional
         absl_synchronization
         absl_type_traits
         absl_variant

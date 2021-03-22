@@ -16,11 +16,11 @@ namespace npp {
 /// Color numbers [0 - 180] are valid.
 class Color {
  public:
-  using Value_t = std::uint8_t;
-  Value_t value;
+  using Value = std::uint8_t;
+  Value value;
 
  public:
-  enum Name : Value_t {
+  enum Name : Value {
     Background = 0,  // Default Background; should you change the name?
     Black = 0,
     Dark_red = 1,
@@ -42,8 +42,8 @@ class Color {
   };
 
  public:
-  constexpr Color(Name n) : value{static_cast<Value_t>(n)} {}
-  constexpr explicit Color(Value_t v) : value{v} {}
+  constexpr Color(Name n) : value{static_cast<Value>(n)} {}
+  constexpr explicit Color(Value v) : value{v} {}
 };
 
 constexpr bool operator==(Color x, Color y) {
@@ -55,11 +55,11 @@ constexpr bool operator!=(Color x, Color y) {
 }
 
 struct Background_color {
-  Color::Value_t value;
+  Color::Value value;
 };
 
 struct Foreground_color {
-  Color::Value_t value;
+  Color::Value value;
 };
 
 /// Converts a Color into a Background_color to be used by Brush.
@@ -92,10 +92,10 @@ inline bool operator!=(ANSI a, ANSI b) {
 
 /// Holds Red, Green, and Blue values, valid range of [0-255].
 struct RGB {
-  using Value_t = std::uint8_t;
-  Value_t red;
-  Value_t green;
-  Value_t blue;
+  using Value = std::uint8_t;
+  Value red;
+  Value green;
+  Value blue;
 };
 
 /// Holds Hue, Saturation, Lightness values of a color.
@@ -161,9 +161,9 @@ class True_color {
     double const x = c * (1. - abs(fmod(h_prime, 2.) - 1.));
     double const m = lightness - (c / 2.);
 
-    auto const c_ = static_cast<RGB::Value_t>((c + m) * 255);
-    auto const x_ = static_cast<RGB::Value_t>((x + m) * 255);
-    auto const m_ = static_cast<RGB::Value_t>(m * 255);
+    auto const c_ = static_cast<RGB::Value>((c + m) * 255);
+    auto const x_ = static_cast<RGB::Value>((x + m) * 255);
+    auto const m_ = static_cast<RGB::Value>(m * 255);
 
     if (v.hue < 60.)
       return {c_, x_, m_};
@@ -216,7 +216,7 @@ class True_color {
 };
 
 /// Returns a True_color from RGB values. Convinience for defining palettes.
-inline constexpr True_color rgb(RGB::Value_t r, RGB::Value_t g, RGB::Value_t b) {
+inline constexpr True_color rgb(RGB::Value r, RGB::Value g, RGB::Value b) {
   return static_cast<True_color>(RGB{r, g, b});
 }
 
@@ -259,12 +259,12 @@ class Color_definition {
 /** 181 colors will need 32,761 pairs, max_pairs in ncurses is 32,767. */
 using Palette = std::vector<Color_definition>;
 
-/// Create a Palette by pairing Color_definition::Value_t with Colors.
-/** Colors are paired in order Color_definition::Value_t's are added,
+/// Create a Palette by pairing Color_definition::Value with Colors.
+/** Colors are paired in order Color_definition::Value's are added,
  *  starting with Color{0}. */
 template<typename... ColorValues>
 static auto make_palette(ColorValues... values) -> Palette {
-  auto c = Color::Value_t{0};
+  auto c = Color::Value{0};
   auto a = ANSI::Value_t{16};
   return {Color_definition{Color{c++}, ANSI{a++}, values}...};
 }

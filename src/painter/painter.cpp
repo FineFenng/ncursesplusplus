@@ -26,11 +26,11 @@ auto border_is_paintable(npp::Widget const &widg) -> bool {
 
 namespace npp {
 
-Painter::Painter(Widget &widg)
-    : widget_{widg},
+Painter::Painter(Widget &widget)
+    : widget_{widget},
       inner_area_{widget_.width(), widget_.height()},
       is_paintable_{detail::is_paintable(widget_)},
-      staged_changes_{detail::Staged_changes::get()[&widg]} {}
+      staged_changes_{detail::Staged_changes::get()[&widget]} {}
 
 void Painter::put(Glyph tile, std::size_t x, std::size_t y) {
   if (x >= inner_area_.width or y >= inner_area_.height)

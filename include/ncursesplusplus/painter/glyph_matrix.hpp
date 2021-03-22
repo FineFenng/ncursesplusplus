@@ -13,7 +13,8 @@ class Glyph_matrix {
   /// Construct with a set width and height, or defaults to 0 for each.
   /** Glyphs default constructed(space char with no colors or traits). */
   explicit Glyph_matrix(std::size_t width = 0, std::size_t height = 0)
-      : matrix_{height, std::vector<Glyph>(width, L' ')} {}
+      : matrix_{height, std::vector<Glyph>(width, static_cast<Glyph>(L' '))} {
+  }
 
   /// Resize the width and height of the matrix.
   /** New Glyphs will be default constructed, Glyphs no longer within the

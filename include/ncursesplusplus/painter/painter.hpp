@@ -16,8 +16,8 @@ class Widget;
 /** For use within Widget::paint_event(), and virtual overrides. */
 class Painter {
  public:
-  /// Construct an object ready to paint Glyphs to \p *widg.
-  explicit Painter(Widget &widg);
+  /// Construct an object ready to paint Glyphs to \p *widget.
+  explicit Painter(Widget &widget);
 
   Painter(Painter const &) = delete;
   Painter(Painter &&) = delete;

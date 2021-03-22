@@ -26,14 +26,12 @@ namespace layout {
 /// Provided as a uniform interface for arranging child Widgets.
 /** Layout is limited to holding Child objects, which much be Widget or some
  *  derived type. */
-template<typename C = Widget>
+template<typename Child = Widget>
 class Layout : public Widget {
  public:
-  using Child = C;
   static_assert(std::is_base_of<Widget, Child>::value,
                 "Layout: Child type must be a Widget type.");
 
- private:
   template<typename UnaryPredicate>
   using EnableIfInvocable = typename std::enable_if<is_invocable<UnaryPredicate,
                                                                  typename std::add_lvalue_reference<Child>::type>::value,
@@ -41,7 +39,6 @@ class Layout : public Widget {
   DEFINE_HAS_TYPE(Parameters);
   template<typename W>
   using EnableIfHasfParamters = typename std::enable_if<HasTypeOfParameters<W>::value>::type;
-
 
  public:
   template<typename Widget>
@@ -58,7 +55,7 @@ class Layout : public Widget {
 
  public:
   /// Return a View of all children.
-  Child& get_children() {
+  Child& get_children() override {
     static constexpr downcast = [](auto &widg_ptr) -> Child & {
       return static_cast<Child &>(*widg_ptr);
     };
@@ -128,7 +125,7 @@ class Layout : public Widget {
   /** If no child is found, returns nullptr. */
   template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
   std::unique_ptr<Widget> RemoveChildIf(UnaryPredicate &&predicate) {
-    Widget *found = this->find_child_if(std::forward<UnaryPredicate>(predicate));
+    Widget *found = this->FindChildIf(std::forward<UnaryPredicate>(predicate));
     return this->RemoveChild(found);
   }
 
@@ -144,23 +141,24 @@ class Layout : public Widget {
 
   /// Removes the child with given pointer and sends a DeleteEvent to it.
   /** Returns false if \p child is not found and deleted. */
-  auto remove_and_delete_child(Child const *child) -> bool {
+  bool RemoveAndDeleteChild(Child const *child) {
     auto removed = this->RemoveChild(child);
-    if (removed == nullptr)
+    if (removed == nullptr) {
       return false;
+    }
     System::post_event(DeleteEvent{std::move(removed)});
     return true;
   }
 
   /// Erase first element that satisfies \p pred.
-  /** Returns true if a child is found and deleted. */
+  virtual /** Returns true if a child is found and deleted. */
   template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
-  auto remove_and_delete_child_if(UnaryPredicate &&predicate) -> bool {
+  bool RemoveAndDeleteChildIf(UnaryPredicate &&predicate) {
     Widget *found =
-        this->find_child_if(std::forward<UnaryPredicate>(predicate));
+        this->FindChildIf(std::forward<UnaryPredicate>(predicate));
     if (found == nullptr)
       return false;
-    this->remove_and_delete_child(found);
+    this->RemoveAndDeleteChild(found);
     return true;
   }
 
@@ -191,7 +189,7 @@ class Layout : public Widget {
   /** \p predicate takes a Widget_t const reference and returns a bool.
    *  Returns nullptr if no child is found. */
   template<typename UnaryPredicate>
-  auto find_child_if(UnaryPredicate &&predicate) const -> Child const * {
+  const Child* FindChildIf(UnaryPredicate &&predicate) const {
     auto const view = this->get_children();
     auto const found =
         std::find_if(std::cbegin(view), std::cend(view),
@@ -203,23 +201,23 @@ class Layout : public Widget {
   /** \p predicate takes a Widget_t const reference and returns a bool.
    *  Returns nullptr if no child is found. */
   template<typename UnaryPredicate>
-  auto find_child_if(UnaryPredicate &&predicate) -> Child * {
+  Child* FindChildIf(UnaryPredicate &&predicate) {
     auto view = this->get_children();
-    auto const found =
-        std::find_if(std::begin(view), std::end(view),
+    const auto& pos =
+        std::find_if(view.begin(), view.end(),
                      std::forward<UnaryPredicate>(predicate));
-    return found == std::end(view) ? nullptr : std::addressof(*found);
+    return pos == view.end() ? nullptr : std::addressof(*pos);
   }
 
   /// Find a child widget by name, returns nullptr if not found.
   auto find_child_by_name(std::string const &name) -> Child * {
-    return this->find_child_if(
+    return this->FindChildIf(
         [&](Child const &w) { return w.name() == name; });
   }
 
   /// Find a child widget by name, returns nullptr if not found.
   auto find_child_by_name(std::string const &name) const -> Child const * {
-    return this->find_child_if(
+    return this->FindChildIf(
         [&](Child const &w) { return w.name() == name; });
   }
 

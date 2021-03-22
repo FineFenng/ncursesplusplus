@@ -15,7 +15,7 @@
 #ifndef _XOPEN_SOURCE_EXTENDED
 #    define _XOPEN_SOURCE_EXTENDED
 #endif
-#include <ncursesw/ncurses.h>
+#include <ncurses.h>
 #undef border
 
 #include "ncursesplusplus/painter/color.hpp"
@@ -26,6 +26,7 @@
 #include "ncursesplusplus/terminal/input.hpp"
 #include "ncursesplusplus/terminal/terminal_error.hpp"
 #include "ncursesplusplus/widget/widget.hpp"
+
 
 extern "C" void handle_sigint(int /* sig*/) {
   npp::System::terminal.uninitialize();
@@ -39,9 +40,9 @@ extern "C" void handle_sigint(int /* sig*/) {
 namespace {
 using namespace npp;
 
-auto scale(RGB::Value_t value) -> short {
-  auto constexpr value_max = RGB::Value_t{255};
-  auto constexpr ncurses_max = short{1000};
+short Scale(RGB::Value value) {
+  constexpr auto value_max = RGB::Value{255};
+  constexpr auto ncurses_max = short{1000};
   return static_cast<short>((static_cast<double>(value) / value_max) *
       ncurses_max);
 }
@@ -50,16 +51,18 @@ auto scale(RGB::Value_t value) -> short {
 
 namespace npp {
 
+
 void Terminal::initialize() {
+  std::vector<int> a;
   if (is_initialized_)
     return;
   std::setlocale(LC_ALL, "en_US.UTF-8");
 
-  if (::newterm(std::getenv("TERM"), stdout, stdin) == nullptr &&
+  if (::newterm(::getenv("TERM"), stdout, stdin) == nullptr &&
       ::newterm("xterm-256color", stdout, stdin) == nullptr) {
     throw std::runtime_error{"Unable to initialize screen."};
   }
-  std::signal(SIGINT, &handle_sigint);
+  ::signal(SIGINT, &handle_sigint);
 
   is_initialized_ = true;
   ::noecho();
@@ -125,7 +128,7 @@ void Terminal::set_palette(Palette colors) {
   dynamic_color_engine_.clear();
   palette_ = std::move(colors);
   for (auto const &def : palette_) {
-    std::visit(
+    absl::visit(
         [&](auto const &d) {
           this->set_color_definition(def.color, def.ansi, d);
         },
@@ -135,15 +138,14 @@ void Terminal::set_palette(Palette colors) {
   palette_changed(palette_);
 }
 
-auto Terminal::palette_append(Color_definition::Value_t value) -> Color {
+auto Terminal::palette_append(const Color_definition::Value_t& value) -> Color {
   auto pal = this->current_palette();
   if (pal.empty())
-    pal.push_back({Color{0}, ANSI{16}, value});
+    pal.emplace_back(Color{0}, ANSI{16}, value);
   else {
-    pal.push_back(
-        {Color{static_cast<Color::Value_t>(pal.back().color.value + 1)},
+    pal.emplace_back(Color{static_cast<Color::Value>(pal.back().color.value + 1)},
          ANSI{static_cast<ANSI::Value_t>(pal.back().ansi.value + 1)},
-         value});
+         value);
   }
   this->set_palette(pal);
   return pal.back().color;
@@ -156,7 +158,7 @@ void Terminal::initialize_pairs(Color c, ANSI a) {
   }
 }
 
-void Terminal::set_color_definition(Color c, ANSI a, std::monostate) {
+void Terminal::set_color_definition(Color c, ANSI a, absl::monostate) {
   this->initialize_pairs(c, a);
 }
 
@@ -165,7 +167,7 @@ void Terminal::set_color_definition(Color c, ANSI a, True_color value) {
   this->term_set_color(a, value);
 }
 
-void Terminal::set_color_definition(Color c, ANSI a, Dynamic_color value) {
+void Terminal::set_color_definition(Color c, ANSI a, const Dynamic_color& value) {
   this->initialize_pairs(c, a);
   dynamic_color_engine_.register_color(a, value);
 }
@@ -243,8 +245,8 @@ void Terminal::term_set_color(ANSI a, True_color value) {
   if (!this->can_change_colors())
     throw Terminal_error{"Terminal cannot re-define color values."};
 
-  ::init_color(a.value, scale(value.red()), scale(value.green()),
-               scale(value.blue()));
+  ::init_color(a.value, Scale(value.red()), Scale(value.green()),
+               Scale(value.blue()));
 }
 
 void Terminal::ncurses_set_raw_mode() const {

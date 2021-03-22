@@ -18,7 +18,7 @@ class Brush {
  private:
   // TODO wrap this in an Traits type, container of traits. then make it
   // public. Brush constructor and class just uses these objects for
-  // convinience.
+  // convenience.
   using Byte_t = unsigned char;
   Byte_t traits_ = 0;
 

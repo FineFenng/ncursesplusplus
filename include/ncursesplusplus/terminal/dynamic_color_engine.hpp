@@ -20,7 +20,7 @@ class Dynamic_color_event_loop : public detail::IntervalEventLoop {
 
  public:
   /// Register a new ansi color to be dynamic, will replace if already exists.
-  void register_color(ANSI ansi, Dynamic_color dynamic) {
+  void register_color(ANSI ansi, const Dynamic_color& dynamic) {
     auto const guard = Guard_t{colors_mtx_};
     if (this->has_color(ansi))
       this->get_def_at(ansi).dynamic = dynamic;

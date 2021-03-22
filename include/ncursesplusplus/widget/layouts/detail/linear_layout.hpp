@@ -7,7 +7,9 @@
 #include "shared_space.hpp"
 #include "unique_space.hpp"
 
-namespace npp::layout::detail {
+namespace npp {
+namespace layout {
+namespace detail {
 
 template<typename Get_policy_t,
     typename Get_length_t,
@@ -34,19 +36,12 @@ struct Linear_layout_parameters {
 /// Lays out Widgets in 2D, sharing space in a primary dimension.
 /** The secondary dimension does not share space among Widgets. */
 template<typename Child, typename Parameters>
-class Linear_layout : public Layout<Child> {
+class LinearLayout : public Layout<Child> {
  public:
   using Child_t = Child;
 
  private:
-  using Base_t = Layout<Child_t>;
-
-  template<typename UnaryPredicate>
-  using enable_if_invocable = std::enable_if_t<
-      std::is_invocable_v<UnaryPredicate,
-                          std::add_lvalue_reference_t<Child_t>>,
-      int>;
-
+  using Base = Layout<Child_t>;
  public:
   using Layout<Child>::Layout;
 
@@ -56,7 +51,7 @@ class Linear_layout : public Layout<Child> {
   // virtual, but keep this in mind if you every hold Layouts and Widgets
   // separately.
 
-  auto remove_child(Child_t const *child) -> std::unique_ptr<Widget> {
+  auto remove_child(const Child *child) -> std::unique_ptr<Widget> {
     auto result = this->Base_t::remove_child(child);
     this->reset_offset_if_out_of_bounds();
     return result;
@@ -64,8 +59,7 @@ class Linear_layout : public Layout<Child> {
 
   /// Removes and returns the first child where predicate(child) returns true.
   /** If no child is found, returns nullptr. */
-  template<typename UnaryPredicate,
-      typename = enable_if_invocable<UnaryPredicate>>
+  template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
   auto remove_child_if(UnaryPredicate &&predicate) -> std::unique_ptr<Widget> {
     auto result = this->Base_t::remove_child_if(
         std::forward<UnaryPredicate>(predicate));
@@ -91,8 +85,7 @@ class Linear_layout : public Layout<Child> {
 
   /// Erase first element that satisfies \p pred.
   /** Returns true if a child is found and deleted. */
-  template<typename UnaryPredicate,
-      typename = enable_if_invocable<UnaryPredicate>>
+  template<typename UnaryPredicate, typename = EnableIfInvocable<UnaryPredicate>>
   auto remove_and_delete_child_if(UnaryPredicate &&predicate) -> bool {
     auto const result = this->Base_t::remove_and_delete_child_if(
         std::forward<UnaryPredicate>(predicate));
@@ -102,7 +95,7 @@ class Linear_layout : public Layout<Child> {
 
   /// Removes the child at \p index and sends a DeleteEvent to it.
   /** Returns false if \p index is out of range. */
-  auto remove_and_delete_child_at(std::size_t index) -> bool {
+  bool remove_and_delete_child_at(std::size_t index) {
     auto const result = this->Base_t::remove_and_delete_child_at(index);
     this->reset_offset_if_out_of_bounds();
     return result;
@@ -249,7 +242,7 @@ class Linear_layout : public Layout<Child> {
     return primary != 0 && secondary != 0;
   }
 
-  /// After a RemoveChild or remove_and_delete_child this is called.
+  /// After a RemoveChild or RemoveAndDeleteChild this is called.
   void reset_offset_if_out_of_bounds() {
     auto const count = this->child_count();
     if (count == 0uL)
@@ -259,5 +252,7 @@ class Linear_layout : public Layout<Child> {
   }
 };
 
+}
+}
 }  // namespace npp::layout::detail
 #endif  // NCURSESPLUSPLUS_WIDGET_LAYOUTS_DETAIL_LINEAR_LAYOUT_HPP
